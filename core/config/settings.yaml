@@ -1,0 +1,44 @@
+system:
+  name: Zenith Cosmo 42
+  codename: ZC-42
+  language: pt-BR
+  debug: true
+
+audio:
+  sample_rate: 16000
+  channels: 1
+  chunk_size: 1024
+
+wakeword:
+  enabled: true
+  words:
+    - cosmo
+    - cosmos
+    - cosme
+    - zenith
+    - zênite
+
+tts:
+  engine: piper
+  model: pt_BR-faber-medium
+  speed: 1.0
+  volume: 1.0
+
+vision:
+  camera_index: 0
+  width: 640
+  height: 480
+  grayscale: true
+
+face_recognition:
+  confidence_threshold: 70
+
+memory:
+  max_conversation_history: 20
+
+database:
+  path: data/database/cosmo.db
+
+logs:
+  level: DEBUG
+  path: data/logs/cosmo.log
