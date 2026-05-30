@@ -8,6 +8,10 @@ audio:
   sample_rate: 16000
   channels: 1
   chunk_size: 1024
+  silence_threshold: 500
+  silence_timeout: 1.5
+  max_record_seconds: 30
+
 
 wakeword:
   enabled: true

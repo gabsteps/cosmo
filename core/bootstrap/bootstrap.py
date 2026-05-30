@@ -36,8 +36,10 @@ from cosmo.core.events.listeners import (
     system_listener,
     conversation_listener,
     system_async_listener,
-    wakeword_listener
+    wakeword_listener,
+    stt_listener
 )
+
 
 from cosmo.core.events.async_event_bus import (
     async_event_bus
@@ -133,6 +135,7 @@ class Bootstrap:
         logger.info(
             "Sistema encerrado"
         )
+    
 
 
 bootstrap = Bootstrap()

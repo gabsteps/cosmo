@@ -1,12 +1,9 @@
 import asyncio
 import wave
 import pyaudio
+import audioop
 
-from cosmo.audio.wakeword.wakeword_manager import (
-    wakeword_manager
-)
 from cosmo.core.logger.logger_manager import logger
-
 from cosmo.core.config.settings_manager import config
 
 from cosmo.core.events.async_event_bus import (
@@ -37,8 +34,32 @@ class AudioCaptureManager:
             "audio",
             "channels"
         )
+        self.silence_threshold = config.get(
+            "audio",
+            "silence_threshold"
+        )
 
-        self.capture_seconds = 5
+        self.silence_timeout = config.get(
+            "audio",
+            "silence_timeout"
+        )
+
+        self.max_record_seconds = config.get(
+            "audio",
+            "max_record_seconds"
+        )
+
+        self.max_silent_chunks = int(
+            self.silence_timeout *
+            self.sample_rate /
+            self.chunk_size
+        )
+
+        self.max_chunks = int(
+            self.max_record_seconds *
+            self.sample_rate /
+            self.chunk_size
+        )
 
         self.output_file = (
             "cosmo/data/cache/audio/input.wav"
@@ -67,41 +88,55 @@ class AudioCaptureManager:
 
         frames = []
 
-        total_chunks = int(
-            self.sample_rate /
-            self.chunk_size *
-            self.capture_seconds
-        )
+        silent_chunks = 0
+
+        recorded_chunks = 0
+
+        speech_detected = False
 
         logger.info(
-            f"Capturando áudio por "
-            f"{self.capture_seconds}s"
+            "Captura iniciada "
+            "(aguardando silêncio)"
         )
 
-        for _ in range(total_chunks):
+        while True:
 
             data = stream.read(
                 self.chunk_size,
                 exception_on_overflow=False
             )
 
-            if _ < 5:
-
-                logger.info(
-                    f"chunk[{_}]={data[:20]}"
-                )
-
             frames.append(data)
 
-            await asyncio.sleep(0)
-            
-            logger.info(
-                f"frames={len(frames)}"
+            volume = audioop.rms(
+                data,
+                2
             )
 
-            logger.info(
-                f"wav_bytes={sum(len(f) for f in frames)}"
-            )
+            if volume >= self.silence_threshold:
+
+                speech_detected = True
+                silent_chunks = 0
+
+            else:
+
+                if speech_detected:
+
+                    silent_chunks += 1
+
+
+            if (
+                speech_detected and
+                silent_chunks >= self.max_silent_chunks
+            ):
+                break
+
+            recorded_chunks += 1
+
+            if recorded_chunks >= self.max_chunks:
+                break
+
+            await asyncio.sleep(0)
 
         stream.stop_stream()
         stream.close()
@@ -145,7 +180,6 @@ class AudioCaptureManager:
             },
             priority=async_event_bus.PRIORITY_AUDIO
         )
-
 
 
 audio_capture_manager = AudioCaptureManager()

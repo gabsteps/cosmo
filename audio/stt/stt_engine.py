@@ -1,9 +1,16 @@
-from vosk import Model, KaldiRecognizer
 import json
+import wave
+
+from vosk import (
+    Model,
+    KaldiRecognizer
+)
+
 from pathlib import Path
 
-from cosmo.core.logger.logger_manager import logger
-from cosmo.core.config.settings_manager import config
+from cosmo.core.logger.logger_manager import (
+    logger
+)
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -20,43 +27,57 @@ class STTEngine:
 
     def __init__(self):
 
-        logger.info("Carregando modelo STT")
-
-        self.model = Model(str(MODEL_PATH))
-
-        self.sample_rate = config.get(
-            "audio",
-            "sample_rate"
+        logger.info(
+            "Carregando modelo STT"
         )
 
-        self.recognizer = KaldiRecognizer(
-            self.model,
-            self.sample_rate
+        self.model = Model(
+            str(MODEL_PATH)
         )
 
-        logger.info("STT engine inicializada")
+        logger.info(
+            "STT engine inicializada"
+        )
 
-    def process_audio(self, audio_data):
+    async def transcribe(
+        self,
+        file_path: str
+    ) -> str:
 
-        """
-        Processa chunk de áudio
-        e retorna texto completo.
-        """
+        with wave.open(
+            file_path,
+            "rb"
+        ) as wav:
 
-        if self.recognizer.AcceptWaveform(audio_data):
-
-            result = json.loads(
-                self.recognizer.Result()
+            recognizer = (
+                KaldiRecognizer(
+                    self.model,
+                    wav.getframerate()
+                )
             )
 
-            text = result.get(
-                "text",
-                ""
-            ).strip()
+            while True:
 
-            return text
+                data = wav.readframes(
+                    4000
+                )
 
-        return None
+                if not data:
+                    break
+
+                recognizer.AcceptWaveform(
+                    data
+                )
+
+            result = json.loads(
+                recognizer.FinalResult()
+            )
+
+            return (
+                result
+                .get("text", "")
+                .strip()
+            )
 
 
 stt_engine = STTEngine()

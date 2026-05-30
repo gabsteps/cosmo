@@ -17,6 +17,11 @@ AUDIO_CAPTURE_STARTED = "audio_capture_started"
 
 AUDIO_CAPTURED = "audio_captured"
 
+# =========================
+# TRANSCRIPT
+# =========================
+
+TRANSCRIPT_READY = "transcript_ready"
 
 # =========================
 # VISION
