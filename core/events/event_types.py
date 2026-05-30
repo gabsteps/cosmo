@@ -7,9 +7,6 @@ WAKE_WORD_DETECTED = "wake_word_detected"
 VOICE_ACTIVITY_STARTED = "voice_activity_started"
 VOICE_ACTIVITY_ENDED = "voice_activity_ended"
 
-
-SPEECH_RECOGNIZED = "speech_recognized"
-
 TTS_STARTED = "tts_started"
 TTS_FINISHED = "tts_finished"
 
@@ -22,6 +19,7 @@ AUDIO_CAPTURED = "audio_captured"
 # =========================
 
 TRANSCRIPT_READY = "transcript_ready"
+RESPONSE_GENERATED = "response_generated"
 
 # =========================
 # VISION

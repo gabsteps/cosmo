@@ -37,7 +37,9 @@ from cosmo.core.events.listeners import (
     conversation_listener,
     system_async_listener,
     wakeword_listener,
-    stt_listener
+    stt_listener,
+    transcript_listener,
+    tts_listener
 )
 
 

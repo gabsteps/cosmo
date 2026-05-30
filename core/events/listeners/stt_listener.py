@@ -9,11 +9,16 @@ from cosmo.core.events.async_event_bus import (
 from cosmo.core.events.event_types import (
     AUDIO_CAPTURED
 )
+from cosmo.core.runtime.runtime_state import(
+    runtime_state
+) 
 
 
 async def on_audio_captured(data):
 
     file_path = data["file_path"]
+
+    runtime_state.mode = runtime_state.PROCESSING
 
     await stt_manager.transcribe(
         file_path

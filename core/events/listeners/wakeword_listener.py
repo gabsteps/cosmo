@@ -6,6 +6,10 @@ from cosmo.core.events.event_types import WAKE_WORD_DETECTED
 
 from cosmo.core.logger.logger_manager import logger
 
+from cosmo.core.runtime.runtime_state import(
+    runtime_state
+)
+
 
 async def on_wake_word_detected(data):
 
@@ -14,6 +18,11 @@ async def on_wake_word_detected(data):
     logger.info(
         f"Wake word detectada: {word}"
     )
+
+    if runtime_state.should_ignore_wakeword():
+        return
+    
+    runtime_state.mode = runtime_state.LISTENING
     await audio_capture_manager.capture()
 
 

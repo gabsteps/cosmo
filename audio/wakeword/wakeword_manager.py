@@ -17,6 +17,10 @@ from cosmo.audio.wakeword.wakeword_engine import (
     wakeword_engine
 )
 
+from cosmo.core.runtime.runtime_state import (
+    runtime_state
+)
+
 
 class WakewordManager:
 
@@ -67,7 +71,12 @@ class WakewordManager:
             "Wakeword manager online"
         )
 
+
         while self.running:
+            if runtime_state.should_ignore_wakeword():
+                await asyncio.sleep(0.1)
+                continue
+
 
             audio_data = (
                 await asyncio.to_thread(

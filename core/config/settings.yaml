@@ -24,9 +24,9 @@ wakeword:
 
 tts:
   engine: piper
-  model: pt_BR-faber-medium
-  speed: 1.0
-  volume: 1.0
+  language: pt
+  locale: pt_BR
+  model: faber/medium/pt_BR-faber-medium
 
 vision:
   camera_index: 0
