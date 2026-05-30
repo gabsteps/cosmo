@@ -32,11 +32,11 @@ from cosmo.audio.wakeword.wakeword_manager import (
 # =========================
 
 from cosmo.core.events.listeners import (
-    audio_listener,
     vision_listener,
     system_listener,
     conversation_listener,
-    system_async_listener
+    system_async_listener,
+    wakeword_listener
 )
 
 from cosmo.core.events.async_event_bus import (

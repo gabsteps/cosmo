@@ -18866,3 +18866,610 @@ TypeError: 'NoneType' object can't be awaited
 [2026-05-30 02:30:29,117] [INFO] [cosmo] [TRACE] 20edc281-e193-4cc9-a676-01ce947da686 event_completed -> wake_word_detected
 [2026-05-30 02:30:29,748] [INFO] [cosmo] Runtime heartbeat
 [2026-05-30 02:30:34,749] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:47:00,244] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 12:47:00,248] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 12:47:00,249] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 12:47:00,249] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 12:47:00,250] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 12:47:00,252] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 12:47:00,252] [INFO] [cosmo] [TRACE] 0893fba2-67db-43a2-af29-66793f710eb8 queued -> system_started (priority=5)
+[2026-05-30 12:47:00,252] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 12:47:00,252] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 12:47:00,252] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 12:47:00,252] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 12:47:00,254] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:47:00,254] [INFO] [cosmo] Async event bus online
+[2026-05-30 12:47:00,255] [INFO] [cosmo] [TRACE] 0893fba2-67db-43a2-af29-66793f710eb8 queue_wait -> 0.0038s
+[2026-05-30 12:47:00,255] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 12:47:00,262] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 12:47:00,264] [INFO] [cosmo] [TRACE] 0893fba2-67db-43a2-af29-66793f710eb8 dispatched -> system_started (priority=5)
+[2026-05-30 12:47:00,264] [INFO] [cosmo] [TRACE] 0893fba2-67db-43a2-af29-66793f710eb8 listener_started -> on_system_started
+[2026-05-30 12:47:00,264] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 12:47:00,265] [INFO] [cosmo] [TRACE] 0893fba2-67db-43a2-af29-66793f710eb8 listener_finished -> on_system_started
+[2026-05-30 12:47:00,265] [INFO] [cosmo] [TRACE] 0893fba2-67db-43a2-af29-66793f710eb8 event_completed -> system_started
+[2026-05-30 12:47:05,255] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:47:08,913] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 12:47:08,913] [INFO] [cosmo] [TRACE] 79c7055d-0ebc-445f-9af3-db52a0d7b5cc queued -> wake_word_detected (priority=1)
+[2026-05-30 12:47:08,913] [INFO] [cosmo] [TRACE] 79c7055d-0ebc-445f-9af3-db52a0d7b5cc queue_wait -> 0.0005s
+[2026-05-30 12:47:08,914] [INFO] [cosmo] [TRACE] 79c7055d-0ebc-445f-9af3-db52a0d7b5cc dispatched -> wake_word_detected (priority=1)
+[2026-05-30 12:47:08,914] [INFO] [cosmo] [TRACE] 79c7055d-0ebc-445f-9af3-db52a0d7b5cc listener_started -> on_wake_word_detected
+[2026-05-30 12:47:08,914] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 12:47:08,914] [INFO] [cosmo] [TRACE] 79c7055d-0ebc-445f-9af3-db52a0d7b5cc listener_finished -> on_wake_word_detected
+[2026-05-30 12:47:08,914] [INFO] [cosmo] [TRACE] 79c7055d-0ebc-445f-9af3-db52a0d7b5cc event_completed -> wake_word_detected
+[2026-05-30 12:47:10,256] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:47:15,258] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:51:11,556] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 12:51:11,556] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 12:51:57,214] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 12:51:57,214] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 12:51:57,219] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 12:51:57,219] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 12:51:57,220] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 12:51:57,220] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 12:51:57,220] [INFO] [cosmo] [TRACE] 32a05718-9fb6-4509-b493-050f2077e271 queued -> system_started (priority=5)
+[2026-05-30 12:51:57,220] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 12:51:57,220] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 12:51:57,220] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 12:51:57,220] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 12:51:57,220] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:51:57,221] [INFO] [cosmo] Async event bus online
+[2026-05-30 12:51:57,221] [INFO] [cosmo] [TRACE] 32a05718-9fb6-4509-b493-050f2077e271 queue_wait -> 0.0010s
+[2026-05-30 12:51:57,221] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 12:51:57,227] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 12:51:57,228] [INFO] [cosmo] [TRACE] 32a05718-9fb6-4509-b493-050f2077e271 dispatched -> system_started (priority=5)
+[2026-05-30 12:51:57,229] [INFO] [cosmo] [TRACE] 32a05718-9fb6-4509-b493-050f2077e271 listener_started -> on_system_started
+[2026-05-30 12:51:57,229] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 12:51:57,229] [INFO] [cosmo] [TRACE] 32a05718-9fb6-4509-b493-050f2077e271 listener_finished -> on_system_started
+[2026-05-30 12:51:57,229] [INFO] [cosmo] [TRACE] 32a05718-9fb6-4509-b493-050f2077e271 event_completed -> system_started
+[2026-05-30 12:52:02,221] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:52:05,151] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 12:52:05,151] [INFO] [cosmo] [TRACE] 34117c72-1c88-43fc-ba8e-e2303e71399e queued -> wake_word_detected (priority=1)
+[2026-05-30 12:52:05,151] [INFO] [cosmo] [TRACE] 34117c72-1c88-43fc-ba8e-e2303e71399e queue_wait -> 0.0005s
+[2026-05-30 12:52:05,152] [INFO] [cosmo] [TRACE] 34117c72-1c88-43fc-ba8e-e2303e71399e dispatched -> wake_word_detected (priority=1)
+[2026-05-30 12:52:05,152] [INFO] [cosmo] [TRACE] 34117c72-1c88-43fc-ba8e-e2303e71399e listener_started -> on_wake_word_detected
+[2026-05-30 12:52:05,152] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 12:52:05,152] [ERROR] [cosmo] [TRACE] 34117c72-1c88-43fc-ba8e-e2303e71399e listener_error -> on_wake_word_detected: module 'cosmo.audio.capture.audio_capture_manager' has no attribute 'capture'
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/core/events/async_event_bus.py", line 455, in _execute_listener
+    await asyncio.wait_for(
+    ...<2 lines>...
+    )
+  File "/usr/lib/python3.14/asyncio/tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/zenith/zenith/cosmo/core/events/listeners/wakeword_listener.py", line 15, in on_wake_word_detected
+    await audio_capture_manager.capture()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'cosmo.audio.capture.audio_capture_manager' has no attribute 'capture'
+[2026-05-30 12:52:05,155] [ERROR] [cosmo] [TRACE] 34117c72-1c88-43fc-ba8e-e2303e71399e event_failed -> wake_word_detected
+[2026-05-30 12:52:07,223] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:54:24,220] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 12:54:24,221] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 12:54:24,225] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 12:54:24,225] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 12:54:24,225] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 12:54:24,226] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 12:54:24,226] [INFO] [cosmo] [TRACE] 0b0795ad-e218-41e1-a80d-02ec3425de29 queued -> system_started (priority=5)
+[2026-05-30 12:54:24,226] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 12:54:24,226] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 12:54:24,226] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 12:54:24,226] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 12:54:24,226] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:54:24,226] [INFO] [cosmo] Async event bus online
+[2026-05-30 12:54:24,227] [INFO] [cosmo] [TRACE] 0b0795ad-e218-41e1-a80d-02ec3425de29 queue_wait -> 0.0010s
+[2026-05-30 12:54:24,227] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 12:54:24,232] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 12:54:24,233] [INFO] [cosmo] [TRACE] 0b0795ad-e218-41e1-a80d-02ec3425de29 dispatched -> system_started (priority=5)
+[2026-05-30 12:54:24,234] [INFO] [cosmo] [TRACE] 0b0795ad-e218-41e1-a80d-02ec3425de29 listener_started -> on_system_started
+[2026-05-30 12:54:24,234] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 12:54:24,234] [INFO] [cosmo] [TRACE] 0b0795ad-e218-41e1-a80d-02ec3425de29 listener_finished -> on_system_started
+[2026-05-30 12:54:24,234] [INFO] [cosmo] [TRACE] 0b0795ad-e218-41e1-a80d-02ec3425de29 event_completed -> system_started
+[2026-05-30 12:54:27,605] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 12:54:27,605] [INFO] [cosmo] [TRACE] e3624bb3-fc5a-4eae-8500-045aa81a543f queued -> wake_word_detected (priority=1)
+[2026-05-30 12:54:27,606] [INFO] [cosmo] [TRACE] e3624bb3-fc5a-4eae-8500-045aa81a543f queue_wait -> 0.0005s
+[2026-05-30 12:54:27,606] [INFO] [cosmo] [TRACE] e3624bb3-fc5a-4eae-8500-045aa81a543f dispatched -> wake_word_detected (priority=1)
+[2026-05-30 12:54:27,606] [INFO] [cosmo] [TRACE] e3624bb3-fc5a-4eae-8500-045aa81a543f listener_started -> on_wake_word_detected
+[2026-05-30 12:54:27,606] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 12:54:27,606] [ERROR] [cosmo] [TRACE] e3624bb3-fc5a-4eae-8500-045aa81a543f listener_error -> on_wake_word_detected: module 'cosmo.audio.capture.audio_capture_manager' has no attribute 'capture'
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/core/events/async_event_bus.py", line 455, in _execute_listener
+    await asyncio.wait_for(
+    ...<2 lines>...
+    )
+  File "/usr/lib/python3.14/asyncio/tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/zenith/zenith/cosmo/core/events/listeners/wakeword_listener.py", line 15, in on_wake_word_detected
+    await audio_capture_manager.capture()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'cosmo.audio.capture.audio_capture_manager' has no attribute 'capture'
+[2026-05-30 12:54:27,609] [ERROR] [cosmo] [TRACE] e3624bb3-fc5a-4eae-8500-045aa81a543f event_failed -> wake_word_detected
+[2026-05-30 12:56:42,272] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 12:56:42,272] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 12:56:42,275] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 12:56:42,275] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 12:56:42,275] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 12:56:42,276] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 12:56:42,276] [INFO] [cosmo] [TRACE] b9a3776b-26aa-4d9b-a3c9-8ddc54c6dece queued -> system_started (priority=5)
+[2026-05-30 12:56:42,276] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 12:56:42,276] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 12:56:42,276] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 12:56:42,276] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 12:56:42,276] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:56:42,276] [INFO] [cosmo] Async event bus online
+[2026-05-30 12:56:42,276] [INFO] [cosmo] [TRACE] b9a3776b-26aa-4d9b-a3c9-8ddc54c6dece queue_wait -> 0.0010s
+[2026-05-30 12:56:42,277] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 12:56:42,283] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 12:56:42,284] [INFO] [cosmo] [TRACE] b9a3776b-26aa-4d9b-a3c9-8ddc54c6dece dispatched -> system_started (priority=5)
+[2026-05-30 12:56:42,284] [INFO] [cosmo] [TRACE] b9a3776b-26aa-4d9b-a3c9-8ddc54c6dece listener_started -> on_system_started
+[2026-05-30 12:56:42,285] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 12:56:42,285] [INFO] [cosmo] [TRACE] b9a3776b-26aa-4d9b-a3c9-8ddc54c6dece listener_finished -> on_system_started
+[2026-05-30 12:56:42,285] [INFO] [cosmo] [TRACE] b9a3776b-26aa-4d9b-a3c9-8ddc54c6dece event_completed -> system_started
+[2026-05-30 12:56:47,277] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:56:52,279] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:56:57,280] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:57:00,130] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 12:57:00,130] [INFO] [cosmo] [TRACE] 589aef1d-260d-4612-ba36-393c0baa9b2b queued -> wake_word_detected (priority=1)
+[2026-05-30 12:57:00,130] [INFO] [cosmo] [TRACE] 589aef1d-260d-4612-ba36-393c0baa9b2b queue_wait -> 0.0005s
+[2026-05-30 12:57:00,130] [INFO] [cosmo] [TRACE] 589aef1d-260d-4612-ba36-393c0baa9b2b dispatched -> wake_word_detected (priority=1)
+[2026-05-30 12:57:00,131] [INFO] [cosmo] [TRACE] 589aef1d-260d-4612-ba36-393c0baa9b2b listener_started -> on_wake_word_detected
+[2026-05-30 12:57:00,131] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 12:57:00,131] [INFO] [cosmo] Iniciando captura de áudio
+[2026-05-30 12:57:00,131] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-05-30 12:57:00,131] [INFO] [cosmo] [TRACE] 41f917e6-f5a6-4fac-85a1-53ce268be31b queued -> audio_capture_started (priority=1)
+[2026-05-30 12:57:00,137] [INFO] [cosmo] Capturando áudio por 5s
+[2026-05-30 12:57:00,194] [INFO] [cosmo] [TRACE] 41f917e6-f5a6-4fac-85a1-53ce268be31b queue_wait -> 0.0625s
+[2026-05-30 12:57:00,287] [INFO] [cosmo] [TRACE] 41f917e6-f5a6-4fac-85a1-53ce268be31b dispatched -> audio_capture_started (priority=1)
+[2026-05-30 12:57:00,287] [WARNING] [cosmo] [TRACE] 41f917e6-f5a6-4fac-85a1-53ce268be31b no_listeners -> audio_capture_started
+[2026-05-30 12:57:02,441] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:57:05,152] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-05-30 12:57:05,153] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-05-30 12:57:05,153] [INFO] [cosmo] [TRACE] cb7646cc-cdf5-4d25-a4ec-f26081265829 queued -> audio_captured (priority=1)
+[2026-05-30 12:57:05,153] [INFO] [cosmo] [TRACE] 589aef1d-260d-4612-ba36-393c0baa9b2b listener_finished -> on_wake_word_detected
+[2026-05-30 12:57:05,166] [INFO] [cosmo] [TRACE] cb7646cc-cdf5-4d25-a4ec-f26081265829 queue_wait -> 0.0134s
+[2026-05-30 12:57:05,166] [INFO] [cosmo] [TRACE] cb7646cc-cdf5-4d25-a4ec-f26081265829 dispatched -> audio_captured (priority=1)
+[2026-05-30 12:57:05,167] [WARNING] [cosmo] [TRACE] cb7646cc-cdf5-4d25-a4ec-f26081265829 no_listeners -> audio_captured
+[2026-05-30 12:57:05,167] [INFO] [cosmo] [TRACE] 589aef1d-260d-4612-ba36-393c0baa9b2b event_completed -> wake_word_detected
+[2026-05-30 12:57:07,442] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:57:08,370] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 12:57:08,371] [INFO] [cosmo] [TRACE] d31dda01-0217-486f-baf7-73d56a36dc7c queued -> wake_word_detected (priority=1)
+[2026-05-30 12:57:08,371] [INFO] [cosmo] [TRACE] d31dda01-0217-486f-baf7-73d56a36dc7c queue_wait -> 0.0006s
+[2026-05-30 12:57:08,371] [INFO] [cosmo] [TRACE] d31dda01-0217-486f-baf7-73d56a36dc7c dispatched -> wake_word_detected (priority=1)
+[2026-05-30 12:57:08,371] [INFO] [cosmo] [TRACE] d31dda01-0217-486f-baf7-73d56a36dc7c listener_started -> on_wake_word_detected
+[2026-05-30 12:57:08,371] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 12:57:08,372] [INFO] [cosmo] Iniciando captura de áudio
+[2026-05-30 12:57:08,372] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-05-30 12:57:08,372] [INFO] [cosmo] [TRACE] 6769779a-4701-4a7b-a485-5425eee1a0a2 queued -> audio_capture_started (priority=1)
+[2026-05-30 12:57:08,374] [INFO] [cosmo] Capturando áudio por 5s
+[2026-05-30 12:57:08,446] [INFO] [cosmo] [TRACE] 6769779a-4701-4a7b-a485-5425eee1a0a2 queue_wait -> 0.0743s
+[2026-05-30 12:57:08,527] [INFO] [cosmo] [TRACE] 6769779a-4701-4a7b-a485-5425eee1a0a2 dispatched -> audio_capture_started (priority=1)
+[2026-05-30 12:57:08,528] [WARNING] [cosmo] [TRACE] 6769779a-4701-4a7b-a485-5425eee1a0a2 no_listeners -> audio_capture_started
+[2026-05-30 12:57:12,566] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:57:13,400] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-05-30 12:57:13,400] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-05-30 12:57:13,400] [INFO] [cosmo] [TRACE] c0ceac12-404d-41db-ad9e-cfeb9369b434 queued -> audio_captured (priority=1)
+[2026-05-30 12:57:13,400] [INFO] [cosmo] [TRACE] d31dda01-0217-486f-baf7-73d56a36dc7c listener_finished -> on_wake_word_detected
+[2026-05-30 12:57:13,401] [INFO] [cosmo] [TRACE] c0ceac12-404d-41db-ad9e-cfeb9369b434 queue_wait -> 0.0005s
+[2026-05-30 12:57:13,401] [INFO] [cosmo] [TRACE] c0ceac12-404d-41db-ad9e-cfeb9369b434 dispatched -> audio_captured (priority=1)
+[2026-05-30 12:57:13,401] [WARNING] [cosmo] [TRACE] c0ceac12-404d-41db-ad9e-cfeb9369b434 no_listeners -> audio_captured
+[2026-05-30 12:57:13,402] [INFO] [cosmo] [TRACE] d31dda01-0217-486f-baf7-73d56a36dc7c event_completed -> wake_word_detected
+[2026-05-30 12:57:17,568] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:57:21,463] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 12:57:21,464] [INFO] [cosmo] [TRACE] 29a29193-664f-461c-a9eb-bd8cbaac8fcd queued -> wake_word_detected (priority=1)
+[2026-05-30 12:57:21,464] [INFO] [cosmo] [TRACE] 29a29193-664f-461c-a9eb-bd8cbaac8fcd queue_wait -> 0.0005s
+[2026-05-30 12:57:21,464] [INFO] [cosmo] [TRACE] 29a29193-664f-461c-a9eb-bd8cbaac8fcd dispatched -> wake_word_detected (priority=1)
+[2026-05-30 12:57:21,465] [INFO] [cosmo] [TRACE] 29a29193-664f-461c-a9eb-bd8cbaac8fcd listener_started -> on_wake_word_detected
+[2026-05-30 12:57:21,466] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 12:57:21,466] [INFO] [cosmo] Iniciando captura de áudio
+[2026-05-30 12:57:21,466] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-05-30 12:57:21,466] [INFO] [cosmo] [TRACE] 65df50ea-28ad-48fc-82ae-7191b3ab1836 queued -> audio_capture_started (priority=1)
+[2026-05-30 12:57:21,469] [INFO] [cosmo] Capturando áudio por 5s
+[2026-05-30 12:57:21,540] [INFO] [cosmo] [TRACE] 65df50ea-28ad-48fc-82ae-7191b3ab1836 queue_wait -> 0.0741s
+[2026-05-30 12:57:21,621] [INFO] [cosmo] [TRACE] 65df50ea-28ad-48fc-82ae-7191b3ab1836 dispatched -> audio_capture_started (priority=1)
+[2026-05-30 12:57:21,621] [WARNING] [cosmo] [TRACE] 65df50ea-28ad-48fc-82ae-7191b3ab1836 no_listeners -> audio_capture_started
+[2026-05-30 12:57:22,766] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:57:26,498] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-05-30 12:57:26,498] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-05-30 12:57:26,498] [INFO] [cosmo] [TRACE] 72ab240b-261c-49a9-9fcf-a32b929dee9d queued -> audio_captured (priority=1)
+[2026-05-30 12:57:26,498] [INFO] [cosmo] [TRACE] 29a29193-664f-461c-a9eb-bd8cbaac8fcd listener_finished -> on_wake_word_detected
+[2026-05-30 12:57:26,498] [INFO] [cosmo] [TRACE] 72ab240b-261c-49a9-9fcf-a32b929dee9d queue_wait -> 0.0004s
+[2026-05-30 12:57:26,499] [INFO] [cosmo] [TRACE] 72ab240b-261c-49a9-9fcf-a32b929dee9d dispatched -> audio_captured (priority=1)
+[2026-05-30 12:57:26,499] [WARNING] [cosmo] [TRACE] 72ab240b-261c-49a9-9fcf-a32b929dee9d no_listeners -> audio_captured
+[2026-05-30 12:57:26,500] [INFO] [cosmo] [TRACE] 29a29193-664f-461c-a9eb-bd8cbaac8fcd event_completed -> wake_word_detected
+[2026-05-30 12:57:27,767] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:57:32,768] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:59:18,239] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 12:59:18,239] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 12:59:18,240] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 12:59:18,241] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 12:59:18,241] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 12:59:18,241] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 12:59:18,241] [INFO] [cosmo] [TRACE] 13615d2b-50aa-4d56-bb36-d6e6857a90f7 queued -> system_started (priority=5)
+[2026-05-30 12:59:18,242] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 12:59:18,242] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 12:59:18,242] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 12:59:18,242] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 12:59:18,242] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:59:18,242] [INFO] [cosmo] Async event bus online
+[2026-05-30 12:59:18,242] [INFO] [cosmo] [TRACE] 13615d2b-50aa-4d56-bb36-d6e6857a90f7 queue_wait -> 0.0011s
+[2026-05-30 12:59:18,243] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 12:59:18,248] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 12:59:18,249] [INFO] [cosmo] [TRACE] 13615d2b-50aa-4d56-bb36-d6e6857a90f7 dispatched -> system_started (priority=5)
+[2026-05-30 12:59:18,249] [INFO] [cosmo] [TRACE] 13615d2b-50aa-4d56-bb36-d6e6857a90f7 listener_started -> on_system_started
+[2026-05-30 12:59:18,250] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 12:59:18,250] [INFO] [cosmo] [TRACE] 13615d2b-50aa-4d56-bb36-d6e6857a90f7 listener_finished -> on_system_started
+[2026-05-30 12:59:18,250] [INFO] [cosmo] [TRACE] 13615d2b-50aa-4d56-bb36-d6e6857a90f7 event_completed -> system_started
+[2026-05-30 12:59:22,176] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 12:59:22,176] [INFO] [cosmo] [TRACE] e5d5ff83-7284-4bce-82a5-e1b43fca17ad queued -> wake_word_detected (priority=1)
+[2026-05-30 12:59:22,177] [INFO] [cosmo] [TRACE] e5d5ff83-7284-4bce-82a5-e1b43fca17ad queue_wait -> 0.0005s
+[2026-05-30 12:59:22,177] [INFO] [cosmo] [TRACE] e5d5ff83-7284-4bce-82a5-e1b43fca17ad dispatched -> wake_word_detected (priority=1)
+[2026-05-30 12:59:22,178] [INFO] [cosmo] [TRACE] e5d5ff83-7284-4bce-82a5-e1b43fca17ad listener_started -> on_wake_word_detected
+[2026-05-30 12:59:22,178] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 12:59:22,179] [INFO] [cosmo] Iniciando captura de áudio
+[2026-05-30 12:59:22,179] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-05-30 12:59:22,179] [INFO] [cosmo] [TRACE] 10e0ab2b-8215-46a1-9f21-de7fd3179d49 queued -> audio_capture_started (priority=1)
+[2026-05-30 12:59:22,181] [INFO] [cosmo] Capturando áudio por 5s
+[2026-05-30 12:59:22,253] [INFO] [cosmo] [TRACE] 10e0ab2b-8215-46a1-9f21-de7fd3179d49 queue_wait -> 0.0743s
+[2026-05-30 12:59:22,335] [INFO] [cosmo] [TRACE] 10e0ab2b-8215-46a1-9f21-de7fd3179d49 dispatched -> audio_capture_started (priority=1)
+[2026-05-30 12:59:22,335] [WARNING] [cosmo] [TRACE] 10e0ab2b-8215-46a1-9f21-de7fd3179d49 no_listeners -> audio_capture_started
+[2026-05-30 12:59:23,360] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:59:27,308] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-05-30 12:59:27,308] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-05-30 12:59:27,308] [INFO] [cosmo] [TRACE] 01b8ab73-8881-4fdd-acf7-b4f7e13c19d4 queued -> audio_captured (priority=1)
+[2026-05-30 12:59:27,308] [INFO] [cosmo] [TRACE] e5d5ff83-7284-4bce-82a5-e1b43fca17ad listener_finished -> on_wake_word_detected
+[2026-05-30 12:59:27,308] [INFO] [cosmo] [TRACE] 01b8ab73-8881-4fdd-acf7-b4f7e13c19d4 queue_wait -> 0.0005s
+[2026-05-30 12:59:27,309] [INFO] [cosmo] [TRACE] 01b8ab73-8881-4fdd-acf7-b4f7e13c19d4 dispatched -> audio_captured (priority=1)
+[2026-05-30 12:59:27,310] [WARNING] [cosmo] [TRACE] 01b8ab73-8881-4fdd-acf7-b4f7e13c19d4 no_listeners -> audio_captured
+[2026-05-30 12:59:27,310] [INFO] [cosmo] [TRACE] e5d5ff83-7284-4bce-82a5-e1b43fca17ad event_completed -> wake_word_detected
+[2026-05-30 12:59:28,380] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 12:59:33,382] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:03:20,834] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 13:03:20,834] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 13:03:20,837] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 13:03:20,837] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 13:03:20,838] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 13:03:20,838] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 13:03:20,838] [INFO] [cosmo] [TRACE] 4460daae-6c86-48be-a1d7-e78b2c914777 queued -> system_started (priority=5)
+[2026-05-30 13:03:20,838] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 13:03:20,838] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 13:03:20,838] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 13:03:20,838] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 13:03:20,838] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:03:20,839] [INFO] [cosmo] Async event bus online
+[2026-05-30 13:03:20,839] [INFO] [cosmo] [TRACE] 4460daae-6c86-48be-a1d7-e78b2c914777 queue_wait -> 0.0009s
+[2026-05-30 13:03:20,839] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 13:03:20,844] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 13:03:20,845] [INFO] [cosmo] [TRACE] 4460daae-6c86-48be-a1d7-e78b2c914777 dispatched -> system_started (priority=5)
+[2026-05-30 13:03:20,845] [INFO] [cosmo] [TRACE] 4460daae-6c86-48be-a1d7-e78b2c914777 listener_started -> on_system_started
+[2026-05-30 13:03:20,845] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 13:03:20,846] [INFO] [cosmo] [TRACE] 4460daae-6c86-48be-a1d7-e78b2c914777 listener_finished -> on_system_started
+[2026-05-30 13:03:20,846] [INFO] [cosmo] [TRACE] 4460daae-6c86-48be-a1d7-e78b2c914777 event_completed -> system_started
+[2026-05-30 13:03:25,373] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 13:03:25,373] [INFO] [cosmo] [TRACE] 888bfa87-435a-457c-bde4-56ece23f0f14 queued -> wake_word_detected (priority=1)
+[2026-05-30 13:03:25,373] [INFO] [cosmo] [TRACE] 888bfa87-435a-457c-bde4-56ece23f0f14 queue_wait -> 0.0006s
+[2026-05-30 13:03:25,374] [INFO] [cosmo] [TRACE] 888bfa87-435a-457c-bde4-56ece23f0f14 dispatched -> wake_word_detected (priority=1)
+[2026-05-30 13:03:25,374] [INFO] [cosmo] [TRACE] 888bfa87-435a-457c-bde4-56ece23f0f14 listener_started -> on_wake_word_detected
+[2026-05-30 13:03:25,374] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 13:03:25,374] [INFO] [cosmo] Iniciando captura de áudio
+[2026-05-30 13:03:25,374] [INFO] [cosmo] Parando wakeword
+[2026-05-30 13:03:25,375] [ERROR] [cosmo] [TRACE] 888bfa87-435a-457c-bde4-56ece23f0f14 listener_error -> on_wake_word_detected: module 'cosmo.audio.wakeword.wakeword_manager' has no attribute 'stop'
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/core/events/async_event_bus.py", line 455, in _execute_listener
+    await asyncio.wait_for(
+    ...<2 lines>...
+    )
+  File "/usr/lib/python3.14/asyncio/tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/zenith/zenith/cosmo/core/events/listeners/wakeword_listener.py", line 17, in on_wake_word_detected
+    await audio_capture_manager.capture()
+  File "/home/zenith/zenith/cosmo/audio/capture/audio_capture_manager.py", line 51, in capture
+    await wakeword_manager.stop()
+          ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'cosmo.audio.wakeword.wakeword_manager' has no attribute 'stop'
+[2026-05-30 13:03:25,377] [ERROR] [cosmo] [TRACE] 888bfa87-435a-457c-bde4-56ece23f0f14 event_failed -> wake_word_detected
+[2026-05-30 13:03:25,839] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:04:44,758] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 13:04:44,758] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 13:04:44,761] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 13:04:44,762] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 13:04:44,762] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 13:04:44,762] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 13:04:44,762] [INFO] [cosmo] [TRACE] b152ca28-04b4-48bb-bbcb-da3da8c7bd05 queued -> system_started (priority=5)
+[2026-05-30 13:04:44,762] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 13:04:44,762] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 13:04:44,763] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 13:04:44,763] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 13:04:44,763] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:04:44,763] [INFO] [cosmo] Async event bus online
+[2026-05-30 13:04:44,763] [INFO] [cosmo] [TRACE] b152ca28-04b4-48bb-bbcb-da3da8c7bd05 queue_wait -> 0.0010s
+[2026-05-30 13:04:44,763] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 13:04:44,769] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 13:04:44,770] [INFO] [cosmo] [TRACE] b152ca28-04b4-48bb-bbcb-da3da8c7bd05 dispatched -> system_started (priority=5)
+[2026-05-30 13:04:44,770] [INFO] [cosmo] [TRACE] b152ca28-04b4-48bb-bbcb-da3da8c7bd05 listener_started -> on_system_started
+[2026-05-30 13:04:44,770] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 13:04:44,771] [INFO] [cosmo] [TRACE] b152ca28-04b4-48bb-bbcb-da3da8c7bd05 listener_finished -> on_system_started
+[2026-05-30 13:04:44,771] [INFO] [cosmo] [TRACE] b152ca28-04b4-48bb-bbcb-da3da8c7bd05 event_completed -> system_started
+[2026-05-30 13:04:48,161] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 13:04:48,162] [INFO] [cosmo] [TRACE] 253a636e-c870-4af0-a75c-91bfa1572ffa queued -> wake_word_detected (priority=1)
+[2026-05-30 13:04:48,162] [INFO] [cosmo] [TRACE] 253a636e-c870-4af0-a75c-91bfa1572ffa queue_wait -> 0.0005s
+[2026-05-30 13:04:48,162] [INFO] [cosmo] [TRACE] 253a636e-c870-4af0-a75c-91bfa1572ffa dispatched -> wake_word_detected (priority=1)
+[2026-05-30 13:04:48,164] [INFO] [cosmo] [TRACE] 253a636e-c870-4af0-a75c-91bfa1572ffa listener_started -> on_wake_word_detected
+[2026-05-30 13:04:48,164] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 13:04:48,164] [INFO] [cosmo] Iniciando captura de áudio
+[2026-05-30 13:04:48,164] [INFO] [cosmo] Parando wakeword
+[2026-05-30 13:04:48,164] [ERROR] [cosmo] [TRACE] 253a636e-c870-4af0-a75c-91bfa1572ffa listener_error -> on_wake_word_detected: module 'cosmo.audio.wakeword.wakeword_manager' has no attribute 'stop'
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/core/events/async_event_bus.py", line 455, in _execute_listener
+    await asyncio.wait_for(
+    ...<2 lines>...
+    )
+  File "/usr/lib/python3.14/asyncio/tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/zenith/zenith/cosmo/core/events/listeners/wakeword_listener.py", line 17, in on_wake_word_detected
+    await audio_capture_manager.capture()
+  File "/home/zenith/zenith/cosmo/audio/capture/audio_capture_manager.py", line 54, in capture
+    await wakeword_manager.stop()
+          ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'cosmo.audio.wakeword.wakeword_manager' has no attribute 'stop'
+[2026-05-30 13:04:48,166] [ERROR] [cosmo] [TRACE] 253a636e-c870-4af0-a75c-91bfa1572ffa event_failed -> wake_word_detected
+[2026-05-30 13:04:49,765] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:11:21,346] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 13:11:21,347] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 13:11:21,351] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 13:11:21,352] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 13:11:21,352] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 13:11:21,352] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 13:11:21,353] [INFO] [cosmo] [TRACE] 9f08cef9-d066-4934-bba5-24c402eaf9ee queued -> system_started (priority=5)
+[2026-05-30 13:11:21,353] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 13:11:21,353] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 13:11:21,353] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 13:11:21,353] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 13:11:21,353] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:11:21,353] [INFO] [cosmo] Async event bus online
+[2026-05-30 13:11:21,354] [INFO] [cosmo] [TRACE] 9f08cef9-d066-4934-bba5-24c402eaf9ee queue_wait -> 0.0013s
+[2026-05-30 13:11:21,354] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 13:11:21,361] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 13:11:21,362] [INFO] [cosmo] [TRACE] 9f08cef9-d066-4934-bba5-24c402eaf9ee dispatched -> system_started (priority=5)
+[2026-05-30 13:11:21,362] [INFO] [cosmo] [TRACE] 9f08cef9-d066-4934-bba5-24c402eaf9ee listener_started -> on_system_started
+[2026-05-30 13:11:21,363] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 13:11:21,363] [INFO] [cosmo] [TRACE] 9f08cef9-d066-4934-bba5-24c402eaf9ee listener_finished -> on_system_started
+[2026-05-30 13:11:21,363] [INFO] [cosmo] [TRACE] 9f08cef9-d066-4934-bba5-24c402eaf9ee event_completed -> system_started
+[2026-05-30 13:11:25,273] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 13:11:25,273] [INFO] [cosmo] [TRACE] 760a92fb-d56a-4d41-9a1d-84bb7422049d queued -> wake_word_detected (priority=1)
+[2026-05-30 13:11:25,274] [INFO] [cosmo] [TRACE] 760a92fb-d56a-4d41-9a1d-84bb7422049d queue_wait -> 0.0005s
+[2026-05-30 13:11:25,274] [INFO] [cosmo] [TRACE] 760a92fb-d56a-4d41-9a1d-84bb7422049d dispatched -> wake_word_detected (priority=1)
+[2026-05-30 13:11:25,275] [INFO] [cosmo] [TRACE] 760a92fb-d56a-4d41-9a1d-84bb7422049d listener_started -> on_wake_word_detected
+[2026-05-30 13:11:25,275] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 13:11:25,275] [INFO] [cosmo] Iniciando captura de áudio
+[2026-05-30 13:11:25,276] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-05-30 13:11:25,276] [INFO] [cosmo] [TRACE] d1d59092-f1a1-42da-b86d-5d63a2472387 queued -> audio_capture_started (priority=1)
+[2026-05-30 13:11:25,278] [INFO] [cosmo] Capturando áudio por 5s
+[2026-05-30 13:11:25,278] [ERROR] [cosmo] [TRACE] 760a92fb-d56a-4d41-9a1d-84bb7422049d listener_error -> on_wake_word_detected: cannot access local variable 'data' where it is not associated with a value
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/core/events/async_event_bus.py", line 455, in _execute_listener
+    await asyncio.wait_for(
+    ...<2 lines>...
+    )
+  File "/usr/lib/python3.14/asyncio/tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/zenith/zenith/cosmo/core/events/listeners/wakeword_listener.py", line 17, in on_wake_word_detected
+    await audio_capture_manager.capture()
+  File "/home/zenith/zenith/cosmo/audio/capture/audio_capture_manager.py", line 82, in capture
+    logger.info(len(data))
+                    ^^^^
+UnboundLocalError: cannot access local variable 'data' where it is not associated with a value
+[2026-05-30 13:11:25,281] [INFO] [cosmo] [TRACE] d1d59092-f1a1-42da-b86d-5d63a2472387 queue_wait -> 0.0052s
+[2026-05-30 13:11:25,281] [INFO] [cosmo] [TRACE] d1d59092-f1a1-42da-b86d-5d63a2472387 dispatched -> audio_capture_started (priority=1)
+[2026-05-30 13:11:25,282] [WARNING] [cosmo] [TRACE] d1d59092-f1a1-42da-b86d-5d63a2472387 no_listeners -> audio_capture_started
+[2026-05-30 13:11:25,282] [ERROR] [cosmo] [TRACE] 760a92fb-d56a-4d41-9a1d-84bb7422049d event_failed -> wake_word_detected
+[2026-05-30 13:11:26,355] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:13:46,627] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-05-30 13:13:46,628] [INFO] [cosmo] Metrics: {'events_received': 0, 'events_emitted': 0, 'events_dispatched': 0, 'events_dropped': 0, 'events_completed': 0, 'events_failed': 0, 'events_partial_failures': 0, 'events_unhandled': 0, 'listener_successes': 0, 'listener_timeouts': 0, 'listener_errors': 0, 'queue_peak': 0, 'current_queue_size': 0, 'avg_event_processing_time': 0.0, 'avg_listener_processing_time': 0.0, 'avg_queue_wait_time': 0.0}
+[2026-05-30 13:13:46,630] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-05-30 13:13:46,631] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-05-30 13:13:46,631] [INFO] [cosmo] Sistema iniciado
+[2026-05-30 13:13:46,631] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-05-30 13:13:46,631] [INFO] [cosmo] [TRACE] d3c350e6-876c-4c8f-8bd1-111beba4ccf6 queued -> system_started (priority=5)
+[2026-05-30 13:13:46,631] [INFO] [cosmo] Task criada: Heartbeat
+[2026-05-30 13:13:46,631] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-05-30 13:13:46,632] [INFO] [cosmo] Task criada: WakewordManager
+[2026-05-30 13:13:46,632] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-05-30 13:13:46,632] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:13:46,632] [INFO] [cosmo] Async event bus online
+[2026-05-30 13:13:46,632] [INFO] [cosmo] [TRACE] d3c350e6-876c-4c8f-8bd1-111beba4ccf6 queue_wait -> 0.0009s
+[2026-05-30 13:13:46,632] [INFO] [cosmo] Iniciando wakeword manager
+[2026-05-30 13:13:46,639] [INFO] [cosmo] Wakeword manager online
+[2026-05-30 13:13:46,641] [INFO] [cosmo] [TRACE] d3c350e6-876c-4c8f-8bd1-111beba4ccf6 dispatched -> system_started (priority=5)
+[2026-05-30 13:13:46,641] [INFO] [cosmo] [TRACE] d3c350e6-876c-4c8f-8bd1-111beba4ccf6 listener_started -> on_system_started
+[2026-05-30 13:13:46,641] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-05-30 13:13:46,641] [INFO] [cosmo] [TRACE] d3c350e6-876c-4c8f-8bd1-111beba4ccf6 listener_finished -> on_system_started
+[2026-05-30 13:13:46,641] [INFO] [cosmo] [TRACE] d3c350e6-876c-4c8f-8bd1-111beba4ccf6 event_completed -> system_started
+[2026-05-30 13:13:51,632] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:13:56,634] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:13:58,849] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-05-30 13:13:58,849] [INFO] [cosmo] [TRACE] 5c6c2033-b45b-4898-87f7-a622a40026e8 queued -> wake_word_detected (priority=1)
+[2026-05-30 13:13:58,849] [INFO] [cosmo] [TRACE] 5c6c2033-b45b-4898-87f7-a622a40026e8 queue_wait -> 0.0005s
+[2026-05-30 13:13:58,849] [INFO] [cosmo] [TRACE] 5c6c2033-b45b-4898-87f7-a622a40026e8 dispatched -> wake_word_detected (priority=1)
+[2026-05-30 13:13:58,850] [INFO] [cosmo] [TRACE] 5c6c2033-b45b-4898-87f7-a622a40026e8 listener_started -> on_wake_word_detected
+[2026-05-30 13:13:58,850] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-05-30 13:13:58,850] [INFO] [cosmo] Iniciando captura de áudio
+[2026-05-30 13:13:58,850] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-05-30 13:13:58,850] [INFO] [cosmo] [TRACE] 1c6f6f19-ff41-49fb-aa01-96b48c0fa720 queued -> audio_capture_started (priority=1)
+[2026-05-30 13:13:58,853] [INFO] [cosmo] Capturando áudio por 5s
+[2026-05-30 13:13:58,924] [INFO] [cosmo] chunk[0]=b'\x0b\x00\x1d\x00\xee\xff\xc5\xff\xce\xff\xd4\xff\xeb\xff\xfc\xff\xf8\xff\n\x00'
+[2026-05-30 13:13:58,925] [INFO] [cosmo] [TRACE] 1c6f6f19-ff41-49fb-aa01-96b48c0fa720 queue_wait -> 0.0750s
+[2026-05-30 13:13:58,925] [INFO] [cosmo] frames=1
+[2026-05-30 13:13:58,926] [INFO] [cosmo] wav_bytes=2048
+[2026-05-30 13:13:59,004] [INFO] [cosmo] chunk[1]=b'\xa5\xff\x99\xff\x8d\xff\x86\xff\x89\xff\x9f\xff\x9b\xff\xd2\xff\xf1\xff\xde\xff'
+[2026-05-30 13:13:59,005] [INFO] [cosmo] [TRACE] 1c6f6f19-ff41-49fb-aa01-96b48c0fa720 dispatched -> audio_capture_started (priority=1)
+[2026-05-30 13:13:59,005] [WARNING] [cosmo] [TRACE] 1c6f6f19-ff41-49fb-aa01-96b48c0fa720 no_listeners -> audio_capture_started
+[2026-05-30 13:13:59,006] [INFO] [cosmo] frames=2
+[2026-05-30 13:13:59,006] [INFO] [cosmo] wav_bytes=4096
+[2026-05-30 13:13:59,095] [INFO] [cosmo] chunk[2]=b'\x04\x00\x0c\x00\xf8\xff\xe7\xff\xf9\xff\xf6\xff\xe6\xff\n\x00\x11\x00&\x00'
+[2026-05-30 13:13:59,096] [INFO] [cosmo] frames=3
+[2026-05-30 13:13:59,096] [INFO] [cosmo] wav_bytes=6144
+[2026-05-30 13:13:59,165] [INFO] [cosmo] chunk[3]=b'a\x00S\x00y\x00m\x00P\x00i\x00j\x00D\x00#\x00E\x00'
+[2026-05-30 13:13:59,166] [INFO] [cosmo] frames=4
+[2026-05-30 13:13:59,166] [INFO] [cosmo] wav_bytes=8192
+[2026-05-30 13:13:59,256] [INFO] [cosmo] chunk[4]=b'!\x00\r\x00\x1c\x00\x0e\x000\x00+\x00\x0e\x00-\x00\x1a\x001\x00'
+[2026-05-30 13:13:59,256] [INFO] [cosmo] frames=5
+[2026-05-30 13:13:59,256] [INFO] [cosmo] wav_bytes=10240
+[2026-05-30 13:13:59,257] [INFO] [cosmo] frames=6
+[2026-05-30 13:13:59,257] [INFO] [cosmo] wav_bytes=12288
+[2026-05-30 13:13:59,347] [INFO] [cosmo] frames=7
+[2026-05-30 13:13:59,347] [INFO] [cosmo] wav_bytes=14336
+[2026-05-30 13:13:59,468] [INFO] [cosmo] frames=8
+[2026-05-30 13:13:59,468] [INFO] [cosmo] wav_bytes=16384
+[2026-05-30 13:13:59,468] [INFO] [cosmo] frames=9
+[2026-05-30 13:13:59,469] [INFO] [cosmo] wav_bytes=18432
+[2026-05-30 13:13:59,530] [INFO] [cosmo] frames=10
+[2026-05-30 13:13:59,530] [INFO] [cosmo] wav_bytes=20480
+[2026-05-30 13:13:59,621] [INFO] [cosmo] frames=11
+[2026-05-30 13:13:59,621] [INFO] [cosmo] wav_bytes=22528
+[2026-05-30 13:13:59,622] [INFO] [cosmo] frames=12
+[2026-05-30 13:13:59,622] [INFO] [cosmo] wav_bytes=24576
+[2026-05-30 13:13:59,697] [INFO] [cosmo] frames=13
+[2026-05-30 13:13:59,697] [INFO] [cosmo] wav_bytes=26624
+[2026-05-30 13:13:59,804] [INFO] [cosmo] frames=14
+[2026-05-30 13:13:59,804] [INFO] [cosmo] wav_bytes=28672
+[2026-05-30 13:13:59,879] [INFO] [cosmo] frames=15
+[2026-05-30 13:13:59,879] [INFO] [cosmo] wav_bytes=30720
+[2026-05-30 13:13:59,881] [INFO] [cosmo] frames=16
+[2026-05-30 13:13:59,881] [INFO] [cosmo] wav_bytes=32768
+[2026-05-30 13:13:59,970] [INFO] [cosmo] frames=17
+[2026-05-30 13:13:59,970] [INFO] [cosmo] wav_bytes=34816
+[2026-05-30 13:14:00,062] [INFO] [cosmo] frames=18
+[2026-05-30 13:14:00,062] [INFO] [cosmo] wav_bytes=36864
+[2026-05-30 13:14:00,152] [INFO] [cosmo] frames=19
+[2026-05-30 13:14:00,153] [INFO] [cosmo] wav_bytes=38912
+[2026-05-30 13:14:00,154] [INFO] [cosmo] frames=20
+[2026-05-30 13:14:00,154] [INFO] [cosmo] wav_bytes=40960
+[2026-05-30 13:14:00,243] [INFO] [cosmo] frames=21
+[2026-05-30 13:14:00,244] [INFO] [cosmo] wav_bytes=43008
+[2026-05-30 13:14:00,349] [INFO] [cosmo] frames=22
+[2026-05-30 13:14:00,350] [INFO] [cosmo] wav_bytes=45056
+[2026-05-30 13:14:00,350] [INFO] [cosmo] frames=23
+[2026-05-30 13:14:00,350] [INFO] [cosmo] wav_bytes=47104
+[2026-05-30 13:14:00,425] [INFO] [cosmo] frames=24
+[2026-05-30 13:14:00,426] [INFO] [cosmo] wav_bytes=49152
+[2026-05-30 13:14:00,517] [INFO] [cosmo] frames=25
+[2026-05-30 13:14:00,518] [INFO] [cosmo] wav_bytes=51200
+[2026-05-30 13:14:00,607] [INFO] [cosmo] frames=26
+[2026-05-30 13:14:00,607] [INFO] [cosmo] wav_bytes=53248
+[2026-05-30 13:14:00,608] [INFO] [cosmo] frames=27
+[2026-05-30 13:14:00,608] [INFO] [cosmo] wav_bytes=55296
+[2026-05-30 13:14:00,697] [INFO] [cosmo] frames=28
+[2026-05-30 13:14:00,697] [INFO] [cosmo] wav_bytes=57344
+[2026-05-30 13:14:00,789] [INFO] [cosmo] frames=29
+[2026-05-30 13:14:00,789] [INFO] [cosmo] wav_bytes=59392
+[2026-05-30 13:14:00,790] [INFO] [cosmo] frames=30
+[2026-05-30 13:14:00,790] [INFO] [cosmo] wav_bytes=61440
+[2026-05-30 13:14:00,907] [INFO] [cosmo] frames=31
+[2026-05-30 13:14:00,907] [INFO] [cosmo] wav_bytes=63488
+[2026-05-30 13:14:00,971] [INFO] [cosmo] frames=32
+[2026-05-30 13:14:00,971] [INFO] [cosmo] wav_bytes=65536
+[2026-05-30 13:14:00,972] [INFO] [cosmo] frames=33
+[2026-05-30 13:14:00,972] [INFO] [cosmo] wav_bytes=67584
+[2026-05-30 13:14:01,062] [INFO] [cosmo] frames=34
+[2026-05-30 13:14:01,062] [INFO] [cosmo] wav_bytes=69632
+[2026-05-30 13:14:01,154] [INFO] [cosmo] frames=35
+[2026-05-30 13:14:01,154] [INFO] [cosmo] wav_bytes=71680
+[2026-05-30 13:14:01,242] [INFO] [cosmo] frames=36
+[2026-05-30 13:14:01,243] [INFO] [cosmo] wav_bytes=73728
+[2026-05-30 13:14:01,244] [INFO] [cosmo] frames=37
+[2026-05-30 13:14:01,244] [INFO] [cosmo] wav_bytes=75776
+[2026-05-30 13:14:01,333] [INFO] [cosmo] frames=38
+[2026-05-30 13:14:01,334] [INFO] [cosmo] wav_bytes=77824
+[2026-05-30 13:14:01,424] [INFO] [cosmo] frames=39
+[2026-05-30 13:14:01,425] [INFO] [cosmo] wav_bytes=79872
+[2026-05-30 13:14:01,498] [INFO] [cosmo] frames=40
+[2026-05-30 13:14:01,498] [INFO] [cosmo] wav_bytes=81920
+[2026-05-30 13:14:01,499] [INFO] [cosmo] frames=41
+[2026-05-30 13:14:01,500] [INFO] [cosmo] wav_bytes=83968
+[2026-05-30 13:14:01,589] [INFO] [cosmo] frames=42
+[2026-05-30 13:14:01,589] [INFO] [cosmo] wav_bytes=86016
+[2026-05-30 13:14:01,681] [INFO] [cosmo] frames=43
+[2026-05-30 13:14:01,681] [INFO] [cosmo] wav_bytes=88064
+[2026-05-30 13:14:01,682] [INFO] [cosmo] frames=44
+[2026-05-30 13:14:01,682] [INFO] [cosmo] wav_bytes=90112
+[2026-05-30 13:14:01,771] [INFO] [cosmo] Runtime heartbeat
+[2026-05-30 13:14:01,787] [INFO] [cosmo] frames=45
+[2026-05-30 13:14:01,788] [INFO] [cosmo] wav_bytes=92160
+[2026-05-30 13:14:01,861] [INFO] [cosmo] frames=46
+[2026-05-30 13:14:01,862] [INFO] [cosmo] wav_bytes=94208
+[2026-05-30 13:14:01,863] [INFO] [cosmo] frames=47
+[2026-05-30 13:14:01,863] [INFO] [cosmo] wav_bytes=96256
+[2026-05-30 13:14:01,953] [INFO] [cosmo] frames=48
+[2026-05-30 13:14:01,953] [INFO] [cosmo] wav_bytes=98304
+[2026-05-30 13:14:02,045] [INFO] [cosmo] frames=49
+[2026-05-30 13:14:02,045] [INFO] [cosmo] wav_bytes=100352
+[2026-05-30 13:14:02,135] [INFO] [cosmo] frames=50
+[2026-05-30 13:14:02,135] [INFO] [cosmo] wav_bytes=102400
+[2026-05-30 13:14:02,136] [INFO] [cosmo] frames=51
+[2026-05-30 13:14:02,137] [INFO] [cosmo] wav_bytes=104448
+[2026-05-30 13:14:02,226] [INFO] [cosmo] frames=52
+[2026-05-30 13:14:02,226] [INFO] [cosmo] wav_bytes=106496
+[2026-05-30 13:14:02,340] [INFO] [cosmo] frames=53
+[2026-05-30 13:14:02,340] [INFO] [cosmo] wav_bytes=108544
+[2026-05-30 13:14:02,340] [INFO] [cosmo] frames=54
+[2026-05-30 13:14:02,341] [INFO] [cosmo] wav_bytes=110592
+[2026-05-30 13:14:02,409] [INFO] [cosmo] frames=55
+[2026-05-30 13:14:02,410] [INFO] [cosmo] wav_bytes=112640
+[2026-05-30 13:14:02,499] [INFO] [cosmo] frames=56
+[2026-05-30 13:14:02,500] [INFO] [cosmo] wav_bytes=114688
+[2026-05-30 13:14:02,591] [INFO] [cosmo] frames=57
+[2026-05-30 13:14:02,592] [INFO] [cosmo] wav_bytes=116736
+[2026-05-30 13:14:02,592] [INFO] [cosmo] frames=58
+[2026-05-30 13:14:02,592] [INFO] [cosmo] wav_bytes=118784
+[2026-05-30 13:14:02,683] [INFO] [cosmo] frames=59
+[2026-05-30 13:14:02,683] [INFO] [cosmo] wav_bytes=120832
+[2026-05-30 13:14:02,772] [INFO] [cosmo] frames=60
+[2026-05-30 13:14:02,773] [INFO] [cosmo] wav_bytes=122880
+[2026-05-30 13:14:02,814] [INFO] [cosmo] frames=61
+[2026-05-30 13:14:02,814] [INFO] [cosmo] wav_bytes=124928
+[2026-05-30 13:14:02,863] [INFO] [cosmo] frames=62
+[2026-05-30 13:14:02,864] [INFO] [cosmo] wav_bytes=126976
+[2026-05-30 13:14:02,955] [INFO] [cosmo] frames=63
+[2026-05-30 13:14:02,956] [INFO] [cosmo] wav_bytes=129024
+[2026-05-30 13:14:02,956] [INFO] [cosmo] frames=64
+[2026-05-30 13:14:02,956] [INFO] [cosmo] wav_bytes=131072
+[2026-05-30 13:14:03,046] [INFO] [cosmo] frames=65
+[2026-05-30 13:14:03,046] [INFO] [cosmo] wav_bytes=133120
+[2026-05-30 13:14:03,136] [INFO] [cosmo] frames=66
+[2026-05-30 13:14:03,137] [INFO] [cosmo] wav_bytes=135168
+[2026-05-30 13:14:03,229] [INFO] [cosmo] frames=67
+[2026-05-30 13:14:03,229] [INFO] [cosmo] wav_bytes=137216
+[2026-05-30 13:14:03,230] [INFO] [cosmo] frames=68
+[2026-05-30 13:14:03,230] [INFO] [cosmo] wav_bytes=139264
+[2026-05-30 13:14:03,338] [INFO] [cosmo] frames=69
+[2026-05-30 13:14:03,339] [INFO] [cosmo] wav_bytes=141312
+[2026-05-30 13:14:03,409] [INFO] [cosmo] frames=70
+[2026-05-30 13:14:03,409] [INFO] [cosmo] wav_bytes=143360
+[2026-05-30 13:14:03,411] [INFO] [cosmo] frames=71
+[2026-05-30 13:14:03,411] [INFO] [cosmo] wav_bytes=145408
+[2026-05-30 13:14:03,505] [INFO] [cosmo] frames=72
+[2026-05-30 13:14:03,505] [INFO] [cosmo] wav_bytes=147456
+[2026-05-30 13:14:03,592] [INFO] [cosmo] frames=73
+[2026-05-30 13:14:03,592] [INFO] [cosmo] wav_bytes=149504
+[2026-05-30 13:14:03,592] [INFO] [cosmo] frames=74
+[2026-05-30 13:14:03,593] [INFO] [cosmo] wav_bytes=151552
+[2026-05-30 13:14:03,682] [INFO] [cosmo] frames=75
+[2026-05-30 13:14:03,683] [INFO] [cosmo] wav_bytes=153600
+[2026-05-30 13:14:03,787] [INFO] [cosmo] frames=76
+[2026-05-30 13:14:03,787] [INFO] [cosmo] wav_bytes=155648
+[2026-05-30 13:14:03,864] [INFO] [cosmo] frames=77
+[2026-05-30 13:14:03,864] [INFO] [cosmo] wav_bytes=157696
+[2026-05-30 13:14:03,866] [INFO] [cosmo] frames=78
+[2026-05-30 13:14:03,866] [INFO] [cosmo] wav_bytes=159744
+[2026-05-30 13:14:03,870] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-05-30 13:14:03,870] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-05-30 13:14:03,871] [INFO] [cosmo] [TRACE] 56c02a69-c58e-403a-9dc5-b24815d3e991 queued -> audio_captured (priority=1)
+[2026-05-30 13:14:03,871] [INFO] [cosmo] [TRACE] 5c6c2033-b45b-4898-87f7-a622a40026e8 listener_finished -> on_wake_word_detected
+[2026-05-30 13:14:03,871] [INFO] [cosmo] [TRACE] 56c02a69-c58e-403a-9dc5-b24815d3e991 queue_wait -> 0.0010s
+[2026-05-30 13:14:03,873] [INFO] [cosmo] [TRACE] 56c02a69-c58e-403a-9dc5-b24815d3e991 dispatched -> audio_captured (priority=1)
+[2026-05-30 13:14:03,873] [WARNING] [cosmo] [TRACE] 56c02a69-c58e-403a-9dc5-b24815d3e991 no_listeners -> audio_captured
+[2026-05-30 13:14:03,874] [INFO] [cosmo] [TRACE] 5c6c2033-b45b-4898-87f7-a622a40026e8 event_completed -> wake_word_detected
+[2026-05-30 13:14:06,772] [INFO] [cosmo] Runtime heartbeat

@@ -73,9 +73,9 @@ class AsyncRuntime:
 
         while self.running:
 
-            logger.info(
-                "Runtime heartbeat"
-            )
+            # logger.info(
+            #     "Runtime heartbeat"
+            # )
 
             await asyncio.sleep(5)
 

@@ -102,6 +102,7 @@ class WakewordManager:
         Finaliza captura de áudio.
         """
 
+
         logger.info(
             "Parando wakeword manager"
         )
@@ -112,6 +113,16 @@ class WakewordManager:
 
             self.stream.stop_stream()
             self.stream.close()
+
+            self.stream = None
+
+        logger.info(
+            "Wakeword manager pausado"
+        )
+        
+    async def shutdown(self):
+
+        await self.stop()
 
         self.audio.terminate()
 

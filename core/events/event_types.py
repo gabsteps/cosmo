@@ -7,11 +7,15 @@ WAKE_WORD_DETECTED = "wake_word_detected"
 VOICE_ACTIVITY_STARTED = "voice_activity_started"
 VOICE_ACTIVITY_ENDED = "voice_activity_ended"
 
+
 SPEECH_RECOGNIZED = "speech_recognized"
-SPEECH_RECEIVED = "speech_received"
 
 TTS_STARTED = "tts_started"
 TTS_FINISHED = "tts_finished"
+
+AUDIO_CAPTURE_STARTED = "audio_capture_started"
+
+AUDIO_CAPTURED = "audio_captured"
 
 
 # =========================

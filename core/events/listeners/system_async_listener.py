@@ -67,7 +67,7 @@ async_event_bus.subscribe(
 #     listener_2
 # )
 
-logger.info(
-    f"Metrics: "
-    f"{async_event_bus.get_metrics()}"
-)
+# logger.info(
+#     f"Metrics: "
+#     f"{async_event_bus.get_metrics()}"
+# )
