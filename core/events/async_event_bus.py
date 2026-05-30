@@ -55,7 +55,7 @@ class AsyncEventBus:
 
         self.running = False
 
-        self.listener_timeout = 10
+        self.listener_timeout = 30
 
         self.metrics = {
 

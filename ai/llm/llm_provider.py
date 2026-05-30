@@ -1,19 +1,24 @@
-class MockLLMProvider:
+from cosmo.core.config.settings_manager import (
+    config
+)
 
-    async def generate(
-        self,
-        text: str
-    ) -> str:
-
-        normalized = text.lower().strip()
-
-        if "nome" in normalized:
-
-            return "Meu nome é Cosmo."
-
-        return (
-            f"Você disse: {text}"
-        )
+from cosmo.ai.llm.providers.ollama_provider import (
+    OllamaProvider
+)
 
 
-llm_provider = MockLLMProvider()
+provider = config.get(
+    "llm",
+    "provider"
+)
+
+
+if provider == "ollama":
+
+    llm_provider = OllamaProvider()
+
+else:
+
+    raise ValueError(
+        f"LLM provider inválido: {provider}"
+    )

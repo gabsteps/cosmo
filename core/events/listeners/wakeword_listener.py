@@ -10,6 +10,10 @@ from cosmo.core.runtime.runtime_state import(
     runtime_state
 )
 
+from cosmo.audio.tts.tts_manager import (
+    tts_manager
+)
+
 
 async def on_wake_word_detected(data):
 
@@ -21,8 +25,13 @@ async def on_wake_word_detected(data):
 
     if runtime_state.should_ignore_wakeword():
         return
-    
+
     runtime_state.mode = runtime_state.LISTENING
+
+    await tts_manager.speak(
+        "ooopa"
+    )
+
     await audio_capture_manager.capture()
 
 

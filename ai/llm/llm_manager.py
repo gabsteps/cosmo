@@ -10,6 +10,11 @@ class LLMManager:
         text: str
     ) -> str:
 
+        blocked = ["qwen", "alibaba", "ollama", "inteligência artificial"]
+
+        if any(word in text.lower() for word in blocked):
+            text = "Eu sou Cosmo, seu companheiro inteligente."
+
         return await llm_provider.generate(
             text
         )
