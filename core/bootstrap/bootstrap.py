@@ -92,17 +92,14 @@ class Bootstrap:
             name="AsyncEventBus"
         )
 
-
-
         # =========================
-        # THREADS LEGADAS
+        # WAKEWORD MANAGER
         # =========================
 
-        runtime_manager.start_thread(
-            target=wakeword_manager.start,
+        async_runtime.create_task(
+            wakeword_manager.start(),
             name="WakewordManager"
         )
-
         logger.info(
             "Zenith Cosmo 42 online"
         )

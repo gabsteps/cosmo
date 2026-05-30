@@ -26,46 +26,46 @@ async_event_bus.subscribe(
     on_system_started
 )
 
-async def listener_1(data):
+# async def listener_1(data):
 
-    start = time.time()
+#     start = time.time()
 
-    logger.info("Listener 1 iniciado")
+#     logger.info("Listener 1 iniciado")
 
-    await asyncio.sleep(15)
+#     await asyncio.sleep(15)
 
-    end = time.time()
+#     end = time.time()
 
-    logger.info(
-        f"Listener 1 finalizado "
-        f"em {end - start:.2f}s"
-    )
+#     logger.info(
+#         f"Listener 1 finalizado "
+#         f"em {end - start:.2f}s"
+#     )
 
-async def listener_2(data):
+# async def listener_2(data):
 
-    start = time.time()
+#     start = time.time()
 
-    logger.info("Listener 2 iniciado")
+#     logger.info("Listener 2 iniciado")
 
-    await asyncio.sleep(15)
+#     await asyncio.sleep(15)
 
-    end = time.time()
+#     end = time.time()
 
-    logger.info(
-        f"Listener 2 finalizado "
-        f"em {end - start:.2f}s"
-    )
+#     logger.info(
+#         f"Listener 2 finalizado "
+#         f"em {end - start:.2f}s"
+#     )
 
 
-async_event_bus.subscribe(
-    SYSTEM_STARTED,
-    listener_1
-)
+# async_event_bus.subscribe(
+#     SYSTEM_STARTED,
+#     listener_1
+# )
 
-async_event_bus.subscribe(
-    SYSTEM_STARTED,
-    listener_2
-)
+# async_event_bus.subscribe(
+#     SYSTEM_STARTED,
+#     listener_2
+# )
 
 logger.info(
     f"Metrics: "

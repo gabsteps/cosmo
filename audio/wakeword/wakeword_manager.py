@@ -1,10 +1,13 @@
+import asyncio
 import pyaudio
 
 from cosmo.core.logger.logger_manager import logger
 
 from cosmo.core.config.settings_manager import config
 
-from cosmo.core.events.event_bus import event_bus
+from cosmo.core.events.async_event_bus import (
+    async_event_bus
+)
 
 from cosmo.core.events.event_types import (
     WAKE_WORD_DETECTED
@@ -19,7 +22,6 @@ class WakewordManager:
 
     def __init__(self):
 
-        # Configurações de áudio vindas do YAML
         self.sample_rate = config.get(
             "audio",
             "sample_rate"
@@ -35,24 +37,22 @@ class WakewordManager:
             "channels"
         )
 
-        # Inicializa PyAudio
         self.audio = pyaudio.PyAudio()
 
-        # Stream principal do microfone
         self.stream = None
 
-        # Estado do loop
         self.running = False
 
-    def start(self):
+    async def start(self):
 
         """
         Inicia captura contínua do microfone.
         """
 
-        logger.info("Iniciando wakeword manager")
+        logger.info(
+            "Iniciando wakeword manager"
+        )
 
-        # Abre stream de captura
         self.stream = self.audio.open(
             format=pyaudio.paInt16,
             channels=self.channels,
@@ -63,55 +63,61 @@ class WakewordManager:
 
         self.running = True
 
-        logger.info("Wakeword manager online")
+        logger.info(
+            "Wakeword manager online"
+        )
 
-        # Loop principal
         while self.running:
 
-            # Captura chunk do microfone
-            audio_data = self.stream.read(
-                self.chunk_size,
-                exception_on_overflow=False
+            audio_data = (
+                await asyncio.to_thread(
+                    self.stream.read,
+                    self.chunk_size,
+                    exception_on_overflow=False
+                )
             )
 
-            # Processa áudio
             detected_word = (
                 wakeword_engine.process_audio(
                     audio_data
                 )
             )
 
-            # Wake word detectada
             if detected_word:
-                
-                # Emite evento global
-                event_bus.emit(
+
+                await async_event_bus.emit(
                     WAKE_WORD_DETECTED,
                     {
                         "word": detected_word
-                    }
+                    },
+                    priority=(
+                        async_event_bus
+                        .PRIORITY_AUDIO
+                    )
                 )
 
-    def stop(self):
+    async def stop(self):
 
         """
         Finaliza captura de áudio.
         """
 
-        logger.info("Parando wakeword manager")
+        logger.info(
+            "Parando wakeword manager"
+        )
 
         self.running = False
 
-        # Fecha stream se existir
         if self.stream:
 
             self.stream.stop_stream()
             self.stream.close()
 
-        # Finaliza PyAudio
         self.audio.terminate()
 
-        logger.info("Wakeword manager encerrado")
+        logger.info(
+            "Wakeword manager encerrado"
+        )
 
 
 wakeword_manager = WakewordManager()
