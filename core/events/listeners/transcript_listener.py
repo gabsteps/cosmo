@@ -2,6 +2,10 @@ from cosmo.ai.llm.llm_manager import (
     llm_manager
 )
 
+from cosmo.cognition.conversation.conversation_manager import (
+    conversation_manager
+)
+
 from cosmo.core.logger.logger_manager import (
     logger
 )
@@ -25,7 +29,10 @@ async def on_transcript_ready(
     if not text:
         return
 
-    
+    conversation_manager.add_user_message(
+        text
+    )
+
     logger.info(
         f"Processando transcript: {text}"
     )
@@ -38,14 +45,18 @@ async def on_transcript_ready(
         f"Resposta gerada: {response}"
     )
 
+    conversation_manager.add_assistant_message(
+        response
+    )
+
     await async_event_bus.emit(
-    RESPONSE_GENERATED,
-    {
-        "text": response,
-        "source_text": text
-    },
-    priority=async_event_bus.PRIORITY_COGNITION
-)
+        RESPONSE_GENERATED,
+        {
+            "text": response,
+            "source_text": text
+        },
+        priority=async_event_bus.PRIORITY_COGNITION
+    )
 
 async_event_bus.subscribe(
     TRANSCRIPT_READY,

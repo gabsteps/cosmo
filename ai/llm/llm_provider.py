@@ -2,10 +2,6 @@ from cosmo.core.config.settings_manager import (
     config
 )
 
-from cosmo.ai.llm.providers.ollama_provider import (
-    OllamaProvider
-)
-
 
 provider = config.get(
     "llm",
@@ -13,9 +9,17 @@ provider = config.get(
 )
 
 
-if provider == "ollama":
+if provider == "openrouter":
 
-    llm_provider = OllamaProvider()
+    from cosmo.ai.llm.providers.open_router_provider import (
+        llm_provider
+    )
+
+elif provider == "ollama":
+
+    from cosmo.ai.llm.providers.ollama_provider import (
+        llm_provider
+    )
 
 else:
 

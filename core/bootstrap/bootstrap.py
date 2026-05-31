@@ -1,4 +1,6 @@
 import asyncio
+from dotenv import load_dotenv
+load_dotenv()
 
 from cosmo.core.logger.logger_manager import logger
 
@@ -26,6 +28,7 @@ from cosmo.core.runtime.runtime_manager import (
 from cosmo.audio.wakeword.wakeword_manager import (
     wakeword_manager
 )
+
 
 # =========================
 # IMPORTAR LISTENERS
