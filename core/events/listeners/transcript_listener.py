@@ -1,9 +1,5 @@
-from cosmo.ai.llm.llm_manager import (
-    llm_manager
-)
-
-from cosmo.cognition.conversation.conversation_manager import (
-    conversation_manager
+from cosmo.ai.llm.llm_provider import (
+    llm_provider
 )
 
 from cosmo.core.logger.logger_manager import (
@@ -19,6 +15,10 @@ from cosmo.core.events.event_types import (
     TRANSCRIPT_READY,
 )
 
+from cosmo.cognition.response.response_generator import (
+    response_generator
+)
+
 
 async def on_transcript_ready(
     payload
@@ -29,24 +29,17 @@ async def on_transcript_ready(
     if not text:
         return
 
-    conversation_manager.add_user_message(
-        text
-    )
-
     logger.info(
         f"Processando transcript: {text}"
     )
 
-    response = await llm_manager.generate(
-        text
+    response = await response_generator.generate(
+        user_text=text,
+        llm_provider=llm_provider
     )
 
     logger.info(
         f"Resposta gerada: {response}"
-    )
-
-    conversation_manager.add_assistant_message(
-        response
     )
 
     await async_event_bus.emit(

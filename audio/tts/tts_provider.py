@@ -57,6 +57,8 @@ class PiperTTSProvider:
             f"cosmo_tts_{uuid4().hex}.wav"
         )
 
+        started_at = time.time()
+
         try:
 
             if not text or not text.strip():
@@ -66,6 +68,12 @@ class PiperTTSProvider:
                 )
 
                 return
+
+            text = text.strip()
+
+            logger.info(
+                f"TTS iniciado ({len(text)} caracteres)"
+            )
 
             if not self.model_path.exists():
 
@@ -81,6 +89,8 @@ class PiperTTSProvider:
                 str(output_file)
             ]
 
+            synth_started_at = time.time()
+
             process = await asyncio.create_subprocess_exec(
                 *command,
                 stdin=asyncio.subprocess.PIPE,
@@ -88,8 +98,15 @@ class PiperTTSProvider:
                 stderr=asyncio.subprocess.PIPE
             )
 
-            _, stderr = await process.communicate(
-                input=text.encode("utf-8")
+            _, stderr = await asyncio.wait_for(
+                process.communicate(
+                    input=text.encode("utf-8")
+                ),
+                timeout=60
+            )
+
+            logger.info(
+                f"Piper finalizado em {time.time() - synth_started_at:.2f}s"
             )
 
             if process.returncode != 0:
@@ -112,14 +129,39 @@ class PiperTTSProvider:
                     f"Arquivo TTS inválido: {output_file}"
                 )
 
-            await asyncio.to_thread(
-                subprocess.run,
-                [
-                    "aplay",
-                    str(output_file)
-                ],
-                check=True
+            file_size = output_file.stat().st_size
+
+            logger.info(
+                f"Arquivo TTS gerado: {output_file} ({file_size} bytes)"
             )
+
+            playback_started_at = time.time()
+
+            await asyncio.wait_for(
+                asyncio.to_thread(
+                    subprocess.run,
+                    [
+                        "aplay",
+                        str(output_file)
+                    ],
+                    check=True,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.PIPE
+                ),
+                timeout=90
+            )
+
+            logger.info(
+                f"Playback finalizado em {time.time() - playback_started_at:.2f}s"
+            )
+
+        except asyncio.TimeoutError:
+
+            logger.exception(
+                "Timeout durante TTS ou playback"
+            )
+
+            raise
 
         finally:
 
@@ -147,6 +189,10 @@ class PiperTTSProvider:
 
             asyncio.create_task(
                 self.reset_after_cooldown()
+            )
+
+            logger.info(
+                f"TTS encerrado em {time.time() - started_at:.2f}s"
             )
 
     async def reset_after_cooldown(self):

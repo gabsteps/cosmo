@@ -47,44 +47,77 @@ class WakewordManager:
 
         self.running = False
 
+        self._lock = asyncio.Lock()
+
     async def start(self):
 
-        """
-        Inicia captura contínua do microfone.
-        """
+        async with self._lock:
 
-        logger.info(
-            "Iniciando wakeword manager"
-        )
+            if self.running:
 
-        self.stream = self.audio.open(
-            format=pyaudio.paInt16,
-            channels=self.channels,
-            rate=self.sample_rate,
-            input=True,
-            frames_per_buffer=self.chunk_size
-        )
+                logger.info(
+                    "Wakeword manager já está rodando"
+                )
 
-        self.running = True
+                return
 
-        logger.info(
-            "Wakeword manager online"
-        )
+            logger.info(
+                "Iniciando wakeword manager"
+            )
 
+            self.stream = self.audio.open(
+                format=pyaudio.paInt16,
+                channels=self.channels,
+                rate=self.sample_rate,
+                input=True,
+                frames_per_buffer=self.chunk_size
+            )
+
+            self.running = True
+
+            logger.info(
+                "Wakeword manager online"
+            )
 
         while self.running:
+
             if runtime_state.should_ignore_wakeword():
+
                 await asyncio.sleep(0.1)
+
                 continue
 
+            if not self.stream:
 
-            audio_data = (
-                await asyncio.to_thread(
+                logger.warning(
+                    "Wakeword sem stream ativo"
+                )
+
+                break
+
+            try:
+
+                audio_data = await asyncio.to_thread(
                     self.stream.read,
                     self.chunk_size,
                     exception_on_overflow=False
                 )
-            )
+
+            except OSError as error:
+
+                logger.warning(
+                    f"Wakeword stream interrompido: {error}"
+                )
+
+                break
+
+            except Exception as error:
+
+                logger.error(
+                    f"Erro inesperado no wakeword: {error}"
+                )
+
+                break
 
             detected_word = (
                 wakeword_engine.process_audio(
@@ -105,30 +138,64 @@ class WakewordManager:
                     )
                 )
 
+        await self._cleanup_stream()
+
     async def stop(self):
 
-        """
-        Finaliza captura de áudio.
-        """
+        async with self._lock:
 
+            if not self.running and not self.stream:
 
-        logger.info(
-            "Parando wakeword manager"
-        )
+                logger.info(
+                    "Wakeword manager já está pausado"
+                )
 
-        self.running = False
+                return
 
-        if self.stream:
+            logger.info(
+                "Parando wakeword manager"
+            )
 
-            self.stream.stop_stream()
-            self.stream.close()
+            self.running = False
 
-            self.stream = None
+        await asyncio.sleep(0.1)
+
+        await self._cleanup_stream()
 
         logger.info(
             "Wakeword manager pausado"
         )
-        
+
+    async def _cleanup_stream(self):
+
+        async with self._lock:
+
+            if not self.stream:
+
+                return
+
+            try:
+
+                self.stream.stop_stream()
+
+            except Exception as error:
+
+                logger.warning(
+                    f"Falha ao parar stream wakeword: {error}"
+                )
+
+            try:
+
+                self.stream.close()
+
+            except Exception as error:
+
+                logger.warning(
+                    f"Falha ao fechar stream wakeword: {error}"
+                )
+
+            self.stream = None
+
     async def shutdown(self):
 
         await self.stop()

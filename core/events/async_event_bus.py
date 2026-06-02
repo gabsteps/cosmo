@@ -16,6 +16,9 @@ from collections import defaultdict
 
 from cosmo.core.logger.logger_manager import logger
 
+from cosmo.audio.tts.tts_fallback import (
+    tts_fallback
+)
 
 class AsyncEventBus:
 
@@ -504,6 +507,16 @@ class AsyncEventBus:
                 f"listener_timeout -> "
                 f"{listener.__name__}"
             )
+
+            if event.name in (
+                "transcript_ready",
+                "audio_captured",
+                "response_generated",
+            ):
+                asyncio.create_task(
+                    tts_fallback.speak_timeout_message()
+                )
+
 
             return False
 

@@ -2,16 +2,10 @@ import asyncio
 import json
 import os
 import urllib.request
+import urllib.error
 
 from cosmo.core.logger.logger_manager import logger
-
-from cosmo.core.config.settings_manager import (
-    config
-)
-
-from cosmo.cognition.conversation.conversation_manager import (
-    conversation_manager
-)
+from cosmo.core.config.settings_manager import config
 
 
 class OpenRouterProvider:
@@ -23,7 +17,6 @@ class OpenRouterProvider:
         )
 
         if not self.api_key:
-
             raise RuntimeError(
                 "OPENROUTER_API_KEY não configurada"
             )
@@ -31,11 +24,6 @@ class OpenRouterProvider:
         self.model = config.get(
             "llm",
             "model"
-        )
-
-        self.system_prompt = config.get(
-            "llm",
-            "system_prompt"
         )
 
         self.temperature = config.get(
@@ -59,38 +47,23 @@ class OpenRouterProvider:
 
     async def generate(
         self,
-        text: str
+        messages: list[dict[str, str]]
     ) -> str:
 
         return await asyncio.to_thread(
             self._generate_sync,
-            text
+            messages
         )
 
     def _generate_sync(
         self,
-        text: str
+        messages: list[dict[str, str]]
     ) -> str:
 
-        messages = [
-            {
-                "role": "system",
-                "content": self.system_prompt
-            }
-        ]
-
-        history = conversation_manager.get_history()
-
-        if not history or history[-1]["content"] != text:
-
-            history.append(
-                {
-                    "role": "user",
-                    "content": text
-                }
+        if not messages:
+            raise ValueError(
+                "Lista de mensagens vazia"
             )
-
-        messages.extend(history)
 
         payload = {
             "model": self.model,
@@ -117,19 +90,50 @@ class OpenRouterProvider:
             method="POST"
         )
 
-        with urllib.request.urlopen(
-            request,
-            timeout=self.timeout
-        ) as response:
+        try:
+            with urllib.request.urlopen(
+                request,
+                timeout=self.timeout
+            ) as response:
 
-            data = json.loads(
-                response.read().decode("utf-8")
+                data = json.loads(
+                    response.read().decode("utf-8")
+                )
+
+        except urllib.error.HTTPError as error:
+            body = error.read().decode("utf-8")
+
+            logger.error(
+                f"Erro HTTP OpenRouter {error.code}: {body}"
             )
 
-        return (
-            data["choices"][0]["message"]["content"]
-            .strip()
-        )
+            raise RuntimeError(
+                f"Erro HTTP OpenRouter {error.code}: {body}"
+            ) from error
+
+        except urllib.error.URLError as error:
+            logger.error(
+                f"Erro de conexão com OpenRouter: {error}"
+            )
+
+            raise RuntimeError(
+                f"Erro de conexão com OpenRouter: {error}"
+            ) from error
+
+        try:
+            return (
+                data["choices"][0]["message"]["content"]
+                .strip()
+            )
+
+        except KeyError as error:
+            logger.error(
+                f"Resposta inesperada do OpenRouter: {data}"
+            )
+
+            raise RuntimeError(
+                "Resposta inesperada do OpenRouter"
+            ) from error
 
 
 llm_provider = OpenRouterProvider()

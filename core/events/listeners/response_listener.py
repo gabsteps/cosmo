@@ -23,9 +23,7 @@ async def on_response_generated(
         TTS_STARTED
     )
 
-    await tts_manager.speak(
-        text
-    )
+    tts_manager.speak_background(text)
 
     await async_event_bus.emit(
         TTS_FINISHED

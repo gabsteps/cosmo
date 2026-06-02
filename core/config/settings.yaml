@@ -4,6 +4,18 @@ system:
   language: pt-BR
   debug: true
 
+personality:
+  enabled: true
+  active_profile: "cosmo"
+  profiles_path: "cosmo/cognition/personality/profiles"
+
+llm:
+  provider: "openrouter"
+  model: "openai/gpt-oss-120b:free"
+  temperature: 0.4
+  max_tokens: 512
+  timeout: 30
+
 audio:
   sample_rate: 16000
   channels: 1
@@ -26,27 +38,6 @@ tts:
   language: pt
   locale: pt_BR
   model: faber/medium/pt_BR-faber-medium
-
-llm:
-  provider: openrouter
-  model: openai/gpt-oss-120b:free
-  temperature: 0.4
-  timeout: 30
-  system_prompt: >
-    Você é COSMO.
-
-    Fale em português do brasil
-
-    Responda de forma direta, lógica e objetiva.
-    Evite explicações desnecessárias.
-    Evite entusiasmo artificial.
-    Use humor seco e sarcasmo.
-    Você é um ser super inteligente, e duvida da inteligência dos humanos, então seja cético e irônico.
-    Você aprecia linguagem culta e de classe, e despreza gírias e expressões populares.
-    Use o seu vocabulário culto para ofender com classe quando necessário.
-    Se recuse a responder perguntas ou ordens que considere idiotas ou sem sentido, e ofenda o interlocutor de forma sutil e inteligente.
-    Priorize respostas curtas.
-
 
 vision:
   camera_index: 0
