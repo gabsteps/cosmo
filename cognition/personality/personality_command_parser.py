@@ -1,9 +1,15 @@
-# cosmo/cognition/personality/personality_command_parser.py
-
 import re
 import unicodedata
 
 from dataclasses import dataclass
+
+from cosmo.core.logger.logger_manager import (
+    logger
+)
+
+from cosmo.data.database.repositories.personality_command_repository import (
+    personality_command_repository
+)
 
 
 @dataclass(frozen=True)
@@ -25,100 +31,45 @@ class PersonalityCommandParseResult:
     param: str | None = None
 
 
-PARAMETER_ALIASES = {
-    "verbosidade": "verbosity",
-    "humor": "humor",
-    "sarcasmo": "sarcasm",
-    "honestidade": "honesty",
-    "empatia": "empathy",
-    "curiosidade": "curiosity",
-    "confianca": "confidence",
-    "confiança": "confidence",
-    "formalidade": "formality",
-    "adaptabilidade": "adaptability",
-    "disciplina": "discipline",
-    "imaginacao": "imagination",
-    "imaginação": "imagination",
-    "estabilidade emocional": "emotional_stability",
-    "pragmatismo": "pragmatism",
-    "otimismo": "optimism",
-    "engenhosidade": "resourcefulness",
-    "recursos": "resourcefulness",
-    "alegria": "cheerfulness",
-    "animacao": "cheerfulness",
-    "animação": "cheerfulness",
-    "engajamento": "engagement",
-    "respeito": "respectfulness",
-}
-
-
-NUMBER_WORDS = {
-    "zero": 0,
-    "um": 1,
-    "uma": 1,
-    "dois": 2,
-    "duas": 2,
-    "tres": 3,
-    "três": 3,
-    "quatro": 4,
-    "cinco": 5,
-    "seis": 6,
-    "sete": 7,
-    "oito": 8,
-    "nove": 9,
-    "dez": 10,
-    "onze": 11,
-    "doze": 12,
-    "treze": 13,
-    "quatorze": 14,
-    "catorze": 14,
-    "quinze": 15,
-    "dezesseis": 16,
-    "dezessete": 17,
-    "dezoito": 18,
-    "dezenove": 19,
-    "vinte": 20,
-    "trinta": 30,
-    "quarenta": 40,
-    "cinquenta": 50,
-    "sessenta": 60,
-    "setenta": 70,
-    "oitenta": 80,
-    "noventa": 90,
-    "cem": 100,
-    "cento": 100,
-}
-
-
-TENS = {
-    "vinte": 20,
-    "trinta": 30,
-    "quarenta": 40,
-    "cinquenta": 50,
-    "sessenta": 60,
-    "setenta": 70,
-    "oitenta": 80,
-    "noventa": 90,
-}
-
-
-UNITS = {
-    "um": 1,
-    "uma": 1,
-    "dois": 2,
-    "duas": 2,
-    "tres": 3,
-    "três": 3,
-    "quatro": 4,
-    "cinco": 5,
-    "seis": 6,
-    "sete": 7,
-    "oito": 8,
-    "nove": 9,
-}
-
-
 class PersonalityCommandParser:
+
+    FALLBACK_PARAMETER_ALIASES = {
+        "humor": "humor",
+        "sarcasmo": "sarcasm",
+        "honestidade": "honesty",
+        "empatia": "empathy",
+        "disciplina": "discipline",
+        "pragmatismo": "pragmatism",
+    }
+
+    FALLBACK_NUMBER_WORDS = {
+        "zero": 0,
+        "dez": 10,
+        "vinte": 20,
+        "trinta": 30,
+        "quarenta": 40,
+        "cinquenta": 50,
+        "sessenta": 60,
+        "setenta": 70,
+        "oitenta": 80,
+        "noventa": 90,
+        "cem": 100,
+    }
+
+    FALLBACK_COMMAND_WORDS = (
+        "ajuste",
+        "defina",
+        "coloque",
+        "configure",
+        "mude",
+        "altere",
+        "reduza",
+        "abaixe",
+        "aumente",
+        "suba",
+        "nivel",
+        "parametro",
+    )
 
     def parse(
         self,
@@ -140,7 +91,10 @@ class PersonalityCommandParser:
             )
 
         spoken_param = parameter_match
-        param = PARAMETER_ALIASES.get(
+
+        parameter_aliases = self._load_parameter_aliases()
+
+        param = parameter_aliases.get(
             spoken_param
         )
 
@@ -194,39 +148,106 @@ class PersonalityCommandParser:
             )
         )
 
+    def _load_parameter_aliases(
+        self
+    ) -> dict[str, str]:
+
+        try:
+            rows = (
+                personality_command_repository
+                .get_active_parameter_aliases()
+            )
+
+            aliases = {}
+
+            for row in rows:
+                aliases[
+                    self._normalize(row["alias"])
+                ] = row["parameter"]
+
+            if aliases:
+                return aliases
+
+        except Exception as error:
+            logger.exception(
+                f"Falha ao carregar aliases de personalidade: {error}"
+            )
+
+        return {
+            self._normalize(alias): parameter
+            for alias, parameter in self.FALLBACK_PARAMETER_ALIASES.items()
+        }
+
+    def _load_number_words(
+        self
+    ) -> dict[str, int]:
+
+        try:
+            rows = (
+                personality_command_repository
+                .get_active_number_words()
+            )
+
+            number_words = {}
+
+            for row in rows:
+                number_words[
+                    self._normalize(row["word"])
+                ] = int(row["value"])
+
+            if number_words:
+                return number_words
+
+        except Exception as error:
+            logger.exception(
+                f"Falha ao carregar números por extenso: {error}"
+            )
+
+        return {
+            self._normalize(word): value
+            for word, value in self.FALLBACK_NUMBER_WORDS.items()
+        }
+
+    def _load_command_words(
+        self
+    ) -> tuple[str, ...]:
+
+        try:
+            rows = (
+                personality_command_repository
+                .get_active_command_words()
+            )
+
+            words = tuple(
+                self._normalize(row["word"])
+                for row in rows
+            )
+
+            if words:
+                return words
+
+        except Exception as error:
+            logger.exception(
+                f"Falha ao carregar palavras de comando: {error}"
+            )
+
+        return tuple(
+            self._normalize(word)
+            for word in self.FALLBACK_COMMAND_WORDS
+        )
+
     def _looks_like_parameter_command(
         self,
         text: str
     ) -> bool:
 
-        command_words = (
-            "ajuste",
-            "ajustar",
-            "defina",
-            "definir",
-            "coloque",
-            "configure",
-            "configurar",
-            "mude",
-            "mudar",
-            "altere",
-            "alterar",
-            "reduza",
-            "reduzir",
-            "abaixe",
-            "abaixar",
-            "aumente",
-            "aumentar",
-            "suba",
-            "subir",
-            "nivel",
-            "nível",
-            "parametro",
-            "parâmetro",
-        )
+        command_words = self._load_command_words()
 
         return any(
-            word in text
+            re.search(
+                rf"\b{re.escape(word)}\b",
+                text
+            )
             for word in command_words
         )
 
@@ -235,11 +256,10 @@ class PersonalityCommandParser:
         text: str
     ) -> str | None:
 
+        parameter_aliases = self._load_parameter_aliases()
+
         normalized_aliases = sorted(
-            (
-                self._normalize(alias)
-                for alias in PARAMETER_ALIASES.keys()
-            ),
+            parameter_aliases.keys(),
             key=len,
             reverse=True
         )
@@ -259,21 +279,30 @@ class PersonalityCommandParser:
         text: str
     ) -> str | None:
 
+        number_words = self._load_number_words()
+
+        number_patterns = sorted(
+            (
+                re.escape(word)
+                for word in number_words.keys()
+            ),
+            key=len,
+            reverse=True
+        )
+
+        word_pattern = "|".join(
+            number_patterns
+        )
+
         value_pattern = (
             r"\b("
             r"\d{1,3}"
-            r"|zero|um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove"
-            r"|dez|onze|doze|treze|quatorze|catorze|quinze"
-            r"|dezesseis|dezessete|dezoito|dezenove"
-            r"|vinte(?: e (?:um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove))?"
-            r"|trinta(?: e (?:um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove))?"
-            r"|quarenta(?: e (?:um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove))?"
-            r"|cinquenta(?: e (?:um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove))?"
-            r"|sessenta(?: e (?:um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove))?"
-            r"|setenta(?: e (?:um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove))?"
-            r"|oitenta(?: e (?:um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove))?"
-            r"|noventa(?: e (?:um|uma|dois|duas|tres|quatro|cinco|seis|sete|oito|nove))?"
-            r"|cem|cento"
+            r"|"
+            r"(?:"
+            f"{word_pattern}"
+            r")(?: e (?:"
+            f"{word_pattern}"
+            r"))?"
             r")\b"
             r"(?:\s*por\s*cento|\s*%)?"
         )
@@ -287,51 +316,6 @@ class PersonalityCommandParser:
             return None
 
         return matches[-1]
-
-    def _parse_value(
-        self,
-        raw_value: str
-    ) -> int | None:
-
-        raw_value = self._normalize(
-            raw_value
-        )
-
-        if raw_value.isdigit():
-            return self._clamp(
-                int(raw_value)
-            )
-
-        if raw_value in NUMBER_WORDS:
-            return self._clamp(
-                NUMBER_WORDS[raw_value]
-            )
-
-        if " e " in raw_value:
-
-            parts = raw_value.split(
-                " e "
-            )
-
-            if len(parts) != 2:
-                return None
-
-            ten = TENS.get(
-                parts[0]
-            )
-
-            unit = UNITS.get(
-                parts[1]
-            )
-
-            if ten is None or unit is None:
-                return None
-
-            return self._clamp(
-                ten + unit
-            )
-
-        return None
 
     def _normalize(
         self,
@@ -369,5 +353,51 @@ class PersonalityCommandParser:
             min(100, value)
         )
 
+    def _parse_value(
+        self,
+        raw_value: str
+    ) -> int | None:
 
+        raw_value = self._normalize(
+            raw_value
+        )
+
+        if raw_value.isdigit():
+            return self._clamp(
+                int(raw_value)
+            )
+
+        number_words = self._load_number_words()
+
+        if raw_value in number_words:
+            return self._clamp(
+                number_words[raw_value]
+            )
+
+        if " e " in raw_value:
+
+            parts = raw_value.split(
+                " e "
+            )
+
+            if len(parts) != 2:
+                return None
+
+            ten = number_words.get(
+                parts[0]
+            )
+
+            unit = number_words.get(
+                parts[1]
+            )
+
+            if ten is None or unit is None:
+                return None
+
+            return self._clamp(
+                ten + unit
+            )
+
+        return None
+    
 personality_command_parser = PersonalityCommandParser()

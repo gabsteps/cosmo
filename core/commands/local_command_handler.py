@@ -2,6 +2,9 @@ from cosmo.data.diagnostics.diagnostics_manager import (
     diagnostics_manager
 )
 
+from cosmo.cognition.memory.memory_manager import (
+    memory_manager
+)
 
 class LocalCommandHandler:
 
@@ -12,6 +15,12 @@ class LocalCommandHandler:
 
         if command == "system_status":
             return self._system_status()
+
+        if command == "memory_list":
+            return self._memory_list()
+
+        if command == "memory_clear":
+            return self._memory_clear()
 
         return None
 
@@ -69,5 +78,38 @@ class LocalCommandHandler:
             f"{error_line}"
         )
 
+    def _memory_list(
+        self
+    ) -> str:
 
+        memory_context = memory_manager.list_memory_context(
+            limit=10
+        )
+
+        if memory_context.startswith(
+            "Não tenho"
+        ):
+            return memory_context
+
+        return (
+            "Memórias persistentes registradas:\n"
+            f"{memory_context}"
+        )
+
+
+    def _memory_clear(
+        self
+    ) -> str:
+
+        count = memory_manager.clear_all_memories()
+
+        if count == 0:
+            return (
+                "Não havia memórias persistentes para apagar."
+            )
+
+        return (
+            f"{count} memórias persistentes apagadas. "
+            "A lousa está limpa. Perturbadoramente limpa."
+        )
 local_command_handler = LocalCommandHandler()

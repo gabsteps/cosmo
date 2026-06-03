@@ -37,6 +37,10 @@ from cosmo.core.commands.local_command_handler import (
     local_command_handler
 )
 
+from cosmo.cognition.memory.memory_manager import (
+    memory_manager
+)
+
 class ResponseGenerator:
 
     def __init__(self):
@@ -95,6 +99,24 @@ class ResponseGenerator:
                 "content": system_prompt
             }
         ]
+
+        memory_context = memory_manager.build_memory_context(
+            user_text=user_text
+        )
+
+        if memory_context:
+
+            messages.append(
+                {
+                    "role": "system",
+                    "content": (
+                        "MEMÓRIAS RELEVANTES:\n"
+                        f"{memory_context}\n\n"
+                        "Use essas memórias apenas quando forem úteis para responder. "
+                        "Não mencione que está usando memória."
+                    )
+                }
+            )
 
         messages.extend(
             conversation_manager.get_history()
@@ -170,36 +192,45 @@ class ResponseGenerator:
 
         if not user_text:
             return fallback_manager.stt_empty()
-        
-        local_command = local_command_parser.parse(
-            user_text
-        )
 
-        if local_command:
+        try:
 
-            response_text = local_command_handler.handle(
-                local_command
+            local_command = local_command_parser.parse(
+                user_text
             )
 
-            if response_text:
+            if local_command:
 
-                conversation_manager.add_user_message(
-                    user_text
+                response_text = local_command_handler.handle(
+                    local_command
                 )
 
-                conversation_manager.add_assistant_message(
-                    response_text
-                )
+                if response_text:
 
-                return response_text
-            
-        try:
+                    conversation_manager.add_user_message(
+                        user_text
+                    )
+
+                    conversation_manager.add_assistant_message(
+                        response_text
+                    )
+
+                    memory_manager.process_interaction(
+                        user_text=user_text,
+                        assistant_text=response_text,
+                        extract_memories=False
+                    )
+
+                    return response_text
 
             parse_result = personality_command_parser.parse(
                 user_text
             )
 
-            if parse_result.is_personality_command and not parse_result.is_complete:
+            if (
+                parse_result.is_personality_command
+                and not parse_result.is_complete
+            ):
 
                 response_text = fallback_manager.command_incomplete()
 
@@ -213,7 +244,46 @@ class ResponseGenerator:
 
                 return response_text
 
+            if parse_result.is_complete and parse_result.command:
 
+                command = parse_result.command
+
+                personality_state.set(
+                    command.param,
+                    command.value
+                )
+
+                personality_persistence.save(
+                    active_profile=self.persona.id,
+                    parameters=personality_state.all()
+                )
+
+                final_value = personality_state.get(
+                    command.param
+                )
+
+                response_text = await self.generate_personality_confirmation(
+                    spoken_param=command.spoken_param,
+                    param=command.param,
+                    value=final_value,
+                    llm_provider=llm_provider
+                )
+
+                conversation_manager.add_user_message(
+                    user_text
+                )
+
+                conversation_manager.add_assistant_message(
+                    response_text
+                )
+
+                memory_manager.process_interaction(
+                    user_text=user_text,
+                    assistant_text=response_text,
+                    extract_memories=False
+                )
+
+                return response_text
 
             messages = self.build_messages(
                 user_text
@@ -229,6 +299,12 @@ class ResponseGenerator:
 
             conversation_manager.add_assistant_message(
                 response_text
+            )
+
+            memory_manager.process_interaction(
+                user_text=user_text,
+                assistant_text=response_text,
+                extract_memories=True
             )
 
             return response_text
