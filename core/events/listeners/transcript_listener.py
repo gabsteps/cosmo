@@ -24,20 +24,28 @@ from cosmo.core.runtime.runtime_state import (
 )
 
 
-async def on_transcript_ready(
-    payload
-):
+async def on_transcript_ready(payload):
 
     text = payload.get("text", "").strip()
 
     if not text:
+        logger.warning(
+            "transcript_ready ignorado: texto vazio"
+        )
+        return
+
+    if not runtime_state.can_start_thinking():
+        logger.info(
+            "Transcript ignorado: geração de resposta já em andamento"
+        )
         return
 
     logger.info(
         f"Processando transcript em background: {text}"
     )
+
     runtime_state.set_thinking(text)
-    
+
     asyncio.create_task(
         conversation_pipeline.process_text(text)
     )

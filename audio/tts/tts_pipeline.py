@@ -12,10 +12,7 @@ from cosmo.core.runtime.runtime_state import (
 
 class TTSPipeline:
 
-    async def speak_response(
-        self,
-        text: str
-    ) -> None:
+    async def speak_response(self, text: str) -> None:
 
         text = text.strip()
 
@@ -25,30 +22,26 @@ class TTSPipeline:
             )
             return
 
-        try:
-            runtime_state.set_speaking(
-                text
+        if not runtime_state.can_start_speaking():
+            logger.info(
+                "TTS ignorado: fala já em andamento"
             )
+            return
 
-            await tts_manager.speak(
-                text
-            )
+        try:
+            runtime_state.set_speaking(text)
+
+            await tts_manager.speak(text)
 
         except Exception as error:
-
             logger.exception(
                 f"Erro no TTSPipeline: {error}"
             )
 
         finally:
+            runtime_state.set_cooldown(seconds=2.0)
 
-            runtime_state.set_cooldown(
-                seconds=2.0
-            )
-
-            await asyncio.sleep(
-                2.0
-            )
+            await asyncio.sleep(2.0)
 
             runtime_state.set_idle()
 

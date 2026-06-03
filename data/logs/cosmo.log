@@ -30247,3 +30247,151 @@ AttributeError: 'RuntimeState' object has no attribute 'PROCESSING'
 [2026-06-03 00:29:55,434] [INFO] [cosmo] [TRACE] 28ec5e41-bb41-47e5-aeee-e8f0ad4fa82b dispatched -> tts_finished (priority=1)
 [2026-06-03 00:29:55,434] [WARNING] [cosmo] [TRACE] 28ec5e41-bb41-47e5-aeee-e8f0ad4fa82b no_listeners -> tts_finished
 [2026-06-03 00:29:57,434] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-03 00:42:25,956] [INFO] [cosmo] Listener registrado: transcript_ready -> on_transcript_ready
+[2026-06-03 00:43:00,164] [INFO] [cosmo] Listener registrado: transcript_ready -> on_transcript_ready
+[2026-06-03 00:43:00,166] [INFO] [cosmo] Listener registrado: response_generated -> on_response_generated
+[2026-06-03 00:43:00,166] [INFO] [cosmo] Listener registrado: response_generated -> on_test_response_generated
+[2026-06-03 00:43:00,166] [INFO] [cosmo] Processando transcript em background: primeira pergunta
+[2026-06-03 00:43:00,167] [INFO] [cosmo] Runtime mode: idle -> thinking (generating response)
+[2026-06-03 00:43:00,167] [INFO] [cosmo] Transcript ignorado: geração de resposta já em andamento
+[2026-06-03 00:43:00,167] [INFO] [cosmo] Async event bus online
+[2026-06-03 00:43:00,167] [INFO] [cosmo] ConversationPipeline iniciado: primeira pergunta
+[2026-06-03 00:43:05,177] [INFO] [cosmo] ConversationPipeline resposta: Resposta lenta mock.
+[2026-06-03 00:43:05,177] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-03 00:43:05,178] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-03 00:43:05,178] [INFO] [cosmo] [TRACE] fa23294e-446d-4026-b5fe-b3e4b4478878 queued -> response_generated (priority=3)
+[2026-06-03 00:43:05,178] [INFO] [cosmo] [TRACE] fa23294e-446d-4026-b5fe-b3e4b4478878 queue_wait -> 0.0005s
+[2026-06-03 00:43:05,178] [INFO] [cosmo] [TRACE] fa23294e-446d-4026-b5fe-b3e4b4478878 dispatched -> response_generated (priority=3)
+[2026-06-03 00:43:05,179] [INFO] [cosmo] [TRACE] fa23294e-446d-4026-b5fe-b3e4b4478878 listener_started -> on_response_generated
+[2026-06-03 00:43:05,179] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:43:05,179] [INFO] [cosmo] [TRACE] fa23294e-446d-4026-b5fe-b3e4b4478878 listener_finished -> on_response_generated
+[2026-06-03 00:43:05,179] [INFO] [cosmo] [TRACE] fa23294e-446d-4026-b5fe-b3e4b4478878 listener_started -> on_test_response_generated
+[2026-06-03 00:43:05,179] [INFO] [cosmo] [TRACE] fa23294e-446d-4026-b5fe-b3e4b4478878 listener_finished -> on_test_response_generated
+[2026-06-03 00:43:05,179] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-03 00:43:05,180] [INFO] [cosmo] TTS iniciado (20 caracteres)
+[2026-06-03 00:43:05,181] [INFO] [cosmo] [TRACE] fa23294e-446d-4026-b5fe-b3e4b4478878 event_completed -> response_generated
+[2026-06-03 00:43:07,671] [INFO] [cosmo] Runtime mode: speaking -> idle (system ready)
+[2026-06-03 00:43:07,672] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:43:07,672] [INFO] [cosmo] Runtime mode: idle -> speaking (tts started)
+[2026-06-03 00:43:07,672] [INFO] [cosmo] TTS iniciado (77 caracteres)
+[2026-06-03 00:43:07,876] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:43:07,876] [INFO] [cosmo] TTS ignorado: fala já em andamento
+[2026-06-03 00:43:07,984] [INFO] [cosmo] Piper finalizado em 2.80s
+[2026-06-03 00:43:07,985] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_96229d500ad54bb8b936a168255a20bc.wav (48684 bytes)
+[2026-06-03 00:43:09,200] [INFO] [cosmo] Playback finalizado em 1.22s
+[2026-06-03 00:43:09,201] [INFO] [cosmo] TTS encerrado em 4.02s
+[2026-06-03 00:43:09,201] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-03 00:43:10,842] [INFO] [cosmo] Piper finalizado em 3.17s
+[2026-06-03 00:43:10,842] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_0b8d25c96f2543108e8de526d05dbaf8.wav (189484 bytes)
+[2026-06-03 00:43:11,202] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-03 00:43:15,229] [INFO] [cosmo] Playback finalizado em 4.39s
+[2026-06-03 00:43:15,230] [INFO] [cosmo] TTS encerrado em 7.56s
+[2026-06-03 00:43:15,230] [INFO] [cosmo] Runtime mode: idle -> cooldown (cooldown 2.0s)
+[2026-06-03 00:43:17,232] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-03 00:51:34,423] [INFO] [cosmo] Listener registrado: transcript_ready -> on_transcript_ready
+[2026-06-03 00:51:34,423] [INFO] [cosmo] Listener registrado: response_generated -> on_response_generated
+[2026-06-03 00:51:34,424] [INFO] [cosmo] Listener registrado: response_generated -> on_test_response_generated
+[2026-06-03 00:51:34,424] [INFO] [cosmo] Processando transcript em background: primeira pergunta
+[2026-06-03 00:51:34,424] [INFO] [cosmo] Runtime mode: idle -> thinking (generating response)
+[2026-06-03 00:51:34,424] [INFO] [cosmo] Transcript ignorado: geração de resposta já em andamento
+[2026-06-03 00:51:34,425] [INFO] [cosmo] Async event bus online
+[2026-06-03 00:51:34,425] [INFO] [cosmo] ConversationPipeline iniciado: primeira pergunta
+[2026-06-03 00:51:34,926] [INFO] [cosmo] Runtime mode: thinking -> idle (system ready)
+[2026-06-03 00:51:34,926] [INFO] [cosmo] Processando transcript em background: primeira pergunta
+[2026-06-03 00:51:34,926] [INFO] [cosmo] Runtime mode: idle -> thinking (generating response)
+[2026-06-03 00:51:34,926] [INFO] [cosmo] Transcript ignorado: geração de resposta já em andamento
+[2026-06-03 00:51:34,926] [INFO] [cosmo] ConversationPipeline iniciado: primeira pergunta
+[2026-06-03 00:51:39,430] [INFO] [cosmo] ConversationPipeline resposta: Resposta lenta mock.
+[2026-06-03 00:51:39,430] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-03 00:51:39,431] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-03 00:51:39,431] [INFO] [cosmo] [TRACE] 85043d84-b48b-48c9-8fb2-2045e0acc2cd queued -> response_generated (priority=3)
+[2026-06-03 00:51:39,432] [INFO] [cosmo] [TRACE] 85043d84-b48b-48c9-8fb2-2045e0acc2cd queue_wait -> 0.0008s
+[2026-06-03 00:51:39,432] [INFO] [cosmo] [TRACE] 85043d84-b48b-48c9-8fb2-2045e0acc2cd dispatched -> response_generated (priority=3)
+[2026-06-03 00:51:39,433] [INFO] [cosmo] [TRACE] 85043d84-b48b-48c9-8fb2-2045e0acc2cd listener_started -> on_response_generated
+[2026-06-03 00:51:39,433] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:51:39,434] [INFO] [cosmo] [TRACE] 85043d84-b48b-48c9-8fb2-2045e0acc2cd listener_finished -> on_response_generated
+[2026-06-03 00:51:39,434] [INFO] [cosmo] [TRACE] 85043d84-b48b-48c9-8fb2-2045e0acc2cd listener_started -> on_test_response_generated
+[2026-06-03 00:51:39,434] [INFO] [cosmo] [TRACE] 85043d84-b48b-48c9-8fb2-2045e0acc2cd listener_finished -> on_test_response_generated
+[2026-06-03 00:51:39,435] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-03 00:51:39,435] [INFO] [cosmo] TTS iniciado (20 caracteres)
+[2026-06-03 00:51:39,436] [INFO] [cosmo] [TRACE] 85043d84-b48b-48c9-8fb2-2045e0acc2cd event_completed -> response_generated
+[2026-06-03 00:51:39,928] [INFO] [cosmo] ConversationPipeline resposta: Resposta lenta mock.
+[2026-06-03 00:51:39,928] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-03 00:51:39,928] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-03 00:51:39,928] [INFO] [cosmo] [TRACE] 58baaac5-4a7b-468b-8410-fece9621ea2e queued -> response_generated (priority=3)
+[2026-06-03 00:51:39,928] [INFO] [cosmo] [TRACE] 58baaac5-4a7b-468b-8410-fece9621ea2e queue_wait -> 0.0003s
+[2026-06-03 00:51:39,929] [INFO] [cosmo] [TRACE] 58baaac5-4a7b-468b-8410-fece9621ea2e dispatched -> response_generated (priority=3)
+[2026-06-03 00:51:39,929] [INFO] [cosmo] [TRACE] 58baaac5-4a7b-468b-8410-fece9621ea2e listener_started -> on_response_generated
+[2026-06-03 00:51:39,929] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:51:39,929] [INFO] [cosmo] [TRACE] 58baaac5-4a7b-468b-8410-fece9621ea2e listener_finished -> on_response_generated
+[2026-06-03 00:51:39,929] [INFO] [cosmo] [TRACE] 58baaac5-4a7b-468b-8410-fece9621ea2e listener_started -> on_test_response_generated
+[2026-06-03 00:51:39,929] [INFO] [cosmo] [TRACE] 58baaac5-4a7b-468b-8410-fece9621ea2e listener_finished -> on_test_response_generated
+[2026-06-03 00:51:39,929] [INFO] [cosmo] TTS ignorado: fala já em andamento
+[2026-06-03 00:51:39,929] [INFO] [cosmo] [TRACE] 58baaac5-4a7b-468b-8410-fece9621ea2e event_completed -> response_generated
+[2026-06-03 00:51:42,097] [INFO] [cosmo] Piper finalizado em 2.66s
+[2026-06-03 00:51:42,097] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_030e89f1c0f148a5bf20b394eeb4c99c.wav (47660 bytes)
+[2026-06-03 00:51:43,304] [INFO] [cosmo] Playback finalizado em 1.21s
+[2026-06-03 00:51:43,304] [INFO] [cosmo] TTS encerrado em 3.87s
+[2026-06-03 00:51:43,305] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-03 00:51:45,305] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-03 00:51:45,371] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:51:45,372] [INFO] [cosmo] Runtime mode: idle -> speaking (tts started)
+[2026-06-03 00:51:45,372] [INFO] [cosmo] TTS iniciado (77 caracteres)
+[2026-06-03 00:51:45,572] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:51:45,572] [INFO] [cosmo] TTS ignorado: fala já em andamento
+[2026-06-03 00:51:48,394] [INFO] [cosmo] Piper finalizado em 3.02s
+[2026-06-03 00:51:48,394] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_29aa7f074c004127b41fdadebecd7291.wav (184876 bytes)
+[2026-06-03 00:51:52,658] [INFO] [cosmo] Playback finalizado em 4.26s
+[2026-06-03 00:51:52,659] [INFO] [cosmo] TTS encerrado em 7.29s
+[2026-06-03 00:51:52,659] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-03 00:51:54,661] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-03 00:52:04,583] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:52:04,583] [INFO] [cosmo] Runtime mode: idle -> speaking (tts started)
+[2026-06-03 00:52:04,584] [INFO] [cosmo] TTS iniciado (77 caracteres)
+[2026-06-03 00:52:04,784] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:52:04,785] [INFO] [cosmo] TTS ignorado: fala já em andamento
+[2026-06-03 00:52:07,709] [INFO] [cosmo] Piper finalizado em 3.12s
+[2026-06-03 00:52:07,709] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_6052564cc252466790d644039bc6de3c.wav (189484 bytes)
+[2026-06-03 00:52:12,178] [INFO] [cosmo] Playback finalizado em 4.47s
+[2026-06-03 00:52:12,178] [INFO] [cosmo] TTS encerrado em 7.59s
+[2026-06-03 00:52:12,178] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-03 00:52:14,181] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-03 00:54:17,854] [INFO] [cosmo] Listener registrado: transcript_ready -> on_transcript_ready
+[2026-06-03 00:54:17,855] [INFO] [cosmo] Listener registrado: response_generated -> on_response_generated
+[2026-06-03 00:54:17,855] [INFO] [cosmo] Listener registrado: response_generated -> on_test_response_generated
+[2026-06-03 00:54:17,855] [INFO] [cosmo] Processando transcript em background: primeira pergunta
+[2026-06-03 00:54:17,855] [INFO] [cosmo] Runtime mode: idle -> thinking (generating response)
+[2026-06-03 00:54:17,856] [INFO] [cosmo] Transcript ignorado: geração de resposta já em andamento
+[2026-06-03 00:54:17,856] [INFO] [cosmo] Async event bus online
+[2026-06-03 00:54:17,856] [INFO] [cosmo] ConversationPipeline iniciado: primeira pergunta
+[2026-06-03 00:54:22,860] [INFO] [cosmo] ConversationPipeline resposta: Resposta lenta mock.
+[2026-06-03 00:54:22,860] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-03 00:54:22,861] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-03 00:54:22,861] [INFO] [cosmo] [TRACE] 2abc824f-b7b5-4acc-a959-43439cd1dab9 queued -> response_generated (priority=3)
+[2026-06-03 00:54:22,861] [INFO] [cosmo] [TRACE] 2abc824f-b7b5-4acc-a959-43439cd1dab9 queue_wait -> 0.0006s
+[2026-06-03 00:54:22,861] [INFO] [cosmo] [TRACE] 2abc824f-b7b5-4acc-a959-43439cd1dab9 dispatched -> response_generated (priority=3)
+[2026-06-03 00:54:22,862] [INFO] [cosmo] [TRACE] 2abc824f-b7b5-4acc-a959-43439cd1dab9 listener_started -> on_response_generated
+[2026-06-03 00:54:22,862] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:54:22,862] [INFO] [cosmo] [TRACE] 2abc824f-b7b5-4acc-a959-43439cd1dab9 listener_finished -> on_response_generated
+[2026-06-03 00:54:22,862] [INFO] [cosmo] [TRACE] 2abc824f-b7b5-4acc-a959-43439cd1dab9 listener_started -> on_test_response_generated
+[2026-06-03 00:54:22,862] [INFO] [cosmo] [TRACE] 2abc824f-b7b5-4acc-a959-43439cd1dab9 listener_finished -> on_test_response_generated
+[2026-06-03 00:54:22,863] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-03 00:54:22,863] [INFO] [cosmo] TTS iniciado (20 caracteres)
+[2026-06-03 00:54:22,864] [INFO] [cosmo] [TRACE] 2abc824f-b7b5-4acc-a959-43439cd1dab9 event_completed -> response_generated
+[2026-06-03 00:54:25,591] [INFO] [cosmo] Piper finalizado em 2.73s
+[2026-06-03 00:54:25,591] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_1fd623bf6c234a3c863c3413abee9127.wav (52268 bytes)
+[2026-06-03 00:54:26,923] [INFO] [cosmo] Playback finalizado em 1.33s
+[2026-06-03 00:54:26,923] [INFO] [cosmo] TTS encerrado em 4.06s
+[2026-06-03 00:54:26,925] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-03 00:54:28,926] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-03 00:54:29,003] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:54:29,003] [INFO] [cosmo] Runtime mode: idle -> speaking (tts started)
+[2026-06-03 00:54:29,004] [INFO] [cosmo] TTS iniciado (77 caracteres)
+[2026-06-03 00:54:29,207] [INFO] [cosmo] TTS será executado em background
+[2026-06-03 00:54:29,207] [INFO] [cosmo] TTS ignorado: fala já em andamento
+[2026-06-03 00:54:32,061] [INFO] [cosmo] Piper finalizado em 3.06s
+[2026-06-03 00:54:32,062] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_a820a17e5c424a72884082c02feca880.wav (184364 bytes)
+[2026-06-03 00:54:36,326] [INFO] [cosmo] Playback finalizado em 4.26s
+[2026-06-03 00:54:36,326] [INFO] [cosmo] TTS encerrado em 7.32s
+[2026-06-03 00:54:36,327] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-03 00:54:38,329] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
