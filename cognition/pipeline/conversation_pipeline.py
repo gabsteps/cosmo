@@ -18,6 +18,9 @@ from cosmo.core.events.event_types import (
     RESPONSE_GENERATED
 )
 
+from cosmo.core.fallback.fallback_manager import (
+    fallback_manager
+)
 
 class ConversationPipeline:
 
@@ -49,7 +52,7 @@ class ConversationPipeline:
 
         if not text:
             await self._emit_response(
-                response_text="Não entendi o que disse.",
+                response_text=fallback_manager.stt_empty(),
                 source_text=text
             )
             return
@@ -86,12 +89,12 @@ class ConversationPipeline:
 
         except (asyncio.TimeoutError, TimeoutError):
 
-            logger.warning(
-                "ConversationPipeline timeout ao gerar resposta"
+            logger.exception(
+                f"Erro no ConversationPipeline: {error}"
             )
 
             await self._emit_response(
-                response_text="Demorei demais para processar isso.",
+                response_text=fallback_manager.llm_timeout(),
                 source_text=text
             )
 
@@ -102,10 +105,7 @@ class ConversationPipeline:
             )
 
             await self._emit_response(
-                response_text=(
-                    "Não consegui processar isso. "
-                    "Falha controlada, pelo menos."
-                ),
+                response_text=fallback_manager.llm_error(),
                 source_text=text
             )
 

@@ -16,17 +16,19 @@ from cosmo.cognition.pipeline.conversation_pipeline import (
     conversation_pipeline
 )
 
-from cosmo.cognition.pipeline.conversation_pipeline import (
-    conversation_pipeline
-)
 from cosmo.core.runtime.runtime_state import (
     runtime_state
 )
 
 
-async def on_transcript_ready(payload):
+async def on_transcript_ready(
+    payload
+):
 
-    text = payload.get("text", "").strip()
+    text = payload.get(
+        "text",
+        ""
+    ).strip()
 
     if not text:
         logger.warning(
@@ -44,11 +46,16 @@ async def on_transcript_ready(payload):
         f"Processando transcript em background: {text}"
     )
 
-    runtime_state.set_thinking(text)
+    runtime_state.set_thinking(
+        text
+    )
 
     asyncio.create_task(
-        conversation_pipeline.process_text(text)
+        conversation_pipeline.process_text(
+            text
+        )
     )
+
 
 async_event_bus.subscribe(
     TRANSCRIPT_READY,

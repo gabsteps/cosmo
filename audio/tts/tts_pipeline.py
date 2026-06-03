@@ -9,6 +9,9 @@ from cosmo.core.runtime.runtime_state import (
     runtime_state
 )
 
+from cosmo.core.fallback.fallback_manager import (
+    fallback_manager
+)
 
 class TTSPipeline:
 
@@ -35,7 +38,7 @@ class TTSPipeline:
 
         except Exception as error:
             logger.exception(
-                f"Erro no TTSPipeline: {error}"
+                f"{fallback_manager.tts_error()} Erro no TTSPipeline: {error}"
             )
 
         finally:

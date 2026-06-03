@@ -30395,3 +30395,7 @@ AttributeError: 'RuntimeState' object has no attribute 'PROCESSING'
 [2026-06-03 00:54:36,326] [INFO] [cosmo] TTS encerrado em 7.32s
 [2026-06-03 00:54:36,327] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
 [2026-06-03 00:54:38,329] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-03 01:12:25,312] [INFO] [cosmo] Runtime mode: idle -> thinking (generating response)
+[2026-06-03 01:12:25,312] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-03 01:12:25,313] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 1.0s)
+[2026-06-03 01:12:25,313] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
