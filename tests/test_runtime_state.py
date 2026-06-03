@@ -8,7 +8,7 @@ from cosmo.core.events.listeners.transcript_listener import (
     on_transcript_ready
 )
 
-from cosmo.cognition.pipeline.conversation_pipeline import (
+from cosmo.cognition.conversation.conversation_pipeline import (
     conversation_pipeline
 )
 

@@ -1,4 +1,6 @@
-from database import db
+from cosmo.data.database.database import (
+    db
+)
 import json
 
 

@@ -21,7 +21,7 @@ from cosmo.core.events.listeners.tts_listener import (  # noqa: F401
     on_response_generated
 )
 
-from cosmo.cognition.pipeline.conversation_pipeline import (
+from cosmo.cognition.conversation.conversation_pipeline import (
     conversation_pipeline
 )
 

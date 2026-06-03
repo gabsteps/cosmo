@@ -21,6 +21,21 @@ from cosmo.cognition.personality.personality_command_parser import (
     personality_command_parser
 )
 
+from cosmo.core.fallback.fallback_manager import (
+    fallback_manager
+)
+
+from cosmo.cognition.personality.personality_persistence import (
+    personality_persistence
+)
+
+from cosmo.core.commands.local_command_parser import (
+    local_command_parser
+)
+
+from cosmo.core.commands.local_command_handler import (
+    local_command_handler
+)
 
 class ResponseGenerator:
 
@@ -48,6 +63,19 @@ class ResponseGenerator:
         personality_state.load_from_persona(
             self.persona.parameters
         )
+
+        saved_parameters = personality_persistence.load(
+            active_profile=self.persona.id
+        )
+
+        if saved_parameters:
+            personality_state.replace(
+                saved_parameters
+            )
+
+            logger.info(
+                "Parâmetros de personalidade carregados do estado persistido"
+            )
 
     def build_messages(
         self,
@@ -95,8 +123,6 @@ class ResponseGenerator:
             )
         )
 
-        current_parameters = personality_state.all()
-
         messages = [
             {
                 "role": "system",
@@ -143,33 +169,19 @@ class ResponseGenerator:
         user_text = user_text.strip()
 
         if not user_text:
-            return (
-                "Entrada vazia. Sem dados, sem milagre operacional."
+            return fallback_manager.stt_empty()
+        
+        local_command = local_command_parser.parse(
+            user_text
+        )
+
+        if local_command:
+
+            response_text = local_command_handler.handle(
+                local_command
             )
 
-        try:
-
-            command = personality_command_parser.parse(
-                user_text
-            )
-
-            if command:
-
-                personality_state.set(
-                    command.param,
-                    command.value
-                )
-
-                final_value = personality_state.get(
-                    command.param
-                )
-
-                response_text = await self.generate_personality_confirmation(
-                    spoken_param=command.spoken_param,
-                    param=command.param,
-                    value=final_value,
-                    llm_provider=llm_provider
-                )
+            if response_text:
 
                 conversation_manager.add_user_message(
                     user_text
@@ -180,6 +192,28 @@ class ResponseGenerator:
                 )
 
                 return response_text
+            
+        try:
+
+            parse_result = personality_command_parser.parse(
+                user_text
+            )
+
+            if parse_result.is_personality_command and not parse_result.is_complete:
+
+                response_text = fallback_manager.command_incomplete()
+
+                conversation_manager.add_user_message(
+                    user_text
+                )
+
+                conversation_manager.add_assistant_message(
+                    response_text
+                )
+
+                return response_text
+
+
 
             messages = self.build_messages(
                 user_text
@@ -205,10 +239,7 @@ class ResponseGenerator:
                 f"Erro ao gerar resposta: {error}"
             )
 
-            return (
-                "Falha ao gerar resposta. O módulo cognitivo "
-                "não concluiu a operação."
-            )
+            return fallback_manager.llm_error()
 
 
 response_generator = ResponseGenerator()

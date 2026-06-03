@@ -12,7 +12,7 @@ from cosmo.core.events.event_types import (
     TRANSCRIPT_READY,
 )
 
-from cosmo.cognition.pipeline.conversation_pipeline import (
+from cosmo.cognition.conversation.conversation_pipeline import (
     conversation_pipeline
 )
 

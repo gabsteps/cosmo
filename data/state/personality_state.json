@@ -1,0 +1,8 @@
+{
+  "active_profile": "cosmo",
+  "parameters": {
+    "humor": 90,
+    "honesty": 20,
+    "sarcasm": 70
+  }
+}

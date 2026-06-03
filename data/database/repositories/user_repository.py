@@ -1,4 +1,6 @@
-from database import db
+from cosmo.data.database.database import (
+    db
+)
 
 
 class UserRepository:
@@ -85,5 +87,34 @@ class UserRepository:
             (user_id,)
         )
 
+    def get_or_create_user(
+        self,
+        name,
+        trust_level=0
+    ):
 
+        user = self.get_user_by_name(
+            name
+        )
+
+        if user:
+            return user
+
+        cursor = db.execute(
+            """
+            INSERT INTO users(name, trust_level)
+            VALUES(?, ?)
+            """,
+            (
+                name,
+                trust_level
+            )
+        )
+
+        user_id = cursor.lastrowid
+
+        return self.get_user_by_id(
+            user_id
+        )
+    
 user_repository = UserRepository()

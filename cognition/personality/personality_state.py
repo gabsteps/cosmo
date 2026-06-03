@@ -25,5 +25,16 @@ class PersonalityRuntimeState:
     def all(self) -> dict[str, int]:
         return dict(self.parameters)
 
+    def replace(
+        self,
+        parameters: dict[str, int]
+    ) -> None:
 
+        self.parameters = {
+            key: max(
+                0,
+                min(100, int(value))
+            )
+            for key, value in parameters.items()
+        }
 personality_state = PersonalityRuntimeState()

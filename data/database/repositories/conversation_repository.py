@@ -1,4 +1,6 @@
-from database import db
+from cosmo.data.database.database import (
+    db
+)
 
 
 class ConversationRepository:
@@ -31,6 +33,29 @@ class ConversationRepository:
             """,
             (user_id,)
         )
+        
+    def get_recent_conversation_context(
+        self,
+        user_id,
+        limit=20
+    ):
 
+        return db.fetchall(
+            """
+            SELECT *
+            FROM (
+                SELECT *
+                FROM conversations
+                WHERE user_id = ?
+                ORDER BY timestamp DESC
+                LIMIT ?
+            )
+            ORDER BY timestamp ASC
+            """,
+            (
+                user_id,
+                limit
+            )
+        )
 
 conversation_repository = ConversationRepository()
