@@ -1,20 +1,19 @@
 import asyncio
-from cosmo.audio.tts.tts_manager import (
-    tts_manager
-)
 
 from cosmo.core.events.async_event_bus import (
     async_event_bus
 )
 
 from cosmo.core.events.event_types import (
-    RESPONSE_GENERATED,
-    TTS_STARTED,
-    TTS_FINISHED
+    RESPONSE_GENERATED
 )
 
-from cosmo.audio.wakeword.wakeword_manager import (
-    wakeword_manager
+from cosmo.audio.tts.tts_pipeline import (
+    tts_pipeline
+)
+
+from cosmo.core.logger.logger_manager import (
+    logger
 )
 
 
@@ -23,35 +22,36 @@ async def on_response_generated(payload):
     text = payload.get(
         "text",
         ""
+    ).strip()
+
+    if not text:
+        logger.warning(
+            "response_generated ignorado: texto vazio"
+        )
+        return
+
+    logger.info(
+        "TTS será executado em background"
     )
 
-    await async_event_bus.emit(
-        TTS_STARTED,
-        {
-            "text": text
-        },
-        priority=async_event_bus.PRIORITY_AUDIO
+    task = asyncio.create_task(
+        tts_pipeline.speak_response(text)
     )
 
-    await wakeword_manager.stop()
+    task.add_done_callback(
+        _handle_tts_task_result
+    )
+
+
+def _handle_tts_task_result(task):
 
     try:
-        await tts_manager.speak(text)
+        task.result()
 
-    finally:
-        await asyncio.sleep(2.0)
-
-        asyncio.create_task(
-            wakeword_manager.start()
+    except Exception as error:
+        logger.exception(
+            f"Task de TTS falhou: {error}"
         )
-
-    await async_event_bus.emit(
-        TTS_FINISHED,
-        {
-            "text": text
-        },
-        priority=async_event_bus.PRIORITY_AUDIO
-    )
 
 
 async_event_bus.subscribe(

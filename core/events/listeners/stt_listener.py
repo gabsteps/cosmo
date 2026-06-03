@@ -18,7 +18,7 @@ async def on_audio_captured(data):
 
     file_path = data["file_path"]
 
-    runtime_state.mode = runtime_state.PROCESSING
+    runtime_state.set_transcribing()
 
     await stt_manager.transcribe(
         file_path

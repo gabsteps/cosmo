@@ -508,7 +508,7 @@ class AsyncEventBus:
                 f"{listener.__name__}"
             )
 
-            if event.name in (
+            if event["name"] in (
                 "transcript_ready",
                 "audio_captured",
                 "response_generated",

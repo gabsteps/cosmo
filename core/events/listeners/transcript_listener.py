@@ -1,6 +1,4 @@
-from cosmo.ai.llm.llm_provider import (
-    llm_provider
-)
+import asyncio
 
 from cosmo.core.logger.logger_manager import (
     logger
@@ -11,12 +9,18 @@ from cosmo.core.events.async_event_bus import (
 )
 
 from cosmo.core.events.event_types import (
-    RESPONSE_GENERATED,
     TRANSCRIPT_READY,
 )
 
-from cosmo.cognition.response.response_generator import (
-    response_generator
+from cosmo.cognition.pipeline.conversation_pipeline import (
+    conversation_pipeline
+)
+
+from cosmo.cognition.pipeline.conversation_pipeline import (
+    conversation_pipeline
+)
+from cosmo.core.runtime.runtime_state import (
+    runtime_state
 )
 
 
@@ -25,30 +29,17 @@ async def on_transcript_ready(
 ):
 
     text = payload.get("text", "").strip()
-    
+
     if not text:
         return
 
     logger.info(
-        f"Processando transcript: {text}"
+        f"Processando transcript em background: {text}"
     )
-
-    response = await response_generator.generate(
-        user_text=text,
-        llm_provider=llm_provider
-    )
-
-    logger.info(
-        f"Resposta gerada: {response}"
-    )
-
-    await async_event_bus.emit(
-        RESPONSE_GENERATED,
-        {
-            "text": response,
-            "source_text": text
-        },
-        priority=async_event_bus.PRIORITY_COGNITION
+    runtime_state.set_thinking(text)
+    
+    asyncio.create_task(
+        conversation_pipeline.process_text(text)
     )
 
 async_event_bus.subscribe(

@@ -25,8 +25,12 @@ class TTSManager:
         text: str
     ) -> asyncio.Task:
 
-        return asyncio.create_task(
+        task = asyncio.create_task(
             self._safe_speak(text)
+        )
+
+        task.add_done_callback(
+            self._handle_task_result
         )
 
     async def _safe_speak(
@@ -44,6 +48,21 @@ class TTSManager:
 
             logger.exception(
                 f"Erro durante TTS: {error}"
+            )
+    
+    def _handle_task_result(
+    self,
+    task: asyncio.Task
+    ) -> None:
+
+        try:
+
+            task.result()
+
+        except Exception as error:
+
+            logger.exception(
+                f"Task de TTS falhou: {error}"
             )
 
 

@@ -1,22 +1,10 @@
+import asyncio
+
 class MockLLMProvider:
 
-    async def generate(
-        self,
-        text: str
-    ) -> str:
-
-        normalized = text.lower().strip()
-
-        if (
-            "nome" in normalized
-            and (
-                "qual" in normalized
-                or "quem" in normalized
-            )
-        ):
-            return "Meu nome é Cosmo."
-
-        return f"Você disse: {text}"
+    async def generate(self, messages):
+        await asyncio.sleep(45)
+        return "Resposta atrasada."
 
 
 llm_provider = MockLLMProvider()
