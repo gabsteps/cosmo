@@ -4,39 +4,47 @@ from pathlib import Path
 import time
 from uuid import uuid4
 
-from cosmo.core.config.settings_manager import config
+from cosmo.core.config.settings_manager import (
+    config
+)
+
 from cosmo.core.logger.logger_manager import (
     logger
 )
 
+from cosmo.audio.tts.providers.base_tts_provider import (
+    BaseTTSProvider
+)
 
-BASE_DIR = Path(__file__).resolve().parents[2]
 
-
-class PiperTTSProvider:
+class EspeakTTSProvider(BaseTTSProvider):
 
     def __init__(self):
+
+        self.language = config.get(
+            "tts",
+            "language"
+        ) or "pt"
+
+        self.voice = config.get(
+            "tts",
+            "voice"
+        ) or "pt-br"
 
         self.speed = config.get(
             "tts",
             "speed"
-        )
+        ) or 145
+
+        self.pitch = config.get(
+            "tts",
+            "pitch"
+        ) or 35
 
         self.volume = config.get(
             "tts",
             "volume"
-        )
-
-        self.model_path = (
-            BASE_DIR
-            / "models"
-            / "piper"
-            / "piper"
-            / "piper-voices"
-            / config.get("tts", "language")
-            / config.get("tts", "locale")
-            / f"{config.get('tts', 'model')}.onnx"
-        )
+        ) or 120
 
         self.output_dir = Path(
             "/tmp"
@@ -49,7 +57,7 @@ class PiperTTSProvider:
 
         output_file = (
             self.output_dir /
-            f"cosmo_tts_{uuid4().hex}.wav"
+            f"cosmo_espeak_{uuid4().hex}.wav"
         )
 
         started_at = time.time()
@@ -67,28 +75,28 @@ class PiperTTSProvider:
             text = text.strip()
 
             logger.info(
-                f"TTS iniciado ({len(text)} caracteres)"
+                f"eSpeak TTS iniciado ({len(text)} caracteres)"
             )
 
-            if not self.model_path.exists():
-
-                raise FileNotFoundError(
-                    f"Modelo Piper não encontrado: {self.model_path}"
-                )
-
             command = [
-                "piper",
-                "--model",
-                str(self.model_path),
-                "--output_file",
-                str(output_file)
+                "espeak-ng",
+                "-v",
+                str(self.voice),
+                "-s",
+                str(self.speed),
+                "-p",
+                str(self.pitch),
+                "-a",
+                str(self.volume),
+                "-w",
+                str(output_file),
+                text
             ]
 
             synth_started_at = time.time()
 
             process = await asyncio.create_subprocess_exec(
                 *command,
-                stdin=asyncio.subprocess.PIPE,
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.PIPE
             )
@@ -96,10 +104,8 @@ class PiperTTSProvider:
             try:
 
                 _, stderr = await asyncio.wait_for(
-                    process.communicate(
-                        input=text.encode("utf-8")
-                    ),
-                    timeout=60
+                    process.communicate(),
+                    timeout=30
                 )
 
             except asyncio.TimeoutError:
@@ -109,11 +115,11 @@ class PiperTTSProvider:
                 await process.wait()
 
                 raise RuntimeError(
-                    "Timeout durante síntese Piper"
+                    "Timeout durante síntese eSpeak"
                 )
 
             logger.info(
-                f"Piper finalizado em {time.time() - synth_started_at:.2f}s"
+                f"eSpeak finalizado em {time.time() - synth_started_at:.2f}s"
             )
 
             if process.returncode != 0:
@@ -124,22 +130,22 @@ class PiperTTSProvider:
                 ).strip()
 
                 raise RuntimeError(
-                    f"Piper falhou: {error_text}"
+                    f"eSpeak falhou: {error_text}"
                 )
 
             if (
-                not output_file.exists() or
-                output_file.stat().st_size < 1000
+                not output_file.exists()
+                or output_file.stat().st_size < 1000
             ):
 
                 raise RuntimeError(
-                    f"Arquivo TTS inválido: {output_file}"
+                    f"Arquivo eSpeak inválido: {output_file}"
                 )
 
             file_size = output_file.stat().st_size
 
             logger.info(
-                f"Arquivo TTS gerado: {output_file} ({file_size} bytes)"
+                f"Arquivo eSpeak gerado: {output_file} ({file_size} bytes)"
             )
 
             playback_started_at = time.time()
@@ -163,7 +169,7 @@ class PiperTTSProvider:
             except asyncio.TimeoutError:
 
                 raise RuntimeError(
-                    "Timeout durante playback do áudio"
+                    "Timeout durante playback do áudio eSpeak"
                 )
 
             except subprocess.CalledProcessError as error:
@@ -177,11 +183,11 @@ class PiperTTSProvider:
                     ).strip()
 
                 raise RuntimeError(
-                    f"aplay falhou: {stderr_text}"
+                    f"aplay falhou no eSpeak: {stderr_text}"
                 ) from error
 
             logger.info(
-                f"Playback finalizado em {time.time() - playback_started_at:.2f}s"
+                f"Playback eSpeak finalizado em {time.time() - playback_started_at:.2f}s"
             )
 
         finally:
@@ -195,12 +201,9 @@ class PiperTTSProvider:
             except Exception as error:
 
                 logger.warning(
-                    f"Falha ao remover TTS temporário: {error}"
+                    f"Falha ao remover áudio temporário eSpeak: {error}"
                 )
 
             logger.info(
-                f"TTS encerrado em {time.time() - started_at:.2f}s"
+                f"eSpeak TTS encerrado em {time.time() - started_at:.2f}s"
             )
-
-
-tts_provider = PiperTTSProvider()

@@ -38,6 +38,10 @@ tts:
   language: pt
   locale: pt_BR
   model: faber/medium/pt_BR-faber-medium
+  voice: pt-br
+  speed: 145
+  pitch: 35
+  volume: 120
 
 vision:
   camera_index: 0
