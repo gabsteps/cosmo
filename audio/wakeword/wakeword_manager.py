@@ -1,9 +1,13 @@
 import asyncio
 import pyaudio
 
-from cosmo.core.logger.logger_manager import logger
+from cosmo.core.logger.logger_manager import (
+    logger
+)
 
-from cosmo.core.config.settings_manager import config
+from cosmo.core.config.settings_manager import (
+    config
+)
 
 from cosmo.core.events.async_event_bus import (
     async_event_bus
@@ -24,7 +28,9 @@ from cosmo.core.runtime.runtime_state import (
 
 class WakewordManager:
 
-    def __init__(self):
+    def __init__(
+        self
+    ):
 
         self.sample_rate = config.get(
             "audio",
@@ -41,6 +47,14 @@ class WakewordManager:
             "channels"
         )
 
+        self.idle_sleep = (
+            config.get(
+                "wakeword",
+                "idle_sleep"
+            )
+            or 0.03
+        )
+
         self.audio = pyaudio.PyAudio()
 
         self.stream = None
@@ -49,7 +63,9 @@ class WakewordManager:
 
         self._lock = asyncio.Lock()
 
-    async def start(self):
+    async def start(
+        self
+    ):
 
         async with self._lock:
 
@@ -83,7 +99,9 @@ class WakewordManager:
 
             if runtime_state.should_ignore_wakeword():
 
-                await asyncio.sleep(0.1)
+                await asyncio.sleep(
+                    0.1
+                )
 
                 continue
 
@@ -113,34 +131,48 @@ class WakewordManager:
 
             except Exception as error:
 
-                logger.error(
+                logger.exception(
                     f"Erro inesperado no wakeword: {error}"
                 )
 
                 break
 
-            detected_word = (
-                wakeword_engine.process_audio(
-                    audio_data
+            detected_word = wakeword_engine.process_audio(
+                audio_data
+            )
+
+            if not detected_word:
+
+                await asyncio.sleep(
+                    self.idle_sleep
+                )
+
+                continue
+
+            logger.info(
+                f"Wakeword detectada pelo engine: {detected_word}"
+            )
+
+            await async_event_bus.emit(
+                WAKE_WORD_DETECTED,
+                {
+                    "word": detected_word
+                },
+                priority=(
+                    async_event_bus
+                    .PRIORITY_AUDIO
                 )
             )
 
-            if detected_word:
-
-                await async_event_bus.emit(
-                    WAKE_WORD_DETECTED,
-                    {
-                        "word": detected_word
-                    },
-                    priority=(
-                        async_event_bus
-                        .PRIORITY_AUDIO
-                    )
-                )
+            await asyncio.sleep(
+                0.3
+            )
 
         await self._cleanup_stream()
 
-    async def stop(self):
+    async def stop(
+        self
+    ):
 
         async with self._lock:
 
@@ -158,7 +190,9 @@ class WakewordManager:
 
             self.running = False
 
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(
+            0.1
+        )
 
         await self._cleanup_stream()
 
@@ -166,7 +200,9 @@ class WakewordManager:
             "Wakeword manager pausado"
         )
 
-    async def _cleanup_stream(self):
+    async def _cleanup_stream(
+        self
+    ):
 
         async with self._lock:
 
@@ -196,7 +232,9 @@ class WakewordManager:
 
             self.stream = None
 
-    async def shutdown(self):
+    async def shutdown(
+        self
+    ):
 
         await self.stop()
 

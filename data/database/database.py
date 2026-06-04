@@ -16,7 +16,7 @@ class Database:
     def __init__(self):
 
         self.lock = threading.Lock()
-
+        self.path = DB_PATH
         self.connection = sqlite3.connect(
             DB_PATH,
             check_same_thread=False
