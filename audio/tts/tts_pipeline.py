@@ -1,21 +1,33 @@
-from cosmo.core.logger.logger_manager import logger
+from cosmo.core.logger.logger_manager import (
+    logger
+)
+
 import asyncio
 
 from cosmo.audio.tts.tts_manager import (
     tts_manager
 )
 
+from cosmo.core.events.async_event_bus import (
+    async_event_bus
+)
+
+from cosmo.core.events.event_types import (
+    TTS_STARTED,
+    TTS_FINISHED
+)
+
 from cosmo.core.runtime.runtime_state import (
     runtime_state
 )
 
-from cosmo.core.fallback.fallback_manager import (
-    fallback_manager
-)
 
 class TTSPipeline:
 
-    async def speak_response(self, text: str) -> None:
+    async def speak_response(
+        self,
+        text: str
+    ) -> None:
 
         text = text.strip()
 
@@ -25,26 +37,47 @@ class TTSPipeline:
             )
             return
 
-        if not runtime_state.can_start_speaking():
-            logger.info(
-                "TTS ignorado: fala já em andamento"
-            )
-            return
-
         try:
-            runtime_state.set_speaking(text)
 
-            await tts_manager.speak(text)
+            runtime_state.set_speaking(
+                text
+            )
+
+            await async_event_bus.emit(
+                TTS_STARTED,
+                {
+                    "text": text
+                },
+                priority=async_event_bus.PRIORITY_AUDIO
+            )
+
+            await tts_manager.speak(
+                text
+            )
 
         except Exception as error:
+
             logger.exception(
-                f"{fallback_manager.tts_error()} Erro no TTSPipeline: {error}"
+                f"Erro no TTSPipeline: {error}"
             )
 
         finally:
-            runtime_state.set_cooldown(seconds=2.0)
 
-            await asyncio.sleep(2.0)
+            await async_event_bus.emit(
+                TTS_FINISHED,
+                {
+                    "text": text
+                },
+                priority=async_event_bus.PRIORITY_AUDIO
+            )
+
+            runtime_state.set_cooldown(
+                seconds=2.0
+            )
+
+            await asyncio.sleep(
+                2.0
+            )
 
             runtime_state.set_idle()
 

@@ -1,3 +1,5 @@
+import asyncio
+
 from cosmo.audio.capture.audio_capture_manager import (
     audio_capture_manager
 )
@@ -23,9 +25,13 @@ from cosmo.audio.tts.tts_manager import (
 )
 
 
-async def on_wake_word_detected(data):
+async def on_wake_word_detected(
+    data
+):
 
-    word = data.get("word")
+    word = data.get(
+        "word"
+    )
 
     logger.info(
         f"Wake word detectada: {word}"
@@ -37,16 +43,49 @@ async def on_wake_word_detected(data):
         )
         return
 
-    runtime_state.set_wake_detected()
-    runtime_state.set_listening()
-
-    await tts_manager.speak(
-        "sim?"
+    asyncio.create_task(
+        _handle_wakeword_flow(
+            word
+        )
     )
 
-    await audio_capture_manager.capture()
 
-    runtime_state.set_transcribing()
+async def _handle_wakeword_flow(
+    word: str
+):
+
+    try:
+
+        runtime_state.set_wake_detected()
+
+        runtime_state.set_listening()
+
+        await tts_manager.speak(
+            "sim?"
+        )
+
+        await asyncio.wait_for(
+            audio_capture_manager.capture(),
+            timeout=35
+        )
+
+        runtime_state.set_transcribing()
+
+    except asyncio.TimeoutError:
+
+        logger.warning(
+            "Timeout durante captura após wakeword"
+        )
+
+        runtime_state.set_idle()
+
+    except Exception as error:
+
+        logger.exception(
+            f"Erro no fluxo de wakeword: {error}"
+        )
+
+        runtime_state.set_idle()
 
 
 async_event_bus.subscribe(

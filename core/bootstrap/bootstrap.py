@@ -29,7 +29,9 @@ from cosmo.audio.wakeword.wakeword_manager import (
     wakeword_manager
 )
 
-
+from cosmo.core.config.settings_manager import (
+    config
+)
 # =========================
 # IMPORTAR LISTENERS
 # =========================
@@ -48,6 +50,14 @@ from cosmo.core.events.listeners import (
 
 from cosmo.core.events.async_event_bus import (
     async_event_bus
+)
+
+from cosmo.interfaces.webui.webui_server import (
+    webui_server
+)
+
+from cosmo.core.events.listeners import (
+    system_control_listener
 )
 
 class Bootstrap:
@@ -115,6 +125,13 @@ class Bootstrap:
         # LOOP PRINCIPAL
         # =========================
 
+        if config.get("webui", "enabled"):
+
+            async_runtime.create_task(
+                webui_server.start(),
+                name="WebUI"
+            )
+
         await self._main_loop()
 
     async def _main_loop(self):
@@ -137,10 +154,16 @@ class Bootstrap:
 
         await async_runtime.shutdown()
 
+        if config.get(
+            "webui",
+            "enabled"
+        ):
+
+            await webui_server.shutdown()
+        
         logger.info(
             "Sistema encerrado"
-        )
-    
+            )
 
 
 bootstrap = Bootstrap()

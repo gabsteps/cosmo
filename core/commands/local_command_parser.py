@@ -70,6 +70,9 @@ class LocalCommandParser:
                 if normalized_text == phrase:
                     return command["intent"]
 
+                if phrase in normalized_text:
+                    return command["intent"]
+
             return None
 
         except Exception as error:

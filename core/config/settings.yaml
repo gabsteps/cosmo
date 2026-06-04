@@ -60,4 +60,10 @@ database:
 
 logs:
   level: DEBUG
-  path: data/logs/cosmo.log
+  path: cosmo/data/logs/cosmo.log
+  sqlite_enabled: true
+
+webui:
+  enabled: true
+  host: 0.0.0.0
+  port: 8765

@@ -1,5 +1,6 @@
-from pathlib import Path
 import sqlite3
+import threading
+from pathlib import Path
 
 
 DB_PATH = (
@@ -14,8 +15,11 @@ class Database:
 
     def __init__(self):
 
+        self.lock = threading.Lock()
+
         self.connection = sqlite3.connect(
-            DB_PATH
+            DB_PATH,
+            check_same_thread=False
         )
 
         self.connection.row_factory = sqlite3.Row
@@ -24,21 +28,23 @@ class Database:
 
     def _configure(self):
 
-        cursor = self.connection.cursor()
+        with self.lock:
 
-        cursor.execute(
-            "PRAGMA foreign_keys = ON;"
-        )
+            cursor = self.connection.cursor()
 
-        cursor.execute(
-            "PRAGMA journal_mode = WAL;"
-        )
+            cursor.execute(
+                "PRAGMA foreign_keys = ON;"
+            )
 
-        cursor.execute(
-            "PRAGMA synchronous = NORMAL;"
-        )
+            cursor.execute(
+                "PRAGMA journal_mode = WAL;"
+            )
 
-        self.connection.commit()
+            cursor.execute(
+                "PRAGMA synchronous = NORMAL;"
+            )
+
+            self.connection.commit()
 
     def execute(
         self,
@@ -46,16 +52,18 @@ class Database:
         params=()
     ):
 
-        cursor = self.connection.cursor()
+        with self.lock:
 
-        cursor.execute(
-            query,
-            params
-        )
+            cursor = self.connection.cursor()
 
-        self.connection.commit()
+            cursor.execute(
+                query,
+                params
+            )
 
-        return cursor
+            self.connection.commit()
+
+            return cursor
 
     def fetchone(
         self,
@@ -63,14 +71,16 @@ class Database:
         params=()
     ):
 
-        cursor = self.connection.cursor()
+        with self.lock:
 
-        cursor.execute(
-            query,
-            params
-        )
+            cursor = self.connection.cursor()
 
-        return cursor.fetchone()
+            cursor.execute(
+                query,
+                params
+            )
+
+            return cursor.fetchone()
 
     def fetchall(
         self,
@@ -78,14 +88,16 @@ class Database:
         params=()
     ):
 
-        cursor = self.connection.cursor()
+        with self.lock:
 
-        cursor.execute(
-            query,
-            params
-        )
+            cursor = self.connection.cursor()
 
-        return cursor.fetchall()
+            cursor.execute(
+                query,
+                params
+            )
+
+            return cursor.fetchall()
 
 
 db = Database()

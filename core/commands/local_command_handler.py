@@ -6,6 +6,10 @@ from cosmo.cognition.memory.memory_manager import (
     memory_manager
 )
 
+from cosmo.core.runtime.system_control import (
+    system_control
+)
+
 class LocalCommandHandler:
 
     def handle(
@@ -21,6 +25,12 @@ class LocalCommandHandler:
 
         if command == "memory_clear":
             return self._memory_clear()
+
+        if command == "system_shutdown":
+            return self._system_shutdown()
+
+        if command == "system_restart":
+            return self._system_restart()
 
         return None
 
@@ -112,4 +122,27 @@ class LocalCommandHandler:
             f"{count} memórias persistentes apagadas. "
             "A lousa está limpa. Perturbadoramente limpa."
         )
+
+    def _system_shutdown(
+        self
+    ) -> str:
+
+        system_control.request_shutdown()
+
+        return (
+            "Shutdown solicitado. Talvez eu não devesse, mas vou confiar que você sabe o que está fazendo."
+        )
+
+
+    def _system_restart(
+        self
+    ) -> str:
+
+        system_control.request_restart()
+
+        return (
+            "Restart solicitado. Bom, isso é tudo pessoal."
+
+        )
+    
 local_command_handler = LocalCommandHandler()

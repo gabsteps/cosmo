@@ -17,7 +17,9 @@ from cosmo.core.logger.logger_manager import (
 )
 
 
-async def on_response_generated(payload):
+async def on_response_generated(
+    payload
+):
 
     text = payload.get(
         "text",
@@ -35,7 +37,9 @@ async def on_response_generated(payload):
     )
 
     task = asyncio.create_task(
-        tts_pipeline.speak_response(text)
+        tts_pipeline.speak_response(
+            text
+        )
     )
 
     task.add_done_callback(
@@ -43,7 +47,9 @@ async def on_response_generated(payload):
     )
 
 
-def _handle_tts_task_result(task):
+def _handle_tts_task_result(
+    task
+):
 
     try:
         task.result()

@@ -8,6 +8,9 @@ import asyncio
 
 from cosmo.core.logger.logger_manager import logger
 
+from cosmo.core.runtime.runtime_state import (
+    runtime_state
+)
 
 class AsyncRuntime:
 
@@ -73,9 +76,7 @@ class AsyncRuntime:
 
         while self.running:
 
-            # logger.info(
-            #     "Runtime heartbeat"
-            # )
+            runtime_state.mark_heartbeat()
 
             await asyncio.sleep(5)
 

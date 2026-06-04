@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+    <title>Zenith Cosmo WebUI</title>
+    <style>
+        :root {
+            --bg: #0b0f17;
+            --panel: #141b27;
+            --panel-2: #0f1520;
+            --border: #2a3445;
+            --text: #f3f6fb;
+            --muted: #a8b2c4;
+            --accent: #3b82f6;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --code: #06090f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #070b12 0%, #0d1320 100%);
+            color: var(--text);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 22px;
+        }
+
+        h1 {
+            margin: 0 0 18px 0;
+            font-size: 2.2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: rgba(20, 27, 39, 0.96);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+        }
+
+        .card h2 {
+            margin: 0 0 16px 0;
+            font-size: 1.2rem;
+        }
+
+        .runtime-mode {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            text-transform: lowercase;
+        }
+
+        .stats-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--muted);
+        }
+
+        .stat-value {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .heartbeat-heart {
+            position: relative;
+            font-size: 2.3rem;
+            line-height: 1;
+            transform-origin: center;
+            opacity: 0.45;
+            transition:
+                color 0.25s ease,
+                opacity 0.25s ease,
+                text-shadow 0.25s ease;
+        }
+
+        .heartbeat-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 14px;
+            padding: 14px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .heartbeat-heart.alive {
+            color: #ff2d55;
+            opacity: 1;
+            text-shadow:
+                0 0 8px rgba(255, 45, 85, 0.45),
+                0 0 18px rgba(255, 45, 85, 0.18);
+        }
+
+        .heartbeat-heart.dead {
+            color: #7b8799;
+            animation: none;
+            opacity: 0.45;
+            text-shadow: none;
+        }
+
+        .heartbeat-heart.beat {
+            animation: heartbeat-drama 0.62s ease-out;
+        }
+
+        .heartbeat-heart.beat::after {
+            content: "❤";
+            position: absolute;
+            inset: 0;
+            color: #ff2d55;
+            opacity: 0;
+            animation: heartbeat-wave 0.62s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes heartbeat-drama {
+            0% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+
+            25% {
+                transform: scale(1.18);
+                filter: brightness(1.25);
+            }
+
+            50% {
+                transform: scale(0.96);
+                filter: brightness(1.05);
+            }
+
+            75% {
+                transform: scale(1.08);
+                filter: brightness(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+        }
+
+        @keyframes heartbeat-wave {
+            0% {
+                transform: scale(1);
+                opacity: 0.35;
+                filter: blur(0);
+            }
+
+            55% {
+                transform: scale(1.35);
+                opacity: 0.16;
+                filter: blur(1px);
+            }
+
+            100% {
+                transform: scale(1.65);
+                opacity: 0;
+                filter: blur(2px);
+            }
+        }
+
+        .heartbeat-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .heartbeat-main {
+            font-weight: 700;
+        }
+
+        .heartbeat-sub {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .actions {
+            margin-top: 16px;
+        }
+
+        .actions h2,
+        .output-card h2 {
+            margin-top: 0;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.18s ease;
+        }
+
+        button:hover {
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+        }
+
+        pre {
+            margin: 0;
+            padding: 16px;
+            background: var(--code);
+            color: #dbe7ff;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            min-height: 260px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: rgba(59,130,246,0.12);
+            color: #aecdff;
+            border: 1px solid rgba(59,130,246,0.22);
+        }
+
+        .footer-note {
+            color: var(--muted);
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 980px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .runtime-mode {
+                font-size: 1.5rem;
+            }
+
+            .stat-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stat-value {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Zenith Cosmo WebUI</h1>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Runtime</h2>
+
+                <div
+                    id="runtime-mode"
+                    class="runtime-mode"
+                >
+                    loading...
+                </div>
+
+                <div class="stats-list">
+                    <div class="stat-row">
+                        <div class="stat-label">Previous mode</div>
+                        <div
+                            id="previous-mode"
+                            class="stat-value"
+                        >
+                            -
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">System uptime</div>
+                        <div
+                            id="uptime-human"
+                            class="stat-value"
+                        >
+                            00:00:00
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">TTS active</div>
+                        <div
+                            id="tts-active"
+                            class="stat-value"
+                        >
+                            false
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">LLM active</div>
+                        <div
+                            id="llm-active"
+                            class="stat-value"
+                        >
+                            false
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Capture active</div>
+                        <div
+                            id="capture-active"
+                            class="stat-value"
+                        >
+                            false
+                        </div>
+                    </div>
+                </div>
+
+                <div class="heartbeat-wrap">
+                    <div
+                        id="heartbeat-heart"
+                        class="heartbeat-heart dead"
+                    >
+                        ❤
+                    </div>
+
+                    <div class="heartbeat-text">
+                        <div
+                            id="heartbeat-main"
+                            class="heartbeat-main"
+                        >
+                            Heartbeat unavailable
+                        </div>
+                        <div
+                            id="heartbeat-sub"
+                            class="heartbeat-sub"
+                        >
+                            Waiting for heartbeat...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Event Bus</h2>
+
+                <div class="stats-list">
+                    <div class="stat-row">
+                        <div class="stat-label">Queue size</div>
+                        <div id="queue-size" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Events received</div>
+                        <div id="events-received" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Events completed</div>
+                        <div id="events-completed" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Events failed</div>
+                        <div id="events-failed" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Listener timeouts</div>
+                        <div id="listener-timeouts" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Listener errors</div>
+                        <div id="listener-errors" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Heartbeat count</div>
+                        <div id="heartbeat-count" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Status</div>
+                        <div
+                            id="heartbeat-status"
+                            class="stat-value"
+                        >
+                            unknown
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>System Performance</h2>
+
+                <div class="stats-list">
+                    <div class="stat-row">
+                        <div class="stat-label">CPU</div>
+                        <div id="cpu-percent" class="stat-value">0%</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">RAM</div>
+                        <div id="memory-percent" class="stat-value">0%</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Disk</div>
+                        <div id="disk-percent" class="stat-value">0%</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Temperature</div>
+                        <div id="temperature" class="stat-value">unavailable</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Download</div>
+                        <div id="network-download" class="stat-value">0 B/s</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Upload</div>
+                        <div id="network-upload" class="stat-value">0 B/s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card actions">
+            <h2>Inspectors</h2>
+            <div class="button-row">
+                <button onclick="loadStatusOutput()">Refresh Status</button>
+                <button onclick="loadEndpoint('/api/memories')">Load Memories</button>
+                <button onclick="loadEndpoint('/api/conversations')">Load Conversations</button>
+                <button onclick="loadEndpoint('/api/events')">Load Events</button>
+                <button onclick="loadEndpoint('/api/logs')">Load Logs</button>
+            </div>
+            <div class="footer-note">
+                Runtime cards auto-refresh every 2 seconds. The Output panel only changes when you click an inspector.
+            </div>
+        </div>
+
+        <div class="card output-card" style="margin-top:16px;">
+            <h2>Output</h2>
+            <pre id="output">Loading status...</pre>
+        </div>
+    </div>
+
+    <script>
+        let lastHeartbeatCount = null;
+
+        async function fetchJson(url) {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            return await response.json();
+        }
+
+        function setText(id, value) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value;
+            }
+        }
+
+        function formatBoolean(value) {
+            return value ? "true" : "false";
+        }
+
+        function updateHeartbeat(status) {
+            const heart = document.getElementById("heartbeat-heart");
+            const main = document.getElementById("heartbeat-main");
+            const sub = document.getElementById("heartbeat-sub");
+
+            const alive = !!status.heartbeat_alive;
+            const currentCount = status.heartbeat_count ?? 0;
+
+            if (alive) {
+                heart.classList.remove("dead");
+                heart.classList.add("alive");
+
+                main.textContent = "Heartbeat Status";
+                sub.textContent = `Last beat registered. Count: ${currentCount}`;
+
+                setText("heartbeat-status", "alive");
+
+                if (
+                    lastHeartbeatCount !== null
+                    && currentCount > lastHeartbeatCount
+                ) {
+                    heart.classList.remove("beat");
+
+                    void heart.offsetWidth;
+
+                    heart.classList.add("beat");
+
+                    window.setTimeout(
+                        () => {
+                            heart.classList.remove("beat");
+                        },
+                        650
+                    );
+                }
+
+                lastHeartbeatCount = currentCount;
+
+            } else {
+                heart.classList.remove("alive");
+                heart.classList.remove("beat");
+                heart.classList.add("dead");
+
+                main.textContent = "Heartbeat stalled or unavailable";
+                sub.textContent = "No recent heartbeat detected";
+
+                setText("heartbeat-status", "stale");
+
+                lastHeartbeatCount = currentCount;
+            }
+        }
+
+        function updateRuntimeCards(status) {
+            setText("runtime-mode", status.mode ?? "-");
+            setText("previous-mode", status.previous_mode ?? "-");
+            setText("uptime-human", status.uptime_human ?? "00:00:00");
+            setText("tts-active", formatBoolean(status.tts_active));
+            setText("llm-active", formatBoolean(status.llm_active));
+            setText("capture-active", formatBoolean(status.capture_active));
+
+            setText("queue-size", status.queue_size ?? 0);
+            setText("events-received", status.events_received ?? 0);
+            setText("events-completed", status.events_completed ?? 0);
+            setText("events-failed", status.events_failed ?? 0);
+            setText("listener-timeouts", status.listener_timeouts ?? 0);
+            setText("listener-errors", status.listener_errors ?? 0);
+            setText("heartbeat-count", status.heartbeat_count ?? 0);
+
+            updateHeartbeat(status);
+            const system = status.system ?? {};
+
+            setText(
+                "cpu-percent",
+                `${system.cpu_percent ?? 0}%`
+            );
+
+            setText(
+                "memory-percent",
+                `${system.memory_percent ?? 0}%`
+            );
+
+            setText(
+                "disk-percent",
+                `${system.disk_percent ?? 0}%`
+            );
+
+            setText(
+                "temperature",
+                system.temperature_celsius === null ||
+                system.temperature_celsius === undefined
+                    ? "unavailable"
+                    : `${system.temperature_celsius} °C`
+            );
+
+            setText(
+                "network-download",
+                system.network_download_human ?? "0 B/s"
+            );
+
+            setText(
+                "network-upload",
+                system.network_upload_human ?? "0 B/s"
+            );
+        }
+
+        async function refreshStatusCards() {
+            try {
+                const status = await fetchJson("/api/status/compact");
+                updateRuntimeCards(status);
+            } catch (error) {
+                console.error("Failed to refresh status cards:", error);
+            }
+        }
+
+        async function loadStatusOutput() {
+            try {
+                const status = await fetchJson("/api/status/compact");
+                updateRuntimeCards(status);
+
+                document.getElementById("output").textContent =
+                    JSON.stringify(status, null, 2);
+            } catch (error) {
+                document.getElementById("output").textContent =
+                    `Failed to load status: ${error.message}`;
+            }
+        }
+
+        async function loadEndpoint(url) {
+            try {
+                const data = await fetchJson(url);
+                document.getElementById("output").textContent =
+                    JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById("output").textContent =
+                    `Failed to load ${url}: ${error.message}`;
+            }
+        }
+
+        function startStatusStream() {
+            const source = new EventSource("/api/status/stream");
+
+            source.onmessage = function(event) {
+                const status = JSON.parse(event.data);
+                updateRuntimeCards(status);
+            };
+
+            source.onerror = function(error) {
+                console.error("Status stream error:", error);
+
+                setText("heartbeat-status", "stream error");
+
+                const heart = document.getElementById("heartbeat-heart");
+                heart.classList.remove("alive");
+                heart.classList.remove("beat");
+                heart.classList.add("dead");
+            };
+        }
+
+        loadStatusOutput();
+        startStatusStream();
+    </script>
+</body>
+</html>

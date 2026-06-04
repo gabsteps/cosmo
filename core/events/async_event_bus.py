@@ -20,6 +20,10 @@ from cosmo.audio.tts.tts_fallback import (
     tts_fallback
 )
 
+from cosmo.data.database.repositories.event_repository import (
+    event_repository
+)
+
 class AsyncEventBus:
 
     # ==================================================
@@ -163,7 +167,14 @@ class AsyncEventBus:
                 )
             )
 
-            self.metrics["events_emitted"] += 1
+            self.metrics[
+                "events_emitted"
+            ] += 1
+
+            self._persist_event(
+                event_name=event_name,
+                payload=data
+            )
 
             current_size = self.queue.qsize()
 
@@ -209,6 +220,24 @@ class AsyncEventBus:
             f"(priority={priority})"
         )
 
+    def _persist_event(
+        self,
+        event_name,
+        payload
+    ) -> None:
+
+        try:
+
+            event_repository.emit_event(
+                event_type=event_name,
+                payload=payload
+            )
+
+        except Exception as error:
+
+            logger.warning(
+                f"Falha ao persistir evento no banco: {error}"
+            )
     # ==================================================
     # START
     # ==================================================
