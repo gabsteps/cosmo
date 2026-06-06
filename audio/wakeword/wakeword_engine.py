@@ -13,7 +13,9 @@ from cosmo.core.config.settings_manager import (
 
 class WakewordEngine:
 
-    def __init__(self):
+    def __init__(
+        self
+    ):
 
         self.model_path = (
             "cosmo/models/vosk/vosk-model-small-pt-0.3"
@@ -26,11 +28,6 @@ class WakewordEngine:
         self.sample_rate = config.get(
             "audio",
             "sample_rate"
-        )
-
-        self.recognizer = KaldiRecognizer(
-            self.model,
-            self.sample_rate
         )
 
         self.wake_words = tuple(
@@ -55,6 +52,28 @@ class WakewordEngine:
                 "silence_grace_chunks"
             )
             or 8
+        )
+
+        self.require_final_result = (
+            config.get(
+                "wakeword",
+                "require_final_result"
+            )
+            is True
+        )
+
+        self.recognizer = None
+        self._silence_grace_remaining = 0
+
+        self.reset()
+
+    def reset(
+        self
+    ) -> None:
+
+        self.recognizer = KaldiRecognizer(
+            self.model,
+            self.sample_rate
         )
 
         self._silence_grace_remaining = 0
@@ -93,23 +112,43 @@ class WakewordEngine:
                 self.recognizer.Result()
             )
 
-            return self._detect_word_from_text(
+            detected_word = self._detect_word_from_text(
                 result.get(
                     "text",
                     ""
                 )
             )
 
+            if detected_word:
+
+                self.reset()
+
+                return detected_word
+
+            return None
+
+        if self.require_final_result:
+
+            return None
+
         partial = json.loads(
             self.recognizer.PartialResult()
         )
 
-        return self._detect_word_from_text(
+        detected_word = self._detect_word_from_text(
             partial.get(
                 "partial",
                 ""
             )
         )
+
+        if detected_word:
+
+            self.reset()
+
+            return detected_word
+
+        return None
 
     def _detect_word_from_text(
         self,
@@ -123,9 +162,11 @@ class WakewordEngine:
         if not normalized_text:
             return None
 
+        words = normalized_text.split()
+
         for wake_word in self.wake_words:
 
-            if wake_word in normalized_text:
+            if wake_word in words:
                 return wake_word
 
         return None

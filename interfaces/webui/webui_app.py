@@ -3,7 +3,7 @@ import json
 import asyncio
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse, StreamingResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.encoders import jsonable_encoder
 from fastapi.staticfiles import StaticFiles
@@ -32,6 +32,10 @@ from cosmo.cognition.memory.memory_manager import (
     memory_manager
 )
 
+from cosmo.vision.vision_manager import (
+    vision_manager
+)
+
 
 BASE_DIR = Path(__file__).resolve().parent
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -56,18 +60,18 @@ templates = Jinja2Templates(
 
 
 @app.get("/")
-async def index(
+async def dashboard(
     request: Request
 ):
 
     return templates.TemplateResponse(
         request,
-        "index.html",
+        "dashboard.html",
         {
-            "request": request
+            "request": request,
+            "active_page": "dashboard"
         }
     )
-
 
 @app.get("/api/status/compact")
 async def api_status_compact():
@@ -335,3 +339,159 @@ def _decode_event_payload(
     except Exception:
 
         return payload
+
+@app.get("/api/vision/snapshot")
+async def api_vision_snapshot():
+
+    snapshot = vision_manager.snapshot()
+
+    snapshot_path = (
+        snapshot.get(
+            "last_snapshot_path"
+        )
+        or vision_manager.get_snapshot_path()
+    )
+
+    if not snapshot_path:
+
+        return JSONResponse(
+            {
+                "error": "No vision snapshot path configured"
+            },
+            status_code=404
+        )
+
+    path = Path(
+        snapshot_path
+    )
+
+    if not path.exists():
+
+        return JSONResponse(
+            {
+                "error": "Vision snapshot file not found"
+            },
+            status_code=404
+        )
+
+    return FileResponse(
+        path,
+        media_type="image/jpeg"
+    )
+
+@app.get("/")
+async def dashboard(
+    request: Request
+):
+
+    return templates.TemplateResponse(
+        request,
+        "dashboard.html",
+        {
+            "request": request
+        }
+    )
+
+
+@app.get("/vision")
+async def vision_page(
+    request: Request
+):
+
+    return templates.TemplateResponse(
+        request,
+        "vision.html",
+        {
+            "request": request,
+            "active_page": "vision"
+        }
+    )
+
+
+@app.get("/logs")
+async def logs_page(
+    request: Request
+):
+
+    return templates.TemplateResponse(
+        request,
+        "logs.html",
+        {
+            "request": request
+        }
+    )
+
+
+@app.get("/events")
+async def events_page(
+    request: Request
+):
+
+    return templates.TemplateResponse(
+        request,
+        "events.html",
+        {
+            "request": request,
+            "active_page": "events"
+        }
+    )
+
+
+@app.get("/memory")
+async def memory_page(
+    request: Request
+):
+
+    return templates.TemplateResponse(
+        request,
+        "memory.html",
+        {
+            "request": request,
+            "active_page": "memory"
+        }
+    )
+
+
+@app.get("/conversations")
+async def conversations_page(
+    request: Request
+):
+
+    return templates.TemplateResponse(
+        request,
+        "conversations.html",
+        {
+            "request": request,
+            "active_page": "conversations"
+        }
+    )
+
+
+@app.get("/status")
+async def status_page(
+    request: Request
+):
+
+    return templates.TemplateResponse(
+        request,
+        "status.html",
+        {
+            "request": request,
+            "active_page": "status"
+        }
+    )
+
+@app.get("/logs")
+async def logs_page(
+    request: Request
+):
+
+    return templates.TemplateResponse(
+        request,
+        "logs.html",
+        {
+            "request": request,
+            "active_page": "logs"
+        }
+    )
+

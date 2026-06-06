@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block page_title %}Conversations{% endblock %}
+{% block page_subtitle %}Recent user and assistant conversation history{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="page-card-header">
+        <div>
+            <h2>Conversation Inspector</h2>
+            <p class="section-subtitle">
+                Inspect recent user and assistant messages stored in SQLite.
+            </p>
+        </div>
+
+        <div id="conversations-status" class="inline-status">
+            Waiting...
+        </div>
+    </div>
+
+    <div class="inspector-toolbar">
+        <select id="conversations-role">
+            <option value="">All roles</option>
+            <option value="user">user</option>
+            <option value="assistant">assistant</option>
+            <option value="system">system</option>
+        </select>
+
+        <input
+            id="conversations-search"
+            type="text"
+            placeholder="Search conversations..."
+        >
+
+        <select id="conversations-limit">
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+        </select>
+
+        <button id="conversations-refresh">
+            Refresh
+        </button>
+    </div>
+
+    <div id="conversations-output">
+        <div class="empty-state">
+            No conversations loaded.
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/table.js"></script>
+<script src="/static/js/conversations.js"></script>
+{% endblock %}

@@ -32,8 +32,11 @@ wakeword:
     - cosme
     - zenith
     - zênite
-  energy_threshold: 250
+  energy_threshold: 350
   idle_sleep: 0.03
+  silence_grace_chunks: 6
+  detection_cooldown: 2.0
+  require_final_result: false
 
 tts:
   engine: piper
@@ -44,13 +47,17 @@ tts:
   speed: 145
   pitch: 35
   volume: 120
+  post_tts_cooldown: 2.0
 
 vision:
+  enabled: true
   camera_index: 0
   width: 640
   height: 480
   grayscale: true
-
+  snapshot_path: cosmo/data/cache/vision/latest.jpg
+  warmup_frames: 8
+  
 face_recognition:
   confidence_threshold: 70
 
@@ -69,3 +76,4 @@ webui:
   enabled: true
   host: 0.0.0.0
   port: 8765
+

@@ -16,6 +16,10 @@ from cosmo.data.database.repositories.database_metrics_repository import (
     database_metrics_repository
 )
 
+from cosmo.vision.vision_manager import (
+    vision_manager
+)
+
 class DiagnosticsManager:
 
     def snapshot(self) -> dict:
@@ -26,6 +30,7 @@ class DiagnosticsManager:
             "event_bus": async_event_bus.get_metrics(),
             "conversation": self._conversation_snapshot(),
             "personality": self._personality_snapshot(),
+            "vision": self._vision_snapshot(),
         }
 
     def _format_uptime(self, total_seconds: int) -> str:
@@ -66,6 +71,7 @@ class DiagnosticsManager:
             "last_heartbeat_at": runtime_state.last_heartbeat_at,
             "heartbeat_alive": runtime_state.heartbeat_alive(),
             "database": database,
+            "vision": self._vision_snapshot(),
         }
 
     def print_snapshot(self) -> None:
@@ -92,5 +98,33 @@ class DiagnosticsManager:
 
         return datetime.now(timezone.utc).isoformat()
 
+    def _vision_snapshot(
+        self
+    ) -> dict:
 
+        try:
+
+            return vision_manager.snapshot()
+
+        except Exception as error:
+
+            return {
+                "enabled": False,
+                "camera_active": False,
+                "camera_available": False,
+                "camera_index": None,
+                "width": None,
+                "height": None,
+                "grayscale": None,
+                "started_at": None,
+                "last_error": str(
+                    error
+                ),
+                "last_brightness": None,
+                "image_quality": "error",
+                "last_frame_at": None,
+                "last_snapshot_path": None,
+                "has_frame": False,
+            }
+    
 diagnostics_manager = DiagnosticsManager()

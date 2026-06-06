@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block page_title %}Memory{% endblock %}
+{% block page_subtitle %}Persistent memory records stored in SQLite{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="page-card-header">
+        <div>
+            <h2>Memory Inspector</h2>
+            <p class="section-subtitle">
+                Inspect stored memories by category, importance and content.
+            </p>
+        </div>
+
+        <div id="memory-status" class="inline-status">
+            Waiting...
+        </div>
+    </div>
+
+    <div class="inspector-toolbar">
+        <input
+            id="memory-category"
+            type="text"
+            placeholder="Category..."
+        >
+
+        <input
+            id="memory-search"
+            type="text"
+            placeholder="Search memories..."
+        >
+
+        <select id="memory-limit">
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+        </select>
+
+        <button id="memory-refresh">
+            Refresh
+        </button>
+    </div>
+
+    <div id="memory-output">
+        <div class="empty-state">
+            No memories loaded.
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/table.js"></script>
+<script src="/static/js/memory.js"></script>
+{% endblock %}

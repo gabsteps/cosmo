@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block page_title %}Logs{% endblock %}
+{% block page_subtitle %}Application logs persisted in SQLite{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="page-card-header">
+        <div>
+            <h2>Log Inspector</h2>
+            <p class="section-subtitle">
+                Filter and inspect recent Cosmo logs.
+            </p>
+        </div>
+
+        <div id="logs-status" class="inline-status">
+            Waiting...
+        </div>
+    </div>
+
+    <div class="inspector-toolbar">
+        <select id="logs-level">
+            <option value="">All levels</option>
+            <option value="DEBUG">DEBUG</option>
+            <option value="INFO">INFO</option>
+            <option value="WARNING">WARNING</option>
+            <option value="ERROR">ERROR</option>
+            <option value="CRITICAL">CRITICAL</option>
+        </select>
+
+        <input
+            id="logs-search"
+            type="text"
+            placeholder="Search logs..."
+        >
+
+        <select id="logs-limit">
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200" selected>200</option>
+            <option value="500">500</option>
+        </select>
+
+        <button id="logs-refresh">
+            Refresh
+        </button>
+    </div>
+
+    <div id="logs-output">
+        <div class="empty-state">
+            No logs loaded.
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/table.js"></script>
+<script src="/static/js/logs.js"></script>
+{% endblock %}

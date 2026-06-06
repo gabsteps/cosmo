@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block page_title %}Status{% endblock %}
+{% block page_subtitle %}Raw compact runtime snapshot{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="page-card-header">
+        <div>
+            <h2>Compact Snapshot</h2>
+            <p class="section-subtitle">
+                Raw JSON returned by /api/status/compact.
+            </p>
+        </div>
+
+        <div id="status-state" class="inline-status">
+            Waiting...
+        </div>
+    </div>
+
+    <div class="inspector-toolbar">
+        <button id="status-refresh">
+            Refresh
+        </button>
+
+        <label class="checkbox-inline">
+            <input
+                id="status-live"
+                type="checkbox"
+                checked
+            >
+            Live updates
+        </label>
+    </div>
+
+    <pre
+        id="status-output"
+        class="json-output"
+    >Loading...</pre>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/status.js"></script>
+{% endblock %}

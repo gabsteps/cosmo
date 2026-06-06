@@ -55,6 +55,14 @@ class WakewordManager:
             or 0.03
         )
 
+        self.detection_cooldown = (
+            config.get(
+                "wakeword",
+                "detection_cooldown"
+            )
+            or 2.0
+        )
+
         self.audio = pyaudio.PyAudio()
 
         self.stream = None
@@ -62,6 +70,27 @@ class WakewordManager:
         self.running = False
 
         self._lock = asyncio.Lock()
+
+        required_settings = {
+            "audio.sample_rate": self.sample_rate,
+            "audio.chunk_size": self.chunk_size,
+            "audio.channels": self.channels,
+        }
+
+        missing_settings = [
+            key
+            for key, value in required_settings.items()
+            if value is None
+        ]
+
+        if missing_settings:
+
+            raise RuntimeError(
+                "Configurações obrigatórias ausentes para WakewordManager: "
+                + ", ".join(
+                    missing_settings
+                )
+            )
 
     async def start(
         self
@@ -164,9 +193,13 @@ class WakewordManager:
                 )
             )
 
+            wakeword_engine.reset()
+
             await asyncio.sleep(
-                0.3
+                self.detection_cooldown
             )
+
+            continue
 
         await self._cleanup_stream()
 

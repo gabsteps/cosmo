@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+
+{% block page_title %}Dashboard{% endblock %}
+{% block page_subtitle %}Runtime, system and persistence overview{% endblock %}
+
+{% block content %}
+<section class="dashboard-grid">
+    <div class="card">
+        <h2>Runtime</h2>
+
+        <div
+            id="runtime-mode"
+            class="runtime-mode mode-idle"
+        >
+            loading...
+        </div>
+
+        <div class="stats-list">
+            <div class="stat-row">
+                <div class="stat-label">Previous mode</div>
+                <div id="previous-mode" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">System uptime</div>
+                <div id="system-uptime" class="stat-value">00:00:00</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">TTS active</div>
+                <div id="tts-active" class="stat-value">false</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">LLM active</div>
+                <div id="llm-active" class="stat-value">false</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Capture active</div>
+                <div id="capture-active" class="stat-value">false</div>
+            </div>
+        </div>
+
+        <div class="heartbeat-wrap">
+            <div
+                id="heartbeat-heart"
+                class="heartbeat-heart dead"
+            >
+                ❤
+            </div>
+
+            <div class="heartbeat-text">
+                <div class="heartbeat-main">
+                    Heartbeat Status
+                </div>
+
+                <div
+                    id="heartbeat-sub"
+                    class="heartbeat-sub"
+                >
+                    Waiting for heartbeat...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Event Bus</h2>
+
+        <div class="stats-list">
+            <div class="stat-row">
+                <div class="stat-label">Queue size</div>
+                <div id="queue-size" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Events received</div>
+                <div id="events-received" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Events completed</div>
+                <div id="events-completed" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Events failed</div>
+                <div id="events-failed" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Listener timeouts</div>
+                <div id="listener-timeouts" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Listener errors</div>
+                <div id="listener-errors" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Heartbeat count</div>
+                <div id="heartbeat-count" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Status</div>
+                <div id="heartbeat-alive" class="stat-value">unknown</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>System Performance</h2>
+
+        <div class="stats-list">
+            <div class="stat-row">
+                <div class="stat-label">CPU</div>
+                <div id="system-cpu" class="stat-value">0%</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">RAM</div>
+                <div id="system-ram" class="stat-value">0%</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Disk</div>
+                <div id="system-disk" class="stat-value">0%</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Temperature</div>
+                <div id="system-temperature" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Download</div>
+                <div id="system-download" class="stat-value">0 B/s</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Upload</div>
+                <div id="system-upload" class="stat-value">0 B/s</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Cosmo Process</h2>
+
+        <div class="stats-list">
+            <div class="stat-row">
+                <div class="stat-label">PID</div>
+                <div id="process-pid" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Status</div>
+                <div id="process-status" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">CPU</div>
+                <div id="process-cpu" class="stat-value">0%</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">RAM RSS</div>
+                <div id="process-memory-rss" class="stat-value">0 MB</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">RAM percent</div>
+                <div id="process-memory-percent" class="stat-value">0%</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Threads</div>
+                <div id="process-threads" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Open files</div>
+                <div id="process-open-files" class="stat-value">0</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Vision</h2>
+
+        <div class="vision-mini">
+            <div class="vision-status-pill">
+                <span id="vision-camera-status">inactive</span>
+            </div>
+
+            <div class="vision-mini-grid">
+                <div>
+                    <div class="mini-label">Quality</div>
+                    <div id="vision-quality" class="mini-value">unknown</div>
+                </div>
+
+                <div>
+                    <div class="mini-label">Brightness</div>
+                    <div id="vision-brightness" class="mini-value">-</div>
+                </div>
+
+                <div>
+                    <div class="mini-label">Resolution</div>
+                    <div id="vision-resolution" class="mini-value">-</div>
+                </div>
+            </div>
+
+            <a
+                href="/vision"
+                class="card-link"
+            >
+                Open Vision
+            </a>
+        </div>
+
+        <div id="vision-error" class="compact-status">
+            No vision errors.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Data Store</h2>
+
+        <div class="stats-list">
+            <div class="stat-row">
+                <div class="stat-label">Database size</div>
+                <div id="database-size" class="stat-value">0 B</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Users</div>
+                <div id="database-users" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Memories</div>
+                <div id="database-memories" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Conversations</div>
+                <div id="database-conversations" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Events</div>
+                <div id="database-events" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Logs</div>
+                <div id="database-logs" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Last event</div>
+                <div id="database-last-event" class="stat-value">-</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section
+    id="alerts-card"
+    class="card alerts-strip"
+>
+    <div class="alerts-header">
+        <h2>Alerts</h2>
+        <span id="alerts-count" class="alerts-count">0</span>
+    </div>
+
+    <div
+        id="alerts-list"
+        class="alert-list compact-alert-list"
+    >
+        <div class="alert-item alert-ok">
+            No alerts detected.
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

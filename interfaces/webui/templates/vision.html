@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block page_title %}Vision{% endblock %}
+{% block page_subtitle %}Camera status, latest snapshot and image quality{% endblock %}
+
+{% block content %}
+<section class="vision-page-grid">
+    <div class="card vision-main-card">
+        <h2>Latest Snapshot</h2>
+
+        <div class="vision-large-preview-wrap">
+            <img
+                id="vision-large-preview"
+                class="vision-large-preview"
+                alt="Latest camera snapshot"
+            >
+
+            <div
+                id="vision-large-empty"
+                class="vision-preview-empty"
+            >
+                No snapshot available.
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Camera Status</h2>
+
+        <div class="stats-list">
+            <div class="stat-row">
+                <div class="stat-label">Enabled</div>
+                <div id="vision-enabled" class="stat-value">false</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Camera active</div>
+                <div id="vision-camera-active" class="stat-value">false</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Camera available</div>
+                <div id="vision-camera-available" class="stat-value">false</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Camera index</div>
+                <div id="vision-camera-index" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Resolution</div>
+                <div id="vision-resolution" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Grayscale</div>
+                <div id="vision-grayscale" class="stat-value">false</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Started at</div>
+                <div id="vision-started-at" class="stat-value">-</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Image Quality</h2>
+
+        <div class="stats-list">
+            <div class="stat-row">
+                <div class="stat-label">Brightness</div>
+                <div id="vision-brightness" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Quality</div>
+                <div id="vision-quality" class="stat-value">unknown</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Has frame</div>
+                <div id="vision-has-frame" class="stat-value">false</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Last frame</div>
+                <div id="vision-last-frame" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Snapshot path</div>
+                <div id="vision-snapshot-path" class="stat-value">-</div>
+            </div>
+        </div>
+
+        <div id="vision-error" class="compact-status">
+            No vision errors.
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/vision.js"></script>
+{% endblock %}

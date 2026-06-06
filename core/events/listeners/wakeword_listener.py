@@ -25,9 +25,14 @@ from cosmo.audio.tts.tts_manager import (
 )
 
 
+_wakeword_flow_task = None
+
+
 async def on_wake_word_detected(
     data
 ):
+
+    global _wakeword_flow_task
 
     word = data.get(
         "word"
@@ -38,12 +43,25 @@ async def on_wake_word_detected(
     )
 
     if runtime_state.should_ignore_wakeword():
+
         logger.info(
             "Wakeword ignorada pelo runtime_state"
         )
+
         return
 
-    asyncio.create_task(
+    if (
+        _wakeword_flow_task
+        and not _wakeword_flow_task.done()
+    ):
+
+        logger.info(
+            "Wakeword ignorada: fluxo de wakeword já em execução"
+        )
+
+        return
+
+    _wakeword_flow_task = asyncio.create_task(
         _handle_wakeword_flow(
             word
         )

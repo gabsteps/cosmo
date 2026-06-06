@@ -138,15 +138,74 @@ function updateRuntimeCards(status) {
     setText("database-events", database.events_count ?? 0);
     setText("database-logs", database.logs_count ?? 0);
     setText("database-last-event", database.last_event_type ?? "-");
+    
+    const vision = status.vision ?? {};
+
+    setText("vision-enabled", formatBoolean(vision.enabled));
+    setText("vision-camera-active", formatBoolean(vision.camera_active));
+    setText("vision-camera-available", formatBoolean(vision.camera_available));
+    setText("vision-camera-index", vision.camera_index ?? "-");
+
+    setText(
+        "vision-resolution",
+        (
+            vision.width && vision.height
+                ? `${vision.width}x${vision.height}`
+                : "-"
+        )
+    );
+
+    setText("vision-grayscale", formatBoolean(vision.grayscale));
+
+    setText(
+        "vision-brightness",
+        (
+            vision.last_brightness === null ||
+            vision.last_brightness === undefined
+                ? "-"
+                : Number(vision.last_brightness).toFixed(2)
+        )
+    );
+
+    const visionQualityElement = document.getElementById("vision-quality");
+
+    if (visionQualityElement) {
+        const quality = vision.image_quality ?? "unknown";
+
+        visionQualityElement.textContent = quality;
+        visionQualityElement.className = "stat-value";
+        visionQualityElement.classList.add(`vision-quality-${quality}`);
+    }
+
+    setText(
+        "vision-last-frame",
+        vision.last_frame_at ?? "-"
+    );
+
+    const visionErrorElement = document.getElementById("vision-error");
+
+    if (visionErrorElement) {
+        if (vision.last_error) {
+            visionErrorElement.textContent = vision.last_error;
+            visionErrorElement.classList.add("has-error");
+        } else {
+            visionErrorElement.textContent = "No vision errors.";
+            visionErrorElement.classList.remove("has-error");
+        }
+    }
 
     updateHeartbeat(status);
     updateAlerts(status);
 }
 
+
+
 function updateAlerts(status) {
     const alerts = [];
+
     const system = status.system ?? {};
     const process = system.process ?? {};
+    const vision = status.vision ?? {};
 
     if (!status.heartbeat_alive) {
         alerts.push({
@@ -182,12 +241,6 @@ function updateAlerts(status) {
             text: `Runtime error: ${status.last_error}`
         });
     }
-    if ((system.cpu_percent ?? 0) >= 90) {
-        alerts.push({
-            level: "warning",
-            text: `High System CPU usage: ${system.cpu_percent}%.`
-        });
-    }
 
     if ((system.memory_percent ?? 0) >= 85) {
         alerts.push({
@@ -204,20 +257,13 @@ function updateAlerts(status) {
     }
 
     if (
-        system.temperature_celsius !== null
-        && system.temperature_celsius !== undefined
-        && system.temperature_celsius >= 80
+        system.temperature_celsius !== null &&
+        system.temperature_celsius !== undefined &&
+        system.temperature_celsius >= 80
     ) {
         alerts.push({
             level: "warning",
             text: `High temperature: ${system.temperature_celsius} °C.`
-        });
-    }
-
-    if (process.error) {
-        alerts.push({
-            level: "warning",
-            text: `Process monitor error: ${process.error}`
         });
     }
 
@@ -228,20 +274,65 @@ function updateAlerts(status) {
         });
     }
 
-    const container = document.getElementById("alerts-list");
+    if (process.error) {
+        alerts.push({
+            level: "warning",
+            text: `Process monitor error: ${process.error}`
+        });
+    }
 
-    if (!container) {
+    if (
+        vision.enabled &&
+        vision.camera_active &&
+        vision.image_quality === "dark"
+    ) {
+        alerts.push({
+            level: "warning",
+            text: "Vision image is too dark."
+        });
+    }
+
+    if (
+        vision.enabled &&
+        vision.camera_active &&
+        vision.image_quality === "low_light"
+    ) {
+        alerts.push({
+            level: "warning",
+            text: "Vision image has low light."
+        });
+    }
+
+    if (vision.last_error) {
+        alerts.push({
+            level: "warning",
+            text: `Vision error: ${vision.last_error}`
+        });
+    }
+
+    const card = document.getElementById("alerts-card");
+    const container = document.getElementById("alerts-list");
+    const count = document.getElementById("alerts-count");
+
+    if (!card || !container || !count) {
         return;
     }
 
     if (!alerts.length) {
+        card.classList.add("alerts-hidden");
+        count.textContent = "0";
+
         container.innerHTML = `
             <div class="alert-item alert-ok">
                 No alerts detected.
             </div>
         `;
+
         return;
     }
+
+    card.classList.remove("alerts-hidden");
+    count.textContent = alerts.length;
 
     container.innerHTML = alerts.map(
         alert => `
@@ -613,4 +704,27 @@ function formatTimestamp(value) {
             second: "2-digit"
         }
     );
+}
+
+function updateVisionPreview(vision) {
+    const preview = document.getElementById("vision-preview");
+    const empty = document.getElementById("vision-preview-empty");
+
+    if (!preview || !empty) {
+        return;
+    }
+
+    if (!vision || !vision.has_frame || !vision.last_snapshot_path) {
+        preview.classList.remove("visible");
+        empty.classList.remove("hidden");
+        return;
+    }
+
+    const cacheBust = encodeURIComponent(
+        vision.last_frame_at ?? Date.now()
+    );
+
+    preview.src = `/api/vision/snapshot?t=${cacheBust}`;
+    preview.classList.add("visible");
+    empty.classList.add("hidden");
 }

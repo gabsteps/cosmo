@@ -208,15 +208,47 @@
             </div>
 
             <div class="card">
-                <h2>Alerts</h2>
+                <h2>Vision</h2>
 
-                <div
-                    id="alerts-list"
-                    class="alert-list"
-                >
-                    <div class="alert-item alert-ok">
-                        No alerts detected.
+                <div class="vision-preview-wrap">
+                    <img
+                        id="vision-preview"
+                        class="vision-preview"
+                        alt="Latest vision snapshot"
+                    />
+
+                    <div
+                        id="vision-preview-empty"
+                        class="vision-preview-empty"
+                    >
+                        No snapshot available.
                     </div>
+                </div>
+
+                <div class="stats-list">
+                    <div class="stat-row">
+                        <div class="stat-label">Camera</div>
+                        <div id="vision-camera-status" class="stat-value">inactive</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Resolution</div>
+                        <div id="vision-resolution" class="stat-value">-</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Brightness</div>
+                        <div id="vision-brightness" class="stat-value">-</div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label">Quality</div>
+                        <div id="vision-quality" class="stat-value">unknown</div>
+                    </div>
+                </div>
+
+                <div id="vision-error" class="compact-status">
+                    No vision errors.
                 </div>
             </div>
 
@@ -260,22 +292,36 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <div class="card inspectors-card">
+        <div class="card alerts-strip">
+            <h2>Alerts</h2>
+
+            <div
+                id="alerts-list"
+                class="alert-list compact-alert-list"
+            >
+                <div class="alert-item alert-ok">
+                    No alerts detected.
+                </div>
+            </div>
+        </div>
+
+        <div class="card inspectors">
             <h2>Inspectors</h2>
 
             <div
-                class="inspector-toolbar"
                 id="inspector-toolbar"
+                class="inspector-toolbar"
             ></div>
 
             <div class="button-row">
-                <button onclick="selectInspector('status')">Status</button>
-                <button onclick="selectInspector('memories')">Memories</button>
-                <button onclick="selectInspector('conversations')">Conversations</button>
-                <button onclick="selectInspector('events')">Events</button>
-                <button onclick="selectInspector('logs')">Logs</button>
+                <button data-inspector="status">Status</button>
+                <button data-inspector="memories">Memories</button>
+                <button data-inspector="conversations">Conversations</button>
+                <button data-inspector="events">Events</button>
+                <button data-inspector="logs">Logs</button>
             </div>
 
             <div class="footer-note">

@@ -1,11 +1,15 @@
+import asyncio
+
 from cosmo.core.logger.logger_manager import (
     logger
 )
 
-import asyncio
-
 from cosmo.audio.tts.tts_manager import (
     tts_manager
+)
+
+from cosmo.audio.wakeword.wakeword_engine import (
+    wakeword_engine
 )
 
 from cosmo.core.events.async_event_bus import (
@@ -21,21 +25,39 @@ from cosmo.core.runtime.runtime_state import (
     runtime_state
 )
 
+from cosmo.core.config.settings_manager import (
+    config
+)
+
 
 class TTSPipeline:
+
+    def __init__(
+        self
+    ):
+
+        self.post_tts_cooldown = (
+            config.get(
+                "tts",
+                "post_tts_cooldown"
+            )
+            or 2.0
+        )
 
     async def speak_response(
         self,
         text: str
     ) -> None:
 
-        text = text.strip()
+        if not text or not text.strip():
 
-        if not text:
             logger.warning(
                 "TTS ignorado: texto vazio"
             )
+
             return
+
+        text = text.strip()
 
         try:
 
@@ -63,20 +85,30 @@ class TTSPipeline:
 
         finally:
 
-            await async_event_bus.emit(
-                TTS_FINISHED,
-                {
-                    "text": text
-                },
-                priority=async_event_bus.PRIORITY_AUDIO
+            runtime_state.set_cooldown(
+                seconds=self.post_tts_cooldown
             )
 
-            runtime_state.set_cooldown(
-                seconds=2.0
-            )
+            wakeword_engine.reset()
+
+            try:
+
+                await async_event_bus.emit(
+                    TTS_FINISHED,
+                    {
+                        "text": text
+                    },
+                    priority=async_event_bus.PRIORITY_AUDIO
+                )
+
+            except Exception as error:
+
+                logger.warning(
+                    f"Falha ao emitir TTS_FINISHED: {error}"
+                )
 
             await asyncio.sleep(
-                2.0
+                self.post_tts_cooldown
             )
 
             runtime_state.set_idle()

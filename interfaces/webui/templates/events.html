@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block page_title %}Events{% endblock %}
+{% block page_subtitle %}Async event bus history persisted in SQLite{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="page-card-header">
+        <div>
+            <h2>Event Inspector</h2>
+            <p class="section-subtitle">
+                Inspect recently emitted system events.
+            </p>
+        </div>
+
+        <div id="events-status" class="inline-status">
+            Waiting...
+        </div>
+    </div>
+
+    <div class="inspector-toolbar">
+        <input
+            id="events-type"
+            type="text"
+            placeholder="Event type..."
+        >
+
+        <input
+            id="events-search"
+            type="text"
+            placeholder="Search events..."
+        >
+
+        <select id="events-limit">
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+        </select>
+
+        <button id="events-refresh">
+            Refresh
+        </button>
+    </div>
+
+    <div id="events-output">
+        <div class="empty-state">
+            No events loaded.
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/table.js"></script>
+<script src="/static/js/events.js"></script>
+{% endblock %}
