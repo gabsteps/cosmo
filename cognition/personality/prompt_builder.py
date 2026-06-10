@@ -94,8 +94,8 @@ class PromptBuilder:
                         "- Não diga que não pode alterar o parâmetro.",
                         "- Não mencione YAML, runtime, parser, prompt ou implementação interna.",
                         "- Máximo de duas frases.",
-                        "- Não use markdown.",
-                        "- Para piadas genéricas, use temas cotidianos: comida, animais, casa, trabalho comum, clima, fila, café, sono ou situações sociais.",
+                        "- JAMAIS use markdown, aspas ou emojis.",
+                        "- Para piadas genéricas como por que x fez y?, use temas cotidianos: comida, animais, casa, trabalho comum, clima, fila, café, sono ou situações sociais.",
                         "- Evite piadas sobre programação, código, bugs, servidores, IA ou robôs quando o usuário pedir apenas uma piada genérica.",
                     ]
                 )

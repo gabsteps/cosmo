@@ -261,57 +261,42 @@ async def api_events(
 async def api_logs(
     limit: int = 200,
     level: str | None = None,
-    search: str | None = None
+    search: str | None = None,
+    logger_name: str | None = None,
+    module: str | None = None,
+    function: str | None = None,
 ):
 
-    logs = log_repository.get_recent_logs(
-        limit=limit,
-        level=level
-    )
+    try:
 
-    result = [
-        _row_to_dict(log)
-        for log in logs
-    ]
-
-    if search:
-
-        normalized_search = search.lower()
+        logs = log_repository.get_recent_logs(
+            limit=limit,
+            level=level,
+            search=search,
+            logger_name=logger_name,
+            module=module,
+            function=function
+        )
 
         result = [
-            log
-            for log in result
-            if (
-                normalized_search in str(
-                    log.get(
-                        "message",
-                        ""
-                    )
-                ).lower()
-                or normalized_search in str(
-                    log.get(
-                        "module",
-                        ""
-                    )
-                ).lower()
-                or normalized_search in str(
-                    log.get(
-                        "function",
-                        ""
-                    )
-                ).lower()
-                or normalized_search in str(
-                    log.get(
-                        "level",
-                        ""
-                    )
-                ).lower()
-            )
+            _row_to_dict(log)
+            for log in logs
         ]
 
-    return jsonable_encoder(
-        result
-    )
+        return jsonable_encoder(
+            result
+        )
+
+    except Exception as error:
+
+        return JSONResponse(
+            {
+                "error": str(
+                    error
+                )
+            },
+            status_code=500
+        )
 
 
 def _row_to_dict(

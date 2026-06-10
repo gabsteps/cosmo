@@ -89,6 +89,7 @@ function updateEventBus(status) {
     setText("queue-size", status.queue_size ?? 0);
     setText("events-received", status.events_received ?? 0);
     setText("events-completed", status.events_completed ?? 0);
+    setText("events-no-listeners", status.events_no_listeners ?? 0);
     setText("events-failed", status.events_failed ?? 0);
     setText("listener-timeouts", status.listener_timeouts ?? 0);
     setText("listener-errors", status.listener_errors ?? 0);
@@ -175,6 +176,13 @@ function updateVision(status) {
             errorElement.classList.remove("has-error");
         }
     }
+
+    setText(
+        "vision-camera-status",
+        vision.auto_capture
+            ? `${cameraStatus} / auto`
+            : cameraStatus
+    );
 }
 
 function updateDatabase(status) {

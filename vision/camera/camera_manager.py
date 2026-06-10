@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
-
+import time
+import numpy as np
 import cv2
 
 from cosmo.core.config.settings_manager import (
@@ -59,6 +60,45 @@ class CameraManager:
             "warmup_frames"
         )
 
+        self.camera_open_retries = (
+            config.get(
+                "vision",
+                "camera_open_retries"
+            )
+            or 5
+        )
+
+        self.camera_open_retry_delay = (
+            config.get(
+                "vision",
+                "camera_open_retry_delay"
+            )
+            or 1.0
+        )
+
+        self.frame_flush_reads = (
+            config.get(
+                "vision",
+                "frame_flush_reads"
+            )
+            or 6
+        )
+
+        self.frame_flush_delay = (
+            config.get(
+                "vision",
+                "frame_flush_delay"
+            )
+            or 0.03
+        )
+
+        self.camera_buffer_size = (
+            config.get(
+                "vision",
+                "camera_buffer_size"
+            )
+            or 1
+        )
         required_settings = {
             "vision.camera_index": self.camera_index,
             "vision.width": self.width,
@@ -88,7 +128,7 @@ class CameraManager:
             raise RuntimeError(
                 "Configuração inválida: vision.warmup_frames deve ser inteiro >= 0"
             )
-        
+
         if not isinstance(self.width, int) or self.width <= 0:
 
             raise RuntimeError(
@@ -99,15 +139,33 @@ class CameraManager:
 
             raise RuntimeError(
                 "Configuração inválida: vision.height deve ser inteiro > 0"
-            )     
-        
-           
+            )
+
+        if (
+            not isinstance(self.camera_open_retries, int)
+            or self.camera_open_retries <= 0
+        ):
+
+            raise RuntimeError(
+                "Configuração inválida: vision.camera_open_retries deve ser inteiro > 0"
+            )
+
+        if (
+            not isinstance(self.camera_open_retry_delay, int | float)
+            or self.camera_open_retry_delay < 0
+        ):
+
+            raise RuntimeError(
+                "Configuração inválida: vision.camera_open_retry_delay deve ser número >= 0"
+            )
+
         self.capture = None
         self.active = False
         self.last_error = None
         self.started_at = None
         self.last_brightness = None
         self.image_quality = "unknown"
+        self.image_metrics = {}
 
         logger.info(
             f"Vision config carregada: "
@@ -116,7 +174,9 @@ class CameraManager:
             f"height={self.height}, "
             f"grayscale={self.grayscale}, "
             f"snapshot_path={self.snapshot_path}, "
-            f"warmup_frames={self.warmup_frames}"
+            f"warmup_frames={self.warmup_frames}, "
+            f"camera_open_retries={self.camera_open_retries}, "
+            f"camera_open_retry_delay={self.camera_open_retry_delay}"
         )
 
     def start(
@@ -131,7 +191,7 @@ class CameraManager:
 
             return False
 
-        if self.active and self.capture:
+        if self.active and self.capture and self.capture.isOpened():
 
             logger.info(
                 "CameraManager já está ativo"
@@ -145,8 +205,53 @@ class CameraManager:
                 f"Iniciando câmera index={self.camera_index}"
             )
 
-            self.capture = cv2.VideoCapture(
-                self.camera_index
+            self.capture = None
+
+            for attempt in range(
+                1,
+                self.camera_open_retries + 1
+            ):
+
+                logger.info(
+                    f"Tentando abrir câmera index={self.camera_index} "
+                    f"(tentativa {attempt}/{self.camera_open_retries})"
+                )
+
+                capture = cv2.VideoCapture(
+                    self.camera_index
+                )
+
+                if capture.isOpened():
+
+                    self.capture = capture
+
+                    break
+
+                capture.release()
+
+                time.sleep(
+                    self.camera_open_retry_delay
+                )
+
+            if not self.capture or not self.capture.isOpened():
+
+                self.last_error = (
+                    f"Não foi possível abrir câmera index={self.camera_index} "
+                    f"após {self.camera_open_retries} tentativas"
+                )
+
+                logger.warning(
+                    self.last_error
+                )
+
+                self.capture = None
+                self.active = False
+
+                return False
+            
+            self.capture.set(
+                cv2.CAP_PROP_BUFFERSIZE,
+                self.camera_buffer_size
             )
 
             if self.width:
@@ -162,22 +267,6 @@ class CameraManager:
                     cv2.CAP_PROP_FRAME_HEIGHT,
                     self.height
                 )
-
-            if not self.capture.isOpened():
-
-                self.last_error = (
-                    f"Não foi possível abrir câmera index={self.camera_index}"
-                )
-
-                logger.warning(
-                    self.last_error
-                )
-
-                self.capture.release()
-                self.capture = None
-                self.active = False
-
-                return False
 
             self._warmup_camera()
 
@@ -265,7 +354,10 @@ class CameraManager:
 
         try:
 
-            ok, frame = self.capture.read()
+            ok, frame = self._read_fresh_frame()
+            logger.info(
+                f"Frame fresco lido após flush_reads={self.frame_flush_reads}"
+            )
 
             if not ok or frame is None:
 
@@ -286,16 +378,25 @@ class CameraManager:
                     cv2.COLOR_BGR2GRAY
                 )
 
-            self.last_brightness = self._calculate_brightness(
+            self.image_metrics = self._calculate_image_metrics(
                 frame
             )
+
+            self.last_brightness = self.image_metrics.get(
+                "brightness_mean"
+            )
+
             self.image_quality = self._classify_image_quality(
-                self.last_brightness
+                self.image_metrics
             )
 
             logger.info(
                 f"Frame capturado: "
                 f"brightness={self.last_brightness:.2f}, "
+                f"contrast={self.image_metrics.get('brightness_std'):.2f}, "
+                f"dark_ratio={self.image_metrics.get('dark_ratio'):.2f}, "
+                f"bright_ratio={self.image_metrics.get('bright_ratio'):.2f}, "
+                f"overexposed_ratio={self.image_metrics.get('overexposed_ratio'):.2f}, "
                 f"quality={self.image_quality}"
             )
 
@@ -361,6 +462,7 @@ class CameraManager:
             "last_error": self.last_error,
             "last_brightness": self.last_brightness,
             "image_quality": self.image_quality,
+            "image_metrics": self.image_metrics,
             "last_frame_at": frame_snapshot.get(
                 "last_frame_at"
             ),
@@ -420,4 +522,150 @@ class CameraManager:
             return "low_light"
 
         return "ok"
+
+    def _read_fresh_frame(
+        self
+    ):
+
+        if not self.capture:
+            return False, None
+
+        last_ok = False
+        last_frame = None
+
+        for _ in range(
+            self.frame_flush_reads
+        ):
+
+            ok, frame = self.capture.read()
+
+            if ok and frame is not None:
+
+                last_ok = True
+                last_frame = frame
+
+            if self.frame_flush_delay > 0:
+
+                time.sleep(
+                    self.frame_flush_delay
+                )
+
+        return last_ok, last_frame
+
+    def _calculate_image_metrics(
+        self,
+        frame
+    ) -> dict:
+
+        if frame is None:
+
+            return {
+                "brightness_mean": 0.0,
+                "brightness_std": 0.0,
+                "dark_ratio": 1.0,
+                "bright_ratio": 0.0,
+                "overexposed_ratio": 0.0,
+            }
+
+        if len(frame.shape) == 3:
+
+            gray = cv2.cvtColor(
+                frame,
+                cv2.COLOR_BGR2GRAY
+            )
+
+        else:
+
+            gray = frame
+
+        gray = gray.astype(
+            np.uint8
+        )
+
+        brightness_mean = float(
+            gray.mean()
+        )
+
+        brightness_std = float(
+            gray.std()
+        )
+
+        dark_ratio = float(
+            np.mean(
+                gray < 25
+            )
+        )
+
+        bright_ratio = float(
+            np.mean(
+                gray > 220
+            )
+        )
+
+        overexposed_ratio = float(
+            np.mean(
+                gray > 245
+            )
+        )
+
+        return {
+            "brightness_mean": brightness_mean,
+            "brightness_std": brightness_std,
+            "dark_ratio": dark_ratio,
+            "bright_ratio": bright_ratio,
+            "overexposed_ratio": overexposed_ratio,
+        }
+
+    def _classify_image_quality(
+        self,
+        metrics: dict
+    ) -> str:
+
+        brightness = metrics.get(
+            "brightness_mean",
+            0.0
+        )
+
+        contrast = metrics.get(
+            "brightness_std",
+            0.0
+        )
+
+        dark_ratio = metrics.get(
+            "dark_ratio",
+            1.0
+        )
+
+        bright_ratio = metrics.get(
+            "bright_ratio",
+            0.0
+        )
+
+        overexposed_ratio = metrics.get(
+            "overexposed_ratio",
+            0.0
+        )
+
+        if overexposed_ratio > 0.02:
+
+            return "overexposed"
+
+        if bright_ratio > 0.08 and dark_ratio > 0.45:
+
+            return "high_contrast"
+
+        if dark_ratio > 0.75:
+
+            return "dark"
+
+        if brightness < 35 or dark_ratio > 0.60:
+
+            return "low_light"
+
+        if contrast < 8:
+
+            return "low_contrast"
+
+        return "ok"
+
 camera_manager = CameraManager()

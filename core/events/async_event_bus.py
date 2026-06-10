@@ -24,11 +24,8 @@ from cosmo.data.database.repositories.event_repository import (
     event_repository
 )
 
-class AsyncEventBus:
 
-    # ==================================================
-    # PRIORIDADES
-    # ==================================================
+class AsyncEventBus:
 
     PRIORITY_CRITICAL = 0
     PRIORITY_AUDIO = 1
@@ -36,25 +33,19 @@ class AsyncEventBus:
     PRIORITY_COGNITION = 3
     PRIORITY_BACKGROUND = 5
 
-    def __init__(self):
+    def __init__(
+        self
+    ):
 
-        self.listeners = defaultdict(list)
+        self.listeners = defaultdict(
+            list
+        )
 
         self.max_queue_size = 100
-
-        # ==================================================
-        # PRIORITY QUEUE
-        # ==================================================
 
         self.queue = asyncio.PriorityQueue(
             maxsize=self.max_queue_size
         )
-
-        # ==================================================
-        # SEQUENCE COUNTER
-        # evita comparação de dicts
-        # quando prioridades forem iguais
-        # ==================================================
 
         self.sequence_lock = asyncio.Lock()
 
@@ -65,11 +56,6 @@ class AsyncEventBus:
         self.listener_timeout = 30
 
         self.metrics = {
-
-            # ==================================================
-            # EVENTOS
-            # ==================================================
-
             "events_received": 0,
             "events_emitted": 0,
             "events_dispatched": 0,
@@ -78,35 +64,24 @@ class AsyncEventBus:
             "events_completed": 0,
             "events_failed": 0,
             "events_partial_failures": 0,
+
+            # mantido para compatibilidade
             "events_unhandled": 0,
 
-            # ==================================================
-            # LISTENERS
-            # ==================================================
+            # nome mais claro para dashboard/WebUI
+            "events_no_listeners": 0,
 
             "listener_successes": 0,
             "listener_timeouts": 0,
             "listener_errors": 0,
 
-            # ==================================================
-            # FILA
-            # ==================================================
-
             "queue_peak": 0,
             "current_queue_size": 0,
 
-            # ==================================================
-            # PERFORMANCE
-            # ==================================================
-
             "avg_event_processing_time": 0.0,
             "avg_listener_processing_time": 0.0,
-            "avg_queue_wait_time": 0.0
+            "avg_queue_wait_time": 0.0,
         }
-
-    # ==================================================
-    # SUBSCRIBE
-    # ==================================================
 
     def subscribe(
         self,
@@ -123,10 +98,6 @@ class AsyncEventBus:
             f"{event_name} -> {callback.__name__}"
         )
 
-    # ==================================================
-    # EMIT
-    # ==================================================
-
     async def emit(
         self,
         event_name,
@@ -134,30 +105,27 @@ class AsyncEventBus:
         priority=PRIORITY_BACKGROUND
     ):
 
-        self.metrics["events_received"] += 1
+        self.metrics[
+            "events_received"
+        ] += 1
 
         event = {
-            "id": str(uuid.uuid4()),
+            "id": str(
+                uuid.uuid4()
+            ),
             "name": event_name,
             "data": data,
             "priority": priority,
             "created_at": time.time(),
-            "dispatched_at": None
+            "dispatched_at": None,
         }
 
         try:
 
-            # ==================================================
-            # SEQUENCE
-            # ==================================================
-
             async with self.sequence_lock:
+
                 self.sequence += 1
                 sequence = self.sequence
-
-            # ==================================================
-            # PRIORITY INSERT
-            # ==================================================
 
             self.queue.put_nowait(
                 (
@@ -182,10 +150,7 @@ class AsyncEventBus:
                 "current_queue_size"
             ] = current_size
 
-            if (
-                current_size >
-                self.metrics["queue_peak"]
-            ):
+            if current_size > self.metrics["queue_peak"]:
 
                 self.metrics[
                     "queue_peak"
@@ -238,11 +203,10 @@ class AsyncEventBus:
             logger.warning(
                 f"Falha ao persistir evento no banco: {error}"
             )
-    # ==================================================
-    # START
-    # ==================================================
 
-    async def start(self):
+    async def start(
+        self
+    ):
 
         self.running = True
 
@@ -258,16 +222,15 @@ class AsyncEventBus:
                 event
             ) = await self.queue.get()
 
-            # ==================================================
-            # DISPATCH TIMESTAMP
-            # ==================================================
-
-            event["dispatched_at"] = time.time()
+            event[
+                "dispatched_at"
+            ] = time.time()
 
             queue_wait = (
-                event["dispatched_at"] -
-                event["created_at"]
+                event["dispatched_at"]
+                - event["created_at"]
             )
+
             logger.info(
                 f"[TRACE] "
                 f"{event['id']} "
@@ -279,29 +242,11 @@ class AsyncEventBus:
                 "events_dispatched"
             ] += 1
 
-            # ==================================================
-            # QUEUE LATENCY METRICS
-            # ==================================================
-
-            dispatched = self.metrics[
-                "events_dispatched"
-            ]
-
-            current_avg = self.metrics[
-                "avg_queue_wait_time"
-            ]
-
-            self.metrics[
-                "avg_queue_wait_time"
-            ] = (
-                (
-                    current_avg * (dispatched - 1)
-                ) + queue_wait
-            ) / dispatched
-
-            # ==================================================
-            # STARVATION WARNING
-            # ==================================================
+            self._update_average(
+                metric_name="avg_queue_wait_time",
+                count=self.metrics["events_dispatched"],
+                value=queue_wait
+            )
 
             if queue_wait > 5:
 
@@ -317,21 +262,21 @@ class AsyncEventBus:
             ] = self.queue.qsize()
 
             asyncio.create_task(
-                self._dispatch_event(event)
+                self._dispatch_event(
+                    event
+                )
             )
 
             self.queue.task_done()
-            
-    # ==================================================
-    # DISPATCH
-    # ==================================================
 
     async def _dispatch_event(
         self,
         event
     ):
 
-        event_name = event["name"]
+        event_name = event[
+            "name"
+        ]
 
         listeners = self.listeners.get(
             event_name,
@@ -346,11 +291,30 @@ class AsyncEventBus:
             f"(priority={event['priority']})"
         )
 
-        # ==================================================
-        # NO LISTENERS
-        # ==================================================
+        event_start = time.perf_counter()
 
         if not listeners:
+
+            elapsed = (
+                time.perf_counter()
+                - event_start
+            )
+
+            self.metrics[
+                "events_unhandled"
+            ] += 1
+
+            self.metrics[
+                "events_no_listeners"
+            ] += 1
+
+            self.metrics[
+                "events_completed"
+            ] += 1
+
+            self._update_event_processing_average(
+                elapsed
+            )
 
             logger.warning(
                 f"[TRACE] "
@@ -359,12 +323,15 @@ class AsyncEventBus:
                 f"{event_name}"
             )
 
-            self.metrics[
-                "events_unhandled"
-            ] += 1
-            return
+            logger.info(
+                f"[TRACE] "
+                f"{event['id']} "
+                f"event_completed -> "
+                f"{event_name} "
+                f"(no_listeners)"
+            )
 
-        event_start = time.perf_counter()
+            return
 
         tasks = [
             asyncio.create_task(
@@ -381,40 +348,23 @@ class AsyncEventBus:
             return_exceptions=False
         )
 
-        success_count = sum(results)
+        success_count = sum(
+            results
+        )
 
         failure_count = (
-            len(results) - success_count
+            len(results)
+            - success_count
         )
 
         elapsed = (
-            time.perf_counter() - event_start
+            time.perf_counter()
+            - event_start
         )
 
-        classified_events = (
-            self.metrics["events_completed"] +
-            self.metrics["events_failed"] +
-            self.metrics[
-                "events_partial_failures"
-            ]
+        self._update_event_processing_average(
+            elapsed
         )
-
-        current_avg = self.metrics[
-            "avg_event_processing_time"
-        ]
-
-        self.metrics[
-            "avg_event_processing_time"
-        ] = (
-            (
-                current_avg *
-                classified_events
-            ) + elapsed
-        ) / (classified_events + 1)
-
-        # ==================================================
-        # EVENT CLASSIFICATION
-        # ==================================================
 
         if failure_count == 0:
 
@@ -455,17 +405,11 @@ class AsyncEventBus:
                 f"{event_name}"
             )
 
-    # ==================================================
-    # SHUTDOWN
-    # ==================================================
-
-    async def shutdown(self):
+    async def shutdown(
+        self
+    ):
 
         self.running = False
-
-    # ==================================================
-    # LISTENER EXECUTION
-    # ==================================================
 
     async def _execute_listener(
         self,
@@ -485,35 +429,26 @@ class AsyncEventBus:
         try:
 
             await asyncio.wait_for(
-                listener(event["data"]),
+                listener(
+                    event["data"]
+                ),
                 timeout=self.listener_timeout
             )
 
             elapsed = (
-                time.perf_counter() -
-                start_time
+                time.perf_counter()
+                - start_time
             )
 
             self.metrics[
                 "listener_successes"
             ] += 1
 
-            successes = self.metrics[
-                "listener_successes"
-            ]
-
-            current_avg = self.metrics[
-                "avg_listener_processing_time"
-            ]
-
-            self.metrics[
-                "avg_listener_processing_time"
-            ] = (
-                (
-                    current_avg *
-                    (successes - 1)
-                ) + elapsed
-            ) / successes
+            self._update_average(
+                metric_name="avg_listener_processing_time",
+                count=self.metrics["listener_successes"],
+                value=elapsed
+            )
 
             logger.info(
                 f"[TRACE] "
@@ -542,14 +477,14 @@ class AsyncEventBus:
                 "audio_captured",
                 "response_generated",
             ):
+
                 asyncio.create_task(
                     tts_fallback.speak_timeout_message()
                 )
 
-
             return False
 
-        except Exception as e:
+        except Exception as error:
 
             self.metrics[
                 "listener_errors"
@@ -559,16 +494,61 @@ class AsyncEventBus:
                 f"[TRACE] "
                 f"{event['id']} "
                 f"listener_error -> "
-                f"{listener.__name__}: {e}"
+                f"{listener.__name__}: {error}"
             )
 
             return False
 
-    # ==================================================
-    # METRICS
-    # ==================================================
+    def _update_event_processing_average(
+        self,
+        elapsed: float
+    ) -> None:
 
-    def get_metrics(self):
+        classified_events = (
+            self.metrics["events_completed"]
+            + self.metrics["events_failed"]
+            + self.metrics["events_partial_failures"]
+            + 1
+        )
+
+        self._update_average(
+            metric_name="avg_event_processing_time",
+            count=classified_events,
+            value=elapsed
+        )
+
+    def _update_average(
+        self,
+        metric_name: str,
+        count: int,
+        value: float
+    ) -> None:
+
+        if count <= 0:
+
+            self.metrics[
+                metric_name
+            ] = value
+
+            return
+
+        current_avg = self.metrics[
+            metric_name
+        ]
+
+        self.metrics[
+            metric_name
+        ] = (
+            (
+                current_avg
+                * (count - 1)
+            )
+            + value
+        ) / count
+
+    def get_metrics(
+        self
+    ):
 
         self.metrics[
             "current_queue_size"

@@ -61,6 +61,15 @@ function updateVisionPage(vision) {
     setText("vision-last-frame", formatTimestamp(vision.last_frame_at));
     setText("vision-snapshot-path", vision.last_snapshot_path ?? "-");
 
+    setText("vision-auto-capture", formatBoolean(vision.auto_capture));
+
+    setText(
+        "vision-capture-interval",
+        vision.capture_interval
+            ? `${vision.capture_interval}s`
+            : "-"
+    );
+
     updateVisionError(vision);
     updateVisionPreview(vision);
 }

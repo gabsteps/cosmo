@@ -467,6 +467,12 @@ td.cell-code {
     background: rgba(239, 68, 68, 0.10);
 }
 
+.vision-quality-overexposed,
+.vision-quality-high_contrast,
+.vision-quality-low_contrast {
+    color: #fde68a;
+}
+
 .vision-quality-ok {
     color: #86efac;
 }

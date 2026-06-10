@@ -72,6 +72,7 @@ class DiagnosticsManager:
             "heartbeat_alive": runtime_state.heartbeat_alive(),
             "database": database,
             "vision": self._vision_snapshot(),
+            "events_no_listeners": event_bus.get("events_no_listeners"),
         }
 
     def print_snapshot(self) -> None:

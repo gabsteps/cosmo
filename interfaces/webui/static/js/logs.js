@@ -8,9 +8,17 @@ document.addEventListener(
 
 function bindLogsControls() {
     const refresh = document.getElementById("logs-refresh");
-    const level = document.getElementById("logs-level");
-    const search = document.getElementById("logs-search");
-    const limit = document.getElementById("logs-limit");
+
+    const controls = [
+        "logs-level",
+        "logs-limit"
+    ];
+
+    const textControls = [
+        "logs-search",
+        "logs-module",
+        "logs-function"
+    ];
 
     if (refresh) {
         refresh.addEventListener(
@@ -19,50 +27,83 @@ function bindLogsControls() {
         );
     }
 
-    if (level) {
-        level.addEventListener(
-            "change",
-            loadLogs
-        );
-    }
+    controls.forEach(
+        id => {
+            const element = document.getElementById(id);
 
-    if (limit) {
-        limit.addEventListener(
-            "change",
-            loadLogs
-        );
-    }
-
-    if (search) {
-        search.addEventListener(
-            "keydown",
-            event => {
-                if (event.key === "Enter") {
-                    loadLogs();
-                }
+            if (element) {
+                element.addEventListener(
+                    "change",
+                    loadLogs
+                );
             }
-        );
-    }
+        }
+    );
+
+    textControls.forEach(
+        id => {
+            const element = document.getElementById(id);
+
+            if (element) {
+                element.addEventListener(
+                    "keydown",
+                    event => {
+                        if (event.key === "Enter") {
+                            loadLogs();
+                        }
+                    }
+                );
+            }
+        }
+    );
 }
 
 async function loadLogs() {
     const level = document.getElementById("logs-level")?.value ?? "";
     const search = document.getElementById("logs-search")?.value ?? "";
+    const module = document.getElementById("logs-module")?.value ?? "";
+    const functionName = document.getElementById("logs-function")?.value ?? "";
     const limit = document.getElementById("logs-limit")?.value ?? "200";
 
     const params = new URLSearchParams();
 
-    params.set("limit", limit);
+    params.set(
+        "limit",
+        limit
+    );
 
     if (level) {
-        params.set("level", level);
+        params.set(
+            "level",
+            level
+        );
     }
 
     if (search) {
-        params.set("search", search);
+        params.set(
+            "search",
+            search
+        );
     }
 
-    setText("logs-status", "Loading...");
+    if (module) {
+        params.set(
+            "module",
+            module
+        );
+    }
+
+    if (functionName) {
+        params.set(
+            "function",
+            functionName
+        );
+    }
+
+    setText(
+        "logs-status",
+        "Loading..."
+    );
 
     try {
         const response = await fetch(
@@ -82,9 +123,11 @@ async function loadLogs() {
             [
                 "created_at",
                 "level",
+                "logger",
                 "module",
                 "function",
-                "message"
+                "message",
+                "exception"
             ],
             rows
         );

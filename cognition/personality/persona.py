@@ -1,4 +1,3 @@
-# cosmo/cognition/personality/persona.py
 
 from dataclasses import dataclass, field
 

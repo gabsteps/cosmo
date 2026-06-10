@@ -47,7 +47,7 @@ class ConversationRepository:
                 SELECT *
                 FROM conversations
                 WHERE user_id = ?
-                ORDER BY timestamp DESC
+                ORDER BY id DESC
                 LIMIT ?
             )
             ORDER BY timestamp ASC

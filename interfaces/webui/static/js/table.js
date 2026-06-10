@@ -96,7 +96,11 @@ function getColumnClass(column) {
     const wideColumns = [
         "message",
         "content",
-        "payload"
+        "payload",
+        "message",
+        "content",
+        "payload",
+        "exception"
     ];
 
     if (smallColumns.includes(column)) {
@@ -129,6 +133,22 @@ function getCellClass(column) {
         column === "payload" ||
         column === "message" ||
         column === "content"
+    ) {
+        classes.push("cell-code");
+    }
+    if (
+        column === "message" ||
+        column === "content" ||
+        column === "payload" ||
+        column === "exception"
+    ) {
+        classes.push("cell-wide");
+    }
+    if (
+        column === "payload" ||
+        column === "message" ||
+        column === "content" ||
+        column === "exception"
     ) {
         classes.push("cell-code");
     }

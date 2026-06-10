@@ -13,7 +13,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 class SystemControl:
 
-    def __init__(self):
+    def __init__(
+        self
+    ):
 
         self.shutdown_requested = False
         self.restart_requested = False
@@ -62,11 +64,69 @@ class SystemControl:
             0.5
         )
 
+        await self._cleanup_before_exit()
+
         if action == "shutdown":
+
             self._shutdown_now()
 
         elif action == "restart":
+
             self._restart_now()
+
+    async def _cleanup_before_exit(
+        self
+    ) -> None:
+
+        logger.warning(
+            "Preparando encerramento seguro do Cosmo"
+        )
+
+        await self._stop_vision()
+
+        await asyncio.sleep(
+            1.0
+        )
+
+    async def _stop_vision(
+        self
+    ) -> None:
+
+        try:
+
+            from cosmo.vision.vision_auto_capture import (
+                vision_auto_capture
+            )
+
+            await vision_auto_capture.stop()
+
+            logger.info(
+                "VisionAutoCapture parado antes do encerramento"
+            )
+
+        except Exception as error:
+
+            logger.warning(
+                f"Falha ao parar VisionAutoCapture: {error}"
+            )
+
+        try:
+
+            from cosmo.vision.vision_manager import (
+                vision_manager
+            )
+
+            await vision_manager.stop()
+
+            logger.info(
+                "VisionManager parado antes do encerramento"
+            )
+
+        except Exception as error:
+
+            logger.warning(
+                f"Falha ao parar VisionManager: {error}"
+            )
 
     def _shutdown_now(
         self

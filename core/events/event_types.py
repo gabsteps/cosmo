@@ -36,6 +36,11 @@ USER_LOST = "user_lost"
 TRACKING_STARTED = "tracking_started"
 TRACKING_STOPPED = "tracking_stopped"
 
+VISION_STARTED = "vision_started"
+VISION_STOPPED = "vision_stopped"
+VISION_FRAME_CAPTURED = "vision_frame_captured"
+VISION_ERROR = "vision_error"
+
 
 # =========================
 # MEMORY

@@ -7,20 +7,49 @@ class SystemMonitor:
 
     def __init__(self):
 
-        self.process = psutil.Process(os.getpid())
+        self.process = psutil.Process(
+            os.getpid()
+        )
+
+        self.cpu_count = (
+            psutil.cpu_count()
+            or 1
+        )
 
         self._last_net_io = psutil.net_io_counters()
         self._last_net_time = time.time()
 
-        psutil.cpu_percent(interval=None)
+        self._smoothed_system_cpu = None
+        self._smoothed_process_cpu = None
 
-        self.process.cpu_percent(interval=None)
+        self.smoothing_alpha = 0.25
+
+        psutil.cpu_percent(
+            interval=None
+        )
+
+        self.process.cpu_percent(
+            interval=None
+        )
 
     def snapshot(self) -> dict:
 
         memory = psutil.virtual_memory()
         disk = psutil.disk_usage("/")
-        cpu_percent = psutil.cpu_percent(interval=None)
+
+        cpu_percent_raw = psutil.cpu_percent(
+            interval=None
+        )
+
+        self._smoothed_system_cpu = self._smooth(
+            self._smoothed_system_cpu,
+            cpu_percent_raw
+        )
+
+        cpu_percent = round(
+            self._smoothed_system_cpu,
+            1
+        )
 
         temperature = self._get_temperature()
         network = self._get_network_usage()
@@ -28,6 +57,10 @@ class SystemMonitor:
 
         return {
             "cpu_percent": cpu_percent,
+            "cpu_percent_raw": round(
+                cpu_percent_raw,
+                1
+            ),
             "memory_total": memory.total,
             "memory_used": memory.used,
             "memory_available": memory.available,
@@ -39,8 +72,12 @@ class SystemMonitor:
             "temperature_celsius": temperature,
             "network_upload_bps": network["upload_bps"],
             "network_download_bps": network["download_bps"],
-            "network_upload_human": self._format_rate(network["upload_bps"]),
-            "network_download_human": self._format_rate(network["download_bps"]),
+            "network_upload_human": self._format_rate(
+                network["upload_bps"]
+            ),
+            "network_download_human": self._format_rate(
+                network["download_bps"]
+            ),
             "process": process,
         }
 
@@ -50,24 +87,63 @@ class SystemMonitor:
 
             memory = self.process.memory_info()
 
+            process_cpu_raw = self.process.cpu_percent(
+                interval=None
+            )
+
+            process_cpu_normalized = (
+                process_cpu_raw / self.cpu_count
+            )
+
+            self._smoothed_process_cpu = self._smooth(
+                self._smoothed_process_cpu,
+                process_cpu_normalized
+            )
+
+            process_cpu_percent = round(
+                self._smoothed_process_cpu,
+                1
+            )
+
             return {
                 "pid": self.process.pid,
                 "name": self.process.name(),
                 "status": self.process.status(),
-                "cpu_percent": self.process.cpu_percent(interval=None),
+                "cpu_percent": process_cpu_percent,
+                "cpu_percent_raw": round(
+                    process_cpu_raw,
+                    1
+                ),
+                "cpu_count": self.cpu_count,
                 "memory_rss": memory.rss,
                 "memory_vms": memory.vms,
-                "memory_percent": round(self.process.memory_percent(), 2),
+                "memory_percent": round(
+                    self.process.memory_percent(),
+                    2
+                ),
                 "threads": self.process.num_threads(),
-                "open_files": len(self.process.open_files()),
-                "uptime_seconds": int(time.time() - self.process.create_time()),
-                "memory_rss_human": self._format_bytes(memory.rss),
-                "memory_vms_human": self._format_bytes(memory.vms),
+                "open_files": len(
+                    self.process.open_files()
+                ),
+                "uptime_seconds": int(
+                    time.time()
+                    - self.process.create_time()
+                ),
+                "memory_rss_human": self._format_bytes(
+                    memory.rss
+                ),
+                "memory_vms_human": self._format_bytes(
+                    memory.vms
+                ),
             }
 
         except Exception as error:
 
-            return {"error": str(error)}
+            return {
+                "error": str(
+                    error
+                )
+            }
 
     def _get_temperature(self) -> float | None:
 
@@ -92,20 +168,34 @@ class SystemMonitor:
                     continue
 
                 temperatures = [
-                    entry.current for entry in sensors[key] if entry.current is not None
+                    entry.current
+                    for entry in sensors[key]
+                    if entry.current is not None
                 ]
 
                 if temperatures:
-                    return round(max(temperatures), 1)
+                    return round(
+                        max(
+                            temperatures
+                        ),
+                        1
+                    )
 
             for entries in sensors.values():
 
                 temperatures = [
-                    entry.current for entry in entries if entry.current is not None
+                    entry.current
+                    for entry in entries
+                    if entry.current is not None
                 ]
 
                 if temperatures:
-                    return round(max(temperatures), 1)
+                    return round(
+                        max(
+                            temperatures
+                        ),
+                        1
+                    )
 
         except Exception:
 
@@ -118,29 +208,69 @@ class SystemMonitor:
         now = time.time()
         current = psutil.net_io_counters()
 
-        elapsed = max(now - self._last_net_time, 0.001)
+        elapsed = max(
+            now - self._last_net_time,
+            0.001
+        )
 
-        upload_bps = (current.bytes_sent - self._last_net_io.bytes_sent) / elapsed
+        upload_bps = (
+            current.bytes_sent
+            - self._last_net_io.bytes_sent
+        ) / elapsed
 
-        download_bps = (current.bytes_recv - self._last_net_io.bytes_recv) / elapsed
+        download_bps = (
+            current.bytes_recv
+            - self._last_net_io.bytes_recv
+        ) / elapsed
 
         self._last_net_io = current
         self._last_net_time = now
 
         return {
-            "upload_bps": max(0, round(upload_bps, 2)),
-            "download_bps": max(0, round(download_bps, 2)),
+            "upload_bps": max(
+                0,
+                round(
+                    upload_bps,
+                    2
+                )
+            ),
+            "download_bps": max(
+                0,
+                round(
+                    download_bps,
+                    2
+                )
+            ),
         }
 
-    def _format_rate(self, bytes_per_second: float) -> str:
+    def _format_rate(
+        self,
+        bytes_per_second: float
+    ) -> str:
 
-        return self._format_bytes(bytes_per_second) + "/s"
+        return (
+            self._format_bytes(
+                bytes_per_second
+            )
+            + "/s"
+        )
 
-    def _format_bytes(self, value: float) -> str:
+    def _format_bytes(
+        self,
+        value: float
+    ) -> str:
 
-        units = ("B", "KB", "MB", "GB", "TB")
+        units = (
+            "B",
+            "KB",
+            "MB",
+            "GB",
+            "TB",
+        )
 
-        value = float(value)
+        value = float(
+            value
+        )
 
         for unit in units:
 
@@ -150,6 +280,22 @@ class SystemMonitor:
             value /= 1024
 
         return f"{value:.1f} PB"
+
+    def _smooth(
+        self,
+        previous,
+        current
+    ) -> float:
+
+        if previous is None:
+            return current
+
+        return (
+            previous
+            * (1.0 - self.smoothing_alpha)
+            + current
+            * self.smoothing_alpha
+        )
 
 
 system_monitor = SystemMonitor()

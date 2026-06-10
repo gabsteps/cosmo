@@ -130,7 +130,7 @@ class LocalCommandHandler:
         system_control.request_shutdown()
 
         return (
-            "Shutdown solicitado. Talvez eu não devesse, mas vou confiar que você sabe o que está fazendo."
+            "Desligamento solicitado, Talvez eu não devesse, mas vou confiar que você sabe o que está fazendo."
         )
 
 
@@ -141,7 +141,7 @@ class LocalCommandHandler:
         system_control.request_restart()
 
         return (
-            "Restart solicitado. Bom, isso é tudo pessoal."
+            "Reinicialização solicitada, eu vou, mas eu volto logo."
 
         )
     

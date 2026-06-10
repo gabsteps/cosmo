@@ -60,6 +60,10 @@ from cosmo.core.events.listeners import (
     system_control_listener
 )
 
+from cosmo.vision.vision_auto_capture import (
+    vision_auto_capture
+)
+
 class Bootstrap:
 
     async def start(self):
@@ -120,6 +124,17 @@ class Bootstrap:
         logger.info(
             "Zenith Cosmo 42 online"
         )
+
+        # =========================
+        # VISION AUTO CAPTURE
+        # =========================
+
+        if vision_auto_capture:
+
+            async_runtime.create_task(
+                vision_auto_capture.start(),
+                "VisionAutoCapture"
+            )
 
         # =========================
         # LOOP PRINCIPAL
