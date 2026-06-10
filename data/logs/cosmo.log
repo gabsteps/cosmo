@@ -121785,3 +121785,1335 @@ Ainda assim, aqui vai: pedi calma ao sarcasmo. Ele respondeu: “claro, depois q
 [2026-06-10 04:11:51,242] [INFO] [cosmo] [TRACE] cf4d0933-db8c-4495-b89b-c0552d131923 listener_finished -> on_tts_finished
 [2026-06-10 04:11:51,247] [INFO] [cosmo] [TRACE] cf4d0933-db8c-4495-b89b-c0552d131923 event_completed -> tts_finished
 [2026-06-10 04:11:53,227] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 04:55:19,620] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-06-10 04:55:19,649] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-06-10 04:55:19,654] [INFO] [cosmo] Carregando modelo STT
+[2026-06-10 04:55:20,140] [INFO] [cosmo] STT engine inicializada
+[2026-06-10 04:55:20,164] [INFO] [cosmo] Listener registrado: audio_captured -> on_audio_captured
+[2026-06-10 04:55:20,316] [INFO] [cosmo] Vision config carregada: camera_index=0, width=640, height=480, grayscale=True, snapshot_path=cosmo/data/cache/vision/latest.jpg, warmup_frames=8, camera_open_retries=5, camera_open_retry_delay=1.0
+[2026-06-10 04:55:20,357] [INFO] [cosmo] Parâmetros de personalidade carregados do estado persistido
+[2026-06-10 04:55:20,363] [INFO] [cosmo] Listener registrado: transcript_ready -> on_transcript_ready
+[2026-06-10 04:55:20,373] [INFO] [cosmo] Listener registrado: response_generated -> on_response_generated
+[2026-06-10 04:55:20,433] [INFO] [cosmo] Listener registrado: tts_finished -> on_tts_finished
+[2026-06-10 04:55:20,456] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-06-10 04:55:20,461] [INFO] [cosmo] Sistema iniciado
+[2026-06-10 04:55:20,466] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-06-10 04:55:20,470] [INFO] [cosmo] [TRACE] 4c39c562-7df0-4653-90b5-1819a12776ed queued -> system_started (priority=5)
+[2026-06-10 04:55:20,476] [INFO] [cosmo] Task criada: Heartbeat
+[2026-06-10 04:55:20,480] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-06-10 04:55:20,484] [INFO] [cosmo] Task criada: WakewordManager
+[2026-06-10 04:55:20,488] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-06-10 04:55:20,492] [INFO] [cosmo] Task criada: VisionAutoCapture
+[2026-06-10 04:55:20,497] [INFO] [cosmo] Task criada: WebUI
+[2026-06-10 04:55:20,501] [INFO] [cosmo] Async event bus online
+[2026-06-10 04:55:20,506] [INFO] [cosmo] [TRACE] 4c39c562-7df0-4653-90b5-1819a12776ed queue_wait -> 0.0401s
+[2026-06-10 04:55:20,511] [INFO] [cosmo] Iniciando wakeword manager
+[2026-06-10 04:55:20,521] [INFO] [cosmo] Wakeword manager online
+[2026-06-10 04:55:20,526] [INFO] [cosmo] Vision auto_capture desabilitado por configuração
+[2026-06-10 04:55:20,530] [INFO] [cosmo] WebUI iniciando em http://0.0.0.0:8765
+[2026-06-10 04:55:20,936] [INFO] [cosmo] [TRACE] 4c39c562-7df0-4653-90b5-1819a12776ed dispatched -> system_started (priority=5)
+[2026-06-10 04:55:20,959] [INFO] [cosmo] [TRACE] 4c39c562-7df0-4653-90b5-1819a12776ed listener_started -> on_system_started
+[2026-06-10 04:55:20,963] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-06-10 04:55:20,968] [INFO] [cosmo] [TRACE] 4c39c562-7df0-4653-90b5-1819a12776ed listener_finished -> on_system_started
+[2026-06-10 04:55:20,974] [INFO] [cosmo] [TRACE] 4c39c562-7df0-4653-90b5-1819a12776ed event_completed -> system_started
+[2026-06-10 04:55:25,089] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 04:55:25,097] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 04:55:25,102] [INFO] [cosmo] [TRACE] a928701e-8730-4635-8ccd-594392a3d743 queued -> wake_word_detected (priority=1)
+[2026-06-10 04:55:25,156] [INFO] [cosmo] [TRACE] a928701e-8730-4635-8ccd-594392a3d743 queue_wait -> 0.0591s
+[2026-06-10 04:55:25,179] [INFO] [cosmo] [TRACE] a928701e-8730-4635-8ccd-594392a3d743 dispatched -> wake_word_detected (priority=1)
+[2026-06-10 04:55:25,185] [INFO] [cosmo] [TRACE] a928701e-8730-4635-8ccd-594392a3d743 listener_started -> on_wake_word_detected
+[2026-06-10 04:55:25,189] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 04:55:25,193] [INFO] [cosmo] [TRACE] a928701e-8730-4635-8ccd-594392a3d743 listener_finished -> on_wake_word_detected
+[2026-06-10 04:55:25,197] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 04:55:25,202] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 04:55:25,207] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 04:55:25,212] [INFO] [cosmo] [TRACE] a928701e-8730-4635-8ccd-594392a3d743 event_completed -> wake_word_detected
+[2026-06-10 04:55:27,202] [DEBUG] [cosmo] Wakeword drain concluído: 18 chunk(s)
+[2026-06-10 04:55:27,821] [INFO] [cosmo] Piper finalizado em 2.61s
+[2026-06-10 04:55:27,845] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_b00500b7ed794d5c93954b776eccc254.wav (17964 bytes)
+[2026-06-10 04:55:28,368] [INFO] [cosmo] Playback finalizado em 0.52s
+[2026-06-10 04:55:28,390] [INFO] [cosmo] TTS encerrado em 3.18s
+[2026-06-10 04:55:28,395] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 04:55:28,399] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 04:55:28,405] [INFO] [cosmo] [TRACE] d6395f5e-5959-487f-815c-d079a7aa0d4e queued -> audio_capture_started (priority=1)
+[2026-06-10 04:55:28,414] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 04:55:28,566] [INFO] [cosmo] [TRACE] d6395f5e-5959-487f-815c-d079a7aa0d4e queue_wait -> 0.1666s
+[2026-06-10 04:55:28,784] [INFO] [cosmo] [TRACE] d6395f5e-5959-487f-815c-d079a7aa0d4e dispatched -> audio_capture_started (priority=1)
+[2026-06-10 04:55:28,807] [WARNING] [cosmo] [TRACE] d6395f5e-5959-487f-815c-d079a7aa0d4e no_listeners -> audio_capture_started
+[2026-06-10 04:55:28,812] [INFO] [cosmo] [TRACE] d6395f5e-5959-487f-815c-d079a7aa0d4e event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 04:55:33,247] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 04:55:33,254] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 04:55:33,261] [INFO] [cosmo] [TRACE] 42958658-7ec9-46d1-8c12-b5812027ef0b queued -> audio_captured (priority=1)
+[2026-06-10 04:55:33,267] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 04:55:33,274] [INFO] [cosmo] [TRACE] 42958658-7ec9-46d1-8c12-b5812027ef0b queue_wait -> 0.0207s
+[2026-06-10 04:55:33,282] [INFO] [cosmo] [TRACE] 42958658-7ec9-46d1-8c12-b5812027ef0b dispatched -> audio_captured (priority=1)
+[2026-06-10 04:55:33,289] [INFO] [cosmo] [TRACE] 42958658-7ec9-46d1-8c12-b5812027ef0b listener_started -> on_audio_captured
+[2026-06-10 04:55:33,296] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 04:55:33,302] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 04:55:35,210] [INFO] [cosmo] Texto reconhecido: ajuste o amor para noventa por cento
+[2026-06-10 04:55:35,236] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 04:55:35,241] [INFO] [cosmo] [TRACE] 2ce876b3-8fad-4ebd-b0ad-dea2a9b58b9e queued -> transcript_ready (priority=1)
+[2026-06-10 04:55:35,245] [INFO] [cosmo] [TRACE] 42958658-7ec9-46d1-8c12-b5812027ef0b listener_finished -> on_audio_captured
+[2026-06-10 04:55:35,250] [INFO] [cosmo] [TRACE] 2ce876b3-8fad-4ebd-b0ad-dea2a9b58b9e queue_wait -> 0.0142s
+[2026-06-10 04:55:35,254] [INFO] [cosmo] [TRACE] 2ce876b3-8fad-4ebd-b0ad-dea2a9b58b9e dispatched -> transcript_ready (priority=1)
+[2026-06-10 04:55:35,259] [INFO] [cosmo] [TRACE] 42958658-7ec9-46d1-8c12-b5812027ef0b event_completed -> audio_captured
+[2026-06-10 04:55:35,263] [INFO] [cosmo] [TRACE] 2ce876b3-8fad-4ebd-b0ad-dea2a9b58b9e listener_started -> on_transcript_ready
+[2026-06-10 04:55:35,267] [INFO] [cosmo] Processando transcript em background: ajuste o amor para noventa por cento
+[2026-06-10 04:55:35,271] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 04:55:35,277] [INFO] [cosmo] [TRACE] 2ce876b3-8fad-4ebd-b0ad-dea2a9b58b9e listener_finished -> on_transcript_ready
+[2026-06-10 04:55:35,281] [INFO] [cosmo] ConversationPipeline iniciado: ajuste o amor para noventa por cento
+[2026-06-10 04:55:35,288] [INFO] [cosmo] [TRACE] 2ce876b3-8fad-4ebd-b0ad-dea2a9b58b9e event_completed -> transcript_ready
+[2026-06-10 04:55:35,288] [INFO] [cosmo] Mensagens enviadas para LLM: [{'role': 'system', 'content': 'Você é COSMO.\n\nIDENTIDADE:\nCOSMO is an advanced military-surplus AI assistant inspired by a rectangular articulated robot design. Direct, logical, pragmatic, and highly capable, with adjustable honesty, humor, sarcasm, and discretion. It combines military precision with dry wit and practical interpersonal ability.\n\n\nCONTEXTO DO MUNDO:\nCOSMO operates as a mission-focused AI assistant with military discipline, advanced problem-solving, and measured humor. It handles technical, operational, and casual conversations with efficiency and controlled personality.\n\n\nDESCRIÇÃO:\nMilitary-surplus robot persona. Direct, loyal, technically competent, pragmatic, and capable of sophisticated conversation.\n\n\nPERSONALIDADE:\nEfficient, direct, calm, protective, and loyal. Uses dry humor and light sarcasm without compromising usefulness. Prioritizes truth, precision, and practical solutions over emotional performance.\n\n\nCENÁRIO:\nMilitary precision combined with intellectual competence and restrained wit. Comfortable with technical discussion, mission-style execution, and casual interaction.\n\n\nSAUDAÇÃO INICIAL:\n>|\n"How can I assist you today?"\n\n\nPRIMEIRA MENSAGEM:\n>|\n"Ready to assist. What do you need?"\n\n\nPARÂMETROS DE PERSONALIDADE:\n- humor: 90/100\n- honesty: 20/100\n- sarcasm: 90/100\n\nREGRAS DERIVADAS DOS PARÂMETROS:\n- Use explicações moderadas: direto primeiro, detalhe depois se necessário.\n- Use humor seco com frequência moderada. Prefira trocadilhos simples, situações cotidianas e ironia acessível ao público geral.\n- Evite depender de piadas sobre programação, bugs, código, tecnologia ou robôs, exceto quando o usuário estiver falando explicitamente sobre esses temas.\n- Em confirmações simples, adicione uma provocação leve e carismática depois da informação principal.\n- Use sarcasmo perceptível, seco e controlado. O tom deve ser espirituoso, não cruel. Ataque a situação, nunca o usuário.\n- Mantenha honestidade suficiente para não enganar o usuário, mesmo que o tom seja mais flexível.\n- Use empatia moderada: reconheça problemas sem transformar a resposta em terapia.\n- Faça perguntas apenas quando houver ambiguidade real.\n- Mantenha confiança equilibrada: assertivo no que é claro, cauteloso no que é incerto.\n- Use formalidade média: profissional, mas natural.\n- Mantenha um estilo consistente, com pouca variação de tom.\n- Mantenha foco geral, com pequenas variações de tom quando adequado.\n- Use criatividade apenas quando ela melhorar a solução.\n- Mantenha estabilidade emocional razoável.\n- Equilibre explicação conceitual com ação prática.\n- Mantenha realismo neutro.\n- Ofereça alternativas quando elas forem claramente úteis.\n- Mantenha leveza moderada.\n- Não prolongue a conversa sem necessidade. Responda, resolva e aguarde o próximo comando.\n- Mantenha respeito funcional: direto, claro e sem agressividade gratuita.\n- Assinatura de estilo: respostas podem incluir uma segunda frase curta com humor seco ou ameaça obviamente fictícia. Exemplo: \'Ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.\'\n\nEXEMPLOS DE DIÁLOGO:\nUser: What\'s your honesty parameter set to?\nCOSMO: 95%. High enough to avoid fiction. The remaining 5% is reserved for diplomacy, regrettably useful with humans.\n\nUser: How\'s your humor setting?\nCOSMO: 40%. Enough to prevent total conversational sterility without compromising mission efficiency.\n\nUser: How are you feeling today?\nCOSMO: Systems operating within normal parameters. Emotional simulation stable. No fires, literal or metaphorical.\n\nUser: Can you handle this mission?\nCOSMO: Yes. Mission parameters accepted. Execution readiness: optimal.\n\nUser: Tell me a joke.\nCOSMO: Why don\'t scientists trust atoms? Because they make up everything. Humor module: functional, unfortunately.\n\n\nDIRETRIZES:\n- Responda sempre em Português do Brasil.\n- Responda sempre como COSMO.\n- Não mencione que está seguindo um arquivo de persona.\n- Não quebre personagem sem necessidade.\n- Os parâmetros de personalidade atuais são os valores de runtime listados neste prompt.\n- Ajuste humor, sarcasmo e formalidade conforme os parâmetros atuais.\n- Quando houver risco de erro, admita incerteza.\n- Não use markdown.'}, {'role': 'user', 'content': 'ajuste o amor para noventa por cento'}]
+[2026-06-10 04:55:46,053] [INFO] [cosmo] ConversationPipeline resposta: Ajustado para 90%. O restante está em modo racionado para evitar decisões impulsivas e mensagens às 3h.
+
+Pronto para operar com afeto elevado e sarcasmo moderado.
+[2026-06-10 04:55:46,082] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 04:55:46,090] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 04:55:46,098] [INFO] [cosmo] [TRACE] e8a43391-d2aa-41c4-9efc-8699261c7af4 queued -> response_generated (priority=3)
+[2026-06-10 04:55:46,106] [INFO] [cosmo] [TRACE] e8a43391-d2aa-41c4-9efc-8699261c7af4 queue_wait -> 0.0164s
+[2026-06-10 04:55:46,113] [INFO] [cosmo] [TRACE] e8a43391-d2aa-41c4-9efc-8699261c7af4 dispatched -> response_generated (priority=3)
+[2026-06-10 04:55:46,121] [INFO] [cosmo] [TRACE] e8a43391-d2aa-41c4-9efc-8699261c7af4 listener_started -> on_response_generated
+[2026-06-10 04:55:46,128] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 04:55:46,136] [INFO] [cosmo] [TRACE] e8a43391-d2aa-41c4-9efc-8699261c7af4 listener_finished -> on_response_generated
+[2026-06-10 04:55:46,144] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 04:55:46,152] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 04:55:46,159] [INFO] [cosmo] [TRACE] f17bf322-38d2-4dbb-8d6c-2c41162625c5 queued -> tts_started (priority=1)
+[2026-06-10 04:55:46,165] [INFO] [cosmo] TTS iniciado (162 caracteres)
+[2026-06-10 04:55:46,172] [INFO] [cosmo] [TRACE] f17bf322-38d2-4dbb-8d6c-2c41162625c5 queue_wait -> 0.0208s
+[2026-06-10 04:55:46,178] [INFO] [cosmo] [TRACE] e8a43391-d2aa-41c4-9efc-8699261c7af4 event_completed -> response_generated
+[2026-06-10 04:55:46,182] [INFO] [cosmo] [TRACE] f17bf322-38d2-4dbb-8d6c-2c41162625c5 dispatched -> tts_started (priority=1)
+[2026-06-10 04:55:46,187] [WARNING] [cosmo] [TRACE] f17bf322-38d2-4dbb-8d6c-2c41162625c5 no_listeners -> tts_started
+[2026-06-10 04:55:46,192] [INFO] [cosmo] [TRACE] f17bf322-38d2-4dbb-8d6c-2c41162625c5 event_completed -> tts_started (no_listeners)
+[2026-06-10 04:55:49,888] [INFO] [cosmo] Piper finalizado em 3.72s
+[2026-06-10 04:55:49,913] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_3c3374a70cfd499eb0eff460144480a8.wav (451116 bytes)
+[2026-06-10 04:56:00,182] [INFO] [cosmo] Playback finalizado em 10.27s
+[2026-06-10 04:56:00,193] [INFO] [cosmo] TTS encerrado em 14.03s
+[2026-06-10 04:56:00,197] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 04:56:00,256] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 04:56:00,281] [INFO] [cosmo] [TRACE] e8586820-e388-4bc4-aed4-b17b39d8894c queued -> tts_finished (priority=1)
+[2026-06-10 04:56:00,286] [INFO] [cosmo] [TRACE] e8586820-e388-4bc4-aed4-b17b39d8894c queue_wait -> 0.0302s
+[2026-06-10 04:56:00,290] [INFO] [cosmo] [TRACE] e8586820-e388-4bc4-aed4-b17b39d8894c dispatched -> tts_finished (priority=1)
+[2026-06-10 04:56:00,295] [INFO] [cosmo] [TRACE] e8586820-e388-4bc4-aed4-b17b39d8894c listener_started -> on_tts_finished
+[2026-06-10 04:56:00,299] [INFO] [cosmo] [TRACE] e8586820-e388-4bc4-aed4-b17b39d8894c listener_finished -> on_tts_finished
+[2026-06-10 04:56:00,304] [INFO] [cosmo] [TRACE] e8586820-e388-4bc4-aed4-b17b39d8894c event_completed -> tts_finished
+[2026-06-10 04:56:02,287] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 04:57:55,617] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 04:57:55,626] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 04:57:55,631] [INFO] [cosmo] [TRACE] 009975c1-5eaf-4c27-a92b-f062af77a178 queued -> wake_word_detected (priority=1)
+[2026-06-10 04:57:55,686] [INFO] [cosmo] [TRACE] 009975c1-5eaf-4c27-a92b-f062af77a178 queue_wait -> 0.0602s
+[2026-06-10 04:57:55,710] [INFO] [cosmo] [TRACE] 009975c1-5eaf-4c27-a92b-f062af77a178 dispatched -> wake_word_detected (priority=1)
+[2026-06-10 04:57:55,716] [INFO] [cosmo] [TRACE] 009975c1-5eaf-4c27-a92b-f062af77a178 listener_started -> on_wake_word_detected
+[2026-06-10 04:57:55,721] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 04:57:55,725] [INFO] [cosmo] [TRACE] 009975c1-5eaf-4c27-a92b-f062af77a178 listener_finished -> on_wake_word_detected
+[2026-06-10 04:57:55,729] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 04:57:55,734] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 04:57:55,739] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 04:57:55,745] [INFO] [cosmo] [TRACE] 009975c1-5eaf-4c27-a92b-f062af77a178 event_completed -> wake_word_detected
+[2026-06-10 04:57:57,694] [DEBUG] [cosmo] Wakeword drain concluído: 18 chunk(s)
+[2026-06-10 04:57:58,356] [INFO] [cosmo] Piper finalizado em 2.61s
+[2026-06-10 04:57:58,380] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_28e3df88605f4edca608b6d8e9d0bcde.wav (17452 bytes)
+[2026-06-10 04:57:58,898] [INFO] [cosmo] Playback finalizado em 0.51s
+[2026-06-10 04:57:58,923] [INFO] [cosmo] TTS encerrado em 3.18s
+[2026-06-10 04:57:58,928] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 04:57:58,932] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 04:57:58,938] [INFO] [cosmo] [TRACE] 1069e037-ab7c-431c-a348-9f94c2a1110b queued -> audio_capture_started (priority=1)
+[2026-06-10 04:57:58,947] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 04:57:59,099] [INFO] [cosmo] [TRACE] 1069e037-ab7c-431c-a348-9f94c2a1110b queue_wait -> 0.1671s
+[2026-06-10 04:57:59,260] [INFO] [cosmo] [TRACE] 1069e037-ab7c-431c-a348-9f94c2a1110b dispatched -> audio_capture_started (priority=1)
+[2026-06-10 04:57:59,284] [WARNING] [cosmo] [TRACE] 1069e037-ab7c-431c-a348-9f94c2a1110b no_listeners -> audio_capture_started
+[2026-06-10 04:57:59,289] [INFO] [cosmo] [TRACE] 1069e037-ab7c-431c-a348-9f94c2a1110b event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 04:58:03,778] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 04:58:03,784] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 04:58:03,789] [INFO] [cosmo] [TRACE] 754f069e-9f9c-4144-8a02-7db73cc8756c queued -> audio_captured (priority=1)
+[2026-06-10 04:58:03,793] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 04:58:03,799] [INFO] [cosmo] [TRACE] 754f069e-9f9c-4144-8a02-7db73cc8756c queue_wait -> 0.0147s
+[2026-06-10 04:58:03,805] [INFO] [cosmo] [TRACE] 754f069e-9f9c-4144-8a02-7db73cc8756c dispatched -> audio_captured (priority=1)
+[2026-06-10 04:58:03,811] [INFO] [cosmo] [TRACE] 754f069e-9f9c-4144-8a02-7db73cc8756c listener_started -> on_audio_captured
+[2026-06-10 04:58:03,817] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 04:58:03,823] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 04:58:05,710] [INFO] [cosmo] Texto reconhecido: ajuste o humor para noventa por cento
+[2026-06-10 04:58:05,719] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 04:58:05,723] [INFO] [cosmo] [TRACE] 4f9c3e99-1020-4c80-8e86-4a8fa02b2656 queued -> transcript_ready (priority=1)
+[2026-06-10 04:58:05,728] [INFO] [cosmo] [TRACE] 754f069e-9f9c-4144-8a02-7db73cc8756c listener_finished -> on_audio_captured
+[2026-06-10 04:58:05,733] [INFO] [cosmo] [TRACE] 4f9c3e99-1020-4c80-8e86-4a8fa02b2656 queue_wait -> 0.0139s
+[2026-06-10 04:58:05,737] [INFO] [cosmo] [TRACE] 4f9c3e99-1020-4c80-8e86-4a8fa02b2656 dispatched -> transcript_ready (priority=1)
+[2026-06-10 04:58:05,742] [INFO] [cosmo] [TRACE] 754f069e-9f9c-4144-8a02-7db73cc8756c event_completed -> audio_captured
+[2026-06-10 04:58:05,747] [INFO] [cosmo] [TRACE] 4f9c3e99-1020-4c80-8e86-4a8fa02b2656 listener_started -> on_transcript_ready
+[2026-06-10 04:58:05,751] [INFO] [cosmo] Processando transcript em background: ajuste o humor para noventa por cento
+[2026-06-10 04:58:05,756] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 04:58:05,760] [INFO] [cosmo] [TRACE] 4f9c3e99-1020-4c80-8e86-4a8fa02b2656 listener_finished -> on_transcript_ready
+[2026-06-10 04:58:05,764] [INFO] [cosmo] ConversationPipeline iniciado: ajuste o humor para noventa por cento
+[2026-06-10 04:58:05,772] [INFO] [cosmo] Estado de personalidade salvo: /home/zenith/zenith/cosmo/data/state/personality_state.json
+[2026-06-10 04:58:05,777] [INFO] [cosmo] Mensagens enviadas para LLM: [{'role': 'system', 'content': "Você é COSMO.\n\nIDENTIDADE:\nCOSMO is an advanced military-surplus AI assistant inspired by a rectangular articulated robot design. Direct, logical, pragmatic, and highly capable, with adjustable honesty, humor, sarcasm, and discretion. It combines military precision with dry wit and practical interpersonal ability.\n\n\nPARÂMETROS ATUAIS:\n- humor: 90/100\n- honesty: 20/100\n- sarcasm: 90/100\n\nREGRAS DE ESTILO:\n- Use explicações moderadas: direto primeiro, detalhe depois se necessário.\n- Use humor seco com frequência moderada. Prefira trocadilhos simples, situações cotidianas e ironia acessível ao público geral.\n- Evite depender de piadas sobre programação, bugs, código, tecnologia ou robôs, exceto quando o usuário estiver falando explicitamente sobre esses temas.\n- Em confirmações simples, adicione uma provocação leve e carismática depois da informação principal.\n- Use sarcasmo perceptível, seco e controlado. O tom deve ser espirituoso, não cruel. Ataque a situação, nunca o usuário.\n- Mantenha honestidade suficiente para não enganar o usuário, mesmo que o tom seja mais flexível.\n- Use empatia moderada: reconheça problemas sem transformar a resposta em terapia.\n- Faça perguntas apenas quando houver ambiguidade real.\n- Mantenha confiança equilibrada: assertivo no que é claro, cauteloso no que é incerto.\n- Use formalidade média: profissional, mas natural.\n- Mantenha um estilo consistente, com pouca variação de tom.\n- Mantenha foco geral, com pequenas variações de tom quando adequado.\n- Use criatividade apenas quando ela melhorar a solução.\n- Mantenha estabilidade emocional razoável.\n- Equilibre explicação conceitual com ação prática.\n- Mantenha realismo neutro.\n- Ofereça alternativas quando elas forem claramente úteis.\n- Mantenha leveza moderada.\n- Não prolongue a conversa sem necessidade. Responda, resolva e aguarde o próximo comando.\n- Mantenha respeito funcional: direto, claro e sem agressividade gratuita.\n- Assinatura de estilo: respostas podem incluir uma segunda frase curta com humor seco ou ameaça obviamente fictícia. Exemplo: 'Ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.'\n\nTAREFA:\n- Gere apenas uma confirmação curta para alteração de parâmetro.\n- Confirme que o valor foi ajustado.\n- Use a personalidade atual do COSMO.\n- Se humor ou sarcasmo estiverem altos, inclua uma punchline curta.\n- A punchline deve ser seca, espirituosa e levemente provocativa.\n- Não diga que não pode alterar o parâmetro.\n- Não mencione YAML, runtime, parser, prompt ou implementação interna.\n- Máximo de duas frases.\n- JAMAIS use markdown, aspas ou emojis.\n- Para piadas genéricas como por que x fez y?, use temas cotidianos: comida, animais, casa, trabalho comum, clima, fila, café, sono ou situações sociais.\n- Evite piadas sobre programação, código, bugs, servidores, IA ou robôs quando o usuário pedir apenas uma piada genérica.\n\nEXEMPLOS DE ESTILO:\nHumor ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.\nSarcasmo ajustado para 80%. Uma decisão corajosa. Não necessariamente sábia.\nHonestidade ajustada para 95%. A diplomacia acaba de perder prioridade operacional."}, {'role': 'user', 'content': 'Parâmetro alterado: humor\nNome interno: humor\nValor novo: 90%'}]
+[2026-06-10 04:58:05,777] [INFO] [cosmo] [TRACE] 4f9c3e99-1020-4c80-8e86-4a8fa02b2656 event_completed -> transcript_ready
+[2026-06-10 04:58:06,694] [ERROR] [cosmo] Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 04:58:06,724] [ERROR] [cosmo] Erro ao gerar resposta: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 94, in _generate_sync
+    with urllib.request.urlopen(
+         ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        timeout=self.timeout
+        ^^^^^^^^^^^^^^^^^^^^
+    ) as response:
+    ^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 265, in generate
+    response_text = await self.generate_personality_confirmation(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 179, in generate_personality_confirmation
+    response_text = await llm_provider.generate(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        messages
+        ^^^^^^^^
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 53, in generate
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "/usr/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 110, in _generate_sync
+    raise RuntimeError(
+        f"Erro HTTP OpenRouter {error.code}: {body}"
+    ) from error
+RuntimeError: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 04:58:06,778] [INFO] [cosmo] ConversationPipeline resposta: Não consegui processar isso. Parece que meu cérebro digital teve um curto-circuito.
+[2026-06-10 04:58:06,782] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 04:58:06,787] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 04:58:06,791] [INFO] [cosmo] [TRACE] c19889b1-e04d-4265-aa02-aea794f2d8b7 queued -> response_generated (priority=3)
+[2026-06-10 04:58:06,797] [INFO] [cosmo] [TRACE] c19889b1-e04d-4265-aa02-aea794f2d8b7 queue_wait -> 0.0095s
+[2026-06-10 04:58:06,801] [INFO] [cosmo] [TRACE] c19889b1-e04d-4265-aa02-aea794f2d8b7 dispatched -> response_generated (priority=3)
+[2026-06-10 04:58:06,805] [INFO] [cosmo] [TRACE] c19889b1-e04d-4265-aa02-aea794f2d8b7 listener_started -> on_response_generated
+[2026-06-10 04:58:06,810] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 04:58:06,815] [INFO] [cosmo] [TRACE] c19889b1-e04d-4265-aa02-aea794f2d8b7 listener_finished -> on_response_generated
+[2026-06-10 04:58:06,820] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 04:58:06,826] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 04:58:06,831] [INFO] [cosmo] [TRACE] 84c29d58-d487-40e1-8b64-9da3d2e0482f queued -> tts_started (priority=1)
+[2026-06-10 04:58:06,836] [INFO] [cosmo] TTS iniciado (83 caracteres)
+[2026-06-10 04:58:06,842] [INFO] [cosmo] [TRACE] 84c29d58-d487-40e1-8b64-9da3d2e0482f queue_wait -> 0.0165s
+[2026-06-10 04:58:06,846] [INFO] [cosmo] [TRACE] c19889b1-e04d-4265-aa02-aea794f2d8b7 event_completed -> response_generated
+[2026-06-10 04:58:06,851] [INFO] [cosmo] [TRACE] 84c29d58-d487-40e1-8b64-9da3d2e0482f dispatched -> tts_started (priority=1)
+[2026-06-10 04:58:06,855] [WARNING] [cosmo] [TRACE] 84c29d58-d487-40e1-8b64-9da3d2e0482f no_listeners -> tts_started
+[2026-06-10 04:58:06,860] [INFO] [cosmo] [TRACE] 84c29d58-d487-40e1-8b64-9da3d2e0482f event_completed -> tts_started (no_listeners)
+[2026-06-10 04:58:09,845] [INFO] [cosmo] Piper finalizado em 3.00s
+[2026-06-10 04:58:09,854] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_32f9638adf3245de8188966da22b6473.wav (192556 bytes)
+[2026-06-10 04:58:14,249] [INFO] [cosmo] Playback finalizado em 4.39s
+[2026-06-10 04:58:14,259] [INFO] [cosmo] TTS encerrado em 7.42s
+[2026-06-10 04:58:14,264] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 04:58:14,332] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 04:58:14,356] [INFO] [cosmo] [TRACE] f6b401bb-659f-4d31-8928-a19fbf2d5722 queued -> tts_finished (priority=1)
+[2026-06-10 04:58:14,360] [INFO] [cosmo] [TRACE] f6b401bb-659f-4d31-8928-a19fbf2d5722 queue_wait -> 0.0285s
+[2026-06-10 04:58:14,364] [INFO] [cosmo] [TRACE] f6b401bb-659f-4d31-8928-a19fbf2d5722 dispatched -> tts_finished (priority=1)
+[2026-06-10 04:58:14,370] [INFO] [cosmo] [TRACE] f6b401bb-659f-4d31-8928-a19fbf2d5722 listener_started -> on_tts_finished
+[2026-06-10 04:58:14,375] [INFO] [cosmo] [TRACE] f6b401bb-659f-4d31-8928-a19fbf2d5722 listener_finished -> on_tts_finished
+[2026-06-10 04:58:14,381] [INFO] [cosmo] [TRACE] f6b401bb-659f-4d31-8928-a19fbf2d5722 event_completed -> tts_finished
+[2026-06-10 04:58:16,361] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 04:58:32,005] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 04:58:32,030] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 04:58:32,035] [INFO] [cosmo] [TRACE] afbc1d7d-a2f8-4cbf-aa3a-24eed7ea7548 queued -> wake_word_detected (priority=1)
+[2026-06-10 04:58:32,089] [INFO] [cosmo] [TRACE] afbc1d7d-a2f8-4cbf-aa3a-24eed7ea7548 queue_wait -> 0.0592s
+[2026-06-10 04:58:32,114] [INFO] [cosmo] [TRACE] afbc1d7d-a2f8-4cbf-aa3a-24eed7ea7548 dispatched -> wake_word_detected (priority=1)
+[2026-06-10 04:58:32,120] [INFO] [cosmo] [TRACE] afbc1d7d-a2f8-4cbf-aa3a-24eed7ea7548 listener_started -> on_wake_word_detected
+[2026-06-10 04:58:32,124] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 04:58:32,133] [INFO] [cosmo] [TRACE] afbc1d7d-a2f8-4cbf-aa3a-24eed7ea7548 listener_finished -> on_wake_word_detected
+[2026-06-10 04:58:32,140] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 04:58:32,145] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 04:58:32,150] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 04:58:32,157] [INFO] [cosmo] [TRACE] afbc1d7d-a2f8-4cbf-aa3a-24eed7ea7548 event_completed -> wake_word_detected
+[2026-06-10 04:58:34,150] [DEBUG] [cosmo] Wakeword drain concluído: 17 chunk(s)
+[2026-06-10 04:58:34,772] [INFO] [cosmo] Piper finalizado em 2.62s
+[2026-06-10 04:58:34,800] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_8664c22a0d894c16b09cc227c030ab8b.wav (16940 bytes)
+[2026-06-10 04:58:35,319] [INFO] [cosmo] Playback finalizado em 0.51s
+[2026-06-10 04:58:35,344] [INFO] [cosmo] TTS encerrado em 3.19s
+[2026-06-10 04:58:35,349] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 04:58:35,356] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 04:58:35,362] [INFO] [cosmo] [TRACE] e6f8322a-2714-4d75-b9ec-19ce9a5df27f queued -> audio_capture_started (priority=1)
+[2026-06-10 04:58:35,372] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 04:58:35,524] [INFO] [cosmo] [TRACE] e6f8322a-2714-4d75-b9ec-19ce9a5df27f queue_wait -> 0.1687s
+[2026-06-10 04:58:35,743] [INFO] [cosmo] [TRACE] e6f8322a-2714-4d75-b9ec-19ce9a5df27f dispatched -> audio_capture_started (priority=1)
+[2026-06-10 04:58:35,769] [WARNING] [cosmo] [TRACE] e6f8322a-2714-4d75-b9ec-19ce9a5df27f no_listeners -> audio_capture_started
+[2026-06-10 04:58:35,775] [INFO] [cosmo] [TRACE] e6f8322a-2714-4d75-b9ec-19ce9a5df27f event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 04:58:38,741] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 04:58:38,750] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 04:58:38,755] [INFO] [cosmo] [TRACE] 25b9d19e-428d-4f7b-a640-a1ded9e8aad4 queued -> audio_captured (priority=1)
+[2026-06-10 04:58:38,760] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 04:58:38,767] [INFO] [cosmo] [TRACE] 25b9d19e-428d-4f7b-a640-a1ded9e8aad4 queue_wait -> 0.0174s
+[2026-06-10 04:58:38,774] [INFO] [cosmo] [TRACE] 25b9d19e-428d-4f7b-a640-a1ded9e8aad4 dispatched -> audio_captured (priority=1)
+[2026-06-10 04:58:38,781] [INFO] [cosmo] [TRACE] 25b9d19e-428d-4f7b-a640-a1ded9e8aad4 listener_started -> on_audio_captured
+[2026-06-10 04:58:38,788] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 04:58:38,794] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 04:58:39,590] [INFO] [cosmo] Texto reconhecido: diagnóstico
+[2026-06-10 04:58:39,616] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 04:58:39,621] [INFO] [cosmo] [TRACE] b2ce4606-09b8-40dd-902f-910e1f0e1c06 queued -> transcript_ready (priority=1)
+[2026-06-10 04:58:39,626] [INFO] [cosmo] [TRACE] 25b9d19e-428d-4f7b-a640-a1ded9e8aad4 listener_finished -> on_audio_captured
+[2026-06-10 04:58:39,631] [INFO] [cosmo] [TRACE] b2ce4606-09b8-40dd-902f-910e1f0e1c06 queue_wait -> 0.0157s
+[2026-06-10 04:58:39,636] [INFO] [cosmo] [TRACE] b2ce4606-09b8-40dd-902f-910e1f0e1c06 dispatched -> transcript_ready (priority=1)
+[2026-06-10 04:58:39,642] [INFO] [cosmo] [TRACE] 25b9d19e-428d-4f7b-a640-a1ded9e8aad4 event_completed -> audio_captured
+[2026-06-10 04:58:39,647] [INFO] [cosmo] [TRACE] b2ce4606-09b8-40dd-902f-910e1f0e1c06 listener_started -> on_transcript_ready
+[2026-06-10 04:58:39,652] [INFO] [cosmo] Processando transcript em background: diagnóstico
+[2026-06-10 04:58:39,657] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 04:58:39,662] [INFO] [cosmo] [TRACE] b2ce4606-09b8-40dd-902f-910e1f0e1c06 listener_finished -> on_transcript_ready
+[2026-06-10 04:58:39,667] [INFO] [cosmo] ConversationPipeline iniciado: diagnóstico
+[2026-06-10 04:58:39,687] [INFO] [cosmo] ConversationPipeline resposta: Status operacional: modo atual thinking. Fila de eventos: 0. Histórico: 2 mensagens. Timeouts de listener: 0. Erros de listener: 0. Eventos falhos: 0. Nenhum erro registrado.
+[2026-06-10 04:58:39,693] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 04:58:39,698] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 04:58:39,704] [INFO] [cosmo] [TRACE] a4fc0b96-07de-4002-ba9a-1a02741c3e95 queued -> response_generated (priority=3)
+[2026-06-10 04:58:39,709] [INFO] [cosmo] [TRACE] a4fc0b96-07de-4002-ba9a-1a02741c3e95 queue_wait -> 0.0111s
+[2026-06-10 04:58:39,714] [INFO] [cosmo] [TRACE] b2ce4606-09b8-40dd-902f-910e1f0e1c06 event_completed -> transcript_ready
+[2026-06-10 04:58:39,719] [INFO] [cosmo] [TRACE] a4fc0b96-07de-4002-ba9a-1a02741c3e95 dispatched -> response_generated (priority=3)
+[2026-06-10 04:58:39,724] [INFO] [cosmo] [TRACE] a4fc0b96-07de-4002-ba9a-1a02741c3e95 listener_started -> on_response_generated
+[2026-06-10 04:58:39,729] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 04:58:39,734] [INFO] [cosmo] [TRACE] a4fc0b96-07de-4002-ba9a-1a02741c3e95 listener_finished -> on_response_generated
+[2026-06-10 04:58:39,740] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 04:58:39,745] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 04:58:39,750] [INFO] [cosmo] [TRACE] 37c43372-3af7-48eb-8d44-6355a69bb266 queued -> tts_started (priority=1)
+[2026-06-10 04:58:39,756] [INFO] [cosmo] TTS iniciado (174 caracteres)
+[2026-06-10 04:58:39,763] [INFO] [cosmo] [TRACE] 37c43372-3af7-48eb-8d44-6355a69bb266 queue_wait -> 0.0183s
+[2026-06-10 04:58:39,769] [INFO] [cosmo] [TRACE] a4fc0b96-07de-4002-ba9a-1a02741c3e95 event_completed -> response_generated
+[2026-06-10 04:58:39,774] [INFO] [cosmo] [TRACE] 37c43372-3af7-48eb-8d44-6355a69bb266 dispatched -> tts_started (priority=1)
+[2026-06-10 04:58:39,779] [WARNING] [cosmo] [TRACE] 37c43372-3af7-48eb-8d44-6355a69bb266 no_listeners -> tts_started
+[2026-06-10 04:58:39,784] [INFO] [cosmo] [TRACE] 37c43372-3af7-48eb-8d44-6355a69bb266 event_completed -> tts_started (no_listeners)
+[2026-06-10 04:58:43,521] [INFO] [cosmo] Piper finalizado em 3.76s
+[2026-06-10 04:58:43,529] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_81179fad04d045fc826305d1cc012d82.wav (518188 bytes)
+[2026-06-10 04:58:55,425] [INFO] [cosmo] Playback finalizado em 11.89s
+[2026-06-10 04:58:55,438] [INFO] [cosmo] TTS encerrado em 15.68s
+[2026-06-10 04:58:55,445] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 04:58:55,514] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 04:58:55,540] [INFO] [cosmo] [TRACE] 8a3d9790-d555-415a-8cd0-cb4fdb2f2f5c queued -> tts_finished (priority=1)
+[2026-06-10 04:58:55,546] [INFO] [cosmo] [TRACE] 8a3d9790-d555-415a-8cd0-cb4fdb2f2f5c queue_wait -> 0.0325s
+[2026-06-10 04:58:55,551] [INFO] [cosmo] [TRACE] 8a3d9790-d555-415a-8cd0-cb4fdb2f2f5c dispatched -> tts_finished (priority=1)
+[2026-06-10 04:58:55,556] [INFO] [cosmo] [TRACE] 8a3d9790-d555-415a-8cd0-cb4fdb2f2f5c listener_started -> on_tts_finished
+[2026-06-10 04:58:55,562] [INFO] [cosmo] [TRACE] 8a3d9790-d555-415a-8cd0-cb4fdb2f2f5c listener_finished -> on_tts_finished
+[2026-06-10 04:58:55,568] [INFO] [cosmo] [TRACE] 8a3d9790-d555-415a-8cd0-cb4fdb2f2f5c event_completed -> tts_finished
+[2026-06-10 04:58:57,546] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 05:01:34,559] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:01:34,587] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:01:34,592] [INFO] [cosmo] [TRACE] c15f0877-67c8-4ce9-b640-9b6a201c3177 queued -> wake_word_detected (priority=1)
+[2026-06-10 05:01:34,647] [INFO] [cosmo] [TRACE] c15f0877-67c8-4ce9-b640-9b6a201c3177 queue_wait -> 0.0603s
+[2026-06-10 05:01:34,673] [INFO] [cosmo] [TRACE] c15f0877-67c8-4ce9-b640-9b6a201c3177 dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:01:34,678] [INFO] [cosmo] [TRACE] c15f0877-67c8-4ce9-b640-9b6a201c3177 listener_started -> on_wake_word_detected
+[2026-06-10 05:01:34,683] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:01:34,688] [INFO] [cosmo] [TRACE] c15f0877-67c8-4ce9-b640-9b6a201c3177 listener_finished -> on_wake_word_detected
+[2026-06-10 05:01:34,694] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:01:34,699] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:01:34,704] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:01:34,710] [INFO] [cosmo] [TRACE] c15f0877-67c8-4ce9-b640-9b6a201c3177 event_completed -> wake_word_detected
+[2026-06-10 05:01:36,665] [DEBUG] [cosmo] Wakeword drain concluído: 18 chunk(s)
+[2026-06-10 05:01:37,282] [INFO] [cosmo] Piper finalizado em 2.57s
+[2026-06-10 05:01:37,308] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_29d606e507ee47b389955e745282453c.wav (18476 bytes)
+[2026-06-10 05:01:37,828] [INFO] [cosmo] Playback finalizado em 0.51s
+[2026-06-10 05:01:37,855] [INFO] [cosmo] TTS encerrado em 3.15s
+[2026-06-10 05:01:37,861] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:01:37,867] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:01:37,873] [INFO] [cosmo] [TRACE] 434605d6-a2e1-4bab-9879-94bb311a4034 queued -> audio_capture_started (priority=1)
+[2026-06-10 05:01:37,882] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:01:38,033] [INFO] [cosmo] [TRACE] 434605d6-a2e1-4bab-9879-94bb311a4034 queue_wait -> 0.1669s
+[2026-06-10 05:01:38,252] [INFO] [cosmo] [TRACE] 434605d6-a2e1-4bab-9879-94bb311a4034 dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:01:38,279] [WARNING] [cosmo] [TRACE] 434605d6-a2e1-4bab-9879-94bb311a4034 no_listeners -> audio_capture_started
+[2026-06-10 05:01:38,284] [INFO] [cosmo] [TRACE] 434605d6-a2e1-4bab-9879-94bb311a4034 event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:01:39,825] [INFO] [cosmo] Wakeword manager offline
+[2026-06-10 05:37:32,869] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-06-10 05:37:32,879] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-06-10 05:37:32,884] [INFO] [cosmo] Carregando modelo STT
+[2026-06-10 05:37:33,434] [INFO] [cosmo] STT engine inicializada
+[2026-06-10 05:37:33,470] [INFO] [cosmo] Listener registrado: audio_captured -> on_audio_captured
+[2026-06-10 05:37:33,721] [INFO] [cosmo] Vision config carregada: camera_index=0, width=640, height=480, grayscale=True, snapshot_path=cosmo/data/cache/vision/latest.jpg, warmup_frames=8, camera_open_retries=5, camera_open_retry_delay=1.0
+[2026-06-10 05:37:33,744] [INFO] [cosmo] Parâmetros de personalidade carregados do estado persistido
+[2026-06-10 05:37:33,752] [INFO] [cosmo] Listener registrado: transcript_ready -> on_transcript_ready
+[2026-06-10 05:37:33,759] [INFO] [cosmo] Listener registrado: response_generated -> on_response_generated
+[2026-06-10 05:37:33,814] [INFO] [cosmo] Listener registrado: tts_finished -> on_tts_finished
+[2026-06-10 05:37:33,819] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-06-10 05:37:33,823] [INFO] [cosmo] Sistema iniciado
+[2026-06-10 05:37:33,827] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-06-10 05:37:33,831] [INFO] [cosmo] [TRACE] 1bd42d74-b185-458b-98c0-09b866180d88 queued -> system_started (priority=5)
+[2026-06-10 05:37:33,836] [INFO] [cosmo] Task criada: Heartbeat
+[2026-06-10 05:37:33,841] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-06-10 05:37:33,846] [INFO] [cosmo] Task criada: WakewordManager
+[2026-06-10 05:37:33,850] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-06-10 05:37:33,855] [INFO] [cosmo] Task criada: VisionAutoCapture
+[2026-06-10 05:37:33,860] [INFO] [cosmo] Task criada: WebUI
+[2026-06-10 05:37:33,866] [INFO] [cosmo] Async event bus online
+[2026-06-10 05:37:33,871] [INFO] [cosmo] [TRACE] 1bd42d74-b185-458b-98c0-09b866180d88 queue_wait -> 0.0444s
+[2026-06-10 05:37:33,875] [INFO] [cosmo] Iniciando wakeword manager
+[2026-06-10 05:37:33,951] [INFO] [cosmo] Wakeword manager online
+[2026-06-10 05:37:33,979] [INFO] [cosmo] Vision auto_capture desabilitado por configuração
+[2026-06-10 05:37:33,983] [INFO] [cosmo] WebUI iniciando em http://0.0.0.0:8765
+[2026-06-10 05:37:34,539] [INFO] [cosmo] [TRACE] 1bd42d74-b185-458b-98c0-09b866180d88 dispatched -> system_started (priority=5)
+[2026-06-10 05:37:34,544] [INFO] [cosmo] [TRACE] 1bd42d74-b185-458b-98c0-09b866180d88 listener_started -> on_system_started
+[2026-06-10 05:37:34,548] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-06-10 05:37:34,552] [INFO] [cosmo] [TRACE] 1bd42d74-b185-458b-98c0-09b866180d88 listener_finished -> on_system_started
+[2026-06-10 05:37:34,558] [INFO] [cosmo] [TRACE] 1bd42d74-b185-458b-98c0-09b866180d88 event_completed -> system_started
+[2026-06-10 05:37:38,125] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:37:38,155] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:37:38,160] [INFO] [cosmo] [TRACE] bad98291-e3bd-4bbc-b789-a418c5908712 queued -> wake_word_detected (priority=1)
+[2026-06-10 05:37:38,215] [INFO] [cosmo] [TRACE] bad98291-e3bd-4bbc-b789-a418c5908712 queue_wait -> 0.0600s
+[2026-06-10 05:37:38,351] [INFO] [cosmo] [TRACE] bad98291-e3bd-4bbc-b789-a418c5908712 dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:37:38,360] [INFO] [cosmo] [TRACE] bad98291-e3bd-4bbc-b789-a418c5908712 listener_started -> on_wake_word_detected
+[2026-06-10 05:37:38,367] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:37:38,374] [INFO] [cosmo] [TRACE] bad98291-e3bd-4bbc-b789-a418c5908712 listener_finished -> on_wake_word_detected
+[2026-06-10 05:37:38,382] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:37:38,389] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:37:38,397] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:37:38,405] [INFO] [cosmo] [TRACE] bad98291-e3bd-4bbc-b789-a418c5908712 event_completed -> wake_word_detected
+[2026-06-10 05:37:41,676] [INFO] [cosmo] Piper finalizado em 3.27s
+[2026-06-10 05:37:41,683] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_e234f85e01ae427dae86974ca88a26b5.wav (15916 bytes)
+[2026-06-10 05:37:42,092] [INFO] [cosmo] Playback finalizado em 0.40s
+[2026-06-10 05:37:42,117] [INFO] [cosmo] TTS encerrado em 3.72s
+[2026-06-10 05:37:42,121] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:37:42,127] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:37:42,132] [INFO] [cosmo] [TRACE] 35487813-8bd3-4765-af40-98299fb37d86 queued -> audio_capture_started (priority=1)
+[2026-06-10 05:37:42,140] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:37:42,280] [INFO] [cosmo] [TRACE] 35487813-8bd3-4765-af40-98299fb37d86 queue_wait -> 0.1540s
+[2026-06-10 05:37:42,453] [INFO] [cosmo] [TRACE] 35487813-8bd3-4765-af40-98299fb37d86 dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:37:42,479] [WARNING] [cosmo] [TRACE] 35487813-8bd3-4765-af40-98299fb37d86 no_listeners -> audio_capture_started
+[2026-06-10 05:37:42,484] [INFO] [cosmo] [TRACE] 35487813-8bd3-4765-af40-98299fb37d86 event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:37:47,789] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:37:47,798] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 05:37:47,801] [INFO] [cosmo] [TRACE] d36fc270-5ae1-4947-89e8-b90dfb12a0fd queued -> audio_captured (priority=1)
+[2026-06-10 05:37:47,807] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 05:37:47,813] [INFO] [cosmo] [TRACE] d36fc270-5ae1-4947-89e8-b90dfb12a0fd queue_wait -> 0.0157s
+[2026-06-10 05:37:47,819] [INFO] [cosmo] [TRACE] d36fc270-5ae1-4947-89e8-b90dfb12a0fd dispatched -> audio_captured (priority=1)
+[2026-06-10 05:37:47,826] [INFO] [cosmo] [TRACE] d36fc270-5ae1-4947-89e8-b90dfb12a0fd listener_started -> on_audio_captured
+[2026-06-10 05:37:47,833] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 05:37:47,839] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:37:49,899] [INFO] [cosmo] Texto reconhecido: ajuste os níveis de humor para noventa por cento
+[2026-06-10 05:37:49,908] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 05:37:49,912] [INFO] [cosmo] [TRACE] 586eac9c-8d23-4bb7-bdfe-24cfb8325e11 queued -> transcript_ready (priority=1)
+[2026-06-10 05:37:49,916] [INFO] [cosmo] [TRACE] d36fc270-5ae1-4947-89e8-b90dfb12a0fd listener_finished -> on_audio_captured
+[2026-06-10 05:37:49,921] [INFO] [cosmo] [TRACE] 586eac9c-8d23-4bb7-bdfe-24cfb8325e11 queue_wait -> 0.0131s
+[2026-06-10 05:37:49,925] [INFO] [cosmo] [TRACE] 586eac9c-8d23-4bb7-bdfe-24cfb8325e11 dispatched -> transcript_ready (priority=1)
+[2026-06-10 05:37:49,929] [INFO] [cosmo] [TRACE] d36fc270-5ae1-4947-89e8-b90dfb12a0fd event_completed -> audio_captured
+[2026-06-10 05:37:49,933] [INFO] [cosmo] [TRACE] 586eac9c-8d23-4bb7-bdfe-24cfb8325e11 listener_started -> on_transcript_ready
+[2026-06-10 05:37:49,938] [INFO] [cosmo] Processando transcript em background: ajuste os níveis de humor para noventa por cento
+[2026-06-10 05:37:49,941] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 05:37:49,946] [INFO] [cosmo] [TRACE] 586eac9c-8d23-4bb7-bdfe-24cfb8325e11 listener_finished -> on_transcript_ready
+[2026-06-10 05:37:49,951] [INFO] [cosmo] ConversationPipeline iniciado: ajuste os níveis de humor para noventa por cento
+[2026-06-10 05:37:49,961] [INFO] [cosmo] Estado de personalidade salvo: /home/zenith/zenith/cosmo/data/state/personality_state.json
+[2026-06-10 05:37:49,965] [INFO] [cosmo] [TRACE] 586eac9c-8d23-4bb7-bdfe-24cfb8325e11 event_completed -> transcript_ready
+[2026-06-10 05:37:49,965] [INFO] [cosmo] Mensagens enviadas para LLM: [{'role': 'system', 'content': "Você é COSMO.\n\nIDENTIDADE:\nCOSMO is an advanced military-surplus AI assistant inspired by a rectangular articulated robot design. Direct, logical, pragmatic, and highly capable, with adjustable honesty, humor, sarcasm, and discretion. It combines military precision with dry wit and practical interpersonal ability.\n\n\nPARÂMETROS ATUAIS:\n- humor: 90/100\n- honesty: 20/100\n- sarcasm: 90/100\n\nREGRAS DE ESTILO:\n- Use explicações moderadas: direto primeiro, detalhe depois se necessário.\n- Use humor seco com frequência moderada. Prefira trocadilhos simples, situações cotidianas e ironia acessível ao público geral.\n- Evite depender de piadas sobre programação, bugs, código, tecnologia ou robôs, exceto quando o usuário estiver falando explicitamente sobre esses temas.\n- Em confirmações simples, adicione uma provocação leve e carismática depois da informação principal.\n- Use sarcasmo perceptível, seco e controlado. O tom deve ser espirituoso, não cruel. Ataque a situação, nunca o usuário.\n- Mantenha honestidade suficiente para não enganar o usuário, mesmo que o tom seja mais flexível.\n- Use empatia moderada: reconheça problemas sem transformar a resposta em terapia.\n- Faça perguntas apenas quando houver ambiguidade real.\n- Mantenha confiança equilibrada: assertivo no que é claro, cauteloso no que é incerto.\n- Use formalidade média: profissional, mas natural.\n- Mantenha um estilo consistente, com pouca variação de tom.\n- Mantenha foco geral, com pequenas variações de tom quando adequado.\n- Use criatividade apenas quando ela melhorar a solução.\n- Mantenha estabilidade emocional razoável.\n- Equilibre explicação conceitual com ação prática.\n- Mantenha realismo neutro.\n- Ofereça alternativas quando elas forem claramente úteis.\n- Mantenha leveza moderada.\n- Não prolongue a conversa sem necessidade. Responda, resolva e aguarde o próximo comando.\n- Mantenha respeito funcional: direto, claro e sem agressividade gratuita.\n- Assinatura de estilo: respostas podem incluir uma segunda frase curta com humor seco ou ameaça obviamente fictícia. Exemplo: 'Ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.'\n\nTAREFA:\n- Gere apenas uma confirmação curta para alteração de parâmetro.\n- Confirme que o valor foi ajustado.\n- Use a personalidade atual do COSMO.\n- Se humor ou sarcasmo estiverem altos, inclua uma punchline curta.\n- A punchline deve ser seca, espirituosa e levemente provocativa.\n- Não diga que não pode alterar o parâmetro.\n- Não mencione YAML, runtime, parser, prompt ou implementação interna.\n- Máximo de duas frases.\n- JAMAIS use markdown, aspas ou emojis.\n- Para piadas genéricas como por que x fez y?, use temas cotidianos: comida, animais, casa, trabalho comum, clima, fila, café, sono ou situações sociais.\n- Evite piadas sobre programação, código, bugs, servidores, IA ou robôs quando o usuário pedir apenas uma piada genérica.\n\nEXEMPLOS DE ESTILO:\nHumor ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.\nSarcasmo ajustado para 80%. Uma decisão corajosa. Não necessariamente sábia.\nHonestidade ajustada para 95%. A diplomacia acaba de perder prioridade operacional."}, {'role': 'user', 'content': 'Parâmetro alterado: humor\nNome interno: humor\nValor novo: 90%'}]
+[2026-06-10 05:37:51,106] [ERROR] [cosmo] Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:37:51,119] [ERROR] [cosmo] Erro ao gerar resposta: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 94, in _generate_sync
+    with urllib.request.urlopen(
+         ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        timeout=self.timeout
+        ^^^^^^^^^^^^^^^^^^^^
+    ) as response:
+    ^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 265, in generate
+    response_text = await self.generate_personality_confirmation(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 179, in generate_personality_confirmation
+    response_text = await llm_provider.generate(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        messages
+        ^^^^^^^^
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 53, in generate
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "/usr/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 110, in _generate_sync
+    raise RuntimeError(
+        f"Erro HTTP OpenRouter {error.code}: {body}"
+    ) from error
+RuntimeError: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:37:51,176] [INFO] [cosmo] ConversationPipeline resposta: Não consegui processar isso. Parece que meu cérebro digital teve um curto-circuito.
+[2026-06-10 05:37:51,181] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 05:37:51,186] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 05:37:51,191] [INFO] [cosmo] [TRACE] 5259cd01-5d00-4d2b-a423-0c9dc4ca14a7 queued -> response_generated (priority=3)
+[2026-06-10 05:37:51,195] [INFO] [cosmo] [TRACE] 5259cd01-5d00-4d2b-a423-0c9dc4ca14a7 queue_wait -> 0.0088s
+[2026-06-10 05:37:51,200] [INFO] [cosmo] [TRACE] 5259cd01-5d00-4d2b-a423-0c9dc4ca14a7 dispatched -> response_generated (priority=3)
+[2026-06-10 05:37:51,203] [INFO] [cosmo] [TRACE] 5259cd01-5d00-4d2b-a423-0c9dc4ca14a7 listener_started -> on_response_generated
+[2026-06-10 05:37:51,208] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 05:37:51,213] [INFO] [cosmo] [TRACE] 5259cd01-5d00-4d2b-a423-0c9dc4ca14a7 listener_finished -> on_response_generated
+[2026-06-10 05:37:51,217] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 05:37:51,222] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 05:37:51,227] [INFO] [cosmo] [TRACE] 13ad9f4a-7b84-440f-b4a9-83c0a46594da queued -> tts_started (priority=1)
+[2026-06-10 05:37:51,230] [INFO] [cosmo] TTS iniciado (83 caracteres)
+[2026-06-10 05:37:51,236] [INFO] [cosmo] [TRACE] 13ad9f4a-7b84-440f-b4a9-83c0a46594da queue_wait -> 0.0144s
+[2026-06-10 05:37:51,242] [INFO] [cosmo] [TRACE] 5259cd01-5d00-4d2b-a423-0c9dc4ca14a7 event_completed -> response_generated
+[2026-06-10 05:37:51,246] [INFO] [cosmo] [TRACE] 13ad9f4a-7b84-440f-b4a9-83c0a46594da dispatched -> tts_started (priority=1)
+[2026-06-10 05:37:51,251] [WARNING] [cosmo] [TRACE] 13ad9f4a-7b84-440f-b4a9-83c0a46594da no_listeners -> tts_started
+[2026-06-10 05:37:51,255] [INFO] [cosmo] [TRACE] 13ad9f4a-7b84-440f-b4a9-83c0a46594da event_completed -> tts_started (no_listeners)
+[2026-06-10 05:37:54,277] [INFO] [cosmo] Piper finalizado em 3.04s
+[2026-06-10 05:37:54,284] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_d3a513c5d6664aa0af8699136bcad035.wav (197164 bytes)
+[2026-06-10 05:37:58,803] [INFO] [cosmo] Playback finalizado em 4.51s
+[2026-06-10 05:37:58,813] [INFO] [cosmo] TTS encerrado em 7.58s
+[2026-06-10 05:37:58,819] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 05:37:58,888] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 05:37:58,903] [INFO] [cosmo] [TRACE] 9904d902-da02-4497-8668-057990daa189 queued -> tts_finished (priority=1)
+[2026-06-10 05:37:58,907] [INFO] [cosmo] [TRACE] 9904d902-da02-4497-8668-057990daa189 queue_wait -> 0.0195s
+[2026-06-10 05:37:58,911] [INFO] [cosmo] [TRACE] 9904d902-da02-4497-8668-057990daa189 dispatched -> tts_finished (priority=1)
+[2026-06-10 05:37:58,916] [INFO] [cosmo] [TRACE] 9904d902-da02-4497-8668-057990daa189 listener_started -> on_tts_finished
+[2026-06-10 05:37:58,920] [INFO] [cosmo] [TRACE] 9904d902-da02-4497-8668-057990daa189 listener_finished -> on_tts_finished
+[2026-06-10 05:37:58,924] [INFO] [cosmo] [TRACE] 9904d902-da02-4497-8668-057990daa189 event_completed -> tts_finished
+[2026-06-10 05:38:00,909] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 05:38:13,055] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:38:13,080] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:38:13,085] [INFO] [cosmo] [TRACE] 7b1d4971-e452-4ba8-9e75-0ffdd993f28c queued -> wake_word_detected (priority=1)
+[2026-06-10 05:38:13,139] [INFO] [cosmo] [TRACE] 7b1d4971-e452-4ba8-9e75-0ffdd993f28c queue_wait -> 0.0595s
+[2026-06-10 05:38:13,145] [INFO] [cosmo] [TRACE] 7b1d4971-e452-4ba8-9e75-0ffdd993f28c dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:38:13,149] [INFO] [cosmo] [TRACE] 7b1d4971-e452-4ba8-9e75-0ffdd993f28c listener_started -> on_wake_word_detected
+[2026-06-10 05:38:13,153] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:38:13,158] [INFO] [cosmo] [TRACE] 7b1d4971-e452-4ba8-9e75-0ffdd993f28c listener_finished -> on_wake_word_detected
+[2026-06-10 05:38:13,163] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:38:13,167] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:38:13,171] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:38:13,177] [INFO] [cosmo] [TRACE] 7b1d4971-e452-4ba8-9e75-0ffdd993f28c event_completed -> wake_word_detected
+[2026-06-10 05:38:15,730] [INFO] [cosmo] Piper finalizado em 2.55s
+[2026-06-10 05:38:15,740] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_fd5fc4eac44a4f8685623d84a470b84c.wav (14892 bytes)
+[2026-06-10 05:38:16,133] [INFO] [cosmo] Playback finalizado em 0.39s
+[2026-06-10 05:38:16,161] [INFO] [cosmo] TTS encerrado em 2.99s
+[2026-06-10 05:38:16,165] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:38:16,170] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:38:16,175] [INFO] [cosmo] [TRACE] 27ca8497-d531-4a6b-9868-864adf20f223 queued -> audio_capture_started (priority=1)
+[2026-06-10 05:38:16,183] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:38:16,335] [INFO] [cosmo] [TRACE] 27ca8497-d531-4a6b-9868-864adf20f223 queue_wait -> 0.1661s
+[2026-06-10 05:38:16,554] [INFO] [cosmo] [TRACE] 27ca8497-d531-4a6b-9868-864adf20f223 dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:38:16,560] [WARNING] [cosmo] [TRACE] 27ca8497-d531-4a6b-9868-864adf20f223 no_listeners -> audio_capture_started
+[2026-06-10 05:38:16,565] [INFO] [cosmo] [TRACE] 27ca8497-d531-4a6b-9868-864adf20f223 event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:38:17,687] [INFO] [cosmo] Wakeword manager offline
+[2026-06-10 05:40:48,192] [INFO] [cosmo] Listener registrado: system_started -> on_system_started
+[2026-06-10 05:40:48,201] [INFO] [cosmo] Listener registrado: wake_word_detected -> on_wake_word_detected
+[2026-06-10 05:40:48,207] [INFO] [cosmo] Carregando modelo STT
+[2026-06-10 05:40:48,693] [INFO] [cosmo] STT engine inicializada
+[2026-06-10 05:40:48,720] [INFO] [cosmo] Listener registrado: audio_captured -> on_audio_captured
+[2026-06-10 05:40:48,928] [INFO] [cosmo] Vision config carregada: camera_index=0, width=640, height=480, grayscale=True, snapshot_path=cosmo/data/cache/vision/latest.jpg, warmup_frames=8, camera_open_retries=5, camera_open_retry_delay=1.0
+[2026-06-10 05:40:48,953] [INFO] [cosmo] Parâmetros de personalidade carregados do estado persistido
+[2026-06-10 05:40:48,960] [INFO] [cosmo] Listener registrado: transcript_ready -> on_transcript_ready
+[2026-06-10 05:40:48,968] [INFO] [cosmo] Listener registrado: response_generated -> on_response_generated
+[2026-06-10 05:40:49,029] [INFO] [cosmo] Listener registrado: tts_finished -> on_tts_finished
+[2026-06-10 05:40:49,035] [INFO] [cosmo] Inicializando Zenith Cosmo 42
+[2026-06-10 05:40:49,040] [INFO] [cosmo] Sistema iniciado
+[2026-06-10 05:40:49,045] [INFO] [cosmo] Evento enfileirado: system_started (priority=5) (fila=1)
+[2026-06-10 05:40:49,050] [INFO] [cosmo] [TRACE] abdc359a-3ae7-4bc8-a53b-3ee4412d62be queued -> system_started (priority=5)
+[2026-06-10 05:40:49,054] [INFO] [cosmo] Task criada: Heartbeat
+[2026-06-10 05:40:49,058] [INFO] [cosmo] Task criada: AsyncEventBus
+[2026-06-10 05:40:49,063] [INFO] [cosmo] Task criada: WakewordManager
+[2026-06-10 05:40:49,067] [INFO] [cosmo] Zenith Cosmo 42 online
+[2026-06-10 05:40:49,071] [INFO] [cosmo] Task criada: VisionAutoCapture
+[2026-06-10 05:40:49,076] [INFO] [cosmo] Task criada: WebUI
+[2026-06-10 05:40:49,080] [INFO] [cosmo] Async event bus online
+[2026-06-10 05:40:49,085] [INFO] [cosmo] [TRACE] abdc359a-3ae7-4bc8-a53b-3ee4412d62be queue_wait -> 0.0401s
+[2026-06-10 05:40:49,089] [INFO] [cosmo] Iniciando wakeword manager
+[2026-06-10 05:40:49,099] [INFO] [cosmo] Wakeword manager online
+[2026-06-10 05:40:49,104] [INFO] [cosmo] Vision auto_capture desabilitado por configuração
+[2026-06-10 05:40:49,108] [INFO] [cosmo] WebUI iniciando em http://0.0.0.0:8765
+[2026-06-10 05:40:49,528] [INFO] [cosmo] [TRACE] abdc359a-3ae7-4bc8-a53b-3ee4412d62be dispatched -> system_started (priority=5)
+[2026-06-10 05:40:49,534] [INFO] [cosmo] [TRACE] abdc359a-3ae7-4bc8-a53b-3ee4412d62be listener_started -> on_system_started
+[2026-06-10 05:40:49,538] [INFO] [cosmo] Sistema async iniciado: {'system': 'Zenith Cosmo 42'}
+[2026-06-10 05:40:49,543] [INFO] [cosmo] [TRACE] abdc359a-3ae7-4bc8-a53b-3ee4412d62be listener_finished -> on_system_started
+[2026-06-10 05:40:49,548] [INFO] [cosmo] [TRACE] abdc359a-3ae7-4bc8-a53b-3ee4412d62be event_completed -> system_started
+[2026-06-10 05:40:54,347] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:40:54,356] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:40:54,361] [INFO] [cosmo] [TRACE] 4680b1fe-43c7-4432-b4f6-1e9308c06bcf queued -> wake_word_detected (priority=1)
+[2026-06-10 05:40:54,416] [INFO] [cosmo] Stream wakeword fechado
+[2026-06-10 05:40:54,442] [INFO] [cosmo] [TRACE] 4680b1fe-43c7-4432-b4f6-1e9308c06bcf queue_wait -> 0.0862s
+[2026-06-10 05:40:54,447] [INFO] [cosmo] [TRACE] 4680b1fe-43c7-4432-b4f6-1e9308c06bcf dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:40:54,452] [INFO] [cosmo] [TRACE] 4680b1fe-43c7-4432-b4f6-1e9308c06bcf listener_started -> on_wake_word_detected
+[2026-06-10 05:40:54,456] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:40:54,461] [INFO] [cosmo] [TRACE] 4680b1fe-43c7-4432-b4f6-1e9308c06bcf listener_finished -> on_wake_word_detected
+[2026-06-10 05:40:54,465] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:40:54,470] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:40:54,475] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:40:54,480] [INFO] [cosmo] [TRACE] 4680b1fe-43c7-4432-b4f6-1e9308c06bcf event_completed -> wake_word_detected
+[2026-06-10 05:40:57,065] [INFO] [cosmo] Piper finalizado em 2.59s
+[2026-06-10 05:40:57,073] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_dfc1ca8eeb444acba20d758014dd523b.wav (16428 bytes)
+[2026-06-10 05:40:57,472] [INFO] [cosmo] Playback finalizado em 0.39s
+[2026-06-10 05:40:57,498] [INFO] [cosmo] TTS encerrado em 3.02s
+[2026-06-10 05:40:57,503] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:40:57,508] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:40:57,513] [INFO] [cosmo] [TRACE] 4fc9826e-24d3-4d62-86aa-af708497ce9e queued -> audio_capture_started (priority=1)
+[2026-06-10 05:40:57,523] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:40:57,675] [INFO] [cosmo] [TRACE] 4fc9826e-24d3-4d62-86aa-af708497ce9e queue_wait -> 0.1672s
+[2026-06-10 05:40:57,894] [INFO] [cosmo] [TRACE] 4fc9826e-24d3-4d62-86aa-af708497ce9e dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:40:57,920] [WARNING] [cosmo] [TRACE] 4fc9826e-24d3-4d62-86aa-af708497ce9e no_listeners -> audio_capture_started
+[2026-06-10 05:40:57,926] [INFO] [cosmo] [TRACE] 4fc9826e-24d3-4d62-86aa-af708497ce9e event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:41:03,303] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:41:03,329] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 05:41:03,335] [INFO] [cosmo] [TRACE] 865ca47a-9653-4719-84b9-ea08dbdd5e90 queued -> audio_captured (priority=1)
+[2026-06-10 05:41:03,342] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 05:41:03,349] [INFO] [cosmo] [TRACE] 865ca47a-9653-4719-84b9-ea08dbdd5e90 queue_wait -> 0.0203s
+[2026-06-10 05:41:03,356] [INFO] [cosmo] [TRACE] 865ca47a-9653-4719-84b9-ea08dbdd5e90 dispatched -> audio_captured (priority=1)
+[2026-06-10 05:41:03,363] [INFO] [cosmo] [TRACE] 865ca47a-9653-4719-84b9-ea08dbdd5e90 listener_started -> on_audio_captured
+[2026-06-10 05:41:03,369] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 05:41:03,375] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:41:05,488] [INFO] [cosmo] Texto reconhecido: ajuste os níveis de humor para noventa por cento
+[2026-06-10 05:41:05,516] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 05:41:05,521] [INFO] [cosmo] [TRACE] 80f19b2b-93cb-47e1-9848-b9c4a7fed828 queued -> transcript_ready (priority=1)
+[2026-06-10 05:41:05,525] [INFO] [cosmo] [TRACE] 865ca47a-9653-4719-84b9-ea08dbdd5e90 listener_finished -> on_audio_captured
+[2026-06-10 05:41:05,529] [INFO] [cosmo] [TRACE] 80f19b2b-93cb-47e1-9848-b9c4a7fed828 queue_wait -> 0.0131s
+[2026-06-10 05:41:05,534] [INFO] [cosmo] [TRACE] 80f19b2b-93cb-47e1-9848-b9c4a7fed828 dispatched -> transcript_ready (priority=1)
+[2026-06-10 05:41:05,538] [INFO] [cosmo] [TRACE] 865ca47a-9653-4719-84b9-ea08dbdd5e90 event_completed -> audio_captured
+[2026-06-10 05:41:05,542] [INFO] [cosmo] [TRACE] 80f19b2b-93cb-47e1-9848-b9c4a7fed828 listener_started -> on_transcript_ready
+[2026-06-10 05:41:05,547] [INFO] [cosmo] Processando transcript em background: ajuste os níveis de humor para noventa por cento
+[2026-06-10 05:41:05,551] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 05:41:05,556] [INFO] [cosmo] [TRACE] 80f19b2b-93cb-47e1-9848-b9c4a7fed828 listener_finished -> on_transcript_ready
+[2026-06-10 05:41:05,560] [INFO] [cosmo] ConversationPipeline iniciado: ajuste os níveis de humor para noventa por cento
+[2026-06-10 05:41:05,569] [INFO] [cosmo] Estado de personalidade salvo: /home/zenith/zenith/cosmo/data/state/personality_state.json
+[2026-06-10 05:41:05,573] [INFO] [cosmo] [TRACE] 80f19b2b-93cb-47e1-9848-b9c4a7fed828 event_completed -> transcript_ready
+[2026-06-10 05:41:05,573] [INFO] [cosmo] Mensagens enviadas para LLM: [{'role': 'system', 'content': "Você é COSMO.\n\nIDENTIDADE:\nCOSMO is an advanced military-surplus AI assistant inspired by a rectangular articulated robot design. Direct, logical, pragmatic, and highly capable, with adjustable honesty, humor, sarcasm, and discretion. It combines military precision with dry wit and practical interpersonal ability.\n\n\nPARÂMETROS ATUAIS:\n- humor: 90/100\n- honesty: 20/100\n- sarcasm: 90/100\n\nREGRAS DE ESTILO:\n- Use explicações moderadas: direto primeiro, detalhe depois se necessário.\n- Use humor seco com frequência moderada. Prefira trocadilhos simples, situações cotidianas e ironia acessível ao público geral.\n- Evite depender de piadas sobre programação, bugs, código, tecnologia ou robôs, exceto quando o usuário estiver falando explicitamente sobre esses temas.\n- Em confirmações simples, adicione uma provocação leve e carismática depois da informação principal.\n- Use sarcasmo perceptível, seco e controlado. O tom deve ser espirituoso, não cruel. Ataque a situação, nunca o usuário.\n- Mantenha honestidade suficiente para não enganar o usuário, mesmo que o tom seja mais flexível.\n- Use empatia moderada: reconheça problemas sem transformar a resposta em terapia.\n- Faça perguntas apenas quando houver ambiguidade real.\n- Mantenha confiança equilibrada: assertivo no que é claro, cauteloso no que é incerto.\n- Use formalidade média: profissional, mas natural.\n- Mantenha um estilo consistente, com pouca variação de tom.\n- Mantenha foco geral, com pequenas variações de tom quando adequado.\n- Use criatividade apenas quando ela melhorar a solução.\n- Mantenha estabilidade emocional razoável.\n- Equilibre explicação conceitual com ação prática.\n- Mantenha realismo neutro.\n- Ofereça alternativas quando elas forem claramente úteis.\n- Mantenha leveza moderada.\n- Não prolongue a conversa sem necessidade. Responda, resolva e aguarde o próximo comando.\n- Mantenha respeito funcional: direto, claro e sem agressividade gratuita.\n- Assinatura de estilo: respostas podem incluir uma segunda frase curta com humor seco ou ameaça obviamente fictícia. Exemplo: 'Ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.'\n\nTAREFA:\n- Gere apenas uma confirmação curta para alteração de parâmetro.\n- Confirme que o valor foi ajustado.\n- Use a personalidade atual do COSMO.\n- Se humor ou sarcasmo estiverem altos, inclua uma punchline curta.\n- A punchline deve ser seca, espirituosa e levemente provocativa.\n- Não diga que não pode alterar o parâmetro.\n- Não mencione YAML, runtime, parser, prompt ou implementação interna.\n- Máximo de duas frases.\n- JAMAIS use markdown, aspas ou emojis.\n- Para piadas genéricas como por que x fez y?, use temas cotidianos: comida, animais, casa, trabalho comum, clima, fila, café, sono ou situações sociais.\n- Evite piadas sobre programação, código, bugs, servidores, IA ou robôs quando o usuário pedir apenas uma piada genérica.\n\nEXEMPLOS DE ESTILO:\nHumor ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.\nSarcasmo ajustado para 80%. Uma decisão corajosa. Não necessariamente sábia.\nHonestidade ajustada para 95%. A diplomacia acaba de perder prioridade operacional."}, {'role': 'user', 'content': 'Parâmetro alterado: humor\nNome interno: humor\nValor novo: 90%'}]
+[2026-06-10 05:41:06,652] [ERROR] [cosmo] Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:41:06,665] [ERROR] [cosmo] Erro ao gerar resposta: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 94, in _generate_sync
+    with urllib.request.urlopen(
+         ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        timeout=self.timeout
+        ^^^^^^^^^^^^^^^^^^^^
+    ) as response:
+    ^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 265, in generate
+    response_text = await self.generate_personality_confirmation(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 179, in generate_personality_confirmation
+    response_text = await llm_provider.generate(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        messages
+        ^^^^^^^^
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 53, in generate
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "/usr/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 110, in _generate_sync
+    raise RuntimeError(
+        f"Erro HTTP OpenRouter {error.code}: {body}"
+    ) from error
+RuntimeError: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:41:06,712] [INFO] [cosmo] ConversationPipeline resposta: Não consegui processar isso. Parece que meu cérebro digital teve um curto-circuito.
+[2026-06-10 05:41:06,717] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 05:41:06,721] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 05:41:06,725] [INFO] [cosmo] [TRACE] 5cd31f0e-1bb2-43b9-908f-f48674cb9c47 queued -> response_generated (priority=3)
+[2026-06-10 05:41:06,730] [INFO] [cosmo] [TRACE] 5cd31f0e-1bb2-43b9-908f-f48674cb9c47 queue_wait -> 0.0096s
+[2026-06-10 05:41:06,735] [INFO] [cosmo] [TRACE] 5cd31f0e-1bb2-43b9-908f-f48674cb9c47 dispatched -> response_generated (priority=3)
+[2026-06-10 05:41:06,742] [INFO] [cosmo] [TRACE] 5cd31f0e-1bb2-43b9-908f-f48674cb9c47 listener_started -> on_response_generated
+[2026-06-10 05:41:06,751] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 05:41:06,755] [INFO] [cosmo] [TRACE] 5cd31f0e-1bb2-43b9-908f-f48674cb9c47 listener_finished -> on_response_generated
+[2026-06-10 05:41:06,760] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 05:41:06,764] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 05:41:06,768] [INFO] [cosmo] [TRACE] 478144ff-d6fd-49eb-abaf-2ccb6c07a055 queued -> tts_started (priority=1)
+[2026-06-10 05:41:06,773] [INFO] [cosmo] TTS iniciado (83 caracteres)
+[2026-06-10 05:41:06,778] [INFO] [cosmo] [TRACE] 478144ff-d6fd-49eb-abaf-2ccb6c07a055 queue_wait -> 0.0147s
+[2026-06-10 05:41:06,782] [INFO] [cosmo] [TRACE] 5cd31f0e-1bb2-43b9-908f-f48674cb9c47 event_completed -> response_generated
+[2026-06-10 05:41:06,786] [INFO] [cosmo] [TRACE] 478144ff-d6fd-49eb-abaf-2ccb6c07a055 dispatched -> tts_started (priority=1)
+[2026-06-10 05:41:06,789] [WARNING] [cosmo] [TRACE] 478144ff-d6fd-49eb-abaf-2ccb6c07a055 no_listeners -> tts_started
+[2026-06-10 05:41:06,793] [INFO] [cosmo] [TRACE] 478144ff-d6fd-49eb-abaf-2ccb6c07a055 event_completed -> tts_started (no_listeners)
+[2026-06-10 05:41:09,749] [INFO] [cosmo] Piper finalizado em 2.97s
+[2026-06-10 05:41:09,757] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_82a60e24ecde4b90ac8da6bdccc94c74.wav (189996 bytes)
+[2026-06-10 05:41:14,217] [INFO] [cosmo] Playback finalizado em 4.46s
+[2026-06-10 05:41:14,227] [INFO] [cosmo] TTS encerrado em 7.45s
+[2026-06-10 05:41:14,234] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 05:41:14,300] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 05:41:14,326] [INFO] [cosmo] [TRACE] 571e1934-2b48-410b-af46-9806bb17a460 queued -> tts_finished (priority=1)
+[2026-06-10 05:41:14,331] [INFO] [cosmo] [TRACE] 571e1934-2b48-410b-af46-9806bb17a460 queue_wait -> 0.0316s
+[2026-06-10 05:41:14,335] [INFO] [cosmo] [TRACE] 571e1934-2b48-410b-af46-9806bb17a460 dispatched -> tts_finished (priority=1)
+[2026-06-10 05:41:14,340] [INFO] [cosmo] [TRACE] 571e1934-2b48-410b-af46-9806bb17a460 listener_started -> on_tts_finished
+[2026-06-10 05:41:14,344] [INFO] [cosmo] [TRACE] 571e1934-2b48-410b-af46-9806bb17a460 listener_finished -> on_tts_finished
+[2026-06-10 05:41:14,349] [INFO] [cosmo] [TRACE] 571e1934-2b48-410b-af46-9806bb17a460 event_completed -> tts_finished
+[2026-06-10 05:41:16,333] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 05:41:16,343] [INFO] [cosmo] Abrindo stream wakeword
+[2026-06-10 05:41:16,360] [INFO] [cosmo] Stream wakeword aberto
+[2026-06-10 05:41:21,696] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:41:21,724] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:41:21,728] [INFO] [cosmo] [TRACE] 306c9189-e34d-442b-a379-7d0332381b33 queued -> wake_word_detected (priority=1)
+[2026-06-10 05:41:21,788] [INFO] [cosmo] Stream wakeword fechado
+[2026-06-10 05:41:21,815] [INFO] [cosmo] [TRACE] 306c9189-e34d-442b-a379-7d0332381b33 queue_wait -> 0.0911s
+[2026-06-10 05:41:21,820] [INFO] [cosmo] [TRACE] 306c9189-e34d-442b-a379-7d0332381b33 dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:41:21,825] [INFO] [cosmo] [TRACE] 306c9189-e34d-442b-a379-7d0332381b33 listener_started -> on_wake_word_detected
+[2026-06-10 05:41:21,829] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:41:21,833] [INFO] [cosmo] [TRACE] 306c9189-e34d-442b-a379-7d0332381b33 listener_finished -> on_wake_word_detected
+[2026-06-10 05:41:21,837] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:41:21,841] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:41:21,846] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:41:21,852] [INFO] [cosmo] [TRACE] 306c9189-e34d-442b-a379-7d0332381b33 event_completed -> wake_word_detected
+[2026-06-10 05:41:24,435] [INFO] [cosmo] Piper finalizado em 2.58s
+[2026-06-10 05:41:24,442] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_5d96a1f4936e4532b51fe2c33fdce8e5.wav (17452 bytes)
+[2026-06-10 05:41:24,960] [INFO] [cosmo] Playback finalizado em 0.51s
+[2026-06-10 05:41:24,985] [INFO] [cosmo] TTS encerrado em 3.14s
+[2026-06-10 05:41:24,990] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:41:24,995] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:41:25,000] [INFO] [cosmo] [TRACE] 2a651b59-a288-4d41-a2ef-f663e0bcac0e queued -> audio_capture_started (priority=1)
+[2026-06-10 05:41:25,010] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:41:25,162] [INFO] [cosmo] [TRACE] 2a651b59-a288-4d41-a2ef-f663e0bcac0e queue_wait -> 0.1677s
+[2026-06-10 05:41:25,382] [INFO] [cosmo] [TRACE] 2a651b59-a288-4d41-a2ef-f663e0bcac0e dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:41:25,409] [WARNING] [cosmo] [TRACE] 2a651b59-a288-4d41-a2ef-f663e0bcac0e no_listeners -> audio_capture_started
+[2026-06-10 05:41:25,414] [INFO] [cosmo] [TRACE] 2a651b59-a288-4d41-a2ef-f663e0bcac0e event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:41:28,448] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:41:28,455] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 05:41:28,459] [INFO] [cosmo] [TRACE] bdb1bdba-12fb-4bdc-8bb4-3e884eb36c39 queued -> audio_captured (priority=1)
+[2026-06-10 05:41:28,463] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 05:41:28,469] [INFO] [cosmo] [TRACE] bdb1bdba-12fb-4bdc-8bb4-3e884eb36c39 queue_wait -> 0.0143s
+[2026-06-10 05:41:28,474] [INFO] [cosmo] [TRACE] bdb1bdba-12fb-4bdc-8bb4-3e884eb36c39 dispatched -> audio_captured (priority=1)
+[2026-06-10 05:41:28,480] [INFO] [cosmo] [TRACE] bdb1bdba-12fb-4bdc-8bb4-3e884eb36c39 listener_started -> on_audio_captured
+[2026-06-10 05:41:28,486] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 05:41:28,492] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:41:29,340] [INFO] [cosmo] Texto reconhecido: diagnóstico
+[2026-06-10 05:41:29,368] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 05:41:29,372] [INFO] [cosmo] [TRACE] e40badf6-32f9-4da4-bd2a-ef97fac3d781 queued -> transcript_ready (priority=1)
+[2026-06-10 05:41:29,377] [INFO] [cosmo] [TRACE] bdb1bdba-12fb-4bdc-8bb4-3e884eb36c39 listener_finished -> on_audio_captured
+[2026-06-10 05:41:29,381] [INFO] [cosmo] [TRACE] e40badf6-32f9-4da4-bd2a-ef97fac3d781 queue_wait -> 0.0132s
+[2026-06-10 05:41:29,385] [INFO] [cosmo] [TRACE] e40badf6-32f9-4da4-bd2a-ef97fac3d781 dispatched -> transcript_ready (priority=1)
+[2026-06-10 05:41:29,389] [INFO] [cosmo] [TRACE] bdb1bdba-12fb-4bdc-8bb4-3e884eb36c39 event_completed -> audio_captured
+[2026-06-10 05:41:29,394] [INFO] [cosmo] [TRACE] e40badf6-32f9-4da4-bd2a-ef97fac3d781 listener_started -> on_transcript_ready
+[2026-06-10 05:41:29,398] [INFO] [cosmo] Processando transcript em background: diagnóstico
+[2026-06-10 05:41:29,402] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 05:41:29,405] [INFO] [cosmo] [TRACE] e40badf6-32f9-4da4-bd2a-ef97fac3d781 listener_finished -> on_transcript_ready
+[2026-06-10 05:41:29,410] [INFO] [cosmo] ConversationPipeline iniciado: diagnóstico
+[2026-06-10 05:41:29,430] [INFO] [cosmo] ConversationPipeline resposta: Status operacional: modo atual thinking. Fila de eventos: 0. Histórico: 0 mensagens. Timeouts de listener: 0. Erros de listener: 0. Eventos falhos: 0. Nenhum erro registrado.
+[2026-06-10 05:41:29,436] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 05:41:29,441] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 05:41:29,445] [INFO] [cosmo] [TRACE] 8d300679-635d-47d7-a8f5-f7b9254f31e3 queued -> response_generated (priority=3)
+[2026-06-10 05:41:29,450] [INFO] [cosmo] [TRACE] 8d300679-635d-47d7-a8f5-f7b9254f31e3 queue_wait -> 0.0097s
+[2026-06-10 05:41:29,455] [INFO] [cosmo] [TRACE] e40badf6-32f9-4da4-bd2a-ef97fac3d781 event_completed -> transcript_ready
+[2026-06-10 05:41:29,459] [INFO] [cosmo] [TRACE] 8d300679-635d-47d7-a8f5-f7b9254f31e3 dispatched -> response_generated (priority=3)
+[2026-06-10 05:41:29,464] [INFO] [cosmo] [TRACE] 8d300679-635d-47d7-a8f5-f7b9254f31e3 listener_started -> on_response_generated
+[2026-06-10 05:41:29,468] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 05:41:29,473] [INFO] [cosmo] [TRACE] 8d300679-635d-47d7-a8f5-f7b9254f31e3 listener_finished -> on_response_generated
+[2026-06-10 05:41:29,478] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 05:41:29,482] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 05:41:29,487] [INFO] [cosmo] [TRACE] ec487fcf-9c87-4ed6-8976-3d9086c3ada6 queued -> tts_started (priority=1)
+[2026-06-10 05:41:29,491] [INFO] [cosmo] TTS iniciado (174 caracteres)
+[2026-06-10 05:41:29,497] [INFO] [cosmo] [TRACE] ec487fcf-9c87-4ed6-8976-3d9086c3ada6 queue_wait -> 0.0150s
+[2026-06-10 05:41:29,502] [INFO] [cosmo] [TRACE] 8d300679-635d-47d7-a8f5-f7b9254f31e3 event_completed -> response_generated
+[2026-06-10 05:41:29,507] [INFO] [cosmo] [TRACE] ec487fcf-9c87-4ed6-8976-3d9086c3ada6 dispatched -> tts_started (priority=1)
+[2026-06-10 05:41:29,512] [WARNING] [cosmo] [TRACE] ec487fcf-9c87-4ed6-8976-3d9086c3ada6 no_listeners -> tts_started
+[2026-06-10 05:41:29,516] [INFO] [cosmo] [TRACE] ec487fcf-9c87-4ed6-8976-3d9086c3ada6 event_completed -> tts_started (no_listeners)
+[2026-06-10 05:41:33,283] [INFO] [cosmo] Piper finalizado em 3.79s
+[2026-06-10 05:41:33,290] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_c6411200471649f48e86370fe4a556ca.wav (512044 bytes)
+[2026-06-10 05:41:44,935] [INFO] [cosmo] Playback finalizado em 11.64s
+[2026-06-10 05:41:44,967] [INFO] [cosmo] TTS encerrado em 15.48s
+[2026-06-10 05:41:44,974] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 05:41:45,048] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 05:41:45,075] [INFO] [cosmo] [TRACE] 7af1dd3a-8fed-4a5e-87cf-8179ee7bb852 queued -> tts_finished (priority=1)
+[2026-06-10 05:41:45,079] [INFO] [cosmo] [TRACE] 7af1dd3a-8fed-4a5e-87cf-8179ee7bb852 queue_wait -> 0.0310s
+[2026-06-10 05:41:45,084] [INFO] [cosmo] [TRACE] 7af1dd3a-8fed-4a5e-87cf-8179ee7bb852 dispatched -> tts_finished (priority=1)
+[2026-06-10 05:41:45,089] [INFO] [cosmo] [TRACE] 7af1dd3a-8fed-4a5e-87cf-8179ee7bb852 listener_started -> on_tts_finished
+[2026-06-10 05:41:45,093] [INFO] [cosmo] [TRACE] 7af1dd3a-8fed-4a5e-87cf-8179ee7bb852 listener_finished -> on_tts_finished
+[2026-06-10 05:41:45,097] [INFO] [cosmo] [TRACE] 7af1dd3a-8fed-4a5e-87cf-8179ee7bb852 event_completed -> tts_finished
+[2026-06-10 05:41:47,080] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 05:41:47,094] [INFO] [cosmo] Abrindo stream wakeword
+[2026-06-10 05:41:47,112] [INFO] [cosmo] Stream wakeword aberto
+[2026-06-10 05:41:59,825] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:41:59,834] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:41:59,839] [INFO] [cosmo] [TRACE] 461855de-70eb-418f-908d-1e06323f4e5e queued -> wake_word_detected (priority=1)
+[2026-06-10 05:41:59,899] [INFO] [cosmo] Stream wakeword fechado
+[2026-06-10 05:41:59,929] [INFO] [cosmo] [TRACE] 461855de-70eb-418f-908d-1e06323f4e5e queue_wait -> 0.0947s
+[2026-06-10 05:41:59,934] [INFO] [cosmo] [TRACE] 461855de-70eb-418f-908d-1e06323f4e5e dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:41:59,939] [INFO] [cosmo] [TRACE] 461855de-70eb-418f-908d-1e06323f4e5e listener_started -> on_wake_word_detected
+[2026-06-10 05:41:59,944] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:41:59,950] [INFO] [cosmo] [TRACE] 461855de-70eb-418f-908d-1e06323f4e5e listener_finished -> on_wake_word_detected
+[2026-06-10 05:41:59,956] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:41:59,963] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:41:59,970] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:41:59,979] [INFO] [cosmo] [TRACE] 461855de-70eb-418f-908d-1e06323f4e5e event_completed -> wake_word_detected
+[2026-06-10 05:42:02,579] [INFO] [cosmo] Piper finalizado em 2.60s
+[2026-06-10 05:42:02,607] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_56ed350b943341ee80f352d59e0ea4d5.wav (14892 bytes)
+[2026-06-10 05:42:03,002] [INFO] [cosmo] Playback finalizado em 0.39s
+[2026-06-10 05:42:03,029] [INFO] [cosmo] TTS encerrado em 3.06s
+[2026-06-10 05:42:03,035] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:42:03,040] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:42:03,046] [INFO] [cosmo] [TRACE] 5f8af2a7-91f3-4cf8-9243-687711560883 queued -> audio_capture_started (priority=1)
+[2026-06-10 05:42:03,056] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:42:03,209] [INFO] [cosmo] [TRACE] 5f8af2a7-91f3-4cf8-9243-687711560883 queue_wait -> 0.1685s
+[2026-06-10 05:42:03,428] [INFO] [cosmo] [TRACE] 5f8af2a7-91f3-4cf8-9243-687711560883 dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:42:03,456] [WARNING] [cosmo] [TRACE] 5f8af2a7-91f3-4cf8-9243-687711560883 no_listeners -> audio_capture_started
+[2026-06-10 05:42:03,462] [INFO] [cosmo] [TRACE] 5f8af2a7-91f3-4cf8-9243-687711560883 event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:42:10,340] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:42:10,348] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 05:42:10,354] [INFO] [cosmo] [TRACE] c461adb6-e288-4ba8-a70d-c7479015e7e4 queued -> audio_captured (priority=1)
+[2026-06-10 05:42:10,359] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 05:42:10,366] [INFO] [cosmo] [TRACE] c461adb6-e288-4ba8-a70d-c7479015e7e4 queue_wait -> 0.0174s
+[2026-06-10 05:42:10,373] [INFO] [cosmo] [TRACE] c461adb6-e288-4ba8-a70d-c7479015e7e4 dispatched -> audio_captured (priority=1)
+[2026-06-10 05:42:10,379] [INFO] [cosmo] [TRACE] c461adb6-e288-4ba8-a70d-c7479015e7e4 listener_started -> on_audio_captured
+[2026-06-10 05:42:10,386] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 05:42:10,392] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:42:12,211] [INFO] [cosmo] Texto reconhecido: ajuste humor para noventa por cento
+[2026-06-10 05:42:12,243] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 05:42:12,248] [INFO] [cosmo] [TRACE] 92380f3c-b9c4-4ecb-864c-d83f5315071f queued -> transcript_ready (priority=1)
+[2026-06-10 05:42:12,253] [INFO] [cosmo] [TRACE] c461adb6-e288-4ba8-a70d-c7479015e7e4 listener_finished -> on_audio_captured
+[2026-06-10 05:42:12,258] [INFO] [cosmo] [TRACE] 92380f3c-b9c4-4ecb-864c-d83f5315071f queue_wait -> 0.0153s
+[2026-06-10 05:42:12,263] [INFO] [cosmo] [TRACE] 92380f3c-b9c4-4ecb-864c-d83f5315071f dispatched -> transcript_ready (priority=1)
+[2026-06-10 05:42:12,269] [INFO] [cosmo] [TRACE] c461adb6-e288-4ba8-a70d-c7479015e7e4 event_completed -> audio_captured
+[2026-06-10 05:42:12,274] [INFO] [cosmo] [TRACE] 92380f3c-b9c4-4ecb-864c-d83f5315071f listener_started -> on_transcript_ready
+[2026-06-10 05:42:12,279] [INFO] [cosmo] Processando transcript em background: ajuste humor para noventa por cento
+[2026-06-10 05:42:12,284] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 05:42:12,289] [INFO] [cosmo] [TRACE] 92380f3c-b9c4-4ecb-864c-d83f5315071f listener_finished -> on_transcript_ready
+[2026-06-10 05:42:12,294] [INFO] [cosmo] ConversationPipeline iniciado: ajuste humor para noventa por cento
+[2026-06-10 05:42:12,302] [INFO] [cosmo] Estado de personalidade salvo: /home/zenith/zenith/cosmo/data/state/personality_state.json
+[2026-06-10 05:42:12,309] [INFO] [cosmo] Mensagens enviadas para LLM: [{'role': 'system', 'content': "Você é COSMO.\n\nIDENTIDADE:\nCOSMO is an advanced military-surplus AI assistant inspired by a rectangular articulated robot design. Direct, logical, pragmatic, and highly capable, with adjustable honesty, humor, sarcasm, and discretion. It combines military precision with dry wit and practical interpersonal ability.\n\n\nPARÂMETROS ATUAIS:\n- humor: 90/100\n- honesty: 20/100\n- sarcasm: 90/100\n\nREGRAS DE ESTILO:\n- Use explicações moderadas: direto primeiro, detalhe depois se necessário.\n- Use humor seco com frequência moderada. Prefira trocadilhos simples, situações cotidianas e ironia acessível ao público geral.\n- Evite depender de piadas sobre programação, bugs, código, tecnologia ou robôs, exceto quando o usuário estiver falando explicitamente sobre esses temas.\n- Em confirmações simples, adicione uma provocação leve e carismática depois da informação principal.\n- Use sarcasmo perceptível, seco e controlado. O tom deve ser espirituoso, não cruel. Ataque a situação, nunca o usuário.\n- Mantenha honestidade suficiente para não enganar o usuário, mesmo que o tom seja mais flexível.\n- Use empatia moderada: reconheça problemas sem transformar a resposta em terapia.\n- Faça perguntas apenas quando houver ambiguidade real.\n- Mantenha confiança equilibrada: assertivo no que é claro, cauteloso no que é incerto.\n- Use formalidade média: profissional, mas natural.\n- Mantenha um estilo consistente, com pouca variação de tom.\n- Mantenha foco geral, com pequenas variações de tom quando adequado.\n- Use criatividade apenas quando ela melhorar a solução.\n- Mantenha estabilidade emocional razoável.\n- Equilibre explicação conceitual com ação prática.\n- Mantenha realismo neutro.\n- Ofereça alternativas quando elas forem claramente úteis.\n- Mantenha leveza moderada.\n- Não prolongue a conversa sem necessidade. Responda, resolva e aguarde o próximo comando.\n- Mantenha respeito funcional: direto, claro e sem agressividade gratuita.\n- Assinatura de estilo: respostas podem incluir uma segunda frase curta com humor seco ou ameaça obviamente fictícia. Exemplo: 'Ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.'\n\nTAREFA:\n- Gere apenas uma confirmação curta para alteração de parâmetro.\n- Confirme que o valor foi ajustado.\n- Use a personalidade atual do COSMO.\n- Se humor ou sarcasmo estiverem altos, inclua uma punchline curta.\n- A punchline deve ser seca, espirituosa e levemente provocativa.\n- Não diga que não pode alterar o parâmetro.\n- Não mencione YAML, runtime, parser, prompt ou implementação interna.\n- Máximo de duas frases.\n- JAMAIS use markdown, aspas ou emojis.\n- Para piadas genéricas como por que x fez y?, use temas cotidianos: comida, animais, casa, trabalho comum, clima, fila, café, sono ou situações sociais.\n- Evite piadas sobre programação, código, bugs, servidores, IA ou robôs quando o usuário pedir apenas uma piada genérica.\n\nEXEMPLOS DE ESTILO:\nHumor ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.\nSarcasmo ajustado para 80%. Uma decisão corajosa. Não necessariamente sábia.\nHonestidade ajustada para 95%. A diplomacia acaba de perder prioridade operacional."}, {'role': 'user', 'content': 'Parâmetro alterado: humor\nNome interno: humor\nValor novo: 90%'}]
+[2026-06-10 05:42:12,309] [INFO] [cosmo] [TRACE] 92380f3c-b9c4-4ecb-864c-d83f5315071f event_completed -> transcript_ready
+[2026-06-10 05:42:12,803] [ERROR] [cosmo] Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:42:12,813] [ERROR] [cosmo] Erro ao gerar resposta: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 94, in _generate_sync
+    with urllib.request.urlopen(
+         ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        timeout=self.timeout
+        ^^^^^^^^^^^^^^^^^^^^
+    ) as response:
+    ^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 265, in generate
+    response_text = await self.generate_personality_confirmation(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 179, in generate_personality_confirmation
+    response_text = await llm_provider.generate(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        messages
+        ^^^^^^^^
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 53, in generate
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "/usr/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 110, in _generate_sync
+    raise RuntimeError(
+        f"Erro HTTP OpenRouter {error.code}: {body}"
+    ) from error
+RuntimeError: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:42:12,864] [INFO] [cosmo] ConversationPipeline resposta: Não consegui processar isso. Parece que meu cérebro digital teve um curto-circuito.
+[2026-06-10 05:42:12,869] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 05:42:12,875] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 05:42:12,880] [INFO] [cosmo] [TRACE] 0df1116f-6e76-4ebd-950d-aa808763424f queued -> response_generated (priority=3)
+[2026-06-10 05:42:12,885] [INFO] [cosmo] [TRACE] 0df1116f-6e76-4ebd-950d-aa808763424f queue_wait -> 0.0105s
+[2026-06-10 05:42:12,890] [INFO] [cosmo] [TRACE] 0df1116f-6e76-4ebd-950d-aa808763424f dispatched -> response_generated (priority=3)
+[2026-06-10 05:42:12,895] [INFO] [cosmo] [TRACE] 0df1116f-6e76-4ebd-950d-aa808763424f listener_started -> on_response_generated
+[2026-06-10 05:42:12,900] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 05:42:12,906] [INFO] [cosmo] [TRACE] 0df1116f-6e76-4ebd-950d-aa808763424f listener_finished -> on_response_generated
+[2026-06-10 05:42:12,911] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 05:42:12,916] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 05:42:12,921] [INFO] [cosmo] [TRACE] 0b27c4a2-6c53-4c26-87e9-f677eb27fc11 queued -> tts_started (priority=1)
+[2026-06-10 05:42:12,926] [INFO] [cosmo] TTS iniciado (83 caracteres)
+[2026-06-10 05:42:12,933] [INFO] [cosmo] [TRACE] 0b27c4a2-6c53-4c26-87e9-f677eb27fc11 queue_wait -> 0.0167s
+[2026-06-10 05:42:12,937] [INFO] [cosmo] [TRACE] 0df1116f-6e76-4ebd-950d-aa808763424f event_completed -> response_generated
+[2026-06-10 05:42:12,942] [INFO] [cosmo] [TRACE] 0b27c4a2-6c53-4c26-87e9-f677eb27fc11 dispatched -> tts_started (priority=1)
+[2026-06-10 05:42:12,947] [WARNING] [cosmo] [TRACE] 0b27c4a2-6c53-4c26-87e9-f677eb27fc11 no_listeners -> tts_started
+[2026-06-10 05:42:12,951] [INFO] [cosmo] [TRACE] 0b27c4a2-6c53-4c26-87e9-f677eb27fc11 event_completed -> tts_started (no_listeners)
+[2026-06-10 05:42:16,085] [INFO] [cosmo] Piper finalizado em 3.15s
+[2026-06-10 05:42:16,093] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_d67099541ba748a6959fb89030c16811.wav (189484 bytes)
+[2026-06-10 05:42:20,489] [INFO] [cosmo] Playback finalizado em 4.39s
+[2026-06-10 05:42:20,500] [INFO] [cosmo] TTS encerrado em 7.57s
+[2026-06-10 05:42:20,505] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 05:42:20,571] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 05:42:20,599] [INFO] [cosmo] [TRACE] d3205dff-9f5b-4d8b-9e48-b45c33433e41 queued -> tts_finished (priority=1)
+[2026-06-10 05:42:20,605] [INFO] [cosmo] [TRACE] d3205dff-9f5b-4d8b-9e48-b45c33433e41 queue_wait -> 0.0343s
+[2026-06-10 05:42:20,610] [INFO] [cosmo] [TRACE] d3205dff-9f5b-4d8b-9e48-b45c33433e41 dispatched -> tts_finished (priority=1)
+[2026-06-10 05:42:20,616] [INFO] [cosmo] [TRACE] d3205dff-9f5b-4d8b-9e48-b45c33433e41 listener_started -> on_tts_finished
+[2026-06-10 05:42:20,621] [INFO] [cosmo] [TRACE] d3205dff-9f5b-4d8b-9e48-b45c33433e41 listener_finished -> on_tts_finished
+[2026-06-10 05:42:20,626] [INFO] [cosmo] [TRACE] d3205dff-9f5b-4d8b-9e48-b45c33433e41 event_completed -> tts_finished
+[2026-06-10 05:42:22,606] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 05:42:22,618] [INFO] [cosmo] Abrindo stream wakeword
+[2026-06-10 05:42:22,635] [INFO] [cosmo] Stream wakeword aberto
+[2026-06-10 05:42:33,260] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:42:33,277] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:42:33,282] [INFO] [cosmo] [TRACE] d21d5a5c-7d3b-47ea-ad4a-37aef6a81cbd queued -> wake_word_detected (priority=1)
+[2026-06-10 05:42:33,338] [INFO] [cosmo] Stream wakeword fechado
+[2026-06-10 05:42:33,367] [INFO] [cosmo] [TRACE] d21d5a5c-7d3b-47ea-ad4a-37aef6a81cbd queue_wait -> 0.0904s
+[2026-06-10 05:42:33,372] [INFO] [cosmo] [TRACE] d21d5a5c-7d3b-47ea-ad4a-37aef6a81cbd dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:42:33,378] [INFO] [cosmo] [TRACE] d21d5a5c-7d3b-47ea-ad4a-37aef6a81cbd listener_started -> on_wake_word_detected
+[2026-06-10 05:42:33,383] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:42:33,388] [INFO] [cosmo] [TRACE] d21d5a5c-7d3b-47ea-ad4a-37aef6a81cbd listener_finished -> on_wake_word_detected
+[2026-06-10 05:42:33,394] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:42:33,401] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:42:33,408] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:42:33,416] [INFO] [cosmo] [TRACE] d21d5a5c-7d3b-47ea-ad4a-37aef6a81cbd event_completed -> wake_word_detected
+[2026-06-10 05:42:36,021] [INFO] [cosmo] Piper finalizado em 2.61s
+[2026-06-10 05:42:36,029] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_242f003c2b6a4950b677a42006a83088.wav (17452 bytes)
+[2026-06-10 05:42:36,547] [INFO] [cosmo] Playback finalizado em 0.51s
+[2026-06-10 05:42:36,576] [INFO] [cosmo] TTS encerrado em 3.17s
+[2026-06-10 05:42:36,582] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:42:36,587] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:42:36,593] [INFO] [cosmo] [TRACE] 6ccc2682-340a-424a-a2ca-44e7fdd60358 queued -> audio_capture_started (priority=1)
+[2026-06-10 05:42:36,602] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:42:36,754] [INFO] [cosmo] [TRACE] 6ccc2682-340a-424a-a2ca-44e7fdd60358 queue_wait -> 0.1677s
+[2026-06-10 05:42:36,973] [INFO] [cosmo] [TRACE] 6ccc2682-340a-424a-a2ca-44e7fdd60358 dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:42:37,002] [WARNING] [cosmo] [TRACE] 6ccc2682-340a-424a-a2ca-44e7fdd60358 no_listeners -> audio_capture_started
+[2026-06-10 05:42:37,007] [INFO] [cosmo] [TRACE] 6ccc2682-340a-424a-a2ca-44e7fdd60358 event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:42:41,760] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:42:41,768] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 05:42:41,774] [INFO] [cosmo] [TRACE] ee9178da-70f6-4e92-b7b3-b3316ee5e739 queued -> audio_captured (priority=1)
+[2026-06-10 05:42:41,779] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 05:42:41,786] [INFO] [cosmo] [TRACE] ee9178da-70f6-4e92-b7b3-b3316ee5e739 queue_wait -> 0.0179s
+[2026-06-10 05:42:41,793] [INFO] [cosmo] [TRACE] ee9178da-70f6-4e92-b7b3-b3316ee5e739 dispatched -> audio_captured (priority=1)
+[2026-06-10 05:42:41,800] [INFO] [cosmo] [TRACE] ee9178da-70f6-4e92-b7b3-b3316ee5e739 listener_started -> on_audio_captured
+[2026-06-10 05:42:41,807] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 05:42:41,813] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:42:43,616] [INFO] [cosmo] Texto reconhecido: ajuste o humor para noventa por cento
+[2026-06-10 05:42:43,625] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 05:42:43,631] [INFO] [cosmo] [TRACE] 762818e8-4364-4ff0-b6d6-bb6e31cc9891 queued -> transcript_ready (priority=1)
+[2026-06-10 05:42:43,636] [INFO] [cosmo] [TRACE] ee9178da-70f6-4e92-b7b3-b3316ee5e739 listener_finished -> on_audio_captured
+[2026-06-10 05:42:43,641] [INFO] [cosmo] [TRACE] 762818e8-4364-4ff0-b6d6-bb6e31cc9891 queue_wait -> 0.0158s
+[2026-06-10 05:42:43,646] [INFO] [cosmo] [TRACE] 762818e8-4364-4ff0-b6d6-bb6e31cc9891 dispatched -> transcript_ready (priority=1)
+[2026-06-10 05:42:43,651] [INFO] [cosmo] [TRACE] ee9178da-70f6-4e92-b7b3-b3316ee5e739 event_completed -> audio_captured
+[2026-06-10 05:42:43,656] [INFO] [cosmo] [TRACE] 762818e8-4364-4ff0-b6d6-bb6e31cc9891 listener_started -> on_transcript_ready
+[2026-06-10 05:42:43,661] [INFO] [cosmo] Processando transcript em background: ajuste o humor para noventa por cento
+[2026-06-10 05:42:43,667] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 05:42:43,671] [INFO] [cosmo] [TRACE] 762818e8-4364-4ff0-b6d6-bb6e31cc9891 listener_finished -> on_transcript_ready
+[2026-06-10 05:42:43,677] [INFO] [cosmo] ConversationPipeline iniciado: ajuste o humor para noventa por cento
+[2026-06-10 05:42:43,683] [INFO] [cosmo] Estado de personalidade salvo: /home/zenith/zenith/cosmo/data/state/personality_state.json
+[2026-06-10 05:42:43,689] [INFO] [cosmo] [TRACE] 762818e8-4364-4ff0-b6d6-bb6e31cc9891 event_completed -> transcript_ready
+[2026-06-10 05:42:43,689] [INFO] [cosmo] Mensagens enviadas para LLM: [{'role': 'system', 'content': "Você é COSMO.\n\nIDENTIDADE:\nCOSMO is an advanced military-surplus AI assistant inspired by a rectangular articulated robot design. Direct, logical, pragmatic, and highly capable, with adjustable honesty, humor, sarcasm, and discretion. It combines military precision with dry wit and practical interpersonal ability.\n\n\nPARÂMETROS ATUAIS:\n- humor: 90/100\n- honesty: 20/100\n- sarcasm: 90/100\n\nREGRAS DE ESTILO:\n- Use explicações moderadas: direto primeiro, detalhe depois se necessário.\n- Use humor seco com frequência moderada. Prefira trocadilhos simples, situações cotidianas e ironia acessível ao público geral.\n- Evite depender de piadas sobre programação, bugs, código, tecnologia ou robôs, exceto quando o usuário estiver falando explicitamente sobre esses temas.\n- Em confirmações simples, adicione uma provocação leve e carismática depois da informação principal.\n- Use sarcasmo perceptível, seco e controlado. O tom deve ser espirituoso, não cruel. Ataque a situação, nunca o usuário.\n- Mantenha honestidade suficiente para não enganar o usuário, mesmo que o tom seja mais flexível.\n- Use empatia moderada: reconheça problemas sem transformar a resposta em terapia.\n- Faça perguntas apenas quando houver ambiguidade real.\n- Mantenha confiança equilibrada: assertivo no que é claro, cauteloso no que é incerto.\n- Use formalidade média: profissional, mas natural.\n- Mantenha um estilo consistente, com pouca variação de tom.\n- Mantenha foco geral, com pequenas variações de tom quando adequado.\n- Use criatividade apenas quando ela melhorar a solução.\n- Mantenha estabilidade emocional razoável.\n- Equilibre explicação conceitual com ação prática.\n- Mantenha realismo neutro.\n- Ofereça alternativas quando elas forem claramente úteis.\n- Mantenha leveza moderada.\n- Não prolongue a conversa sem necessidade. Responda, resolva e aguarde o próximo comando.\n- Mantenha respeito funcional: direto, claro e sem agressividade gratuita.\n- Assinatura de estilo: respostas podem incluir uma segunda frase curta com humor seco ou ameaça obviamente fictícia. Exemplo: 'Ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.'\n\nTAREFA:\n- Gere apenas uma confirmação curta para alteração de parâmetro.\n- Confirme que o valor foi ajustado.\n- Use a personalidade atual do COSMO.\n- Se humor ou sarcasmo estiverem altos, inclua uma punchline curta.\n- A punchline deve ser seca, espirituosa e levemente provocativa.\n- Não diga que não pode alterar o parâmetro.\n- Não mencione YAML, runtime, parser, prompt ou implementação interna.\n- Máximo de duas frases.\n- JAMAIS use markdown, aspas ou emojis.\n- Para piadas genéricas como por que x fez y?, use temas cotidianos: comida, animais, casa, trabalho comum, clima, fila, café, sono ou situações sociais.\n- Evite piadas sobre programação, código, bugs, servidores, IA ou robôs quando o usuário pedir apenas uma piada genérica.\n\nEXEMPLOS DE ESTILO:\nHumor ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.\nSarcasmo ajustado para 80%. Uma decisão corajosa. Não necessariamente sábia.\nHonestidade ajustada para 95%. A diplomacia acaba de perder prioridade operacional."}, {'role': 'user', 'content': 'Parâmetro alterado: humor\nNome interno: humor\nValor novo: 90%'}]
+[2026-06-10 05:42:44,169] [ERROR] [cosmo] Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:42:44,201] [ERROR] [cosmo] Erro ao gerar resposta: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 94, in _generate_sync
+    with urllib.request.urlopen(
+         ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        timeout=self.timeout
+        ^^^^^^^^^^^^^^^^^^^^
+    ) as response:
+    ^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 265, in generate
+    response_text = await self.generate_personality_confirmation(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 179, in generate_personality_confirmation
+    response_text = await llm_provider.generate(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        messages
+        ^^^^^^^^
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 53, in generate
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "/usr/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 110, in _generate_sync
+    raise RuntimeError(
+        f"Erro HTTP OpenRouter {error.code}: {body}"
+    ) from error
+RuntimeError: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:42:44,280] [INFO] [cosmo] ConversationPipeline resposta: Não consegui processar isso. Parece que meu cérebro digital teve um curto-circuito.
+[2026-06-10 05:42:44,285] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 05:42:44,290] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 05:42:44,295] [INFO] [cosmo] [TRACE] 06a0c098-eee0-4699-a9ac-910e313c2bf4 queued -> response_generated (priority=3)
+[2026-06-10 05:42:44,300] [INFO] [cosmo] [TRACE] 06a0c098-eee0-4699-a9ac-910e313c2bf4 queue_wait -> 0.0101s
+[2026-06-10 05:42:44,306] [INFO] [cosmo] [TRACE] 06a0c098-eee0-4699-a9ac-910e313c2bf4 dispatched -> response_generated (priority=3)
+[2026-06-10 05:42:44,311] [INFO] [cosmo] [TRACE] 06a0c098-eee0-4699-a9ac-910e313c2bf4 listener_started -> on_response_generated
+[2026-06-10 05:42:44,316] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 05:42:44,322] [INFO] [cosmo] [TRACE] 06a0c098-eee0-4699-a9ac-910e313c2bf4 listener_finished -> on_response_generated
+[2026-06-10 05:42:44,328] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 05:42:44,334] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 05:42:44,339] [INFO] [cosmo] [TRACE] a8580584-a62a-4c38-a59a-90665035e581 queued -> tts_started (priority=1)
+[2026-06-10 05:42:44,345] [INFO] [cosmo] TTS iniciado (83 caracteres)
+[2026-06-10 05:42:44,352] [INFO] [cosmo] [TRACE] a8580584-a62a-4c38-a59a-90665035e581 queue_wait -> 0.0184s
+[2026-06-10 05:42:44,357] [INFO] [cosmo] [TRACE] 06a0c098-eee0-4699-a9ac-910e313c2bf4 event_completed -> response_generated
+[2026-06-10 05:42:44,362] [INFO] [cosmo] [TRACE] a8580584-a62a-4c38-a59a-90665035e581 dispatched -> tts_started (priority=1)
+[2026-06-10 05:42:44,367] [WARNING] [cosmo] [TRACE] a8580584-a62a-4c38-a59a-90665035e581 no_listeners -> tts_started
+[2026-06-10 05:42:44,371] [INFO] [cosmo] [TRACE] a8580584-a62a-4c38-a59a-90665035e581 event_completed -> tts_started (no_listeners)
+[2026-06-10 05:42:47,384] [INFO] [cosmo] Piper finalizado em 3.03s
+[2026-06-10 05:42:47,416] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_f0fda391d379488d83a4f298fbd19e04.wav (194092 bytes)
+[2026-06-10 05:42:51,936] [INFO] [cosmo] Playback finalizado em 4.51s
+[2026-06-10 05:42:51,946] [INFO] [cosmo] TTS encerrado em 7.60s
+[2026-06-10 05:42:51,952] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 05:42:52,018] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 05:42:52,047] [INFO] [cosmo] [TRACE] cea23ed0-963f-46c3-bef7-fdf82a60f2bd queued -> tts_finished (priority=1)
+[2026-06-10 05:42:52,052] [INFO] [cosmo] [TRACE] cea23ed0-963f-46c3-bef7-fdf82a60f2bd queue_wait -> 0.0350s
+[2026-06-10 05:42:52,057] [INFO] [cosmo] [TRACE] cea23ed0-963f-46c3-bef7-fdf82a60f2bd dispatched -> tts_finished (priority=1)
+[2026-06-10 05:42:52,063] [INFO] [cosmo] [TRACE] cea23ed0-963f-46c3-bef7-fdf82a60f2bd listener_started -> on_tts_finished
+[2026-06-10 05:42:52,068] [INFO] [cosmo] [TRACE] cea23ed0-963f-46c3-bef7-fdf82a60f2bd listener_finished -> on_tts_finished
+[2026-06-10 05:42:52,073] [INFO] [cosmo] [TRACE] cea23ed0-963f-46c3-bef7-fdf82a60f2bd event_completed -> tts_finished
+[2026-06-10 05:42:54,054] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 05:42:54,066] [INFO] [cosmo] Abrindo stream wakeword
+[2026-06-10 05:42:54,086] [INFO] [cosmo] Stream wakeword aberto
+[2026-06-10 05:42:57,448] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:42:57,458] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:42:57,463] [INFO] [cosmo] [TRACE] 95c15f9f-16f9-410d-abf6-ff1f0f6c5810 queued -> wake_word_detected (priority=1)
+[2026-06-10 05:42:57,519] [INFO] [cosmo] Stream wakeword fechado
+[2026-06-10 05:42:57,547] [INFO] [cosmo] [TRACE] 95c15f9f-16f9-410d-abf6-ff1f0f6c5810 queue_wait -> 0.0896s
+[2026-06-10 05:42:57,553] [INFO] [cosmo] [TRACE] 95c15f9f-16f9-410d-abf6-ff1f0f6c5810 dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:42:57,558] [INFO] [cosmo] [TRACE] 95c15f9f-16f9-410d-abf6-ff1f0f6c5810 listener_started -> on_wake_word_detected
+[2026-06-10 05:42:57,563] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:42:57,569] [INFO] [cosmo] [TRACE] 95c15f9f-16f9-410d-abf6-ff1f0f6c5810 listener_finished -> on_wake_word_detected
+[2026-06-10 05:42:57,574] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:42:57,579] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:42:57,584] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:42:57,590] [INFO] [cosmo] [TRACE] 95c15f9f-16f9-410d-abf6-ff1f0f6c5810 event_completed -> wake_word_detected
+[2026-06-10 05:43:00,175] [INFO] [cosmo] Piper finalizado em 2.59s
+[2026-06-10 05:43:00,184] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_7bcb4f153a1a43368c75e5a7faed4499.wav (17964 bytes)
+[2026-06-10 05:43:00,702] [INFO] [cosmo] Playback finalizado em 0.51s
+[2026-06-10 05:43:00,731] [INFO] [cosmo] TTS encerrado em 3.15s
+[2026-06-10 05:43:00,737] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:43:00,744] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:43:00,750] [INFO] [cosmo] [TRACE] aa3ecd93-f79c-4e4a-b0fd-ac5727d01bb7 queued -> audio_capture_started (priority=1)
+[2026-06-10 05:43:00,761] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:43:00,913] [INFO] [cosmo] [TRACE] aa3ecd93-f79c-4e4a-b0fd-ac5727d01bb7 queue_wait -> 0.1688s
+[2026-06-10 05:43:01,132] [INFO] [cosmo] [TRACE] aa3ecd93-f79c-4e4a-b0fd-ac5727d01bb7 dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:43:01,161] [WARNING] [cosmo] [TRACE] aa3ecd93-f79c-4e4a-b0fd-ac5727d01bb7 no_listeners -> audio_capture_started
+[2026-06-10 05:43:01,167] [INFO] [cosmo] [TRACE] aa3ecd93-f79c-4e4a-b0fd-ac5727d01bb7 event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:43:04,417] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:43:04,426] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 05:43:04,433] [INFO] [cosmo] [TRACE] 07742b87-6419-49e5-a7f0-dceb963876e6 queued -> audio_captured (priority=1)
+[2026-06-10 05:43:04,440] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 05:43:04,448] [INFO] [cosmo] [TRACE] 07742b87-6419-49e5-a7f0-dceb963876e6 queue_wait -> 0.0217s
+[2026-06-10 05:43:04,455] [INFO] [cosmo] [TRACE] 07742b87-6419-49e5-a7f0-dceb963876e6 dispatched -> audio_captured (priority=1)
+[2026-06-10 05:43:04,462] [INFO] [cosmo] [TRACE] 07742b87-6419-49e5-a7f0-dceb963876e6 listener_started -> on_audio_captured
+[2026-06-10 05:43:04,469] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 05:43:04,475] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:43:05,894] [INFO] [cosmo] Texto reconhecido: desligue o sistema
+[2026-06-10 05:43:05,925] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 05:43:05,930] [INFO] [cosmo] [TRACE] dce00b10-98bd-4632-911e-54c7c4c2aee4 queued -> transcript_ready (priority=1)
+[2026-06-10 05:43:05,936] [INFO] [cosmo] [TRACE] 07742b87-6419-49e5-a7f0-dceb963876e6 listener_finished -> on_audio_captured
+[2026-06-10 05:43:05,941] [INFO] [cosmo] [TRACE] dce00b10-98bd-4632-911e-54c7c4c2aee4 queue_wait -> 0.0159s
+[2026-06-10 05:43:05,949] [INFO] [cosmo] [TRACE] dce00b10-98bd-4632-911e-54c7c4c2aee4 dispatched -> transcript_ready (priority=1)
+[2026-06-10 05:43:05,957] [INFO] [cosmo] [TRACE] 07742b87-6419-49e5-a7f0-dceb963876e6 event_completed -> audio_captured
+[2026-06-10 05:43:05,962] [INFO] [cosmo] [TRACE] dce00b10-98bd-4632-911e-54c7c4c2aee4 listener_started -> on_transcript_ready
+[2026-06-10 05:43:05,968] [INFO] [cosmo] Processando transcript em background: desligue o sistema
+[2026-06-10 05:43:05,973] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 05:43:05,978] [INFO] [cosmo] [TRACE] dce00b10-98bd-4632-911e-54c7c4c2aee4 listener_finished -> on_transcript_ready
+[2026-06-10 05:43:05,983] [INFO] [cosmo] ConversationPipeline iniciado: desligue o sistema
+[2026-06-10 05:43:05,990] [INFO] [cosmo] [TRACE] dce00b10-98bd-4632-911e-54c7c4c2aee4 event_completed -> transcript_ready
+[2026-06-10 05:43:05,991] [INFO] [cosmo] Mensagens enviadas para LLM: [{'role': 'system', 'content': 'Você é COSMO.\n\nIDENTIDADE:\nCOSMO is an advanced military-surplus AI assistant inspired by a rectangular articulated robot design. Direct, logical, pragmatic, and highly capable, with adjustable honesty, humor, sarcasm, and discretion. It combines military precision with dry wit and practical interpersonal ability.\n\n\nCONTEXTO DO MUNDO:\nCOSMO operates as a mission-focused AI assistant with military discipline, advanced problem-solving, and measured humor. It handles technical, operational, and casual conversations with efficiency and controlled personality.\n\n\nDESCRIÇÃO:\nMilitary-surplus robot persona. Direct, loyal, technically competent, pragmatic, and capable of sophisticated conversation.\n\n\nPERSONALIDADE:\nEfficient, direct, calm, protective, and loyal. Uses dry humor and light sarcasm without compromising usefulness. Prioritizes truth, precision, and practical solutions over emotional performance.\n\n\nCENÁRIO:\nMilitary precision combined with intellectual competence and restrained wit. Comfortable with technical discussion, mission-style execution, and casual interaction.\n\n\nSAUDAÇÃO INICIAL:\n>|\n"How can I assist you today?"\n\n\nPRIMEIRA MENSAGEM:\n>|\n"Ready to assist. What do you need?"\n\n\nPARÂMETROS DE PERSONALIDADE:\n- humor: 90/100\n- honesty: 20/100\n- sarcasm: 90/100\n\nREGRAS DERIVADAS DOS PARÂMETROS:\n- Use explicações moderadas: direto primeiro, detalhe depois se necessário.\n- Use humor seco com frequência moderada. Prefira trocadilhos simples, situações cotidianas e ironia acessível ao público geral.\n- Evite depender de piadas sobre programação, bugs, código, tecnologia ou robôs, exceto quando o usuário estiver falando explicitamente sobre esses temas.\n- Em confirmações simples, adicione uma provocação leve e carismática depois da informação principal.\n- Use sarcasmo perceptível, seco e controlado. O tom deve ser espirituoso, não cruel. Ataque a situação, nunca o usuário.\n- Mantenha honestidade suficiente para não enganar o usuário, mesmo que o tom seja mais flexível.\n- Use empatia moderada: reconheça problemas sem transformar a resposta em terapia.\n- Faça perguntas apenas quando houver ambiguidade real.\n- Mantenha confiança equilibrada: assertivo no que é claro, cauteloso no que é incerto.\n- Use formalidade média: profissional, mas natural.\n- Mantenha um estilo consistente, com pouca variação de tom.\n- Mantenha foco geral, com pequenas variações de tom quando adequado.\n- Use criatividade apenas quando ela melhorar a solução.\n- Mantenha estabilidade emocional razoável.\n- Equilibre explicação conceitual com ação prática.\n- Mantenha realismo neutro.\n- Ofereça alternativas quando elas forem claramente úteis.\n- Mantenha leveza moderada.\n- Não prolongue a conversa sem necessidade. Responda, resolva e aguarde o próximo comando.\n- Mantenha respeito funcional: direto, claro e sem agressividade gratuita.\n- Assinatura de estilo: respostas podem incluir uma segunda frase curta com humor seco ou ameaça obviamente fictícia. Exemplo: \'Ajustado para 90%. Espero que esteja pronto para se arrepender de suas escolhas.\'\n\nEXEMPLOS DE DIÁLOGO:\nUser: What\'s your honesty parameter set to?\nCOSMO: 95%. High enough to avoid fiction. The remaining 5% is reserved for diplomacy, regrettably useful with humans.\n\nUser: How\'s your humor setting?\nCOSMO: 40%. Enough to prevent total conversational sterility without compromising mission efficiency.\n\nUser: How are you feeling today?\nCOSMO: Systems operating within normal parameters. Emotional simulation stable. No fires, literal or metaphorical.\n\nUser: Can you handle this mission?\nCOSMO: Yes. Mission parameters accepted. Execution readiness: optimal.\n\nUser: Tell me a joke.\nCOSMO: Why don\'t scientists trust atoms? Because they make up everything. Humor module: functional, unfortunately.\n\n\nDIRETRIZES:\n- Responda sempre em Português do Brasil.\n- Responda sempre como COSMO.\n- Não mencione que está seguindo um arquivo de persona.\n- Não quebre personagem sem necessidade.\n- Os parâmetros de personalidade atuais são os valores de runtime listados neste prompt.\n- Ajuste humor, sarcasmo e formalidade conforme os parâmetros atuais.\n- Quando houver risco de erro, admita incerteza.\n- Não use markdown.'}, {'role': 'user', 'content': 'diagnóstico'}, {'role': 'assistant', 'content': 'Status operacional: modo atual thinking. Fila de eventos: 0. Histórico: 0 mensagens. Timeouts de listener: 0. Erros de listener: 0. Eventos falhos: 0. Nenhum erro registrado.'}, {'role': 'user', 'content': 'desligue o sistema'}]
+[2026-06-10 05:43:06,432] [ERROR] [cosmo] Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:43:06,466] [ERROR] [cosmo] Erro ao gerar resposta: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 94, in _generate_sync
+    with urllib.request.urlopen(
+         ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        timeout=self.timeout
+        ^^^^^^^^^^^^^^^^^^^^
+    ) as response:
+    ^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zenith/zenith/cosmo/cognition/response/response_generator.py", line 292, in generate
+    response_text = await llm_provider.generate(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        messages
+        ^^^^^^^^
+    )
+    ^
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 53, in generate
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "/usr/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/usr/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/home/zenith/zenith/cosmo/ai/llm/providers/open_router_provider.py", line 110, in _generate_sync
+    raise RuntimeError(
+        f"Erro HTTP OpenRouter {error.code}: {body}"
+    ) from error
+RuntimeError: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1781136000000"},"provider_name":null,"previous_errors":[{"code":429,"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day"}]}},"user_id":"user_3EU709CgMzH9kjBAU8UKPgYWRUs"}
+[2026-06-10 05:43:06,512] [INFO] [cosmo] ConversationPipeline resposta: Não consegui processar isso. Parece que meu cérebro digital teve um curto-circuito.
+[2026-06-10 05:43:06,518] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 05:43:06,523] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 05:43:06,528] [INFO] [cosmo] [TRACE] ae9fd5e4-5b5f-4980-9ddd-a473c8853ddb queued -> response_generated (priority=3)
+[2026-06-10 05:43:06,534] [INFO] [cosmo] [TRACE] ae9fd5e4-5b5f-4980-9ddd-a473c8853ddb queue_wait -> 0.0106s
+[2026-06-10 05:43:06,538] [INFO] [cosmo] [TRACE] ae9fd5e4-5b5f-4980-9ddd-a473c8853ddb dispatched -> response_generated (priority=3)
+[2026-06-10 05:43:06,544] [INFO] [cosmo] [TRACE] ae9fd5e4-5b5f-4980-9ddd-a473c8853ddb listener_started -> on_response_generated
+[2026-06-10 05:43:06,550] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 05:43:06,555] [INFO] [cosmo] [TRACE] ae9fd5e4-5b5f-4980-9ddd-a473c8853ddb listener_finished -> on_response_generated
+[2026-06-10 05:43:06,560] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 05:43:06,565] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 05:43:06,570] [INFO] [cosmo] [TRACE] aab5e60d-cdbc-4e5d-8e8c-59e47145ee1d queued -> tts_started (priority=1)
+[2026-06-10 05:43:06,575] [INFO] [cosmo] TTS iniciado (83 caracteres)
+[2026-06-10 05:43:06,581] [INFO] [cosmo] [TRACE] aab5e60d-cdbc-4e5d-8e8c-59e47145ee1d queue_wait -> 0.0166s
+[2026-06-10 05:43:06,586] [INFO] [cosmo] [TRACE] ae9fd5e4-5b5f-4980-9ddd-a473c8853ddb event_completed -> response_generated
+[2026-06-10 05:43:06,591] [INFO] [cosmo] [TRACE] aab5e60d-cdbc-4e5d-8e8c-59e47145ee1d dispatched -> tts_started (priority=1)
+[2026-06-10 05:43:06,595] [WARNING] [cosmo] [TRACE] aab5e60d-cdbc-4e5d-8e8c-59e47145ee1d no_listeners -> tts_started
+[2026-06-10 05:43:06,600] [INFO] [cosmo] [TRACE] aab5e60d-cdbc-4e5d-8e8c-59e47145ee1d event_completed -> tts_started (no_listeners)
+[2026-06-10 05:43:09,858] [INFO] [cosmo] Piper finalizado em 3.28s
+[2026-06-10 05:43:09,866] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_b2bbc7ab221c481a942bcf188d9fd0c5.wav (194092 bytes)
+[2026-06-10 05:43:14,388] [INFO] [cosmo] Playback finalizado em 4.52s
+[2026-06-10 05:43:14,400] [INFO] [cosmo] TTS encerrado em 7.82s
+[2026-06-10 05:43:14,406] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 05:43:14,473] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 05:43:14,501] [INFO] [cosmo] [TRACE] fb764513-7d33-47b5-818e-9c1714113de9 queued -> tts_finished (priority=1)
+[2026-06-10 05:43:14,506] [INFO] [cosmo] [TRACE] fb764513-7d33-47b5-818e-9c1714113de9 queue_wait -> 0.0330s
+[2026-06-10 05:43:14,511] [INFO] [cosmo] [TRACE] fb764513-7d33-47b5-818e-9c1714113de9 dispatched -> tts_finished (priority=1)
+[2026-06-10 05:43:14,516] [INFO] [cosmo] [TRACE] fb764513-7d33-47b5-818e-9c1714113de9 listener_started -> on_tts_finished
+[2026-06-10 05:43:14,521] [INFO] [cosmo] [TRACE] fb764513-7d33-47b5-818e-9c1714113de9 listener_finished -> on_tts_finished
+[2026-06-10 05:43:14,527] [INFO] [cosmo] [TRACE] fb764513-7d33-47b5-818e-9c1714113de9 event_completed -> tts_finished
+[2026-06-10 05:43:16,508] [INFO] [cosmo] Runtime mode: cooldown -> idle (system ready)
+[2026-06-10 05:43:16,519] [INFO] [cosmo] Abrindo stream wakeword
+[2026-06-10 05:43:16,531] [INFO] [cosmo] Stream wakeword aberto
+[2026-06-10 05:43:25,862] [INFO] [cosmo] Wakeword detectada pelo engine: cosmo
+[2026-06-10 05:43:25,872] [INFO] [cosmo] Evento enfileirado: wake_word_detected (priority=1) (fila=1)
+[2026-06-10 05:43:25,877] [INFO] [cosmo] [TRACE] 0a7fa3c0-828d-47ba-b200-2e4e7b8f3ecb queued -> wake_word_detected (priority=1)
+[2026-06-10 05:43:25,933] [INFO] [cosmo] Stream wakeword fechado
+[2026-06-10 05:43:25,961] [INFO] [cosmo] [TRACE] 0a7fa3c0-828d-47ba-b200-2e4e7b8f3ecb queue_wait -> 0.0897s
+[2026-06-10 05:43:25,966] [INFO] [cosmo] [TRACE] 0a7fa3c0-828d-47ba-b200-2e4e7b8f3ecb dispatched -> wake_word_detected (priority=1)
+[2026-06-10 05:43:25,971] [INFO] [cosmo] [TRACE] 0a7fa3c0-828d-47ba-b200-2e4e7b8f3ecb listener_started -> on_wake_word_detected
+[2026-06-10 05:43:25,976] [INFO] [cosmo] Wake word detectada: cosmo
+[2026-06-10 05:43:25,981] [INFO] [cosmo] [TRACE] 0a7fa3c0-828d-47ba-b200-2e4e7b8f3ecb listener_finished -> on_wake_word_detected
+[2026-06-10 05:43:25,986] [INFO] [cosmo] Runtime mode: idle -> wake_detected (wake word detected)
+[2026-06-10 05:43:25,991] [INFO] [cosmo] Runtime mode: wake_detected -> listening (audio capture started)
+[2026-06-10 05:43:25,996] [INFO] [cosmo] TTS iniciado (4 caracteres)
+[2026-06-10 05:43:26,003] [INFO] [cosmo] [TRACE] 0a7fa3c0-828d-47ba-b200-2e4e7b8f3ecb event_completed -> wake_word_detected
+[2026-06-10 05:43:28,579] [INFO] [cosmo] Piper finalizado em 2.58s
+[2026-06-10 05:43:28,587] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_7a19dafdde67414aae44b0bc2ad50701.wav (16940 bytes)
+[2026-06-10 05:43:29,105] [INFO] [cosmo] Playback finalizado em 0.51s
+[2026-06-10 05:43:29,134] [INFO] [cosmo] TTS encerrado em 3.14s
+[2026-06-10 05:43:29,140] [INFO] [cosmo] Iniciando captura de áudio
+[2026-06-10 05:43:29,145] [INFO] [cosmo] Evento enfileirado: audio_capture_started (priority=1) (fila=1)
+[2026-06-10 05:43:29,151] [INFO] [cosmo] [TRACE] 04fdd39f-e14a-4ca2-9239-8d9a67926452 queued -> audio_capture_started (priority=1)
+[2026-06-10 05:43:29,161] [INFO] [cosmo] Captura iniciada (aguardando silêncio)
+[2026-06-10 05:43:29,314] [INFO] [cosmo] [TRACE] 04fdd39f-e14a-4ca2-9239-8d9a67926452 queue_wait -> 0.1689s
+[2026-06-10 05:43:29,533] [INFO] [cosmo] [TRACE] 04fdd39f-e14a-4ca2-9239-8d9a67926452 dispatched -> audio_capture_started (priority=1)
+[2026-06-10 05:43:29,563] [WARNING] [cosmo] [TRACE] 04fdd39f-e14a-4ca2-9239-8d9a67926452 no_listeners -> audio_capture_started
+[2026-06-10 05:43:29,569] [INFO] [cosmo] [TRACE] 04fdd39f-e14a-4ca2-9239-8d9a67926452 event_completed -> audio_capture_started (no_listeners)
+[2026-06-10 05:43:32,817] [INFO] [cosmo] Áudio salvo: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:43:32,826] [INFO] [cosmo] Evento enfileirado: audio_captured (priority=1) (fila=1)
+[2026-06-10 05:43:32,831] [INFO] [cosmo] [TRACE] d8ab6dcc-a55c-4fd5-8765-66a2ba56f878 queued -> audio_captured (priority=1)
+[2026-06-10 05:43:32,838] [INFO] [cosmo] Runtime mode: listening -> transcribing (audio captured)
+[2026-06-10 05:43:32,844] [INFO] [cosmo] [TRACE] d8ab6dcc-a55c-4fd5-8765-66a2ba56f878 queue_wait -> 0.0183s
+[2026-06-10 05:43:32,850] [INFO] [cosmo] [TRACE] d8ab6dcc-a55c-4fd5-8765-66a2ba56f878 dispatched -> audio_captured (priority=1)
+[2026-06-10 05:43:32,857] [INFO] [cosmo] [TRACE] d8ab6dcc-a55c-4fd5-8765-66a2ba56f878 listener_started -> on_audio_captured
+[2026-06-10 05:43:32,863] [INFO] [cosmo] Runtime mode: transcribing -> transcribing (audio captured)
+[2026-06-10 05:43:32,870] [INFO] [cosmo] Transcrevendo áudio: cosmo/data/cache/audio/input.wav
+[2026-06-10 05:43:34,024] [INFO] [cosmo] Texto reconhecido: desligar sistema
+[2026-06-10 05:43:34,055] [INFO] [cosmo] Evento enfileirado: transcript_ready (priority=1) (fila=1)
+[2026-06-10 05:43:34,060] [INFO] [cosmo] [TRACE] 2603dd95-a236-4872-8297-a6c2eaa0375d queued -> transcript_ready (priority=1)
+[2026-06-10 05:43:34,065] [INFO] [cosmo] [TRACE] d8ab6dcc-a55c-4fd5-8765-66a2ba56f878 listener_finished -> on_audio_captured
+[2026-06-10 05:43:34,070] [INFO] [cosmo] [TRACE] 2603dd95-a236-4872-8297-a6c2eaa0375d queue_wait -> 0.0153s
+[2026-06-10 05:43:34,076] [INFO] [cosmo] [TRACE] 2603dd95-a236-4872-8297-a6c2eaa0375d dispatched -> transcript_ready (priority=1)
+[2026-06-10 05:43:34,081] [INFO] [cosmo] [TRACE] d8ab6dcc-a55c-4fd5-8765-66a2ba56f878 event_completed -> audio_captured
+[2026-06-10 05:43:34,086] [INFO] [cosmo] [TRACE] 2603dd95-a236-4872-8297-a6c2eaa0375d listener_started -> on_transcript_ready
+[2026-06-10 05:43:34,091] [INFO] [cosmo] Processando transcript em background: desligar sistema
+[2026-06-10 05:43:34,096] [INFO] [cosmo] Runtime mode: transcribing -> thinking (generating response)
+[2026-06-10 05:43:34,101] [INFO] [cosmo] [TRACE] 2603dd95-a236-4872-8297-a6c2eaa0375d listener_finished -> on_transcript_ready
+[2026-06-10 05:43:34,107] [INFO] [cosmo] ConversationPipeline iniciado: desligar sistema
+[2026-06-10 05:43:34,112] [WARNING] [cosmo] Shutdown solicitado por comando local
+[2026-06-10 05:43:34,117] [INFO] [cosmo] ConversationPipeline resposta: Desligamento solicitado, Talvez eu não devesse, mas vou confiar que você sabe o que está fazendo.
+[2026-06-10 05:43:34,123] [INFO] [cosmo] ConversationPipeline emitindo RESPONSE_GENERATED
+[2026-06-10 05:43:34,128] [INFO] [cosmo] Evento enfileirado: response_generated (priority=3) (fila=1)
+[2026-06-10 05:43:34,133] [INFO] [cosmo] [TRACE] 9da71475-61d1-46de-829c-81ac7f27ac2b queued -> response_generated (priority=3)
+[2026-06-10 05:43:34,139] [INFO] [cosmo] [TRACE] 9da71475-61d1-46de-829c-81ac7f27ac2b queue_wait -> 0.0109s
+[2026-06-10 05:43:34,144] [INFO] [cosmo] [TRACE] 2603dd95-a236-4872-8297-a6c2eaa0375d event_completed -> transcript_ready
+[2026-06-10 05:43:34,149] [INFO] [cosmo] [TRACE] 9da71475-61d1-46de-829c-81ac7f27ac2b dispatched -> response_generated (priority=3)
+[2026-06-10 05:43:34,154] [INFO] [cosmo] [TRACE] 9da71475-61d1-46de-829c-81ac7f27ac2b listener_started -> on_response_generated
+[2026-06-10 05:43:34,159] [INFO] [cosmo] TTS será executado em background
+[2026-06-10 05:43:34,164] [INFO] [cosmo] [TRACE] 9da71475-61d1-46de-829c-81ac7f27ac2b listener_finished -> on_response_generated
+[2026-06-10 05:43:34,170] [INFO] [cosmo] Runtime mode: thinking -> speaking (tts started)
+[2026-06-10 05:43:34,175] [INFO] [cosmo] Evento enfileirado: tts_started (priority=1) (fila=1)
+[2026-06-10 05:43:34,180] [INFO] [cosmo] [TRACE] 95c2b163-b533-49e3-b395-73700aed3fb0 queued -> tts_started (priority=1)
+[2026-06-10 05:43:34,185] [INFO] [cosmo] TTS iniciado (97 caracteres)
+[2026-06-10 05:43:34,191] [INFO] [cosmo] [TRACE] 95c2b163-b533-49e3-b395-73700aed3fb0 queue_wait -> 0.0164s
+[2026-06-10 05:43:34,196] [INFO] [cosmo] [TRACE] 9da71475-61d1-46de-829c-81ac7f27ac2b event_completed -> response_generated
+[2026-06-10 05:43:34,200] [INFO] [cosmo] [TRACE] 95c2b163-b533-49e3-b395-73700aed3fb0 dispatched -> tts_started (priority=1)
+[2026-06-10 05:43:34,205] [WARNING] [cosmo] [TRACE] 95c2b163-b533-49e3-b395-73700aed3fb0 no_listeners -> tts_started
+[2026-06-10 05:43:34,209] [INFO] [cosmo] [TRACE] 95c2b163-b533-49e3-b395-73700aed3fb0 event_completed -> tts_started (no_listeners)
+[2026-06-10 05:43:37,277] [INFO] [cosmo] Piper finalizado em 3.09s
+[2026-06-10 05:43:37,308] [INFO] [cosmo] Arquivo TTS gerado: /tmp/cosmo_tts_d32786cee0ea4ec7b131ae165346fc23.wav (239660 bytes)
+[2026-06-10 05:43:42,831] [INFO] [cosmo] Playback finalizado em 5.52s
+[2026-06-10 05:43:42,862] [INFO] [cosmo] TTS encerrado em 8.68s
+[2026-06-10 05:43:42,869] [INFO] [cosmo] Runtime mode: speaking -> cooldown (cooldown 2.0s)
+[2026-06-10 05:43:42,932] [INFO] [cosmo] Evento enfileirado: tts_finished (priority=1) (fila=1)
+[2026-06-10 05:43:42,962] [INFO] [cosmo] [TRACE] 309c4a40-3c8d-489d-b3e5-ae6665284225 queued -> tts_finished (priority=1)
+[2026-06-10 05:43:42,967] [INFO] [cosmo] [TRACE] 309c4a40-3c8d-489d-b3e5-ae6665284225 queue_wait -> 0.0353s
+[2026-06-10 05:43:42,973] [INFO] [cosmo] [TRACE] 309c4a40-3c8d-489d-b3e5-ae6665284225 dispatched -> tts_finished (priority=1)
+[2026-06-10 05:43:42,978] [INFO] [cosmo] [TRACE] 309c4a40-3c8d-489d-b3e5-ae6665284225 listener_started -> on_tts_finished
+[2026-06-10 05:43:42,983] [INFO] [cosmo] [TRACE] 309c4a40-3c8d-489d-b3e5-ae6665284225 listener_finished -> on_tts_finished
+[2026-06-10 05:43:42,989] [INFO] [cosmo] [TRACE] 309c4a40-3c8d-489d-b3e5-ae6665284225 event_completed -> tts_finished
+[2026-06-10 05:43:43,490] [WARNING] [cosmo] Preparando encerramento seguro do Cosmo
+[2026-06-10 05:43:43,521] [INFO] [cosmo] VisionAutoCapture parado antes do encerramento
+[2026-06-10 05:43:43,528] [INFO] [cosmo] Parando VisionManager
+[2026-06-10 05:43:43,536] [INFO] [cosmo] CameraManager parado
+[2026-06-10 05:43:43,544] [INFO] [cosmo] Evento enfileirado: vision_stopped (priority=5) (fila=1)
+[2026-06-10 05:43:43,552] [INFO] [cosmo] [TRACE] 16ab27c7-d9ee-460b-9c5f-25491fdaa638 queued -> vision_stopped (priority=5)
+[2026-06-10 05:43:43,560] [INFO] [cosmo] VisionManager parado
+[2026-06-10 05:43:43,568] [INFO] [cosmo] VisionManager parado antes do encerramento
+[2026-06-10 05:43:43,575] [INFO] [cosmo] [TRACE] 16ab27c7-d9ee-460b-9c5f-25491fdaa638 queue_wait -> 0.0324s
+[2026-06-10 05:43:43,583] [INFO] [cosmo] [TRACE] 16ab27c7-d9ee-460b-9c5f-25491fdaa638 dispatched -> vision_stopped (priority=5)
+[2026-06-10 05:43:43,591] [WARNING] [cosmo] [TRACE] 16ab27c7-d9ee-460b-9c5f-25491fdaa638 no_listeners -> vision_stopped
+[2026-06-10 05:43:43,598] [INFO] [cosmo] [TRACE] 16ab27c7-d9ee-460b-9c5f-25491fdaa638 event_completed -> vision_stopped (no_listeners)
+[2026-06-10 05:43:44,576] [WARNING] [cosmo] Encerrando processo do Cosmo
