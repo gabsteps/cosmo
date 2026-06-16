@@ -47,10 +47,10 @@ class ConversationRepository:
                 SELECT *
                 FROM conversations
                 WHERE user_id = ?
-                ORDER BY id DESC
+                ORDER BY timestamp DESC
                 LIMIT ?
             )
-            ORDER BY timestamp ASC
+            ORDER BY timestamp DESC
             """,
             (
                 user_id,

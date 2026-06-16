@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 import time
-import numpy as np
+
 import cv2
 
 from cosmo.core.config.settings_manager import (
@@ -13,6 +13,10 @@ from cosmo.core.logger.logger_manager import (
 
 from cosmo.vision.camera.frame_store import (
     frame_store
+)
+
+from cosmo.vision.analysis.vision_analyzer import (
+    vision_analyzer
 )
 
 
@@ -99,6 +103,7 @@ class CameraManager:
             )
             or 1
         )
+
         required_settings = {
             "vision.camera_index": self.camera_index,
             "vision.width": self.width,
@@ -123,26 +128,38 @@ class CameraManager:
                 )
             )
 
-        if not isinstance(self.warmup_frames, int) or self.warmup_frames < 0:
+        if not isinstance(
+            self.warmup_frames,
+            int
+        ) or self.warmup_frames < 0:
 
             raise RuntimeError(
                 "Configuração inválida: vision.warmup_frames deve ser inteiro >= 0"
             )
 
-        if not isinstance(self.width, int) or self.width <= 0:
+        if not isinstance(
+            self.width,
+            int
+        ) or self.width <= 0:
 
             raise RuntimeError(
                 "Configuração inválida: vision.width deve ser inteiro > 0"
             )
 
-        if not isinstance(self.height, int) or self.height <= 0:
+        if not isinstance(
+            self.height,
+            int
+        ) or self.height <= 0:
 
             raise RuntimeError(
                 "Configuração inválida: vision.height deve ser inteiro > 0"
             )
 
         if (
-            not isinstance(self.camera_open_retries, int)
+            not isinstance(
+                self.camera_open_retries,
+                int
+            )
             or self.camera_open_retries <= 0
         ):
 
@@ -151,12 +168,51 @@ class CameraManager:
             )
 
         if (
-            not isinstance(self.camera_open_retry_delay, int | float)
+            not isinstance(
+                self.camera_open_retry_delay,
+                int | float
+            )
             or self.camera_open_retry_delay < 0
         ):
 
             raise RuntimeError(
                 "Configuração inválida: vision.camera_open_retry_delay deve ser número >= 0"
+            )
+
+        if (
+            not isinstance(
+                self.frame_flush_reads,
+                int
+            )
+            or self.frame_flush_reads <= 0
+        ):
+
+            raise RuntimeError(
+                "Configuração inválida: vision.frame_flush_reads deve ser inteiro > 0"
+            )
+
+        if (
+            not isinstance(
+                self.frame_flush_delay,
+                int | float
+            )
+            or self.frame_flush_delay < 0
+        ):
+
+            raise RuntimeError(
+                "Configuração inválida: vision.frame_flush_delay deve ser número >= 0"
+            )
+
+        if (
+            not isinstance(
+                self.camera_buffer_size,
+                int
+            )
+            or self.camera_buffer_size <= 0
+        ):
+
+            raise RuntimeError(
+                "Configuração inválida: vision.camera_buffer_size deve ser inteiro > 0"
             )
 
         self.capture = None
@@ -176,7 +232,10 @@ class CameraManager:
             f"snapshot_path={self.snapshot_path}, "
             f"warmup_frames={self.warmup_frames}, "
             f"camera_open_retries={self.camera_open_retries}, "
-            f"camera_open_retry_delay={self.camera_open_retry_delay}"
+            f"camera_open_retry_delay={self.camera_open_retry_delay}, "
+            f"frame_flush_reads={self.frame_flush_reads}, "
+            f"frame_flush_delay={self.frame_flush_delay}, "
+            f"camera_buffer_size={self.camera_buffer_size}"
         )
 
     def start(
@@ -191,7 +250,11 @@ class CameraManager:
 
             return False
 
-        if self.active and self.capture and self.capture.isOpened():
+        if (
+            self.active
+            and self.capture
+            and self.capture.isOpened()
+        ):
 
             logger.info(
                 "CameraManager já está ativo"
@@ -248,25 +311,21 @@ class CameraManager:
                 self.active = False
 
                 return False
-            
+
             self.capture.set(
                 cv2.CAP_PROP_BUFFERSIZE,
                 self.camera_buffer_size
             )
 
-            if self.width:
+            self.capture.set(
+                cv2.CAP_PROP_FRAME_WIDTH,
+                self.width
+            )
 
-                self.capture.set(
-                    cv2.CAP_PROP_FRAME_WIDTH,
-                    self.width
-                )
-
-            if self.height:
-
-                self.capture.set(
-                    cv2.CAP_PROP_FRAME_HEIGHT,
-                    self.height
-                )
+            self.capture.set(
+                cv2.CAP_PROP_FRAME_HEIGHT,
+                self.height
+            )
 
             self._warmup_camera()
 
@@ -350,11 +409,13 @@ class CameraManager:
             started = self.start()
 
             if not started:
+
                 return None
 
         try:
 
             ok, frame = self._read_fresh_frame()
+
             logger.info(
                 f"Frame fresco lido após flush_reads={self.frame_flush_reads}"
             )
@@ -378,26 +439,32 @@ class CameraManager:
                     cv2.COLOR_BGR2GRAY
                 )
 
-            self.image_metrics = self._calculate_image_metrics(
+            analysis = vision_analyzer.analyze(
                 frame
             )
 
-            self.last_brightness = self.image_metrics.get(
+            self.image_metrics = analysis
+
+            self.last_brightness = analysis.get(
                 "brightness_mean"
             )
 
-            self.image_quality = self._classify_image_quality(
-                self.image_metrics
+            self.image_quality = analysis.get(
+                "image_quality",
+                "unknown"
             )
 
             logger.info(
                 f"Frame capturado: "
-                f"brightness={self.last_brightness:.2f}, "
-                f"contrast={self.image_metrics.get('brightness_std'):.2f}, "
-                f"dark_ratio={self.image_metrics.get('dark_ratio'):.2f}, "
-                f"bright_ratio={self.image_metrics.get('bright_ratio'):.2f}, "
-                f"overexposed_ratio={self.image_metrics.get('overexposed_ratio'):.2f}, "
-                f"quality={self.image_quality}"
+                f"brightness={analysis.get('brightness_mean', 0.0):.2f}, "
+                f"contrast={analysis.get('brightness_std', 0.0):.2f}, "
+                f"dark_ratio={analysis.get('dark_ratio', 0.0):.2f}, "
+                f"bright_ratio={analysis.get('bright_ratio', 0.0):.2f}, "
+                f"overexposed_ratio={analysis.get('overexposed_ratio', 0.0):.2f}, "
+                f"blur_score={analysis.get('blur_score', 0.0):.2f}, "
+                f"backlit_score={analysis.get('backlit_score', 0.0):.2f}, "
+                f"quality={self.image_quality}, "
+                f"face_ready={analysis.get('face_ready', False)}"
             )
 
             frame_store.set_frame(
@@ -427,6 +494,7 @@ class CameraManager:
         frame = self.capture_frame()
 
         if frame is None:
+
             return None
 
         return frame_store.save_snapshot(
@@ -479,6 +547,7 @@ class CameraManager:
     ) -> None:
 
         if not self.capture:
+
             return
 
         failed_reads = 0
@@ -490,6 +559,7 @@ class CameraManager:
             ok, _ = self.capture.read()
 
             if not ok:
+
                 failed_reads += 1
 
         if failed_reads:
@@ -498,36 +568,12 @@ class CameraManager:
                 f"Warmup da câmera teve {failed_reads} falhas de leitura"
             )
 
-    def _calculate_brightness(
-        self,
-        frame
-    ) -> float:
-
-        if frame is None:
-            return 0.0
-
-        return float(
-            frame.mean()
-        )
-
-    def _classify_image_quality(
-        self,
-        brightness: float
-    ) -> str:
-
-        if brightness < 10:
-            return "dark"
-
-        if brightness < 35:
-            return "low_light"
-
-        return "ok"
-
     def _read_fresh_frame(
         self
     ):
 
         if not self.capture:
+
             return False, None
 
         last_ok = False
@@ -552,120 +598,5 @@ class CameraManager:
 
         return last_ok, last_frame
 
-    def _calculate_image_metrics(
-        self,
-        frame
-    ) -> dict:
-
-        if frame is None:
-
-            return {
-                "brightness_mean": 0.0,
-                "brightness_std": 0.0,
-                "dark_ratio": 1.0,
-                "bright_ratio": 0.0,
-                "overexposed_ratio": 0.0,
-            }
-
-        if len(frame.shape) == 3:
-
-            gray = cv2.cvtColor(
-                frame,
-                cv2.COLOR_BGR2GRAY
-            )
-
-        else:
-
-            gray = frame
-
-        gray = gray.astype(
-            np.uint8
-        )
-
-        brightness_mean = float(
-            gray.mean()
-        )
-
-        brightness_std = float(
-            gray.std()
-        )
-
-        dark_ratio = float(
-            np.mean(
-                gray < 25
-            )
-        )
-
-        bright_ratio = float(
-            np.mean(
-                gray > 220
-            )
-        )
-
-        overexposed_ratio = float(
-            np.mean(
-                gray > 245
-            )
-        )
-
-        return {
-            "brightness_mean": brightness_mean,
-            "brightness_std": brightness_std,
-            "dark_ratio": dark_ratio,
-            "bright_ratio": bright_ratio,
-            "overexposed_ratio": overexposed_ratio,
-        }
-
-    def _classify_image_quality(
-        self,
-        metrics: dict
-    ) -> str:
-
-        brightness = metrics.get(
-            "brightness_mean",
-            0.0
-        )
-
-        contrast = metrics.get(
-            "brightness_std",
-            0.0
-        )
-
-        dark_ratio = metrics.get(
-            "dark_ratio",
-            1.0
-        )
-
-        bright_ratio = metrics.get(
-            "bright_ratio",
-            0.0
-        )
-
-        overexposed_ratio = metrics.get(
-            "overexposed_ratio",
-            0.0
-        )
-
-        if overexposed_ratio > 0.02:
-
-            return "overexposed"
-
-        if bright_ratio > 0.08 and dark_ratio > 0.45:
-
-            return "high_contrast"
-
-        if dark_ratio > 0.75:
-
-            return "dark"
-
-        if brightness < 35 or dark_ratio > 0.60:
-
-            return "low_light"
-
-        if contrast < 8:
-
-            return "low_contrast"
-
-        return "ok"
 
 camera_manager = CameraManager()

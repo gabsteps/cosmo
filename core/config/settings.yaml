@@ -51,7 +51,7 @@ tts:
 
 vision:
   enabled: true
-  auto_capture: false
+  auto_capture: true
   capture_interval: 10
   camera_index: 0
   width: 640

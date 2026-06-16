@@ -1,12 +1,26 @@
 {% extends "base.html" %}
 
 {% block page_title %}Vision{% endblock %}
-{% block page_subtitle %}Camera status, latest snapshot and image quality{% endblock %}
+{% block page_subtitle %}Camera status, latest snapshot and image calibration{% endblock %}
 
 {% block content %}
 <section class="vision-page-grid">
     <div class="card vision-main-card">
-        <h2>Latest Snapshot</h2>
+        <div class="page-card-header">
+            <div>
+                <h2>Latest Snapshot</h2>
+                <p class="section-subtitle">
+                    Last camera frame exposed by the vision pipeline.
+                </p>
+            </div>
+
+            <div
+                id="vision-preview-status"
+                class="inline-status"
+            >
+                Waiting for frame
+            </div>
+        </div>
 
         <div class="vision-large-preview-wrap">
             <img
@@ -76,19 +90,9 @@
     </div>
 
     <div class="card">
-        <h2>Image Quality</h2>
+        <h2>Frame Status</h2>
 
         <div class="stats-list">
-            <div class="stat-row">
-                <div class="stat-label">Brightness</div>
-                <div id="vision-brightness" class="stat-value">-</div>
-            </div>
-
-            <div class="stat-row">
-                <div class="stat-label">Quality</div>
-                <div id="vision-quality" class="stat-value">unknown</div>
-            </div>
-
             <div class="stat-row">
                 <div class="stat-label">Has frame</div>
                 <div id="vision-has-frame" class="stat-value">false</div>
@@ -101,12 +105,92 @@
 
             <div class="stat-row">
                 <div class="stat-label">Snapshot path</div>
-                <div id="vision-snapshot-path" class="stat-value">-</div>
+                <div id="vision-snapshot-path" class="stat-value stat-path">-</div>
             </div>
         </div>
 
         <div id="vision-error" class="compact-status">
             No vision errors.
+        </div>
+    </div>
+
+    <div class="card vision-quality-card">
+        <div class="page-card-header">
+            <div>
+                <h2>Image Quality</h2>
+                <p class="section-subtitle">
+                    Current frame analysis for future face detection.
+                </p>
+            </div>
+
+            <div
+                id="vision-face-ready-pill"
+                class="vision-face-ready-pill"
+            >
+                Face not ready
+            </div>
+        </div>
+
+        <div class="vision-quality-summary">
+            <div>
+                <div class="mini-label">Quality</div>
+                <div
+                    id="vision-quality"
+                    class="vision-quality-badge vision-quality-unknown"
+                >
+                    unknown
+                </div>
+            </div>
+
+            <div>
+                <div class="mini-label">Face ready</div>
+                <div id="vision-face-ready" class="mini-value">false</div>
+            </div>
+        </div>
+
+        <div class="stats-list vision-metrics-list">
+            <div class="stat-row">
+                <div class="stat-label">Brightness</div>
+                <div id="vision-brightness" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Contrast</div>
+                <div id="vision-contrast" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Dark ratio</div>
+                <div id="vision-dark-ratio" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Bright ratio</div>
+                <div id="vision-bright-ratio" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Overexposed ratio</div>
+                <div id="vision-overexposed-ratio" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Blur score</div>
+                <div id="vision-blur-score" class="stat-value">-</div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">Backlit score</div>
+                <div id="vision-backlit-score" class="stat-value">-</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card vision-guidance-card">
+        <h2>Calibration Guidance</h2>
+
+        <div id="vision-guidance" class="vision-guidance">
+            Waiting for vision metrics.
         </div>
     </div>
 </section>
