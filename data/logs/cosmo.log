@@ -130072,3 +130072,603 @@ RuntimeError: Erro HTTP OpenRouter 429: {"error":{"message":"Rate limit exceeded
 [2026-06-16 05:16:04,187] [INFO] [cosmo] [TRACE] 538346da-d919-4758-a017-6ab9089a6772 dispatched -> vision_frame_captured (priority=5)
 [2026-06-16 05:16:04,192] [WARNING] [cosmo] [TRACE] 538346da-d919-4758-a017-6ab9089a6772 no_listeners -> vision_frame_captured
 [2026-06-16 05:16:04,196] [INFO] [cosmo] [TRACE] 538346da-d919-4758-a017-6ab9089a6772 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:16:14,876] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:16:14,900] [INFO] [cosmo] Frame capturado: brightness=74.39, contrast=69.74, dark_ratio=0.22, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=85.40, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:16:14,907] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:16:14,912] [INFO] [cosmo] [TRACE] 342a8fef-214c-48c4-ba88-f88970f29af7 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:14,918] [INFO] [cosmo] [TRACE] 342a8fef-214c-48c4-ba88-f88970f29af7 queue_wait -> 0.0111s
+[2026-06-16 05:16:14,924] [INFO] [cosmo] [TRACE] 342a8fef-214c-48c4-ba88-f88970f29af7 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:14,928] [WARNING] [cosmo] [TRACE] 342a8fef-214c-48c4-ba88-f88970f29af7 no_listeners -> vision_frame_captured
+[2026-06-16 05:16:14,934] [INFO] [cosmo] [TRACE] 342a8fef-214c-48c4-ba88-f88970f29af7 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:16:25,608] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:16:25,626] [INFO] [cosmo] Frame capturado: brightness=74.35, contrast=69.74, dark_ratio=0.22, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=82.28, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:16:25,632] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:16:25,637] [INFO] [cosmo] [TRACE] ec02a029-5e44-4918-9181-f71f701db521 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:25,642] [INFO] [cosmo] [TRACE] ec02a029-5e44-4918-9181-f71f701db521 queue_wait -> 0.0098s
+[2026-06-16 05:16:25,647] [INFO] [cosmo] [TRACE] ec02a029-5e44-4918-9181-f71f701db521 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:25,652] [WARNING] [cosmo] [TRACE] ec02a029-5e44-4918-9181-f71f701db521 no_listeners -> vision_frame_captured
+[2026-06-16 05:16:25,656] [INFO] [cosmo] [TRACE] ec02a029-5e44-4918-9181-f71f701db521 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:16:36,216] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:16:36,259] [INFO] [cosmo] Frame capturado: brightness=74.29, contrast=69.77, dark_ratio=0.22, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=86.81, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:16:36,265] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:16:36,271] [INFO] [cosmo] [TRACE] 05cf066b-ec2d-42a7-9f49-64b3588a91d0 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:36,275] [INFO] [cosmo] [TRACE] 05cf066b-ec2d-42a7-9f49-64b3588a91d0 queue_wait -> 0.0109s
+[2026-06-16 05:16:36,281] [INFO] [cosmo] [TRACE] 05cf066b-ec2d-42a7-9f49-64b3588a91d0 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:36,286] [WARNING] [cosmo] [TRACE] 05cf066b-ec2d-42a7-9f49-64b3588a91d0 no_listeners -> vision_frame_captured
+[2026-06-16 05:16:36,291] [INFO] [cosmo] [TRACE] 05cf066b-ec2d-42a7-9f49-64b3588a91d0 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:16:46,947] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:16:46,982] [INFO] [cosmo] Frame capturado: brightness=74.22, contrast=69.85, dark_ratio=0.22, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=84.83, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:16:46,990] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:16:46,996] [INFO] [cosmo] [TRACE] 3292d7de-92d1-466c-a873-647bfa67c500 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:47,000] [INFO] [cosmo] [TRACE] 3292d7de-92d1-466c-a873-647bfa67c500 queue_wait -> 0.0104s
+[2026-06-16 05:16:47,005] [INFO] [cosmo] [TRACE] 3292d7de-92d1-466c-a873-647bfa67c500 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:47,010] [WARNING] [cosmo] [TRACE] 3292d7de-92d1-466c-a873-647bfa67c500 no_listeners -> vision_frame_captured
+[2026-06-16 05:16:47,014] [INFO] [cosmo] [TRACE] 3292d7de-92d1-466c-a873-647bfa67c500 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:16:57,679] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:16:57,697] [INFO] [cosmo] Frame capturado: brightness=72.60, contrast=70.48, dark_ratio=0.25, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=84.61, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:16:57,704] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:16:57,710] [INFO] [cosmo] [TRACE] 81bf6130-160b-4b71-adb4-2fb28b31811a queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:57,716] [INFO] [cosmo] [TRACE] 81bf6130-160b-4b71-adb4-2fb28b31811a queue_wait -> 0.0124s
+[2026-06-16 05:16:57,722] [INFO] [cosmo] [TRACE] 81bf6130-160b-4b71-adb4-2fb28b31811a dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:16:57,727] [WARNING] [cosmo] [TRACE] 81bf6130-160b-4b71-adb4-2fb28b31811a no_listeners -> vision_frame_captured
+[2026-06-16 05:16:57,731] [INFO] [cosmo] [TRACE] 81bf6130-160b-4b71-adb4-2fb28b31811a event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:17:08,287] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:17:08,323] [INFO] [cosmo] Frame capturado: brightness=72.03, contrast=70.54, dark_ratio=0.26, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=81.20, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:17:08,330] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:17:08,335] [INFO] [cosmo] [TRACE] 39782eec-529a-4c25-9f58-7267a676ba7d queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:08,339] [INFO] [cosmo] [TRACE] 39782eec-529a-4c25-9f58-7267a676ba7d queue_wait -> 0.0101s
+[2026-06-16 05:17:08,344] [INFO] [cosmo] [TRACE] 39782eec-529a-4c25-9f58-7267a676ba7d dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:08,348] [WARNING] [cosmo] [TRACE] 39782eec-529a-4c25-9f58-7267a676ba7d no_listeners -> vision_frame_captured
+[2026-06-16 05:17:08,353] [INFO] [cosmo] [TRACE] 39782eec-529a-4c25-9f58-7267a676ba7d event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:17:19,023] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:17:19,040] [INFO] [cosmo] Frame capturado: brightness=71.93, contrast=70.62, dark_ratio=0.27, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=80.49, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:17:19,047] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:17:19,051] [INFO] [cosmo] [TRACE] ada1ca5e-fd45-465f-9a24-d9f32817a81f queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:19,056] [INFO] [cosmo] [TRACE] ada1ca5e-fd45-465f-9a24-d9f32817a81f queue_wait -> 0.0093s
+[2026-06-16 05:17:19,061] [INFO] [cosmo] [TRACE] ada1ca5e-fd45-465f-9a24-d9f32817a81f dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:19,065] [WARNING] [cosmo] [TRACE] ada1ca5e-fd45-465f-9a24-d9f32817a81f no_listeners -> vision_frame_captured
+[2026-06-16 05:17:19,069] [INFO] [cosmo] [TRACE] ada1ca5e-fd45-465f-9a24-d9f32817a81f event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:17:29,631] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:17:29,651] [INFO] [cosmo] Frame capturado: brightness=72.52, contrast=70.56, dark_ratio=0.26, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=86.25, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:17:29,659] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:17:29,666] [INFO] [cosmo] [TRACE] 24c6fd6d-62c4-435e-abee-70618052b057 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:29,670] [INFO] [cosmo] [TRACE] 24c6fd6d-62c4-435e-abee-70618052b057 queue_wait -> 0.0119s
+[2026-06-16 05:17:29,676] [INFO] [cosmo] [TRACE] 24c6fd6d-62c4-435e-abee-70618052b057 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:29,681] [WARNING] [cosmo] [TRACE] 24c6fd6d-62c4-435e-abee-70618052b057 no_listeners -> vision_frame_captured
+[2026-06-16 05:17:29,685] [INFO] [cosmo] [TRACE] 24c6fd6d-62c4-435e-abee-70618052b057 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:17:40,239] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:17:40,266] [INFO] [cosmo] Frame capturado: brightness=73.30, contrast=69.95, dark_ratio=0.23, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=81.49, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:17:40,274] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:17:40,280] [INFO] [cosmo] [TRACE] cb249422-9673-4f9b-886f-95415d7b7311 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:40,284] [INFO] [cosmo] [TRACE] cb249422-9673-4f9b-886f-95415d7b7311 queue_wait -> 0.0107s
+[2026-06-16 05:17:40,288] [INFO] [cosmo] [TRACE] cb249422-9673-4f9b-886f-95415d7b7311 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:40,292] [WARNING] [cosmo] [TRACE] cb249422-9673-4f9b-886f-95415d7b7311 no_listeners -> vision_frame_captured
+[2026-06-16 05:17:40,297] [INFO] [cosmo] [TRACE] cb249422-9673-4f9b-886f-95415d7b7311 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:17:50,846] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:17:50,862] [INFO] [cosmo] Frame capturado: brightness=72.12, contrast=70.59, dark_ratio=0.27, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=84.09, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:17:50,869] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:17:50,875] [INFO] [cosmo] [TRACE] f4c0767b-5aa8-4586-96f7-487fa815d515 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:50,879] [INFO] [cosmo] [TRACE] f4c0767b-5aa8-4586-96f7-487fa815d515 queue_wait -> 0.0105s
+[2026-06-16 05:17:50,883] [INFO] [cosmo] [TRACE] f4c0767b-5aa8-4586-96f7-487fa815d515 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:17:50,887] [WARNING] [cosmo] [TRACE] f4c0767b-5aa8-4586-96f7-487fa815d515 no_listeners -> vision_frame_captured
+[2026-06-16 05:17:50,891] [INFO] [cosmo] [TRACE] f4c0767b-5aa8-4586-96f7-487fa815d515 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:18:01,450] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:18:01,487] [INFO] [cosmo] Frame capturado: brightness=73.57, contrast=70.04, dark_ratio=0.23, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=82.80, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:18:01,494] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:18:01,500] [INFO] [cosmo] [TRACE] 0493b609-93b7-4442-a2b0-03e319114b1e queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:01,505] [INFO] [cosmo] [TRACE] 0493b609-93b7-4442-a2b0-03e319114b1e queue_wait -> 0.0106s
+[2026-06-16 05:18:01,510] [INFO] [cosmo] [TRACE] 0493b609-93b7-4442-a2b0-03e319114b1e dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:01,515] [WARNING] [cosmo] [TRACE] 0493b609-93b7-4442-a2b0-03e319114b1e no_listeners -> vision_frame_captured
+[2026-06-16 05:18:01,520] [INFO] [cosmo] [TRACE] 0493b609-93b7-4442-a2b0-03e319114b1e event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:18:12,186] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:18:12,219] [INFO] [cosmo] Frame capturado: brightness=73.61, contrast=70.03, dark_ratio=0.23, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=83.06, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:18:12,226] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:18:12,231] [INFO] [cosmo] [TRACE] 05cf7b48-060c-454d-afb3-89a93e3f5b6b queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:12,236] [INFO] [cosmo] [TRACE] 05cf7b48-060c-454d-afb3-89a93e3f5b6b queue_wait -> 0.0112s
+[2026-06-16 05:18:12,241] [INFO] [cosmo] [TRACE] 05cf7b48-060c-454d-afb3-89a93e3f5b6b dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:12,245] [WARNING] [cosmo] [TRACE] 05cf7b48-060c-454d-afb3-89a93e3f5b6b no_listeners -> vision_frame_captured
+[2026-06-16 05:18:12,250] [INFO] [cosmo] [TRACE] 05cf7b48-060c-454d-afb3-89a93e3f5b6b event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:18:22,918] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:18:22,936] [INFO] [cosmo] Frame capturado: brightness=72.96, contrast=70.36, dark_ratio=0.24, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=82.42, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:18:22,942] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:18:22,947] [INFO] [cosmo] [TRACE] 8d594b0b-89d4-4f79-a215-f596095d066d queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:22,951] [INFO] [cosmo] [TRACE] 8d594b0b-89d4-4f79-a215-f596095d066d queue_wait -> 0.0098s
+[2026-06-16 05:18:22,957] [INFO] [cosmo] [TRACE] 8d594b0b-89d4-4f79-a215-f596095d066d dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:22,961] [WARNING] [cosmo] [TRACE] 8d594b0b-89d4-4f79-a215-f596095d066d no_listeners -> vision_frame_captured
+[2026-06-16 05:18:22,966] [INFO] [cosmo] [TRACE] 8d594b0b-89d4-4f79-a215-f596095d066d event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:18:33,526] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:18:33,546] [INFO] [cosmo] Frame capturado: brightness=73.02, contrast=70.36, dark_ratio=0.24, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=84.30, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:18:33,553] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:18:33,559] [INFO] [cosmo] [TRACE] 55d30fae-6659-4bdf-afbc-4ae2f215892d queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:33,564] [INFO] [cosmo] [TRACE] 55d30fae-6659-4bdf-afbc-4ae2f215892d queue_wait -> 0.0112s
+[2026-06-16 05:18:33,570] [INFO] [cosmo] [TRACE] 55d30fae-6659-4bdf-afbc-4ae2f215892d dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:33,574] [WARNING] [cosmo] [TRACE] 55d30fae-6659-4bdf-afbc-4ae2f215892d no_listeners -> vision_frame_captured
+[2026-06-16 05:18:33,579] [INFO] [cosmo] [TRACE] 55d30fae-6659-4bdf-afbc-4ae2f215892d event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:18:44,134] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:18:44,153] [INFO] [cosmo] Frame capturado: brightness=72.27, contrast=70.51, dark_ratio=0.26, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=80.38, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:18:44,161] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:18:44,167] [INFO] [cosmo] [TRACE] 83c24c60-90ef-49c5-9eac-3b9baf75ec8e queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:44,172] [INFO] [cosmo] [TRACE] 83c24c60-90ef-49c5-9eac-3b9baf75ec8e queue_wait -> 0.0118s
+[2026-06-16 05:18:44,177] [INFO] [cosmo] [TRACE] 83c24c60-90ef-49c5-9eac-3b9baf75ec8e dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:44,181] [WARNING] [cosmo] [TRACE] 83c24c60-90ef-49c5-9eac-3b9baf75ec8e no_listeners -> vision_frame_captured
+[2026-06-16 05:18:44,185] [INFO] [cosmo] [TRACE] 83c24c60-90ef-49c5-9eac-3b9baf75ec8e event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:18:54,742] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:18:54,776] [INFO] [cosmo] Frame capturado: brightness=72.47, contrast=70.46, dark_ratio=0.25, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=80.07, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:18:54,789] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:18:54,794] [INFO] [cosmo] [TRACE] 0c5e1902-547a-48f1-8f6a-50eaeb92f76c queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:54,798] [INFO] [cosmo] [TRACE] 0c5e1902-547a-48f1-8f6a-50eaeb92f76c queue_wait -> 0.0149s
+[2026-06-16 05:18:54,802] [INFO] [cosmo] [TRACE] 0c5e1902-547a-48f1-8f6a-50eaeb92f76c dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:18:54,809] [WARNING] [cosmo] [TRACE] 0c5e1902-547a-48f1-8f6a-50eaeb92f76c no_listeners -> vision_frame_captured
+[2026-06-16 05:18:54,813] [INFO] [cosmo] [TRACE] 0c5e1902-547a-48f1-8f6a-50eaeb92f76c event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:19:05,473] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:19:05,492] [INFO] [cosmo] Frame capturado: brightness=73.24, contrast=70.13, dark_ratio=0.23, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=84.19, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:19:05,499] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:19:05,503] [INFO] [cosmo] [TRACE] 8183a890-61c7-41a7-b5b8-5631b27fee4c queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:05,508] [INFO] [cosmo] [TRACE] 8183a890-61c7-41a7-b5b8-5631b27fee4c queue_wait -> 0.0088s
+[2026-06-16 05:19:05,512] [INFO] [cosmo] [TRACE] 8183a890-61c7-41a7-b5b8-5631b27fee4c dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:05,516] [WARNING] [cosmo] [TRACE] 8183a890-61c7-41a7-b5b8-5631b27fee4c no_listeners -> vision_frame_captured
+[2026-06-16 05:19:05,521] [INFO] [cosmo] [TRACE] 8183a890-61c7-41a7-b5b8-5631b27fee4c event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:19:16,081] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:19:16,116] [INFO] [cosmo] Frame capturado: brightness=81.59, contrast=69.98, dark_ratio=0.13, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=116.58, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:19:16,123] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:19:16,127] [INFO] [cosmo] [TRACE] a93af0a4-5bdd-45d6-9e79-5cc59765c7b7 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:16,132] [INFO] [cosmo] [TRACE] a93af0a4-5bdd-45d6-9e79-5cc59765c7b7 queue_wait -> 0.0093s
+[2026-06-16 05:19:16,136] [INFO] [cosmo] [TRACE] a93af0a4-5bdd-45d6-9e79-5cc59765c7b7 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:16,141] [WARNING] [cosmo] [TRACE] a93af0a4-5bdd-45d6-9e79-5cc59765c7b7 no_listeners -> vision_frame_captured
+[2026-06-16 05:19:16,145] [INFO] [cosmo] [TRACE] a93af0a4-5bdd-45d6-9e79-5cc59765c7b7 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:19:26,689] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:19:26,725] [INFO] [cosmo] Frame capturado: brightness=82.36, contrast=69.61, dark_ratio=0.12, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=118.69, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:19:26,732] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:19:26,737] [INFO] [cosmo] [TRACE] c99d714b-046a-44de-b5bd-1280de46a9d1 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:26,742] [INFO] [cosmo] [TRACE] c99d714b-046a-44de-b5bd-1280de46a9d1 queue_wait -> 0.0106s
+[2026-06-16 05:19:26,747] [INFO] [cosmo] [TRACE] c99d714b-046a-44de-b5bd-1280de46a9d1 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:26,751] [WARNING] [cosmo] [TRACE] c99d714b-046a-44de-b5bd-1280de46a9d1 no_listeners -> vision_frame_captured
+[2026-06-16 05:19:26,755] [INFO] [cosmo] [TRACE] c99d714b-046a-44de-b5bd-1280de46a9d1 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:19:37,297] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:19:37,333] [INFO] [cosmo] Frame capturado: brightness=86.33, contrast=71.26, dark_ratio=0.10, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=154.83, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:19:37,340] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:19:37,345] [INFO] [cosmo] [TRACE] 7b59528c-ef02-42c0-88a4-975944d0ba7f queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:37,349] [INFO] [cosmo] [TRACE] 7b59528c-ef02-42c0-88a4-975944d0ba7f queue_wait -> 0.0099s
+[2026-06-16 05:19:37,355] [INFO] [cosmo] [TRACE] 7b59528c-ef02-42c0-88a4-975944d0ba7f dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:37,359] [WARNING] [cosmo] [TRACE] 7b59528c-ef02-42c0-88a4-975944d0ba7f no_listeners -> vision_frame_captured
+[2026-06-16 05:19:37,363] [INFO] [cosmo] [TRACE] 7b59528c-ef02-42c0-88a4-975944d0ba7f event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:19:48,029] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:19:48,065] [INFO] [cosmo] Frame capturado: brightness=74.77, contrast=70.14, dark_ratio=0.22, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=92.88, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:19:48,074] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:19:48,080] [INFO] [cosmo] [TRACE] 5740b24e-d4c5-48a8-aa6d-47ae0acf07fb queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:48,085] [INFO] [cosmo] [TRACE] 5740b24e-d4c5-48a8-aa6d-47ae0acf07fb queue_wait -> 0.0109s
+[2026-06-16 05:19:48,090] [INFO] [cosmo] [TRACE] 5740b24e-d4c5-48a8-aa6d-47ae0acf07fb dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:48,094] [WARNING] [cosmo] [TRACE] 5740b24e-d4c5-48a8-aa6d-47ae0acf07fb no_listeners -> vision_frame_captured
+[2026-06-16 05:19:48,098] [INFO] [cosmo] [TRACE] 5740b24e-d4c5-48a8-aa6d-47ae0acf07fb event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:19:58,885] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:19:58,919] [INFO] [cosmo] Frame capturado: brightness=77.33, contrast=70.51, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=110.36, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:19:58,926] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:19:58,931] [INFO] [cosmo] [TRACE] bd6dde86-5f22-4de9-a870-785bdf554a4a queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:58,964] [INFO] [cosmo] [TRACE] bd6dde86-5f22-4de9-a870-785bdf554a4a queue_wait -> 0.0384s
+[2026-06-16 05:19:58,968] [INFO] [cosmo] [TRACE] bd6dde86-5f22-4de9-a870-785bdf554a4a dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:19:58,973] [WARNING] [cosmo] [TRACE] bd6dde86-5f22-4de9-a870-785bdf554a4a no_listeners -> vision_frame_captured
+[2026-06-16 05:19:58,977] [INFO] [cosmo] [TRACE] bd6dde86-5f22-4de9-a870-785bdf554a4a event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:20:09,620] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:20:09,638] [INFO] [cosmo] Frame capturado: brightness=78.20, contrast=72.15, dark_ratio=0.20, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=130.74, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:20:09,645] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:20:09,651] [INFO] [cosmo] [TRACE] c6ebaddd-1662-474f-8300-b3f92fa48c5f queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:09,655] [INFO] [cosmo] [TRACE] c6ebaddd-1662-474f-8300-b3f92fa48c5f queue_wait -> 0.0109s
+[2026-06-16 05:20:09,662] [INFO] [cosmo] [TRACE] c6ebaddd-1662-474f-8300-b3f92fa48c5f dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:09,666] [WARNING] [cosmo] [TRACE] c6ebaddd-1662-474f-8300-b3f92fa48c5f no_listeners -> vision_frame_captured
+[2026-06-16 05:20:09,670] [INFO] [cosmo] [TRACE] c6ebaddd-1662-474f-8300-b3f92fa48c5f event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:20:20,352] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:20:20,369] [INFO] [cosmo] Frame capturado: brightness=77.05, contrast=70.41, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=117.55, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:20:20,376] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:20:20,380] [INFO] [cosmo] [TRACE] 882426e2-4a62-410a-b4cc-fdec9659af00 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:20,385] [INFO] [cosmo] [TRACE] 882426e2-4a62-410a-b4cc-fdec9659af00 queue_wait -> 0.0096s
+[2026-06-16 05:20:20,389] [INFO] [cosmo] [TRACE] 882426e2-4a62-410a-b4cc-fdec9659af00 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:20,394] [WARNING] [cosmo] [TRACE] 882426e2-4a62-410a-b4cc-fdec9659af00 no_listeners -> vision_frame_captured
+[2026-06-16 05:20:20,397] [INFO] [cosmo] [TRACE] 882426e2-4a62-410a-b4cc-fdec9659af00 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:20:30,960] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:20:30,997] [INFO] [cosmo] Frame capturado: brightness=75.94, contrast=69.74, dark_ratio=0.21, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=91.71, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:20:31,005] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:20:31,011] [INFO] [cosmo] [TRACE] b9137bbb-366a-4836-af20-b69dafb13e55 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:31,031] [INFO] [cosmo] [TRACE] b9137bbb-366a-4836-af20-b69dafb13e55 queue_wait -> 0.0263s
+[2026-06-16 05:20:31,037] [INFO] [cosmo] [TRACE] b9137bbb-366a-4836-af20-b69dafb13e55 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:31,041] [WARNING] [cosmo] [TRACE] b9137bbb-366a-4836-af20-b69dafb13e55 no_listeners -> vision_frame_captured
+[2026-06-16 05:20:31,046] [INFO] [cosmo] [TRACE] b9137bbb-366a-4836-af20-b69dafb13e55 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:20:41,692] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:20:41,709] [INFO] [cosmo] Frame capturado: brightness=89.06, contrast=72.22, dark_ratio=0.10, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=164.47, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:20:41,716] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:20:41,721] [INFO] [cosmo] [TRACE] dab41f68-edbd-4f96-9c22-4a6e2471d781 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:41,725] [INFO] [cosmo] [TRACE] dab41f68-edbd-4f96-9c22-4a6e2471d781 queue_wait -> 0.0094s
+[2026-06-16 05:20:41,730] [INFO] [cosmo] [TRACE] dab41f68-edbd-4f96-9c22-4a6e2471d781 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:41,734] [WARNING] [cosmo] [TRACE] dab41f68-edbd-4f96-9c22-4a6e2471d781 no_listeners -> vision_frame_captured
+[2026-06-16 05:20:41,738] [INFO] [cosmo] [TRACE] dab41f68-edbd-4f96-9c22-4a6e2471d781 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:20:52,300] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:20:52,335] [INFO] [cosmo] Frame capturado: brightness=88.91, contrast=72.14, dark_ratio=0.10, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=164.74, backlit_score=0.08, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:20:52,342] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:20:52,346] [INFO] [cosmo] [TRACE] ee889cc2-37e4-48dd-b4a4-cd3976dd3184 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:52,351] [INFO] [cosmo] [TRACE] ee889cc2-37e4-48dd-b4a4-cd3976dd3184 queue_wait -> 0.0095s
+[2026-06-16 05:20:52,356] [INFO] [cosmo] [TRACE] ee889cc2-37e4-48dd-b4a4-cd3976dd3184 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:20:52,360] [WARNING] [cosmo] [TRACE] ee889cc2-37e4-48dd-b4a4-cd3976dd3184 no_listeners -> vision_frame_captured
+[2026-06-16 05:20:52,365] [INFO] [cosmo] [TRACE] ee889cc2-37e4-48dd-b4a4-cd3976dd3184 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:21:02,908] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:21:02,940] [INFO] [cosmo] Frame capturado: brightness=89.49, contrast=71.57, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=154.33, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:21:02,947] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:21:02,952] [INFO] [cosmo] [TRACE] 675dab7b-4eff-43d3-9567-6cdf8a9de068 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:02,956] [INFO] [cosmo] [TRACE] 675dab7b-4eff-43d3-9567-6cdf8a9de068 queue_wait -> 0.0096s
+[2026-06-16 05:21:02,961] [INFO] [cosmo] [TRACE] 675dab7b-4eff-43d3-9567-6cdf8a9de068 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:02,965] [WARNING] [cosmo] [TRACE] 675dab7b-4eff-43d3-9567-6cdf8a9de068 no_listeners -> vision_frame_captured
+[2026-06-16 05:21:02,970] [INFO] [cosmo] [TRACE] 675dab7b-4eff-43d3-9567-6cdf8a9de068 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:21:13,640] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:21:13,656] [INFO] [cosmo] Frame capturado: brightness=88.14, contrast=70.99, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=136.74, backlit_score=0.20, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:21:13,664] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:21:13,670] [INFO] [cosmo] [TRACE] 92375101-0fd1-4124-b96f-c6840eacee3e queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:13,675] [INFO] [cosmo] [TRACE] 92375101-0fd1-4124-b96f-c6840eacee3e queue_wait -> 0.0106s
+[2026-06-16 05:21:13,680] [INFO] [cosmo] [TRACE] 92375101-0fd1-4124-b96f-c6840eacee3e dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:13,685] [WARNING] [cosmo] [TRACE] 92375101-0fd1-4124-b96f-c6840eacee3e no_listeners -> vision_frame_captured
+[2026-06-16 05:21:13,690] [INFO] [cosmo] [TRACE] 92375101-0fd1-4124-b96f-c6840eacee3e event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:21:24,248] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:21:24,282] [INFO] [cosmo] Frame capturado: brightness=88.76, contrast=71.17, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=160.35, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:21:24,290] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:21:24,295] [INFO] [cosmo] [TRACE] 1fbab0ce-655a-4045-bb65-04d1765a6c69 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:24,323] [INFO] [cosmo] [TRACE] 1fbab0ce-655a-4045-bb65-04d1765a6c69 queue_wait -> 0.0340s
+[2026-06-16 05:21:24,330] [INFO] [cosmo] [TRACE] 1fbab0ce-655a-4045-bb65-04d1765a6c69 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:24,334] [WARNING] [cosmo] [TRACE] 1fbab0ce-655a-4045-bb65-04d1765a6c69 no_listeners -> vision_frame_captured
+[2026-06-16 05:21:24,339] [INFO] [cosmo] [TRACE] 1fbab0ce-655a-4045-bb65-04d1765a6c69 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:21:34,979] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:21:34,995] [INFO] [cosmo] Frame capturado: brightness=88.10, contrast=70.95, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=137.70, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:21:35,005] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:21:35,009] [INFO] [cosmo] [TRACE] 74232aac-7045-47f2-9c2a-29239f8c7cba queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:35,014] [INFO] [cosmo] [TRACE] 74232aac-7045-47f2-9c2a-29239f8c7cba queue_wait -> 0.0098s
+[2026-06-16 05:21:35,019] [INFO] [cosmo] [TRACE] 74232aac-7045-47f2-9c2a-29239f8c7cba dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:35,026] [WARNING] [cosmo] [TRACE] 74232aac-7045-47f2-9c2a-29239f8c7cba no_listeners -> vision_frame_captured
+[2026-06-16 05:21:35,031] [INFO] [cosmo] [TRACE] 74232aac-7045-47f2-9c2a-29239f8c7cba event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:21:45,587] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:21:45,613] [INFO] [cosmo] Frame capturado: brightness=88.83, contrast=71.06, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=137.46, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:21:45,621] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:21:45,627] [INFO] [cosmo] [TRACE] d4995409-518c-42ca-9a63-ac2f33886653 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:45,631] [INFO] [cosmo] [TRACE] d4995409-518c-42ca-9a63-ac2f33886653 queue_wait -> 0.0105s
+[2026-06-16 05:21:45,635] [INFO] [cosmo] [TRACE] d4995409-518c-42ca-9a63-ac2f33886653 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:45,640] [WARNING] [cosmo] [TRACE] d4995409-518c-42ca-9a63-ac2f33886653 no_listeners -> vision_frame_captured
+[2026-06-16 05:21:45,644] [INFO] [cosmo] [TRACE] d4995409-518c-42ca-9a63-ac2f33886653 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:21:56,319] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:21:56,335] [INFO] [cosmo] Frame capturado: brightness=87.17, contrast=69.88, dark_ratio=0.10, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=132.56, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:21:56,342] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:21:56,347] [INFO] [cosmo] [TRACE] 7d403371-a71c-48ef-b04f-533963820c15 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:56,352] [INFO] [cosmo] [TRACE] 7d403371-a71c-48ef-b04f-533963820c15 queue_wait -> 0.0105s
+[2026-06-16 05:21:56,357] [INFO] [cosmo] [TRACE] 7d403371-a71c-48ef-b04f-533963820c15 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:21:56,363] [WARNING] [cosmo] [TRACE] 7d403371-a71c-48ef-b04f-533963820c15 no_listeners -> vision_frame_captured
+[2026-06-16 05:21:56,368] [INFO] [cosmo] [TRACE] 7d403371-a71c-48ef-b04f-533963820c15 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:22:06,927] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:22:06,945] [INFO] [cosmo] Frame capturado: brightness=88.66, contrast=70.99, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=142.63, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:22:06,952] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:22:06,957] [INFO] [cosmo] [TRACE] c000fa29-b648-4c92-a0e7-74bdc24bad5d queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:06,962] [INFO] [cosmo] [TRACE] c000fa29-b648-4c92-a0e7-74bdc24bad5d queue_wait -> 0.0097s
+[2026-06-16 05:22:06,967] [INFO] [cosmo] [TRACE] c000fa29-b648-4c92-a0e7-74bdc24bad5d dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:06,972] [WARNING] [cosmo] [TRACE] c000fa29-b648-4c92-a0e7-74bdc24bad5d no_listeners -> vision_frame_captured
+[2026-06-16 05:22:06,976] [INFO] [cosmo] [TRACE] c000fa29-b648-4c92-a0e7-74bdc24bad5d event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:22:17,535] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:22:17,549] [INFO] [cosmo] Frame capturado: brightness=88.84, contrast=70.90, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=144.29, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:22:17,555] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:22:17,561] [INFO] [cosmo] [TRACE] d2ed8e0f-adde-411c-a639-41bb8f1b8e90 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:17,566] [INFO] [cosmo] [TRACE] d2ed8e0f-adde-411c-a639-41bb8f1b8e90 queue_wait -> 0.0114s
+[2026-06-16 05:22:17,571] [INFO] [cosmo] [TRACE] d2ed8e0f-adde-411c-a639-41bb8f1b8e90 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:17,575] [WARNING] [cosmo] [TRACE] d2ed8e0f-adde-411c-a639-41bb8f1b8e90 no_listeners -> vision_frame_captured
+[2026-06-16 05:22:17,579] [INFO] [cosmo] [TRACE] d2ed8e0f-adde-411c-a639-41bb8f1b8e90 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:22:28,143] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:22:28,159] [INFO] [cosmo] Frame capturado: brightness=89.03, contrast=70.91, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=136.17, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:22:28,167] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:22:28,172] [INFO] [cosmo] [TRACE] 0dd23488-1b76-4d2b-a8c4-de4ae4bdf296 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:28,177] [INFO] [cosmo] [TRACE] 0dd23488-1b76-4d2b-a8c4-de4ae4bdf296 queue_wait -> 0.0102s
+[2026-06-16 05:22:28,447] [INFO] [cosmo] [TRACE] 0dd23488-1b76-4d2b-a8c4-de4ae4bdf296 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:28,472] [WARNING] [cosmo] [TRACE] 0dd23488-1b76-4d2b-a8c4-de4ae4bdf296 no_listeners -> vision_frame_captured
+[2026-06-16 05:22:28,477] [INFO] [cosmo] [TRACE] 0dd23488-1b76-4d2b-a8c4-de4ae4bdf296 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:22:38,751] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:22:38,767] [INFO] [cosmo] Frame capturado: brightness=89.88, contrast=70.53, dark_ratio=0.08, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=129.65, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:22:38,775] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:22:38,781] [INFO] [cosmo] [TRACE] 9200e26e-e12c-4242-97e7-af0cb0cb7b3f queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:38,809] [INFO] [cosmo] [TRACE] 9200e26e-e12c-4242-97e7-af0cb0cb7b3f queue_wait -> 0.0342s
+[2026-06-16 05:22:38,814] [INFO] [cosmo] [TRACE] 9200e26e-e12c-4242-97e7-af0cb0cb7b3f dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:38,818] [WARNING] [cosmo] [TRACE] 9200e26e-e12c-4242-97e7-af0cb0cb7b3f no_listeners -> vision_frame_captured
+[2026-06-16 05:22:38,822] [INFO] [cosmo] [TRACE] 9200e26e-e12c-4242-97e7-af0cb0cb7b3f event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:22:49,482] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:22:49,519] [INFO] [cosmo] Frame capturado: brightness=88.10, contrast=70.57, dark_ratio=0.10, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=137.93, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:22:49,526] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:22:49,530] [INFO] [cosmo] [TRACE] 508b973f-07d5-4f6a-8d25-9f2aeab8d06a queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:49,549] [INFO] [cosmo] [TRACE] 508b973f-07d5-4f6a-8d25-9f2aeab8d06a queue_wait -> 0.0240s
+[2026-06-16 05:22:50,008] [INFO] [cosmo] [TRACE] 508b973f-07d5-4f6a-8d25-9f2aeab8d06a dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:22:50,012] [WARNING] [cosmo] [TRACE] 508b973f-07d5-4f6a-8d25-9f2aeab8d06a no_listeners -> vision_frame_captured
+[2026-06-16 05:22:50,017] [INFO] [cosmo] [TRACE] 508b973f-07d5-4f6a-8d25-9f2aeab8d06a event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:23:00,214] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:23:00,230] [INFO] [cosmo] Frame capturado: brightness=88.72, contrast=70.36, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=138.42, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:23:00,238] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:23:00,246] [INFO] [cosmo] [TRACE] 30c3011b-5d70-45f6-a12a-b3c16769b140 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:00,269] [INFO] [cosmo] [TRACE] 30c3011b-5d70-45f6-a12a-b3c16769b140 queue_wait -> 0.0315s
+[2026-06-16 05:23:00,273] [INFO] [cosmo] [TRACE] 30c3011b-5d70-45f6-a12a-b3c16769b140 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:00,278] [WARNING] [cosmo] [TRACE] 30c3011b-5d70-45f6-a12a-b3c16769b140 no_listeners -> vision_frame_captured
+[2026-06-16 05:23:00,282] [INFO] [cosmo] [TRACE] 30c3011b-5d70-45f6-a12a-b3c16769b140 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:23:10,822] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:23:10,840] [INFO] [cosmo] Frame capturado: brightness=88.67, contrast=70.44, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=143.42, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:23:10,846] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:23:10,851] [INFO] [cosmo] [TRACE] f76c9fae-0538-4067-8851-01a22560a702 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:10,856] [INFO] [cosmo] [TRACE] f76c9fae-0538-4067-8851-01a22560a702 queue_wait -> 0.0107s
+[2026-06-16 05:23:10,862] [INFO] [cosmo] [TRACE] f76c9fae-0538-4067-8851-01a22560a702 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:10,867] [WARNING] [cosmo] [TRACE] f76c9fae-0538-4067-8851-01a22560a702 no_listeners -> vision_frame_captured
+[2026-06-16 05:23:10,871] [INFO] [cosmo] [TRACE] f76c9fae-0538-4067-8851-01a22560a702 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:23:21,559] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:23:21,598] [INFO] [cosmo] Frame capturado: brightness=88.91, contrast=71.26, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=147.41, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:23:21,610] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:23:21,615] [INFO] [cosmo] [TRACE] 7a8536af-9e03-48bc-badf-478428db4461 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:21,620] [INFO] [cosmo] [TRACE] 7a8536af-9e03-48bc-badf-478428db4461 queue_wait -> 0.0115s
+[2026-06-16 05:23:21,630] [INFO] [cosmo] [TRACE] 7a8536af-9e03-48bc-badf-478428db4461 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:21,635] [WARNING] [cosmo] [TRACE] 7a8536af-9e03-48bc-badf-478428db4461 no_listeners -> vision_frame_captured
+[2026-06-16 05:23:21,642] [INFO] [cosmo] [TRACE] 7a8536af-9e03-48bc-badf-478428db4461 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:23:32,290] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:23:32,329] [INFO] [cosmo] Frame capturado: brightness=89.32, contrast=71.44, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=150.33, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:23:32,340] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:23:32,346] [INFO] [cosmo] [TRACE] 552467e8-84a8-4b0c-8ed7-798fb31f4a71 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:32,407] [INFO] [cosmo] [TRACE] 552467e8-84a8-4b0c-8ed7-798fb31f4a71 queue_wait -> 0.0683s
+[2026-06-16 05:23:32,435] [INFO] [cosmo] [TRACE] 552467e8-84a8-4b0c-8ed7-798fb31f4a71 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:32,440] [WARNING] [cosmo] [TRACE] 552467e8-84a8-4b0c-8ed7-798fb31f4a71 no_listeners -> vision_frame_captured
+[2026-06-16 05:23:32,444] [INFO] [cosmo] [TRACE] 552467e8-84a8-4b0c-8ed7-798fb31f4a71 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:23:43,022] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:23:43,037] [INFO] [cosmo] Frame capturado: brightness=88.16, contrast=70.94, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=147.06, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:23:43,045] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:23:43,049] [INFO] [cosmo] [TRACE] 9e20e996-cbd7-4292-8b0c-5354784c50d7 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:43,054] [INFO] [cosmo] [TRACE] 9e20e996-cbd7-4292-8b0c-5354784c50d7 queue_wait -> 0.0095s
+[2026-06-16 05:23:43,073] [INFO] [cosmo] [TRACE] 9e20e996-cbd7-4292-8b0c-5354784c50d7 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:43,077] [WARNING] [cosmo] [TRACE] 9e20e996-cbd7-4292-8b0c-5354784c50d7 no_listeners -> vision_frame_captured
+[2026-06-16 05:23:43,081] [INFO] [cosmo] [TRACE] 9e20e996-cbd7-4292-8b0c-5354784c50d7 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:23:53,629] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:23:53,656] [INFO] [cosmo] Frame capturado: brightness=88.74, contrast=71.34, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=156.59, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:23:53,662] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:23:53,668] [INFO] [cosmo] [TRACE] 245e5a95-bb8b-4ee6-ae12-e3a8198b28c6 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:53,672] [INFO] [cosmo] [TRACE] 245e5a95-bb8b-4ee6-ae12-e3a8198b28c6 queue_wait -> 0.0104s
+[2026-06-16 05:23:53,677] [INFO] [cosmo] [TRACE] 245e5a95-bb8b-4ee6-ae12-e3a8198b28c6 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:23:53,682] [WARNING] [cosmo] [TRACE] 245e5a95-bb8b-4ee6-ae12-e3a8198b28c6 no_listeners -> vision_frame_captured
+[2026-06-16 05:23:53,688] [INFO] [cosmo] [TRACE] 245e5a95-bb8b-4ee6-ae12-e3a8198b28c6 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:24:04,237] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:24:04,253] [INFO] [cosmo] Frame capturado: brightness=89.37, contrast=71.73, dark_ratio=0.09, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=158.80, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:24:04,260] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:24:04,264] [INFO] [cosmo] [TRACE] 65e16e4b-2264-4918-a06d-798b3ecfb4ef queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:04,269] [INFO] [cosmo] [TRACE] 65e16e4b-2264-4918-a06d-798b3ecfb4ef queue_wait -> 0.0094s
+[2026-06-16 05:24:04,274] [INFO] [cosmo] [TRACE] 65e16e4b-2264-4918-a06d-798b3ecfb4ef dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:04,278] [WARNING] [cosmo] [TRACE] 65e16e4b-2264-4918-a06d-798b3ecfb4ef no_listeners -> vision_frame_captured
+[2026-06-16 05:24:04,282] [INFO] [cosmo] [TRACE] 65e16e4b-2264-4918-a06d-798b3ecfb4ef event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:24:14,845] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:24:14,861] [INFO] [cosmo] Frame capturado: brightness=85.04, contrast=70.60, dark_ratio=0.11, bright_ratio=0.09, overexposed_ratio=0.06, blur_score=134.94, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:24:14,868] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:24:14,874] [INFO] [cosmo] [TRACE] 02a13150-79cc-453e-a890-e7203e5e43d0 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:14,880] [INFO] [cosmo] [TRACE] 02a13150-79cc-453e-a890-e7203e5e43d0 queue_wait -> 0.0126s
+[2026-06-16 05:24:14,886] [INFO] [cosmo] [TRACE] 02a13150-79cc-453e-a890-e7203e5e43d0 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:14,890] [WARNING] [cosmo] [TRACE] 02a13150-79cc-453e-a890-e7203e5e43d0 no_listeners -> vision_frame_captured
+[2026-06-16 05:24:14,895] [INFO] [cosmo] [TRACE] 02a13150-79cc-453e-a890-e7203e5e43d0 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:24:25,453] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:24:25,469] [INFO] [cosmo] Frame capturado: brightness=77.04, contrast=70.97, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=106.56, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:24:25,477] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:24:25,483] [INFO] [cosmo] [TRACE] a6af2409-1de5-4438-a07a-63e778af26bb queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:25,490] [INFO] [cosmo] [TRACE] a6af2409-1de5-4438-a07a-63e778af26bb queue_wait -> 0.0133s
+[2026-06-16 05:24:25,495] [INFO] [cosmo] [TRACE] a6af2409-1de5-4438-a07a-63e778af26bb dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:25,500] [WARNING] [cosmo] [TRACE] a6af2409-1de5-4438-a07a-63e778af26bb no_listeners -> vision_frame_captured
+[2026-06-16 05:24:25,504] [INFO] [cosmo] [TRACE] a6af2409-1de5-4438-a07a-63e778af26bb event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:24:36,061] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:24:36,088] [INFO] [cosmo] Frame capturado: brightness=76.49, contrast=71.46, dark_ratio=0.22, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=106.77, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:24:36,094] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:24:36,100] [INFO] [cosmo] [TRACE] d3bc35cf-e089-4bc9-ba80-f5ddba9396bc queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:36,105] [INFO] [cosmo] [TRACE] d3bc35cf-e089-4bc9-ba80-f5ddba9396bc queue_wait -> 0.0110s
+[2026-06-16 05:24:36,110] [INFO] [cosmo] [TRACE] d3bc35cf-e089-4bc9-ba80-f5ddba9396bc dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:36,115] [WARNING] [cosmo] [TRACE] d3bc35cf-e089-4bc9-ba80-f5ddba9396bc no_listeners -> vision_frame_captured
+[2026-06-16 05:24:36,120] [INFO] [cosmo] [TRACE] d3bc35cf-e089-4bc9-ba80-f5ddba9396bc event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:24:46,669] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:24:46,684] [INFO] [cosmo] Frame capturado: brightness=78.76, contrast=70.76, dark_ratio=0.17, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=120.41, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:24:46,691] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:24:46,696] [INFO] [cosmo] [TRACE] fac8a5d1-51f7-468b-9779-7d0e9053c0c7 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:46,701] [INFO] [cosmo] [TRACE] fac8a5d1-51f7-468b-9779-7d0e9053c0c7 queue_wait -> 0.0105s
+[2026-06-16 05:24:46,706] [INFO] [cosmo] [TRACE] fac8a5d1-51f7-468b-9779-7d0e9053c0c7 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:46,710] [WARNING] [cosmo] [TRACE] fac8a5d1-51f7-468b-9779-7d0e9053c0c7 no_listeners -> vision_frame_captured
+[2026-06-16 05:24:46,715] [INFO] [cosmo] [TRACE] fac8a5d1-51f7-468b-9779-7d0e9053c0c7 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:24:57,524] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:24:57,542] [INFO] [cosmo] Frame capturado: brightness=76.62, contrast=71.22, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=123.97, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:24:57,550] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:24:57,554] [INFO] [cosmo] [TRACE] 701b463b-ae58-418c-ae49-893717506fec queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:57,669] [INFO] [cosmo] [TRACE] 701b463b-ae58-418c-ae49-893717506fec queue_wait -> 0.1199s
+[2026-06-16 05:24:57,689] [INFO] [cosmo] [TRACE] 701b463b-ae58-418c-ae49-893717506fec dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:24:57,694] [WARNING] [cosmo] [TRACE] 701b463b-ae58-418c-ae49-893717506fec no_listeners -> vision_frame_captured
+[2026-06-16 05:24:57,699] [INFO] [cosmo] [TRACE] 701b463b-ae58-418c-ae49-893717506fec event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:25:08,508] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:25:08,525] [INFO] [cosmo] Frame capturado: brightness=78.19, contrast=70.23, dark_ratio=0.16, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=124.80, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:25:08,534] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:25:08,539] [INFO] [cosmo] [TRACE] 5603579c-be03-4997-bcae-434092d874e9 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:08,608] [INFO] [cosmo] [TRACE] 5603579c-be03-4997-bcae-434092d874e9 queue_wait -> 0.0744s
+[2026-06-16 05:25:08,630] [INFO] [cosmo] [TRACE] 5603579c-be03-4997-bcae-434092d874e9 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:08,634] [WARNING] [cosmo] [TRACE] 5603579c-be03-4997-bcae-434092d874e9 no_listeners -> vision_frame_captured
+[2026-06-16 05:25:08,639] [INFO] [cosmo] [TRACE] 5603579c-be03-4997-bcae-434092d874e9 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:25:19,116] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:25:19,134] [INFO] [cosmo] Frame capturado: brightness=78.03, contrast=70.30, dark_ratio=0.17, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=126.87, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:25:19,141] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:25:19,147] [INFO] [cosmo] [TRACE] 8bc1b7db-7d9a-46c9-aac3-a48b0769d192 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:19,152] [INFO] [cosmo] [TRACE] 8bc1b7db-7d9a-46c9-aac3-a48b0769d192 queue_wait -> 0.0112s
+[2026-06-16 05:25:19,157] [INFO] [cosmo] [TRACE] 8bc1b7db-7d9a-46c9-aac3-a48b0769d192 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:19,162] [WARNING] [cosmo] [TRACE] 8bc1b7db-7d9a-46c9-aac3-a48b0769d192 no_listeners -> vision_frame_captured
+[2026-06-16 05:25:19,166] [INFO] [cosmo] [TRACE] 8bc1b7db-7d9a-46c9-aac3-a48b0769d192 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:25:29,848] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:25:29,877] [INFO] [cosmo] Frame capturado: brightness=78.23, contrast=70.31, dark_ratio=0.17, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=123.40, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:25:29,884] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:25:29,889] [INFO] [cosmo] [TRACE] c60f29fb-16ca-4a56-94af-058a30e1d548 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:29,977] [INFO] [cosmo] [TRACE] c60f29fb-16ca-4a56-94af-058a30e1d548 queue_wait -> 0.0936s
+[2026-06-16 05:25:30,000] [INFO] [cosmo] [TRACE] c60f29fb-16ca-4a56-94af-058a30e1d548 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:30,004] [WARNING] [cosmo] [TRACE] c60f29fb-16ca-4a56-94af-058a30e1d548 no_listeners -> vision_frame_captured
+[2026-06-16 05:25:30,008] [INFO] [cosmo] [TRACE] c60f29fb-16ca-4a56-94af-058a30e1d548 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:25:40,956] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:25:40,988] [INFO] [cosmo] Frame capturado: brightness=78.34, contrast=70.39, dark_ratio=0.17, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=126.98, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:25:40,996] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:25:41,002] [INFO] [cosmo] [TRACE] b93f0434-8e59-4709-94d9-f6db1deaaa12 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:41,309] [INFO] [cosmo] [TRACE] b93f0434-8e59-4709-94d9-f6db1deaaa12 queue_wait -> 0.3135s
+[2026-06-16 05:25:41,333] [INFO] [cosmo] [TRACE] b93f0434-8e59-4709-94d9-f6db1deaaa12 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:41,337] [WARNING] [cosmo] [TRACE] b93f0434-8e59-4709-94d9-f6db1deaaa12 no_listeners -> vision_frame_captured
+[2026-06-16 05:25:41,341] [INFO] [cosmo] [TRACE] b93f0434-8e59-4709-94d9-f6db1deaaa12 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:25:51,812] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:25:51,827] [INFO] [cosmo] Frame capturado: brightness=78.22, contrast=70.28, dark_ratio=0.17, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=121.90, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:25:51,834] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:25:51,840] [INFO] [cosmo] [TRACE] 32eae113-4187-4ec0-a811-472f0037970f queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:51,847] [INFO] [cosmo] [TRACE] 32eae113-4187-4ec0-a811-472f0037970f queue_wait -> 0.0129s
+[2026-06-16 05:25:51,851] [INFO] [cosmo] [TRACE] 32eae113-4187-4ec0-a811-472f0037970f dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:25:51,856] [WARNING] [cosmo] [TRACE] 32eae113-4187-4ec0-a811-472f0037970f no_listeners -> vision_frame_captured
+[2026-06-16 05:25:51,861] [INFO] [cosmo] [TRACE] 32eae113-4187-4ec0-a811-472f0037970f event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:26:02,420] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:26:02,435] [INFO] [cosmo] Frame capturado: brightness=81.44, contrast=74.59, dark_ratio=0.17, bright_ratio=0.10, overexposed_ratio=0.08, blur_score=119.61, backlit_score=3.59, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:26:02,442] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:26:02,447] [INFO] [cosmo] [TRACE] 1c3e0ac4-c82d-490c-bd6e-00b2b9fa1739 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:02,452] [INFO] [cosmo] [TRACE] 1c3e0ac4-c82d-490c-bd6e-00b2b9fa1739 queue_wait -> 0.0108s
+[2026-06-16 05:26:02,458] [INFO] [cosmo] [TRACE] 1c3e0ac4-c82d-490c-bd6e-00b2b9fa1739 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:02,463] [WARNING] [cosmo] [TRACE] 1c3e0ac4-c82d-490c-bd6e-00b2b9fa1739 no_listeners -> vision_frame_captured
+[2026-06-16 05:26:02,467] [INFO] [cosmo] [TRACE] 1c3e0ac4-c82d-490c-bd6e-00b2b9fa1739 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:26:13,528] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:26:13,546] [INFO] [cosmo] Frame capturado: brightness=76.65, contrast=71.03, dark_ratio=0.21, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=105.60, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:26:13,553] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:26:13,557] [INFO] [cosmo] [TRACE] 79c2555f-d4d0-4fe5-b873-76ac80bf0453 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:13,768] [INFO] [cosmo] [TRACE] 79c2555f-d4d0-4fe5-b873-76ac80bf0453 queue_wait -> 0.2156s
+[2026-06-16 05:26:13,773] [INFO] [cosmo] [TRACE] 79c2555f-d4d0-4fe5-b873-76ac80bf0453 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:13,778] [WARNING] [cosmo] [TRACE] 79c2555f-d4d0-4fe5-b873-76ac80bf0453 no_listeners -> vision_frame_captured
+[2026-06-16 05:26:13,783] [INFO] [cosmo] [TRACE] 79c2555f-d4d0-4fe5-b873-76ac80bf0453 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:26:24,259] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:26:24,404] [INFO] [cosmo] Frame capturado: brightness=76.85, contrast=70.97, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=105.03, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:26:24,411] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:26:24,415] [INFO] [cosmo] [TRACE] 87672f91-d979-4580-86bd-b0bc32eeaa1f queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:24,420] [INFO] [cosmo] [TRACE] 87672f91-d979-4580-86bd-b0bc32eeaa1f queue_wait -> 0.0100s
+[2026-06-16 05:26:24,425] [INFO] [cosmo] [TRACE] 87672f91-d979-4580-86bd-b0bc32eeaa1f dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:24,428] [WARNING] [cosmo] [TRACE] 87672f91-d979-4580-86bd-b0bc32eeaa1f no_listeners -> vision_frame_captured
+[2026-06-16 05:26:24,432] [INFO] [cosmo] [TRACE] 87672f91-d979-4580-86bd-b0bc32eeaa1f event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:26:34,991] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:26:35,007] [INFO] [cosmo] Frame capturado: brightness=76.77, contrast=71.09, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=106.59, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:26:35,014] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:26:35,020] [INFO] [cosmo] [TRACE] 00fc842a-c8af-40c9-b025-edfdc3a42348 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:35,027] [INFO] [cosmo] [TRACE] 00fc842a-c8af-40c9-b025-edfdc3a42348 queue_wait -> 0.0130s
+[2026-06-16 05:26:35,031] [INFO] [cosmo] [TRACE] 00fc842a-c8af-40c9-b025-edfdc3a42348 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:35,036] [WARNING] [cosmo] [TRACE] 00fc842a-c8af-40c9-b025-edfdc3a42348 no_listeners -> vision_frame_captured
+[2026-06-16 05:26:35,040] [INFO] [cosmo] [TRACE] 00fc842a-c8af-40c9-b025-edfdc3a42348 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:26:45,599] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:26:45,615] [INFO] [cosmo] Frame capturado: brightness=76.83, contrast=71.17, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=111.70, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:26:45,622] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:26:45,628] [INFO] [cosmo] [TRACE] c10dee0d-63f0-4bcd-b253-2eaa604230f7 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:45,632] [INFO] [cosmo] [TRACE] c10dee0d-63f0-4bcd-b253-2eaa604230f7 queue_wait -> 0.0109s
+[2026-06-16 05:26:45,638] [INFO] [cosmo] [TRACE] c10dee0d-63f0-4bcd-b253-2eaa604230f7 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:45,642] [WARNING] [cosmo] [TRACE] c10dee0d-63f0-4bcd-b253-2eaa604230f7 no_listeners -> vision_frame_captured
+[2026-06-16 05:26:45,647] [INFO] [cosmo] [TRACE] c10dee0d-63f0-4bcd-b253-2eaa604230f7 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:26:56,207] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:26:56,249] [INFO] [cosmo] Frame capturado: brightness=76.75, contrast=71.02, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=109.05, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:26:56,256] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:26:56,262] [INFO] [cosmo] [TRACE] 695f366e-ab04-4ada-8c64-d7f668862cdd queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:56,268] [INFO] [cosmo] [TRACE] 695f366e-ab04-4ada-8c64-d7f668862cdd queue_wait -> 0.0130s
+[2026-06-16 05:26:56,273] [INFO] [cosmo] [TRACE] 695f366e-ab04-4ada-8c64-d7f668862cdd dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:26:56,277] [WARNING] [cosmo] [TRACE] 695f366e-ab04-4ada-8c64-d7f668862cdd no_listeners -> vision_frame_captured
+[2026-06-16 05:26:56,282] [INFO] [cosmo] [TRACE] 695f366e-ab04-4ada-8c64-d7f668862cdd event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:27:06,939] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:27:06,983] [INFO] [cosmo] Frame capturado: brightness=76.89, contrast=71.24, dark_ratio=0.21, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=110.50, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:27:06,992] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:27:06,997] [INFO] [cosmo] [TRACE] 61abe532-c319-4ff1-a169-cbf7bed77893 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:07,002] [INFO] [cosmo] [TRACE] 61abe532-c319-4ff1-a169-cbf7bed77893 queue_wait -> 0.0100s
+[2026-06-16 05:27:07,007] [INFO] [cosmo] [TRACE] 61abe532-c319-4ff1-a169-cbf7bed77893 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:07,011] [WARNING] [cosmo] [TRACE] 61abe532-c319-4ff1-a169-cbf7bed77893 no_listeners -> vision_frame_captured
+[2026-06-16 05:27:07,015] [INFO] [cosmo] [TRACE] 61abe532-c319-4ff1-a169-cbf7bed77893 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:27:17,675] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:27:17,690] [INFO] [cosmo] Frame capturado: brightness=76.36, contrast=71.19, dark_ratio=0.21, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=108.67, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:27:17,698] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:27:17,703] [INFO] [cosmo] [TRACE] 58179933-f3cf-4d4b-be46-ae42dab874ca queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:17,708] [INFO] [cosmo] [TRACE] 58179933-f3cf-4d4b-be46-ae42dab874ca queue_wait -> 0.0110s
+[2026-06-16 05:27:17,714] [INFO] [cosmo] [TRACE] 58179933-f3cf-4d4b-be46-ae42dab874ca dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:17,718] [WARNING] [cosmo] [TRACE] 58179933-f3cf-4d4b-be46-ae42dab874ca no_listeners -> vision_frame_captured
+[2026-06-16 05:27:17,723] [INFO] [cosmo] [TRACE] 58179933-f3cf-4d4b-be46-ae42dab874ca event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:27:28,278] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:27:28,294] [INFO] [cosmo] Frame capturado: brightness=76.92, contrast=71.37, dark_ratio=0.21, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=110.21, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:27:28,302] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:27:28,307] [INFO] [cosmo] [TRACE] f41f164d-7a92-4bae-bcf3-30e743c383ec queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:28,311] [INFO] [cosmo] [TRACE] f41f164d-7a92-4bae-bcf3-30e743c383ec queue_wait -> 0.0095s
+[2026-06-16 05:27:28,316] [INFO] [cosmo] [TRACE] f41f164d-7a92-4bae-bcf3-30e743c383ec dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:28,320] [WARNING] [cosmo] [TRACE] f41f164d-7a92-4bae-bcf3-30e743c383ec no_listeners -> vision_frame_captured
+[2026-06-16 05:27:28,325] [INFO] [cosmo] [TRACE] f41f164d-7a92-4bae-bcf3-30e743c383ec event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:27:38,886] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:27:38,929] [INFO] [cosmo] Frame capturado: brightness=77.01, contrast=71.32, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=111.54, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:27:38,938] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:27:38,942] [INFO] [cosmo] [TRACE] 0cf93c15-3cd3-4a20-922d-e784d5f20ba9 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:38,946] [INFO] [cosmo] [TRACE] 0cf93c15-3cd3-4a20-922d-e784d5f20ba9 queue_wait -> 0.0088s
+[2026-06-16 05:27:38,954] [INFO] [cosmo] [TRACE] 0cf93c15-3cd3-4a20-922d-e784d5f20ba9 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:38,961] [WARNING] [cosmo] [TRACE] 0cf93c15-3cd3-4a20-922d-e784d5f20ba9 no_listeners -> vision_frame_captured
+[2026-06-16 05:27:38,965] [INFO] [cosmo] [TRACE] 0cf93c15-3cd3-4a20-922d-e784d5f20ba9 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:27:49,622] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:27:49,650] [INFO] [cosmo] Frame capturado: brightness=77.14, contrast=71.33, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=109.53, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:27:49,656] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:27:49,663] [INFO] [cosmo] [TRACE] 6bf606b3-d518-4eb5-840f-739b9d2ccabb queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:49,669] [INFO] [cosmo] [TRACE] 6bf606b3-d518-4eb5-840f-739b9d2ccabb queue_wait -> 0.0137s
+[2026-06-16 05:27:49,676] [INFO] [cosmo] [TRACE] 6bf606b3-d518-4eb5-840f-739b9d2ccabb dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:27:49,680] [WARNING] [cosmo] [TRACE] 6bf606b3-d518-4eb5-840f-739b9d2ccabb no_listeners -> vision_frame_captured
+[2026-06-16 05:27:49,684] [INFO] [cosmo] [TRACE] 6bf606b3-d518-4eb5-840f-739b9d2ccabb event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:28:00,230] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:28:00,256] [INFO] [cosmo] Frame capturado: brightness=77.10, contrast=71.40, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=110.05, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:28:00,262] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:28:00,269] [INFO] [cosmo] [TRACE] b6700213-78e3-4059-bb90-a6b83708d5d3 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:00,274] [INFO] [cosmo] [TRACE] b6700213-78e3-4059-bb90-a6b83708d5d3 queue_wait -> 0.0122s
+[2026-06-16 05:28:00,279] [INFO] [cosmo] [TRACE] b6700213-78e3-4059-bb90-a6b83708d5d3 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:00,283] [WARNING] [cosmo] [TRACE] b6700213-78e3-4059-bb90-a6b83708d5d3 no_listeners -> vision_frame_captured
+[2026-06-16 05:28:00,287] [INFO] [cosmo] [TRACE] b6700213-78e3-4059-bb90-a6b83708d5d3 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:28:10,838] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:28:10,853] [INFO] [cosmo] Frame capturado: brightness=76.54, contrast=70.95, dark_ratio=0.21, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=103.62, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:28:10,859] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:28:10,865] [INFO] [cosmo] [TRACE] e7c32262-327a-48cb-b528-bc956946faf8 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:10,869] [INFO] [cosmo] [TRACE] e7c32262-327a-48cb-b528-bc956946faf8 queue_wait -> 0.0102s
+[2026-06-16 05:28:10,874] [INFO] [cosmo] [TRACE] e7c32262-327a-48cb-b528-bc956946faf8 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:10,878] [WARNING] [cosmo] [TRACE] e7c32262-327a-48cb-b528-bc956946faf8 no_listeners -> vision_frame_captured
+[2026-06-16 05:28:10,882] [INFO] [cosmo] [TRACE] e7c32262-327a-48cb-b528-bc956946faf8 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:28:21,694] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:28:21,720] [INFO] [cosmo] Frame capturado: brightness=78.27, contrast=70.89, dark_ratio=0.18, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=124.39, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:28:21,727] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:28:21,732] [INFO] [cosmo] [TRACE] d2449dac-cc0d-4c04-a06d-e9788b1984e8 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:21,737] [INFO] [cosmo] [TRACE] d2449dac-cc0d-4c04-a06d-e9788b1984e8 queue_wait -> 0.0107s
+[2026-06-16 05:28:21,744] [INFO] [cosmo] [TRACE] d2449dac-cc0d-4c04-a06d-e9788b1984e8 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:21,748] [WARNING] [cosmo] [TRACE] d2449dac-cc0d-4c04-a06d-e9788b1984e8 no_listeners -> vision_frame_captured
+[2026-06-16 05:28:21,753] [INFO] [cosmo] [TRACE] d2449dac-cc0d-4c04-a06d-e9788b1984e8 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:28:32,302] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:28:32,330] [INFO] [cosmo] Frame capturado: brightness=76.92, contrast=70.66, dark_ratio=0.18, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=122.24, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:28:32,336] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:28:32,341] [INFO] [cosmo] [TRACE] 8380eaf7-1a6b-4325-a752-38f50a06c9dc queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:32,345] [INFO] [cosmo] [TRACE] 8380eaf7-1a6b-4325-a752-38f50a06c9dc queue_wait -> 0.0091s
+[2026-06-16 05:28:32,350] [INFO] [cosmo] [TRACE] 8380eaf7-1a6b-4325-a752-38f50a06c9dc dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:32,354] [WARNING] [cosmo] [TRACE] 8380eaf7-1a6b-4325-a752-38f50a06c9dc no_listeners -> vision_frame_captured
+[2026-06-16 05:28:32,358] [INFO] [cosmo] [TRACE] 8380eaf7-1a6b-4325-a752-38f50a06c9dc event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:28:42,909] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:28:42,936] [INFO] [cosmo] Frame capturado: brightness=77.02, contrast=70.64, dark_ratio=0.18, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=124.09, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:28:42,944] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:28:42,949] [INFO] [cosmo] [TRACE] d9b25356-8e78-4b35-a47b-f76b2e5a879c queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:42,953] [INFO] [cosmo] [TRACE] d9b25356-8e78-4b35-a47b-f76b2e5a879c queue_wait -> 0.0100s
+[2026-06-16 05:28:42,958] [INFO] [cosmo] [TRACE] d9b25356-8e78-4b35-a47b-f76b2e5a879c dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:42,962] [WARNING] [cosmo] [TRACE] d9b25356-8e78-4b35-a47b-f76b2e5a879c no_listeners -> vision_frame_captured
+[2026-06-16 05:28:42,966] [INFO] [cosmo] [TRACE] d9b25356-8e78-4b35-a47b-f76b2e5a879c event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:28:53,765] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:28:53,794] [INFO] [cosmo] Frame capturado: brightness=78.19, contrast=71.10, dark_ratio=0.18, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=122.57, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:28:53,801] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:28:53,807] [INFO] [cosmo] [TRACE] 0bb6d67c-6b5f-4920-b17a-24d356776c68 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:53,812] [INFO] [cosmo] [TRACE] 0bb6d67c-6b5f-4920-b17a-24d356776c68 queue_wait -> 0.0110s
+[2026-06-16 05:28:53,816] [INFO] [cosmo] [TRACE] 0bb6d67c-6b5f-4920-b17a-24d356776c68 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:28:53,821] [WARNING] [cosmo] [TRACE] 0bb6d67c-6b5f-4920-b17a-24d356776c68 no_listeners -> vision_frame_captured
+[2026-06-16 05:28:53,825] [INFO] [cosmo] [TRACE] 0bb6d67c-6b5f-4920-b17a-24d356776c68 event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:29:04,373] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:29:04,403] [INFO] [cosmo] Frame capturado: brightness=75.42, contrast=71.08, dark_ratio=0.23, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=101.98, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:29:04,409] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:29:04,414] [INFO] [cosmo] [TRACE] 95fe5632-d8b3-4862-ab28-7c0de4fc79ee queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:29:04,419] [INFO] [cosmo] [TRACE] 95fe5632-d8b3-4862-ab28-7c0de4fc79ee queue_wait -> 0.0098s
+[2026-06-16 05:29:04,424] [INFO] [cosmo] [TRACE] 95fe5632-d8b3-4862-ab28-7c0de4fc79ee dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:29:04,428] [WARNING] [cosmo] [TRACE] 95fe5632-d8b3-4862-ab28-7c0de4fc79ee no_listeners -> vision_frame_captured
+[2026-06-16 05:29:04,432] [INFO] [cosmo] [TRACE] 95fe5632-d8b3-4862-ab28-7c0de4fc79ee event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:29:15,105] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:29:15,121] [INFO] [cosmo] Frame capturado: brightness=75.39, contrast=70.74, dark_ratio=0.22, bright_ratio=0.08, overexposed_ratio=0.05, blur_score=100.76, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:29:15,128] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:29:15,132] [INFO] [cosmo] [TRACE] 4b217231-971a-4259-8b22-4d22b592215b queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:29:15,136] [INFO] [cosmo] [TRACE] 4b217231-971a-4259-8b22-4d22b592215b queue_wait -> 0.0093s
+[2026-06-16 05:29:15,141] [INFO] [cosmo] [TRACE] 4b217231-971a-4259-8b22-4d22b592215b dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:29:15,145] [WARNING] [cosmo] [TRACE] 4b217231-971a-4259-8b22-4d22b592215b no_listeners -> vision_frame_captured
+[2026-06-16 05:29:15,150] [INFO] [cosmo] [TRACE] 4b217231-971a-4259-8b22-4d22b592215b event_completed -> vision_frame_captured (no_listeners)
+[2026-06-16 05:29:25,713] [INFO] [cosmo] Frame fresco lido após flush_reads=6
+[2026-06-16 05:29:25,741] [INFO] [cosmo] Frame capturado: brightness=76.26, contrast=71.11, dark_ratio=0.20, bright_ratio=0.08, overexposed_ratio=0.06, blur_score=104.42, backlit_score=0.00, quality=partially_overexposed, face_ready=Falseface_count=0
+[2026-06-16 05:29:25,749] [INFO] [cosmo] Evento enfileirado: vision_frame_captured (priority=5) (fila=1)
+[2026-06-16 05:29:25,753] [INFO] [cosmo] [TRACE] 9d37388e-3552-41a5-a0c6-f2f225103443 queued -> vision_frame_captured (priority=5)
+[2026-06-16 05:29:25,757] [INFO] [cosmo] [TRACE] 9d37388e-3552-41a5-a0c6-f2f225103443 queue_wait -> 0.0091s
+[2026-06-16 05:29:25,762] [INFO] [cosmo] [TRACE] 9d37388e-3552-41a5-a0c6-f2f225103443 dispatched -> vision_frame_captured (priority=5)
+[2026-06-16 05:29:25,767] [WARNING] [cosmo] [TRACE] 9d37388e-3552-41a5-a0c6-f2f225103443 no_listeners -> vision_frame_captured
+[2026-06-16 05:29:25,772] [INFO] [cosmo] [TRACE] 9d37388e-3552-41a5-a0c6-f2f225103443 event_completed -> vision_frame_captured (no_listeners)

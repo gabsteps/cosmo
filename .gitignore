@@ -1,3 +1,4 @@
 .env
-cosmo.log
-cosmo.db
+*.log
+*.db
+*.jpg
