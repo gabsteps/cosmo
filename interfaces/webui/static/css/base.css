@@ -1,0 +1,38 @@
+:root {
+    --bg: #0b0f17;
+    --panel: #141b27;
+    --border: #2a3445;
+    --text: #f3f6fb;
+    --muted: #a8b2c4;
+    --accent: #3b82f6;
+    --danger: #ef4444;
+    --code: #06090f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #070b12 0%, #0d1320 100%);
+    color: var(--text);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 22px;
+}
+
+.page-subtitle {
+    margin: 6px 0 0 0;
+    color: var(--muted);
+}

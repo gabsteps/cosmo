@@ -38,159 +38,220 @@
         </div>
     </div>
 
-    <div class="card">
-        <h2>Camera Status</h2>
+    <div class="vision-side-grid">
+        <div class="card vision-camera-card">
+            <h2>Camera Status</h2>
 
-        <div class="stats-list">
-            <div class="stat-row">
-                <div class="stat-label">Enabled</div>
-                <div id="vision-enabled" class="stat-value">false</div>
-            </div>
+            <div class="stats-list">
+                <div class="stat-row">
+                    <div class="stat-label">Enabled</div>
+                    <div id="vision-enabled" class="stat-value">false</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Camera active</div>
-                <div id="vision-camera-active" class="stat-value">false</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Camera active</div>
+                    <div id="vision-camera-active" class="stat-value">false</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Camera available</div>
-                <div id="vision-camera-available" class="stat-value">false</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Camera available</div>
+                    <div id="vision-camera-available" class="stat-value">false</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Camera index</div>
-                <div id="vision-camera-index" class="stat-value">-</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Camera index</div>
+                    <div id="vision-camera-index" class="stat-value">-</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Resolution</div>
-                <div id="vision-resolution" class="stat-value">-</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Resolution</div>
+                    <div id="vision-resolution" class="stat-value">-</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Grayscale</div>
-                <div id="vision-grayscale" class="stat-value">false</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Grayscale</div>
+                    <div id="vision-grayscale" class="stat-value">false</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Started at</div>
-                <div id="vision-started-at" class="stat-value">-</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Started at</div>
+                    <div id="vision-started-at" class="stat-value">-</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Auto capture</div>
-                <div id="vision-auto-capture" class="stat-value">false</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Auto capture</div>
+                    <div id="vision-auto-capture" class="stat-value">false</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Capture interval</div>
-                <div id="vision-capture-interval" class="stat-value">-</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>Frame Status</h2>
-
-        <div class="stats-list">
-            <div class="stat-row">
-                <div class="stat-label">Has frame</div>
-                <div id="vision-has-frame" class="stat-value">false</div>
-            </div>
-
-            <div class="stat-row">
-                <div class="stat-label">Last frame</div>
-                <div id="vision-last-frame" class="stat-value">-</div>
-            </div>
-
-            <div class="stat-row">
-                <div class="stat-label">Snapshot path</div>
-                <div id="vision-snapshot-path" class="stat-value stat-path">-</div>
+                <div class="stat-row">
+                    <div class="stat-label">Capture interval</div>
+                    <div id="vision-capture-interval" class="stat-value">-</div>
+                </div>
             </div>
         </div>
 
-        <div id="vision-error" class="compact-status">
-            No vision errors.
-        </div>
-    </div>
+        <div class="card vision-frame-card">
+            <h2>Frame Status</h2>
 
-    <div class="card vision-quality-card">
-        <div class="page-card-header">
-            <div>
-                <h2>Image Quality</h2>
-                <p class="section-subtitle">
-                    Current frame analysis for future face detection.
-                </p>
-            </div>
+            <div class="stats-list">
+                <div class="stat-row">
+                    <div class="stat-label">Has frame</div>
+                    <div id="vision-has-frame" class="stat-value">false</div>
+                </div>
 
-            <div
-                id="vision-face-ready-pill"
-                class="vision-face-ready-pill"
-            >
-                Face not ready
-            </div>
-        </div>
+                <div class="stat-row">
+                    <div class="stat-label">Last frame</div>
+                    <div id="vision-last-frame" class="stat-value">-</div>
+                </div>
 
-        <div class="vision-quality-summary">
-            <div>
-                <div class="mini-label">Quality</div>
-                <div
-                    id="vision-quality"
-                    class="vision-quality-badge vision-quality-unknown"
-                >
-                    unknown
+                <div class="stat-row">
+                    <div class="stat-label">Snapshot path</div>
+                    <div id="vision-snapshot-path" class="stat-value stat-path">-</div>
                 </div>
             </div>
 
-            <div>
-                <div class="mini-label">Face ready</div>
-                <div id="vision-face-ready" class="mini-value">false</div>
+            <div id="vision-error" class="compact-status">
+                No vision errors.
             </div>
         </div>
 
-        <div class="stats-list vision-metrics-list">
-            <div class="stat-row">
-                <div class="stat-label">Brightness</div>
-                <div id="vision-brightness" class="stat-value">-</div>
+        <div class="card vision-quality-card">
+            <div class="page-card-header">
+                <div>
+                    <h2>Image Quality</h2>
+                    <p class="section-subtitle">
+                        Current frame analysis for future face detection.
+                    </p>
+                </div>
+
+                <div
+                    id="vision-face-ready-pill"
+                    class="vision-face-ready-pill"
+                >
+                    Face not ready
+                </div>
             </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Contrast</div>
-                <div id="vision-contrast" class="stat-value">-</div>
+            <div class="vision-quality-summary">
+                <div>
+                    <div class="mini-label">Quality</div>
+                    <div
+                        id="vision-quality"
+                        class="vision-quality-badge vision-quality-unknown"
+                    >
+                        unknown
+                    </div>
+                </div>
+
+                <div>
+                    <div class="mini-label">Face ready</div>
+                    <div id="vision-face-ready" class="mini-value">false</div>
+                </div>
             </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Dark ratio</div>
-                <div id="vision-dark-ratio" class="stat-value">-</div>
-            </div>
+            <div class="stats-list vision-metrics-list">
+                <div class="stat-row">
+                    <div class="stat-label">Brightness</div>
+                    <div id="vision-brightness" class="stat-value">-</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Bright ratio</div>
-                <div id="vision-bright-ratio" class="stat-value">-</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Contrast</div>
+                    <div id="vision-contrast" class="stat-value">-</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Overexposed ratio</div>
-                <div id="vision-overexposed-ratio" class="stat-value">-</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Dark ratio</div>
+                    <div id="vision-dark-ratio" class="stat-value">-</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Blur score</div>
-                <div id="vision-blur-score" class="stat-value">-</div>
-            </div>
+                <div class="stat-row">
+                    <div class="stat-label">Bright ratio</div>
+                    <div id="vision-bright-ratio" class="stat-value">-</div>
+                </div>
 
-            <div class="stat-row">
-                <div class="stat-label">Backlit score</div>
-                <div id="vision-backlit-score" class="stat-value">-</div>
+                <div class="stat-row">
+                    <div class="stat-label">Overexposed ratio</div>
+                    <div id="vision-overexposed-ratio" class="stat-value">-</div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label">Blur score</div>
+                    <div id="vision-blur-score" class="stat-value">-</div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label">Backlit score</div>
+                    <div id="vision-backlit-score" class="stat-value">-</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="card vision-guidance-card">
-        <h2>Calibration Guidance</h2>
+        <div class="card vision-face-card">
+            <div class="page-card-header">
+                <div>
+                    <h2>Face Detection</h2>
+                    <p class="section-subtitle">
+                        Basic face detection status for the current frame.
+                    </p>
+                </div>
 
-        <div id="vision-guidance" class="vision-guidance">
-            Waiting for vision metrics.
+                <div
+                    id="vision-face-detected-pill"
+                    class="vision-face-detected-pill"
+                >
+                    No face
+                </div>
+            </div>
+
+            <div class="stats-list">
+                <div class="stat-row">
+                    <div class="stat-label">Enabled</div>
+                    <div id="vision-face-detection-enabled" class="stat-value">false</div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label">Detection ready</div>
+                    <div id="vision-face-detection-ready" class="stat-value">false</div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label">Skipped</div>
+                    <div id="vision-face-detection-skipped" class="stat-value">true</div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label">Skip reason</div>
+                    <div id="vision-face-detection-skip-reason" class="stat-value">-</div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label">Face detected</div>
+                    <div id="vision-face-detected" class="stat-value">false</div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label">Face count</div>
+                    <div id="vision-face-count" class="stat-value">0</div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label">Largest face</div>
+                    <div id="vision-largest-face" class="stat-value">-</div>
+                </div>
+            </div>
+
+            <div id="vision-face-detection-error" class="compact-status">
+                No face detection errors.
+            </div>
+        </div>
+
+        <div class="card vision-guidance-card">
+            <h2>Calibration Guidance</h2>
+
+            <div id="vision-guidance" class="vision-guidance">
+                Waiting for vision metrics.
+            </div>
         </div>
     </div>
 </section>

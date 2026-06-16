@@ -1,0 +1,122 @@
+.app-shell {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 22px;
+    background: rgba(8, 13, 22, 0.96);
+    border-right: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(59, 130, 246, 0.16);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: #bfdbfe;
+}
+
+.brand-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+.brand-subtitle {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.nav {
+    display: grid;
+    gap: 8px;
+}
+
+.nav-link {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 11px 12px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+}
+
+.nav-link.active {
+    color: #dbeafe;
+    background: rgba(59, 130, 246, 0.14);
+    border-color: rgba(59, 130, 246, 0.30);
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    right: 22px;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.main {
+    padding: 26px;
+    min-width: 0;
+}
+
+.topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.topbar-status {
+    padding: 8px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    background: rgba(34, 197, 94, 0.08);
+    color: #86efac;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1100px) {
+    .app-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-footer {
+        position: static;
+        margin-top: 18px;
+    }
+
+    .nav {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}

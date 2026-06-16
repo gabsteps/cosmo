@@ -64,7 +64,12 @@ vision:
   frame_flush_reads: 6
   frame_flush_delay: 0.03
   camera_buffer_size: 1
-  
+  face_detection_enabled: true
+  face_required_quality: true
+  face_scale_factor: 1.1
+  face_min_neighbors: 5
+  face_min_size: 60
+
 face_recognition:
   confidence_threshold: 70
 

@@ -19,6 +19,9 @@ from cosmo.vision.analysis.vision_analyzer import (
     vision_analyzer
 )
 
+from cosmo.vision.detection.face_detector import (
+    face_detector
+)
 
 class CameraManager:
 
@@ -103,7 +106,8 @@ class CameraManager:
             )
             or 1
         )
-
+        
+        
         required_settings = {
             "vision.camera_index": self.camera_index,
             "vision.width": self.width,
@@ -223,6 +227,18 @@ class CameraManager:
         self.image_quality = "unknown"
         self.image_metrics = {}
 
+        self.face_detection = {
+            "enabled": False,
+            "detection_ready": False,
+            "skipped": True,
+            "skip_reason": "not_initialized",
+            "face_detected": False,
+            "face_count": 0,
+            "faces": [],
+            "largest_face": None,
+            "last_error": None,
+        }
+        
         logger.info(
             f"Vision config carregada: "
             f"camera_index={self.camera_index}, "
@@ -454,6 +470,11 @@ class CameraManager:
                 "unknown"
             )
 
+            self.face_detection = face_detector.detect(
+                frame,
+                image_metrics=analysis
+            )
+            
             logger.info(
                 f"Frame capturado: "
                 f"brightness={analysis.get('brightness_mean', 0.0):.2f}, "
@@ -465,6 +486,7 @@ class CameraManager:
                 f"backlit_score={analysis.get('backlit_score', 0.0):.2f}, "
                 f"quality={self.image_quality}, "
                 f"face_ready={analysis.get('face_ready', False)}"
+                f"face_count={self.face_detection.get('face_count', 0)}"
             )
 
             frame_store.set_frame(
@@ -531,6 +553,7 @@ class CameraManager:
             "last_brightness": self.last_brightness,
             "image_quality": self.image_quality,
             "image_metrics": self.image_metrics,
+            "face_detection": self.face_detection,
             "last_frame_at": frame_snapshot.get(
                 "last_frame_at"
             ),

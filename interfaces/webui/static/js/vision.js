@@ -153,6 +153,10 @@ function updateVisionPage(
     updateVisionPreview(
         vision
     );
+
+    updateFaceDetection(
+        vision.face_detection ?? {}
+    );
 }
 
 function updateVisionMetrics(
@@ -581,4 +585,181 @@ function formatPercentRatio(
     ).toFixed(
         1
     )}%`;
+}
+
+function updateFaceDetection(
+    faceDetection
+) {
+    const normalized = normalizeFaceDetection(
+        faceDetection
+    );
+
+    setText(
+        "vision-face-detection-enabled",
+        formatBoolean(
+            normalized.enabled
+        )
+    );
+
+    setText(
+        "vision-face-detection-ready",
+        formatBoolean(
+            normalized.detection_ready
+        )
+    );
+
+    setText(
+        "vision-face-detection-skipped",
+        formatBoolean(
+            normalized.skipped
+        )
+    );
+
+    setText(
+        "vision-face-detection-skip-reason",
+        normalized.skip_reason ?? "-"
+    );
+
+    setText(
+        "vision-face-detected",
+        formatBoolean(
+            normalized.face_detected
+        )
+    );
+
+    setText(
+        "vision-face-count",
+        normalized.face_count ?? 0
+    );
+
+    setText(
+        "vision-largest-face",
+        formatLargestFace(
+            normalized.largest_face
+        )
+    );
+
+    updateFaceDetectedPill(
+        normalized
+    );
+
+    updateFaceDetectionError(
+        normalized
+    );
+}
+
+function normalizeFaceDetection(
+    faceDetection
+) {
+    faceDetection = faceDetection ?? {};
+
+    return {
+        enabled: faceDetection.enabled === true,
+        detection_ready: faceDetection.detection_ready === true,
+        skipped: faceDetection.skipped === true,
+        skip_reason: faceDetection.skip_reason ?? null,
+        face_detected: faceDetection.face_detected === true,
+        face_count: Number(
+            faceDetection.face_count ?? 0
+        ),
+        faces: Array.isArray(
+            faceDetection.faces
+        )
+            ? faceDetection.faces
+            : [],
+        largest_face: faceDetection.largest_face ?? null,
+        last_error: faceDetection.last_error ?? null,
+    };
+}
+
+function formatLargestFace(
+    face
+) {
+    if (!face) {
+        return "-";
+    }
+
+    const x = face.x ?? "-";
+    const y = face.y ?? "-";
+    const width = face.width ?? "-";
+    const height = face.height ?? "-";
+    const area = face.area ?? "-";
+
+    return `${x},${y} ${width}x${height} area=${area}`;
+}
+
+function updateFaceDetectedPill(
+    faceDetection
+) {
+    const pill = document.getElementById(
+        "vision-face-detected-pill"
+    );
+
+    if (!pill) {
+        return;
+    }
+
+    pill.className = "vision-face-detected-pill";
+
+    if (faceDetection.last_error) {
+        pill.textContent = "Detection error";
+        pill.classList.add(
+            "error"
+        );
+        return;
+    }
+
+    if (faceDetection.skipped) {
+        pill.textContent = "Skipped";
+        pill.classList.add(
+            "skipped"
+        );
+        return;
+    }
+
+    if (faceDetection.face_detected) {
+        pill.textContent = `${faceDetection.face_count} face(s)`;
+        pill.classList.add(
+            "detected"
+        );
+        return;
+    }
+
+    if (faceDetection.detection_ready) {
+        pill.textContent = "No face";
+        pill.classList.add(
+            "not-detected"
+        );
+        return;
+    }
+
+    pill.textContent = "Not ready";
+    pill.classList.add(
+        "not-ready"
+    );
+}
+
+function updateFaceDetectionError(
+    faceDetection
+) {
+    const element = document.getElementById(
+        "vision-face-detection-error"
+    );
+
+    if (!element) {
+        return;
+    }
+
+    if (faceDetection.last_error) {
+        element.textContent = faceDetection.last_error;
+        element.classList.add(
+            "has-error"
+        );
+        return;
+    }
+
+    element.textContent = "No face detection errors.";
+    element.classList.remove(
+        "has-error"
+    );
 }
