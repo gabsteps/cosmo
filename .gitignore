@@ -1,4 +1,6 @@
 .env
 *.log
 *.db
+*.db-shm
+*.db-wal
 *.jpg
