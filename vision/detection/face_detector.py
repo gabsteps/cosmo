@@ -341,6 +341,14 @@ class FaceDetector:
                 else None
             )
 
+            logger.info(
+                f"Face detection: "
+                f"raw={len(raw_faces)}, "
+                f"accepted={len(accepted_faces)}, "
+                f"rejected={len(rejected_faces)}, "
+                f"largest={largest_face}"
+            )
+
             return {
                 "enabled": True,
                 "detection_ready": True,
@@ -498,7 +506,7 @@ class FaceDetector:
                     f"width={face.get('width')}, "
                     f"height={face.get('height')}, "
                     f"area={face.get('area')}"
-                )
+                ) 
 
                 rejected_faces.append(
                     face
@@ -522,6 +530,17 @@ class FaceDetector:
                     face,
                     eye_reason or "eye_validation_failed"
                 )
+
+                logger.info(
+                    f"Face rejeitada: reason={eye_reason}, "
+                    f"eye_count={eye_count}, "
+                    f"x={face.get('x')}, "
+                    f"y={face.get('y')}, "
+                    f"width={face.get('width')}, "
+                    f"height={face.get('height')}, "
+                    f"area={face.get('area')}"
+                )
+
 
                 rejected_faces.append(
                     face
