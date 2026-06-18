@@ -1,9 +1,17 @@
 let lastVisionSnapshotKey = null;
+let latestVisionFaceDetection = null;
 
 document.addEventListener(
     "DOMContentLoaded",
     () => {
         connectVisionStream();
+    }
+);
+
+window.addEventListener(
+    "resize",
+    () => {
+        renderVisionFaceOverlay();
     }
 );
 
@@ -157,6 +165,10 @@ function updateVisionPage(
     updateFaceDetection(
         vision.face_detection ?? {}
     );
+
+    latestVisionFaceDetection = vision.face_detection ?? {};
+
+    renderVisionFaceOverlay();
 }
 
 function updateVisionMetrics(
@@ -508,6 +520,8 @@ function updateVisionPreview(
         empty.classList.add(
             "hidden"
         );
+
+        renderVisionFaceOverlay();
     };
 
     preview.onerror = () => {
@@ -761,5 +775,201 @@ function updateFaceDetectionError(
     element.textContent = "No face detection errors.";
     element.classList.remove(
         "has-error"
+    );
+}
+
+function renderVisionFaceOverlay() {
+    const overlay = document.getElementById(
+        "vision-face-overlay"
+    );
+
+    const preview = document.getElementById(
+        "vision-large-preview"
+    );
+
+    if (!overlay || !preview) {
+        return;
+    }
+
+    overlay.innerHTML = "";
+
+    if (
+        !latestVisionFaceDetection ||
+        latestVisionFaceDetection.face_detected !== true
+    ) {
+        return;
+    }
+
+    const faces = Array.isArray(
+        latestVisionFaceDetection.faces
+    )
+        ? latestVisionFaceDetection.faces
+        : [];
+
+    if (!faces.length) {
+        return;
+    }
+
+    if (
+        !preview.classList.contains(
+            "visible"
+        ) ||
+        !preview.naturalWidth ||
+        !preview.naturalHeight
+    ) {
+        return;
+    }
+
+    const geometry = calculateContainedImageGeometry(
+        preview
+    );
+
+    if (!geometry) {
+        return;
+    }
+
+    faces.forEach(
+        (face, index) => {
+            const box = createVisionFaceBox(
+                face,
+                geometry,
+                index,
+                isLargestFace(
+                    face,
+                    latestVisionFaceDetection.largest_face
+                )
+            );
+
+            if (box) {
+                overlay.appendChild(
+                    box
+                );
+            }
+        }
+    );
+}
+
+function calculateContainedImageGeometry(
+    image
+) {
+    const containerWidth = image.clientWidth;
+    const containerHeight = image.clientHeight;
+    const naturalWidth = image.naturalWidth;
+    const naturalHeight = image.naturalHeight;
+
+    if (
+        !containerWidth ||
+        !containerHeight ||
+        !naturalWidth ||
+        !naturalHeight
+    ) {
+        return null;
+    }
+
+    const scale = Math.min(
+        containerWidth / naturalWidth,
+        containerHeight / naturalHeight
+    );
+
+    const renderedWidth = naturalWidth * scale;
+    const renderedHeight = naturalHeight * scale;
+
+    const offsetX = (
+        containerWidth - renderedWidth
+    ) / 2;
+
+    const offsetY = (
+        containerHeight - renderedHeight
+    ) / 2;
+
+    return {
+        scale,
+        offsetX,
+        offsetY,
+        renderedWidth,
+        renderedHeight,
+        naturalWidth,
+        naturalHeight
+    };
+}
+
+function createVisionFaceBox(
+    face,
+    geometry,
+    index,
+    largest
+) {
+    const x = Number(
+        face.x
+    );
+
+    const y = Number(
+        face.y
+    );
+
+    const width = Number(
+        face.width
+    );
+
+    const height = Number(
+        face.height
+    );
+
+    if (
+        Number.isNaN(x) ||
+        Number.isNaN(y) ||
+        Number.isNaN(width) ||
+        Number.isNaN(height)
+    ) {
+        return null;
+    }
+
+    const box = document.createElement(
+        "div"
+    );
+
+    box.className = "vision-face-box";
+
+    if (largest) {
+        box.classList.add(
+            "largest"
+        );
+    }
+
+    box.style.left = `${geometry.offsetX + x * geometry.scale}px`;
+    box.style.top = `${geometry.offsetY + y * geometry.scale}px`;
+    box.style.width = `${width * geometry.scale}px`;
+    box.style.height = `${height * geometry.scale}px`;
+
+    const label = document.createElement(
+        "div"
+    );
+
+    label.className = "vision-face-label";
+
+    label.textContent = largest
+        ? "largest face"
+        : `face ${index + 1}`;
+
+    box.appendChild(
+        label
+    );
+
+    return box;
+}
+
+function isLargestFace(
+    face,
+    largestFace
+) {
+    if (!face || !largestFace) {
+        return false;
+    }
+
+    return (
+        Number(face.x) === Number(largestFace.x) &&
+        Number(face.y) === Number(largestFace.y) &&
+        Number(face.width) === Number(largestFace.width) &&
+        Number(face.height) === Number(largestFace.height)
     );
 }

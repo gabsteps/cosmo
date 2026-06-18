@@ -421,3 +421,47 @@
         overflow-wrap: anywhere;
     }
 }
+
+.vision-face-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.vision-face-box {
+    position: absolute;
+    border: 2px solid rgba(34, 197, 94, 0.95);
+    border-radius: 8px;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(34, 197, 94, 0.30);
+}
+
+.vision-face-box.largest {
+    border-color: rgba(59, 130, 246, 0.95);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.50),
+        0 0 20px rgba(59, 130, 246, 0.38);
+}
+
+.vision-face-label {
+    position: absolute;
+    left: 0;
+    top: -26px;
+    max-width: 180px;
+    padding: 4px 7px;
+    border-radius: 7px;
+    background: rgba(2, 6, 23, 0.88);
+    border: 1px solid rgba(34, 197, 94, 0.38);
+    color: #86efac;
+    font-size: 0.75rem;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.vision-face-box.largest .vision-face-label {
+    border-color: rgba(59, 130, 246, 0.45);
+    color: #bfdbfe;
+}
