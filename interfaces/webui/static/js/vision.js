@@ -660,6 +660,22 @@ function updateFaceDetection(
     updateFaceDetectionError(
         normalized
     );
+    setText(
+        "vision-raw-face-count",
+        normalized.raw_face_count ?? 0
+    );
+
+    setText(
+        "vision-filtered-out-count",
+        normalized.filtered_out_count ?? 0
+    );
+
+    setText(
+        "vision-reject-reason",
+        formatRejectedFaceReason(
+            normalized
+        )
+    );
 }
 
 function normalizeFaceDetection(
@@ -676,10 +692,26 @@ function normalizeFaceDetection(
         face_count: Number(
             faceDetection.face_count ?? 0
         ),
+        raw_face_count: Number(
+            faceDetection.raw_face_count ?? 0
+        ),
+        filtered_out_count: Number(
+            faceDetection.filtered_out_count ?? 0
+        ),
         faces: Array.isArray(
             faceDetection.faces
         )
             ? faceDetection.faces
+            : [],
+        raw_faces: Array.isArray(
+            faceDetection.raw_faces
+        )
+            ? faceDetection.raw_faces
+            : [],
+        rejected_faces: Array.isArray(
+            faceDetection.rejected_faces
+        )
+            ? faceDetection.rejected_faces
             : [],
         largest_face: faceDetection.largest_face ?? null,
         last_error: faceDetection.last_error ?? null,
@@ -972,4 +1004,32 @@ function isLargestFace(
         Number(face.width) === Number(largestFace.width) &&
         Number(face.height) === Number(largestFace.height)
     );
+}
+
+function formatRejectedFaceReason(
+    faceDetection
+) {
+    if (
+        !faceDetection ||
+        !Array.isArray(
+            faceDetection.rejected_faces
+        ) ||
+        faceDetection.rejected_faces.length === 0
+    ) {
+        return "-";
+    }
+
+    const rejectedFace = faceDetection.rejected_faces[0];
+
+    const reason = (
+        rejectedFace.filter_reason
+        ?? rejectedFace.eye_validation_reason
+        ?? "unknown"
+    );
+
+    const width = rejectedFace.width ?? "-";
+    const height = rejectedFace.height ?? "-";
+    const area = rejectedFace.area ?? "-";
+
+    return `${reason} (${width}x${height}, area=${area})`;
 }

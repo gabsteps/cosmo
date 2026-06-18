@@ -337,6 +337,7 @@
 
 .stat-path,
 #vision-face-detection-skip-reason,
+#vision-reject-reason,
 #vision-largest-face {
     max-width: 230px;
     overflow: hidden;
@@ -415,6 +416,7 @@
 
     .stat-path,
     #vision-face-detection-skip-reason,
+    #vision-reject-reason,
     #vision-largest-face {
         max-width: 100%;
         white-space: normal;

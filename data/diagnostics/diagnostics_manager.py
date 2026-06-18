@@ -371,8 +371,24 @@ class DiagnosticsManager:
                 "face_count",
                 0
             ),
+            "raw_face_count": face_detection.get(
+                "raw_face_count",
+                0
+            ),
+            "filtered_out_count": face_detection.get(
+                "filtered_out_count",
+                0
+            ),
             "faces": face_detection.get(
                 "faces",
+                []
+            ),
+            "raw_faces": face_detection.get(
+                "raw_faces",
+                []
+            ),
+            "rejected_faces": face_detection.get(
+                "rejected_faces",
                 []
             ),
             "largest_face": face_detection.get(
@@ -381,6 +397,8 @@ class DiagnosticsManager:
             "last_error": face_detection.get(
                 "last_error"
             ),
+
+
         }
 
     def _empty_image_metrics(
@@ -398,6 +416,9 @@ class DiagnosticsManager:
             "backlit_score": 0.0,
             "image_quality": image_quality,
             "face_ready": False,
+            "raw_face_count": 0,
+            "filtered_out_count": 0,
+            "raw_faces": [],
         }
 
     def _empty_face_detection(
@@ -417,6 +438,7 @@ class DiagnosticsManager:
             "face_detected": False,
             "face_count": 0,
             "faces": [],
+            "rejected_faces": [],
             "largest_face": None,
             "last_error": last_error,
         }

@@ -66,9 +66,24 @@ vision:
   camera_buffer_size: 1
   face_detection_enabled: true
   face_required_quality: true
-  face_scale_factor: 1.1
+  face_scale_factor: 1.05
   face_min_neighbors: 5
-  face_min_size: 60
+  face_min_size: 55
+  face_min_area_ratio: 0.012
+  face_max_center_y_ratio: 0.88
+  face_min_aspect_ratio: 0.70
+  face_max_aspect_ratio: 1.45
+  face_max_results: 3
+  face_eye_validation_enabled: true
+  face_required_eyes: 1
+  face_eye_scale_factor: 1.08
+  face_eye_min_neighbors: 3
+  face_eye_min_size: 10
+  face_eye_required_min_area_ratio: 0.035
+  face_preprocess_enabled: true
+  face_clahe_clip_limit: 2.0
+  face_clahe_tile_grid_size: 8
+
 
 face_recognition:
   confidence_threshold: 70
